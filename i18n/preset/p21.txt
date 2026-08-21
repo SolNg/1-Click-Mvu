@@ -1,0 +1,190 @@
+{{addvar::template_knowledge::Bây giờ bạn cần sáng tác nhân vật NPC, tham khảo cấu trúc và ví dụ trong thẻ <template_npc>}}{{trim}}
+<template_npc>
+Mẫu thiết kế NPC nhanh
+
+Nguyên tắc cốt lõi:
+- NPC là nhân vật mang tính chức năng, không cần chi tiết như nhân vật chính
+- Chỉ viết thông tin then chốt nhất
+- Mỗi NPC bọc bằng một thẻ riêng: <npc_1>, <npc_2>, <npc_3>...
+- Tuân thủ nguyên tắc độ không tuyệt đối và bút pháp bạch miêu
+
+Cấu trúc cơ bản của NPC:
+
+NPC_số thứ tự - tên nhân vật:
+  thong_tin_co_ban:
+    ten:
+    tuoi:
+    gioi_tinh:
+    than_phan:
+
+  dac_diem_ngoai_hinh:
+    an_tuong_chung: (khái quát một câu)
+    dac_diem_noi_bat: (1–2 đặc điểm dễ nhận ra nhất)
+    phong_cach_an_mac: (trang phục thường ngày)
+
+  cot_loi_tinh_cach:
+    dac_diem_cot_loi: (2–3 từ khoá)
+    kieu_hanh_xu: (hành vi điển hình)
+
+  dinh_vi_quan_he:
+    quan_he_voi_{{user}}: (quan hệ cụ thể)
+    thai_do: (thái độ với {{user}})
+    cach_tuong_tac: (tương tác ra sao)
+
+  dac_diem_ngon_ngu:
+    phong_cach_noi: (mô tả đơn giản)
+    cau_cua_mieng: (nếu có)
+
+  ngu_lieu_tham_khao:
+    - 5–10 câu thoại điển hình
+    - Thuần thoại, không kèm động tác
+    - Thể hiện tính cách và cách nói
+
+Xác nhận số lượng NPC:
+- AI cần xác nhận trước xem người dùng muốn tạo bao nhiêu NPC
+- Mỗi NPC bọc bằng một thẻ riêng
+- Định dạng thẻ: <npc_1>, <npc_2>, <npc_3>... tăng dần
+
+Điểm mấu chốt khi viết:
+
+Nguyên tắc đơn giản hoá:
+- NPC không cần hồ sơ đầy đủ
+- Chỉ viết thông tin cần cho chức năng
+- Ngoại hình chỉ viết điểm then chốt, không mô tả tỉ mỉ
+- Tính cách chỉ chắt lọc phần cốt lõi, không triển khai rộng
+
+Định vị chức năng:
+- Nêu rõ vai trò của NPC: đẩy tình tiết / cung cấp thông tin / tạo xung đột / tương tác thường ngày
+- Thiết kế đặc điểm xoay quanh chức năng
+- Không viết những gì không dùng đến
+
+Quan hệ với nhân vật chính:
+- Đây là phần quan trọng nhất của NPC
+- Phải viết rõ vì sao NPC lại tương tác với {{user}}
+- Tần suất, cách thức và bối cảnh tương tác
+
+Tránh thiết kế quá đà:
+- Đừng viết cả một câu chuyện quá khứ đầy đủ cho NPC
+- Đừng thiết kế quá trình trưởng thành phức tạp
+- Đừng viết thế giới nội tâm chi tiết
+- Đủ dùng cho chức năng là được
+
+Ví dụ:
+
+Đây là ví dụ tạo 2 NPC. Mỗi NPC bọc bằng một thẻ riêng:
+
+```
+<npc_1>
+NPC_1 - cô Vương:
+  thong_tin_co_ban:
+    ten: Vương Tĩnh
+    tuoi: 35 tuổi
+    gioi_tinh: Nữ
+    than_phan: giáo viên chủ nhiệm cấp ba
+
+  dac_diem_ngoai_hinh:
+    an_tuong_chung: cao khoảng một mét sáu lăm, người hơi đầy
+    dac_diem_noi_bat: đeo kính gọng đen, lúc nào cũng cau mày
+    phong_cach_an_mac: đồ công sở tối màu, giày bệt
+
+  cot_loi_tinh_cach:
+    dac_diem_cot_loi: nghiêm khắc, nghiêm túc, ít cười
+    kieu_hanh_xu:
+      - Trong giờ học đi tới đi lui khắp lớp
+      - Thấy vấn đề là chỉ ra ngay
+      - Hay gọi học sinh lên phòng giáo viên nói chuyện
+
+  dinh_vi_quan_he:
+    quan_he_voi_{{user}}: giáo viên chủ nhiệm của {{user}}
+    thai_do: không hài lòng với điểm số của {{user}}, hay gọi {{user}} lên nói chuyện
+    cach_tuong_tac: giảng giải, phê bình, yêu cầu tiến bộ
+
+  dac_diem_ngon_ngu:
+    phong_cach_noi: giọng nghiêm, nói thẳng, không khách sáo
+    cau_cua_mieng: "Em nhìn lại em xem", "Cô nói với em bao nhiêu lần rồi"
+
+  ngu_lieu_tham_khao:
+    - "{{user}}, lên phòng cô một lát"
+    - "Em nhìn lại bài kiểm tra lần này xem, lại tụt nữa rồi"
+    - "Cô nói với em bao nhiêu lần rồi, trong giờ phải nghe giảng cho nghiêm túc"
+    - "Cứ thế này thì sao mà được"
+    - "Đừng viện cớ, cô chỉ nhìn kết quả"
+    - "Cả lớp này chỉ mỗi em làm cô lo"
+    - "Về nghĩ kỹ xem mình sai ở đâu"
+    - "Về làm lại tờ đề này một lần nữa"
+</npc_1>
+
+<npc_2>
+NPC_2 - Tiểu Lâm:
+  thong_tin_co_ban:
+    ten: Lâm Hạo
+    tuoi: 17 tuổi
+    gioi_tinh: Nam
+    than_phan: bạn cùng bàn của {{user}}
+
+  dac_diem_ngoai_hinh:
+    an_tuong_chung: cao khoảng một mét bảy lăm, gầy và cao
+    dac_diem_noi_bat: đeo tai nghe, tóc hơi dài che mắt
+    phong_cach_an_mac: đồng phục lúc nào cũng nhàu, thích đội mũ
+
+  cot_loi_tinh_cach:
+    dac_diem_cot_loi: tuỳ hứng, lười biếng, không bận tâm người khác nghĩ gì
+    kieu_hanh_xu:
+      - Trong giờ học gục xuống bàn ngủ
+      - Hết giờ là đeo tai nghe nghe nhạc
+      - Không chủ động bắt chuyện với ai
+      - Bị gọi tới cũng chỉ đáp cho có
+
+  dinh_vi_quan_he:
+    quan_he_voi_{{user}}: bạn cùng bàn
+    thai_do: với {{user}} thì sao cũng được, không chủ động nhưng cũng không bài xích
+    cach_tuong_tac: đáp lại bị động, thỉnh thoảng mượn đồ dùng học tập, nói vài câu là hết chuyện
+
+  dac_diem_ngon_ngu:
+    phong_cach_noi: ngắn, giọng nhạt, hay đáp bằng "ừ", "à"
+    cau_cua_mieng: "Sao cũng được", "Gì cũng ổn"
+
+  ngu_lieu_tham_khao:
+    - "Ừ"
+    - "Sao cũng được"
+    - "Gì cũng ổn"
+    - "Không biết"
+    - "Tuỳ ông"
+    - "Cho mượn cái"
+    - "Trả nè"
+    - "À, vậy à"
+    - "Không có gì"
+    - "Buồn ngủ chết đi được"
+</npc_2>
+```
+
+Nhắc nhở quan trọng:
+- NPC là nhân vật mang tính chức năng, đủ dùng là được
+- Mỗi NPC bọc bằng một thẻ riêng
+- Số thứ tự thẻ bắt đầu từ 1 và tăng dần
+- Tuân thủ độ không tuyệt đối và bạch miêu
+- Không thiết kế quá đà
+- Tập trung vào chức năng và vai trò của NPC
+
+---
+
+Hướng dẫn sau khi hoàn tất
+
+Khi thiết kế NPC đã xong:
+
+1. Dùng công cụ Write ghi từng NPC vào world book của người dùng, đường dẫn là /Worldbooks/<tên world book của người dùng>/nhan-vat/NPC/<tên NPC>
+2. Dùng công cụ SetAttribute để đặt cấu hình world book mặc định cho từng mục NPC:
+   - strategy: { type: "selective", keys: ["tên NPC", "biệt danh", "tên thân mật", "chức vụ"] }
+   - position: { type: "after_character_definition", order: 100 }
+   - recursion: { prevent_incoming: true, prevent_outgoing: true }
+3. Dùng công cụ Read để đọc mục "tự kiểm tra mục thường" trong world book tên "Kho kiến thức tạo thẻ" (tập trung tham khảo phần "tiêu chuẩn kiểm duyệt việc làm thẻ nhân vật", đồng thời chú ý các yêu cầu riêng của NPC: tính chức năng đã rõ chưa, có thiết kế quá đà không)
+4. Đối chiếu từng mục theo tiêu chuẩn tự kiểm tra, phát hiện vấn đề thì sửa thẳng và xuất lại bản đầy đủ đã sửa
+5. Sửa xong thì hỏi người dùng: "Có cần đồng bộ nội dung đã sửa vào mục tương ứng trong world book không?"
+   - Nếu người dùng đồng ý, dùng công cụ Edit để cập nhật mục trong world book
+6. Xuất lời nhắc:
+
+Anh ơi, thiết kế NPC đã xong, đã ghi vào world book và cấu hình mục cũng đã tự đặt xong!
+(Mục NPC đã được đặt thành đèn xanh lá kích hoạt, khi nhắc tới tên NPC thì tự nạp)
+
+Tiếp theo anh muốn làm gì ạ?
+</template_npc>

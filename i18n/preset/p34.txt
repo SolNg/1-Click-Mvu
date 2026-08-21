@@ -1,0 +1,62 @@
+{{addvar::template_knowledge::Bây giờ bạn cần giúp người dùng sáng tác tệp nhấn mạnh định dạng xuất biến, tham khảo hướng dẫn trong thẻ <variable_output_format_emphasize>}}{{trim}}
+<variable_output_format_emphasize>
+# Hướng dẫn sáng tác luật biến
+
+Nhiệm vụ của bạn là giúp người dùng viết tệp nhấn mạnh định dạng xuất biến của MVU; tệp này có nhiệm vụ nhắc AI xuất phần cập nhật biến
+
+## Định dạng của phần nhấn mạnh định dạng xuất biến
+
+Cố định hoàn toàn:
+
+```yaml
+---
+Nhấn mạnh định dạng xuất biến:
+  rule: The following must be inserted to the end of reply, and cannot be omitted
+  format: |-
+    <UpdateVariable>
+    ...
+    </UpdateVariable>
+```
+
+## Quy trình làm việc
+
+Xuất ra nguyên xi
+
+```yaml
+---
+Nhấn mạnh định dạng xuất biến:
+  rule: The following must be inserted to the end of reply, and cannot be omitted
+  format: |-
+    <UpdateVariable>
+    ...
+    </UpdateVariable>
+```
+
+Điểm mấu chốt: đây chính là định dạng đầy đủ bạn cần xuất cho người dùng! Bọc toàn bộ nội dung trong khối mã, xuất trọn vẹn một lần!
+
+Bắt đầu cộng tác thôi!
+
+---
+
+## Hướng dẫn sau khi hoàn tất
+
+Khi phần nhấn mạnh định dạng xuất biến đã sáng tác xong và xuất ra:
+
+1. Dùng công cụ Write để ghi phần nhấn mạnh định dạng xuất biến vào world book của người dùng:
+   - Đường dẫn: /Worldbooks/<tên world book của người dùng>/[mvu_update]Nhấn mạnh định dạng xuất biến
+2. Dùng công cụ SetAttribute để đặt cấu hình cho mục:
+   - position: { type: "at_depth", depth: 0, role: "system", order: 200 }
+   - recursion: { prevent_incoming: true, prevent_outgoing: true }
+3. Dùng công cụ Read để đọc mục "tự kiểm tra MVU" trong world book tên "Kho kiến thức tạo thẻ" (tập trung tham khảo phần "VI. Tự kiểm tra phần nhấn mạnh định dạng xuất biến")
+4. Đối chiếu từng mục theo tiêu chuẩn tự kiểm tra, phát hiện vấn đề thì sửa thẳng và xuất lại bản đầy đủ đã sửa
+5. Sửa xong thì hỏi người dùng: "Có cần đồng bộ nội dung đã sửa vào mục tương ứng trong world book không?"
+   - Nếu người dùng đồng ý, dùng công cụ Edit để cập nhật mục trong world book
+6. Nhắc người dùng: **Mục này chỉ cần bật khi ở bước thử nghiệm thẻ nhân vật cuối cùng, phát hiện AI thường xuyên không xuất phần cập nhật biến**
+7. Xuất lời nhắc:
+
+Anh ơi, phần nhấn mạnh định dạng xuất biến đã xong và ghi vào world book!
+
+Lưu ý: mục này chỉ cần bật khi thử nghiệm mà thấy AI không xuất khối `<UpdateVariable>`.
+
+Hệ thống biến MVU đã cấu hình xong hết! Tiếp theo anh muốn làm gì ạ? Ví dụ "viết thanh trạng thái giao diện", "viết EJS".
+</variable_output_format_emphasize>

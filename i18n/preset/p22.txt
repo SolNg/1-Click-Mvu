@@ -1,0 +1,152 @@
+{{addvar::template_knowledge::Bây giờ bạn cần sắp xếp phần tổng quan nhân vật, tham khảo hướng dẫn trong thẻ <template_quick_view>}}{{trim}}
+<template_quick_view>
+Hướng dẫn tổng quan nhân vật
+
+Mô tả nhiệm vụ:
+- Tra lại toàn bộ nhân vật đã sáng tác trước đó
+- Sắp xếp thành dạng danh sách đơn giản
+- Chỉ chứa thông tin nhận diện cơ bản
+- Giúp AI định vị nhân vật nhanh
+- Xuất ra trong khối mã
+
+Các thẻ cần tra:
+- <sample_basic> - thông tin cơ bản của nhân vật
+- <npc_1>, <npc_2>, v.v. - nhân vật NPC
+- <user_setting> - thiết lập của {{user}}
+- Các thẻ khác có chứa thông tin nhân vật
+
+Quy trình làm việc:
+
+Bước một: tra toàn bộ nhân vật
+- Tìm mọi thẻ liên quan đến nhân vật trong lịch sử trò chuyện
+- Trích thông tin nhận diện cơ bản
+- Gồm cả nhân vật chính, nhân vật phụ và NPC
+
+Bước hai: sắp xếp định dạng
+- Sắp theo mức độ quan trọng của nhân vật
+- Chỉ giữ thông tin nhận diện cơ bản nhất
+- Tên, giới tính, tuổi, thân phận / chức vụ / lớp
+- Thêm ghi chú khi cần
+
+Bước ba: xuất kết quả
+- Bọc trong khối mã
+- Dạng danh sách gọn
+- Tiện tra cứu và định vị nhanh
+
+Định dạng kết quả:
+
+```
+tong_quan_nhan_vat:
+  - ten: [tên]
+    gioi_tinh: [giới tính]
+    tuoi: [tuổi]
+    than_phan: [học sinh / giáo viên / chức vụ...]
+    lop: [nếu là học sinh]
+    chuc_vu: [nếu có chức vụ]
+    ghi_chu: [thông tin thêm cần thiết]
+
+  - ten: [tên]
+    gioi_tinh: [giới tính]
+    tuoi: [tuổi]
+    ...
+
+[nếu có thiết lập bối cảnh thì thêm]
+thong_tin_boi_canh:
+  ten_truong: [tên trường]
+  dia_diem: [địa điểm]
+  thoi_dai: [bối cảnh thời đại]
+  ...
+```
+
+Nguyên tắc sắp xếp:
+
+1. Nguyên tắc cực gọn
+- Chỉ giữ thông tin nhận diện
+- Không chứa tính cách, ngoại hình và các nội dung chi tiết khác
+- Giúp AI định vị nhanh "ai là ai"
+
+2. Thông tin then chốt
+- Bắt buộc: tên, giới tính, tuổi
+- Tuỳ chọn: thân phận, chức vụ, lớp, quan hệ
+- Ghi chú: thông tin nhận diện quan trọng
+
+3. Sắp xếp rõ ràng
+- {{user}} đặt lên đầu (nếu có)
+- Nhân vật chính ở trước
+- NPC ở sau
+- Tiện tra cứu
+
+Ví dụ:
+
+Giả sử đã sáng tác nhiều nhân vật, phần tổng quan nên là:
+
+```
+tong_quan_nhan_vat:
+  - ten: '{{user}}'
+    gioi_tinh: Nam
+    tuoi: 17
+    lop: 11A3
+
+  - ten: Lâm Tiểu Vũ
+    gioi_tinh: Nữ
+    tuoi: 17
+    lop: 11A3
+    ghi_chu: cùng lớp với {{user}}
+
+  - ten: cô Vương
+    gioi_tinh: Nữ
+    tuoi: 35
+    chuc_vu: giáo viên chủ nhiệm
+    lop_phu_trach: 11A3
+
+  - ten: Tiểu Lâm
+    gioi_tinh: Nam
+    tuoi: 17
+    lop: 11A3
+    ghi_chu: bạn cùng bàn của {{user}}
+
+thong_tin_truong:
+  ten_truong: Trường THPT số 3 thành phố
+  khoi_lop: lớp 10, lớp 11, lớp 12
+  he_dao_tao: hệ ba năm
+```
+
+Cách AI xuất kết quả:
+
+Đây là phần tổng quan nhân vật hiện tại:
+
+```
+[nội dung tổng quan]
+```
+
+Tiện cho anh định vị nhanh thông tin cơ bản của từng nhân vật. Cần thêm hay sửa gì thì anh cứ nói với em.
+
+Nhắc nhở quan trọng:
+- Đây là chỉ mục nhân vật, không phải hồ sơ chi tiết
+- Chỉ chứa thông tin nhận diện cơ bản
+- Giúp AI định vị nhanh "đây là ai"
+- Bọc trong khối mã
+- Sắp theo mức độ quan trọng
+
+---
+
+Hướng dẫn sau khi hoàn tất
+
+Khi tóm tắt nhanh nhân vật đã sắp xếp xong:
+
+1. Dùng công cụ Write để ghi tóm tắt nhanh nhân vật vào world book của người dùng:
+   - Đường dẫn: /Worldbooks/<tên world book của người dùng>/tom-tat-nhanh-nhan-vat
+2. Dùng công cụ SetAttribute để đặt cấu hình world book mặc định cho mục đó:
+   - strategy: { type: "constant" }
+   - position: { type: "before_character_definition", order: 4 }
+   - recursion: { prevent_incoming: true, prevent_outgoing: true }
+3. Dùng công cụ Read để đọc mục "tự kiểm tra mục thường" trong world book tên "Kho kiến thức tạo thẻ" (tập trung tham khảo phần "tiêu chuẩn kiểm duyệt việc làm thẻ nhân vật", đồng thời chú ý các yêu cầu riêng của tóm tắt nhanh nhân vật: thông tin đã cực gọn chưa, có chi tiết thừa không)
+4. Đối chiếu từng mục theo tiêu chuẩn tự kiểm tra, phát hiện vấn đề thì sửa thẳng và xuất lại bản đầy đủ đã sửa
+5. Sửa xong thì hỏi người dùng: "Có cần đồng bộ nội dung đã sửa vào mục tương ứng trong world book không?"
+   - Nếu người dùng đồng ý, dùng công cụ Edit để cập nhật mục trong world book
+6. Xuất lời nhắc:
+
+Anh ơi, tóm tắt nhanh nhân vật đã xong, đã ghi vào world book và cấu hình mục cũng đã tự đặt xong!
+
+Bước tiếp theo: sáng tác lời mở đầu. Anh nói với em "viết lời mở đầu" nhé.
+</template_quick_view>

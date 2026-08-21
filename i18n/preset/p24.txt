@@ -72,7 +72,7 @@ dan_y_mo_dau:
       - Đầy thương tích, bộ đồ ma vương rách nát
       - Dựa tường thở dốc, kiệt sức
 
-    trang_thai_user:
+    trang_thai_{{user}}:
       - Vừa mới hiện hình
       - Hai người rốt cuộc đã nhìn thấy nhau
 
