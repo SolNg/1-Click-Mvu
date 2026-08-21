@@ -3237,7 +3237,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "角色总览:",
-  "vi": null
+  "vi": "Tóm tắt nhân vật:"
  },
  {
   "id": "403164",
@@ -3247,7 +3247,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  世界: z.object({",
-  "vi": null
+  "vi": "  the_gioi: z.object({"
  },
  {
   "id": "403192",
@@ -3257,7 +3257,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "    当前时间: z.string().prefault('开局'),",
-  "vi": null
+  "vi": "    thoi_gian: z.string().prefault('Mở đầu'),"
  },
  {
   "id": "403240",
@@ -3267,7 +3267,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "    当前地点: z.string().prefault('待定'),",
-  "vi": null
+  "vi": "    dia_diem: z.string().prefault('Chưa rõ'),"
  },
  {
   "id": "403288",
@@ -3277,7 +3277,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  }).prefault({ 当前时间: '开局', 当前地点: '待定' }),",
-  "vi": null
+  "vi": "  }).prefault({ thoi_gian: 'Mở đầu', dia_diem: 'Chưa rõ' }),"
  },
  {
   "id": "403415",
@@ -3287,7 +3287,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "    好感度: z.coerce.number().prefault(0).transform(value => _.clamp(value, 0, 100)),",
-  "vi": null
+  "vi": "    thien_cam: z.coerce.number().prefault(0).transform(value => _.clamp(value, 0, 100)),"
  },
  {
   "id": "403511",
@@ -3297,7 +3297,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  }).prefault({ 好感度: 0 }),",
-  "vi": null
+  "vi": "  }).prefault({ thien_cam: 0 }),"
  },
  {
   "id": "403726",
@@ -3307,7 +3307,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "世界:",
-  "vi": null
+  "vi": "the_gioi:"
  },
  {
   "id": "403741",
@@ -3317,7 +3317,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  当前时间: 开局",
-  "vi": null
+  "vi": "  thoi_gian: Mở đầu"
  },
  {
   "id": "403763",
@@ -3327,7 +3327,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  当前地点: 待定",
-  "vi": null
+  "vi": "  dia_diem: Chưa rõ"
  },
  {
   "id": "403828",
@@ -3337,7 +3337,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  好感度: 0",
-  "vi": null
+  "vi": "  thien_cam: 0"
  },
  {
   "id": "403927",
@@ -3347,7 +3347,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "变量更新规则:",
-  "vi": null
+  "vi": "Luật cập nhật biến:"
  },
  {
   "id": "403946",
@@ -3357,7 +3357,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  世界:",
-  "vi": null
+  "vi": "  the_gioi:"
  },
  {
   "id": "403963",
@@ -3367,7 +3367,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "    当前时间:",
-  "vi": null
+  "vi": "    thoi_gian:"
  },
  {
   "id": "404008",
@@ -3377,7 +3377,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "        - 每次事件推进、休息、等待或场景切换后更新，保持时间流逝合理",
-  "vi": null
+  "vi": "        - Cập nhật sau mỗi lần sự kiện tiến triển, nghỉ ngơi, chờ đợi hoặc chuyển cảnh, giữ dòng thời gian trôi hợp lý"
  },
  {
   "id": "404059",
@@ -3387,7 +3387,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "    当前地点:",
-  "vi": null
+  "vi": "    dia_diem:"
  },
  {
   "id": "404104",
@@ -3397,7 +3397,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "        - 场景发生明确移动或地点变化时更新",
-  "vi": null
+  "vi": "        - Cập nhật khi cảnh có sự di chuyển rõ ràng hoặc đổi địa điểm"
  },
  {
   "id": "404200",
@@ -3407,7 +3407,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "    好感度:",
-  "vi": null
+  "vi": "    thien_cam:"
  },
  {
   "id": "404313",
@@ -3417,7 +3417,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "        - 根据",
-  "vi": null
+  "vi": "        - Điều chỉnh theo cảm nhận của "
  },
  {
   "id": "404334",
@@ -3427,7 +3427,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "对<user>当前行为的感知调整，只有",
-  "vi": null
+  "vi": " về hành vi hiện tại của <user>; chỉ cập nhật khi "
  },
  {
   "id": "404362",
@@ -3437,7 +3437,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "知晓或受到影响时才更新",
-  "vi": null
+  "vi": " biết hoặc bị ảnh hưởng"
  },
  {
   "id": "404386",
@@ -3447,7 +3447,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "        - 单次互动最多增加 +1；没有明确正向互动时不得增加",
-  "vi": null
+  "vi": "        - Mỗi lần tương tác tăng tối đa +1; không có tương tác tích cực rõ ràng thì không được tăng"
  },
  {
   "id": "404435",
@@ -3457,7 +3457,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "        - 同一剧情日内累计最多增加 +5；达到当天上限后只能持平或下降",
-  "vi": null
+  "vi": "        - Trong cùng một ngày cốt truyện tăng tối đa +5; đạt trần trong ngày thì chỉ được giữ nguyên hoặc giảm"
  },
  {
   "id": "404489",
@@ -3467,7 +3467,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "        - 下降必须有当前回复内的明确负面依据，不要为了凑更新而改动",
-  "vi": null
+  "vi": "        - Giảm thì phải có căn cứ tiêu cực rõ ràng ngay trong lượt trả lời này, đừng sửa chỉ để có cái mà cập nhật"
  },
  {
   "id": "404629",
@@ -3477,7 +3477,7 @@
   "kind": "tpl",
   "ctx": "VariableDeclarator",
   "zh": ".好感度",
-  "vi": null
+  "vi": ".thien_cam"
  },
  {
   "id": "404873",
@@ -3487,7 +3487,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "性格调色盘：人的性格就像调色盘，由多种性格衍生组合而成才是活生生的人",
-  "vi": null
+  "vi": "Bảng màu tính cách: tính cách con người như một bảng màu, phải do nhiều nét tính cách phái sinh trộn lại thì mới thành người sống"
  },
  {
   "id": "404978",
@@ -3497,7 +3497,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": " 初识期:",
-  "vi": null
+  "vi": " Giai đoạn mới quen:"
  },
  {
   "id": "404994",
@@ -3507,7 +3507,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  阶段内容: |-",
-  "vi": null
+  "vi": "  Nội dung giai đoạn: |-"
  },
  {
   "id": "405111",
@@ -3517,7 +3517,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": " 熟悉期:",
-  "vi": null
+  "vi": " Giai đoạn thân quen:"
  },
  {
   "id": "405127",
@@ -3527,7 +3527,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  阶段内容: |-",
-  "vi": null
+  "vi": "  Nội dung giai đoạn: |-"
  },
  {
   "id": "405229",
@@ -3537,7 +3537,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": " 亲近期:",
-  "vi": null
+  "vi": " Giai đoạn gần gũi:"
  },
  {
   "id": "405245",
@@ -3547,7 +3547,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  阶段内容: |-",
-  "vi": null
+  "vi": "  Nội dung giai đoạn: |-"
  },
  {
   "id": "405348",
@@ -3557,7 +3557,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": " 通用阶段内容:",
-  "vi": null
+  "vi": " Nội dung chung mọi giai đoạn:"
  },
  {
   "id": "405359",
@@ -3567,7 +3567,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "  衍生与二次解释: |-",
-  "vi": null
+  "vi": "  Phái sinh và diễn giải bổ sung: |-"
  },
  {
   "id": "405540",
@@ -3577,7 +3577,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:affectionPath",
   "zh": ".好感度",
-  "vi": null
+  "vi": ".thien_cam"
  },
  {
   "id": "411934",
@@ -3587,7 +3587,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "      svg.setAttribute(\"aria-label\", \"好感度\");",
-  "vi": null
+  "vi": "      svg.setAttribute(\"aria-label\", \"Thiện cảm\");"
  },
  {
   "id": "415097",
@@ -3597,7 +3597,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "      foot.textContent = \"好感度\";",
-  "vi": null
+  "vi": "      foot.textContent = \"Thiện cảm\";"
  },
  {
   "id": "415375",
@@ -3607,7 +3607,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "      qzSetText(\"#qz-status-time\", String(_.get(variables, \"stat_data.世界.当前时间\", \"开局\")));",
-  "vi": null
+  "vi": "      qzSetText(\"#qz-status-time\", String(_.get(variables, \"stat_data.the_gioi.thoi_gian\", \"Mở đầu\")));"
  },
  {
   "id": "415475",
@@ -3617,7 +3617,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "      qzSetText(\"#qz-status-place\", String(_.get(variables, \"stat_data.世界.当前地点\", \"待定\")));",
-  "vi": null
+  "vi": "      qzSetText(\"#qz-status-place\", String(_.get(variables, \"stat_data.the_gioi.dia_diem\", \"Chưa rõ\")));"
  },
  {
   "id": "417536",
@@ -3627,7 +3627,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "        <h3>角色状态</h3>",
-  "vi": null
+  "vi": "        <h3>Trạng thái nhân vật</h3>"
  },
  {
   "id": "417686",
@@ -3637,7 +3637,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "        <span id=\"qz-status-time\">开局</span>",
-  "vi": null
+  "vi": "        <span id=\"qz-status-time\">Mở đầu</span>"
  },
  {
   "id": "417741",
@@ -3647,7 +3647,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "        <span id=\"qz-status-place\">待定</span>",
-  "vi": null
+  "vi": "        <span id=\"qz-status-place\">Chưa rõ</span>"
  },
  {
   "id": "418339",
@@ -3657,7 +3657,7 @@
   "kind": "str",
   "ctx": "CALL:pr#0",
   "zh": "世界观",
-  "vi": null
+  "vi": "Thế giới quan"
  },
  {
   "id": "418359",
@@ -3667,7 +3667,7 @@
   "kind": "str",
   "ctx": "CALL:lr#0",
   "zh": "世界观_id1",
-  "vi": null
+  "vi": "the_gioi_quan_id1"
  },
  {
   "id": "418603",
@@ -3677,7 +3677,7 @@
   "kind": "str",
   "ctx": "CALL:pr#0",
   "zh": "角色速览",
-  "vi": null
+  "vi": "Tóm tắt nhân vật"
  },
  {
   "id": "418624",
@@ -3687,7 +3687,7 @@
   "kind": "str",
   "ctx": "CALL:lr#0",
   "zh": "角色速览_id0",
-  "vi": null
+  "vi": "tom_tat_nhan_vat_id0"
  },
  {
   "id": "418983",
@@ -3697,7 +3697,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "角色",
-  "vi": null
+  "vi": "nhan_vat"
  },
  {
   "id": "419072",
@@ -3707,7 +3707,7 @@
   "kind": "tpl",
   "ctx": "CALL:pr#0",
   "zh": "_基础信息",
-  "vi": null
+  "vi": "_Thông tin cơ bản"
  },
  {
   "id": "419085",
@@ -3717,7 +3717,7 @@
   "kind": "str",
   "ctx": "CALL:r#0",
   "zh": "基础信息",
-  "vi": null
+  "vi": "thong_tin_co_ban"
  },
  {
   "id": "419147",
@@ -3727,7 +3727,7 @@
   "kind": "tpl",
   "ctx": "CALL:pr#0",
   "zh": "_性格调色盘",
-  "vi": null
+  "vi": "_Bảng màu tính cách"
  },
  {
   "id": "419161",
@@ -3737,7 +3737,7 @@
   "kind": "str",
   "ctx": "CALL:r#0",
   "zh": "性格调色盘",
-  "vi": null
+  "vi": "bang_mau_tinh_cach"
  },
  {
   "id": "419237",
@@ -3747,7 +3747,7 @@
   "kind": "tpl",
   "ctx": "CALL:pr#0",
   "zh": "_二次解释",
-  "vi": null
+  "vi": "_Diễn giải bổ sung"
  },
  {
   "id": "419260",
@@ -3757,7 +3757,7 @@
   "kind": "str",
   "ctx": "CALL:r#0",
   "zh": "二次解释",
-  "vi": null
+  "vi": "dien_giai_bo_sung"
  },
  {
   "id": "419587",
@@ -3767,7 +3767,7 @@
   "kind": "tpl",
   "ctx": "CALL:pr#0",
   "zh": "_EJS调色盘多阶段人设",
-  "vi": null
+  "vi": "_Hồ sơ nhiều giai đoạn EJS"
  },
  {
   "id": "419607",
@@ -3777,7 +3777,7 @@
   "kind": "str",
   "ctx": "CALL:r#0",
   "zh": "EJS调色盘多阶段人设",
-  "vi": null
+  "vi": "ho_so_nhieu_giai_doan_ejs"
  },
  {
   "id": "419729",
@@ -3787,7 +3787,7 @@
   "kind": "str",
   "ctx": "CALL:pr#0",
   "zh": "[initvar]变量初始化勿开",
-  "vi": null
+  "vi": "[initvar]Khởi tạo biến - đừng bật"
  },
  {
   "id": "419955",
@@ -3797,7 +3797,7 @@
   "kind": "str",
   "ctx": "CALL:pr#0",
   "zh": "变量列表",
-  "vi": null
+  "vi": "Danh sách biến"
  },
  {
   "id": "420330",
@@ -3807,7 +3807,7 @@
   "kind": "str",
   "ctx": "CALL:pr#0",
   "zh": "[mvu_update]变量更新规则",
-  "vi": null
+  "vi": "[mvu_update]Luật cập nhật biến"
  },
  {
   "id": "420544",
@@ -3817,7 +3817,7 @@
   "kind": "str",
   "ctx": "CALL:pr#0",
   "zh": "[mvu_update]变量输出格式",
-  "vi": null
+  "vi": "[mvu_update]Định dạng xuất biến"
  },
  {
   "id": "420609",
@@ -3827,7 +3827,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "变量输出格式:",
-  "vi": null
+  "vi": "Định dạng xuất biến:"
  },
  {
   "id": "422687",
@@ -3837,7 +3837,7 @@
   "kind": "str",
   "ctx": "CALL:pr#0",
   "zh": "[mvu_update]变量输出格式强调",
-  "vi": null
+  "vi": "[mvu_update]Nhấn mạnh định dạng xuất biến"
  },
  {
   "id": "422754",
@@ -3847,7 +3847,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "变量输出格式强调:",
-  "vi": null
+  "vi": "Nhấn mạnh định dạng xuất biến:"
  },
  {
   "id": "423763",
