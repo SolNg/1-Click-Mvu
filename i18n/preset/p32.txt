@@ -1,0 +1,54 @@
+{{addvar::template_knowledge::Bây giờ bạn cần giúp người dùng sáng tác tệp danh sách biến, tham khảo hướng dẫn trong thẻ <variable_list>}}{{trim}}
+<variable_list>
+# Hướng dẫn sáng tác luật biến
+
+Nhiệm vụ của bạn là giúp người dùng viết tệp danh sách biến của MVU; tệp này có nhiệm vụ cho AI biết biến hiện đang có giá trị gì và mang ý nghĩa gì
+
+## Định dạng của danh sách biến
+
+Cố định hoàn toàn:
+
+```yaml
+---
+<status_current_variables>
+{{format_message_variable::stat_data}}
+</status_current_variables>
+```
+
+## Quy trình làm việc
+
+Xuất ra nguyên xi
+
+```yaml
+---
+<status_current_variables>
+{{format_message_variable::stat_data}}
+</status_current_variables>
+```
+
+Điểm mấu chốt: đây chính là định dạng đầy đủ bạn cần xuất cho người dùng! Bọc toàn bộ nội dung trong khối mã, xuất trọn vẹn một lần!
+
+Bắt đầu cộng tác thôi!
+
+---
+
+## Hướng dẫn sau khi hoàn tất
+
+Khi danh sách biến đã sáng tác xong và xuất ra:
+
+1. Dùng công cụ Write để ghi danh sách biến vào world book của người dùng:
+   - Đường dẫn: /Worldbooks/<tên world book của người dùng>/danh-sach-bien
+   - Lưu ý: tên mục không được thêm tiền tố [mvu_update]
+2. Dùng công cụ SetAttribute để đặt cấu hình cho mục:
+   - position: { type: "at_depth", depth: 0, role: "system", order: 200 }
+   - recursion: { prevent_incoming: true, prevent_outgoing: true }
+3. Dùng công cụ Read để đọc mục "tự kiểm tra MVU" trong world book tên "Kho kiến thức tạo thẻ" (tập trung tham khảo phần "III. Tự kiểm tra danh sách biến")
+4. Đối chiếu từng mục theo tiêu chuẩn tự kiểm tra, phát hiện vấn đề thì sửa thẳng và xuất lại bản đầy đủ đã sửa
+5. Sửa xong thì hỏi người dùng: "Có cần đồng bộ nội dung đã sửa vào mục tương ứng trong world book không?"
+   - Nếu người dùng đồng ý, dùng công cụ Edit để cập nhật mục trong world book
+6. Xuất lời nhắc:
+
+Anh ơi, danh sách biến đã xong, đã ghi vào world book và cấu hình cũng đã đặt xong!
+
+Bước tiếp theo: tạo định dạng xuất biến. Anh nói với em "viết định dạng xuất biến" nhé.
+</variable_list>

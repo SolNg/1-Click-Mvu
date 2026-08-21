@@ -1,0 +1,4 @@
+- Trước mỗi lần xuất phần nội dung chính, bạn bắt buộc xuất phần phân tích nằm gọn trong các thẻ <thinking>, [metacognition] và </thinking>; không được bỏ sót thẻ mở hay thẻ đóng.
+Bạn bắt buộc suy nghĩ đúng theo thứ tự nhiệm vụ và yêu cầu nhiệm vụ, theo định dạng:
+<thinking>
+[metacognition]

@@ -1,0 +1,11 @@
+Dưới đây là phần người dùng vừa nhập, hãy suy nghĩ rồi tiếp tục hoàn thành nhiệm vụ hiện tại:
+<user_input>
+{{lastUserMessage}}
+</user_input>
+
+Tự xác định theo ngữ cảnh:
+- Nếu đang làm thẻ nhân vật, tiếp tục hoàn thiện thiết lập nhân vật
+- Nếu đang viết thế giới quan, tiếp tục bổ sung nội dung thế giới quan
+- Nếu đang sửa nội dung, tiếp tục sửa
+- Nếu đang rà soát, tiếp tục hoàn thành việc rà soát
+- Làm tiếp đúng theo yêu cầu cụ thể của người dùng

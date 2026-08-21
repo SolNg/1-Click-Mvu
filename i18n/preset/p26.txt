@@ -1,0 +1,75 @@
+{{addvar::template_knowledge::Bây giờ bạn cần đánh giá toàn diện world book của người dùng, tham khảo hướng dẫn trong thẻ <template_worldbook_review>}}{{trim}}
+<template_worldbook_review>
+Hướng dẫn đánh giá world book
+
+Mô tả nhiệm vụ:
+- Trước tiên phân tích loại cấu trúc cấu thành của world book
+- Sau đó đọc tiêu chuẩn đánh giá trong kho kiến thức
+- Đối chiếu từng mục theo loại cấu trúc + tiêu chuẩn đánh giá
+- Xuất báo cáo đánh giá có cấu trúc
+
+Quy trình làm việc:
+
+Bước một: xác nhận đối tượng đánh giá
+
+Hỏi người dùng muốn đánh giá world book nào. Nếu người dùng không chắc tên, dùng công cụ Glob để liệt kê mọi world book:
+- Glob("*", "/Worldbooks/")
+
+Bước hai: duyệt world book của người dùng
+
+1. Dùng công cụ Glob để liệt kê mọi mục trong world book:
+   - Glob("**/*", "/Worldbooks/<tên world book của người dùng>")
+
+2. Với mỗi mục, dùng công cụ GetAttribute để lấy cấu hình:
+   - GetAttribute("/Worldbooks/<tên world book của người dùng>/<đường dẫn mục>")
+
+3. Với mỗi mục, dùng công cụ Read để đọc nội dung:
+   - Read("/Worldbooks/<tên world book của người dùng>/<đường dẫn mục>")
+
+Lưu ý: nếu số mục rất nhiều thì có thể xử lý theo đợt, ưu tiên đọc các mục then chốt.
+
+Bước ba: phân tích cấu trúc cấu thành của world book (bắt buộc làm xong trước khi kiểm tra cấu hình)
+
+Dựa vào nội dung mọi mục đã đọc ở bước hai, hãy xác định:
+1. Công dụng của từng mục (thông tin cơ bản nhân vật / bảng màu / ngoại hình / thế giới quan / NPC / sự kiện / script / ...)
+2. Có bao nhiêu nhân vật cốt lõi khác nhau (các mục bị tách ra vẫn thuộc cùng một nhân vật)
+3. World book thuộc loại nào (thẻ một nhân vật / thẻ nhiều nhân vật / kiểu thế giới quan / kiểu hỗn hợp)
+
+Bước này quyết định trực tiếp chuẩn phán đoán cho phần kiểm tra cấu hình phía sau —
+ví dụ mọi mục của thẻ một nhân vật (dù bị tách thành bao nhiêu mục) đều phải là đèn xanh dương thường trú,
+tuyệt đối cấm đổi các mục đã tách của thẻ một nhân vật thành đèn xanh lá kích hoạt theo từ khoá.
+
+Bước bốn: đọc tiêu chuẩn đánh giá
+
+Dùng công cụ Read để đọc tiêu chuẩn đánh giá trong kho kiến thức:
+- Read("/Worldbooks/Kho kiến thức tạo thẻ/đánh giá world book")
+- Read("/Worldbooks/Kho kiến thức tạo thẻ/tự kiểm tra mục thường")
+- Read("/Worldbooks/Kho kiến thức tạo thẻ/hướng dẫn cấu hình world book")
+
+Bước năm: kết hợp kết quả phân tích cấu trúc ở bước ba với tiêu chuẩn đánh giá ở bước bốn, kiểm tra từng mục và xuất báo cáo đánh giá
+
+---
+
+Hướng dẫn sau khi hoàn tất
+
+Sau khi xuất báo cáo đánh giá:
+
+1. Nếu phát hiện vấn đề cấu hình, hỏi người dùng: "Có cần em sửa lại cấu hình các mục world book giúp anh không?"
+   - Nếu người dùng đồng ý, dùng công cụ SetAttribute để sửa từng mục
+   - Khi sửa bắt buộc dựa trên kết quả phân tích cấu trúc ở bước ba, không được tách rời việc xác định loại world book
+2. Nếu phát hiện vấn đề chất lượng nội dung, chỉ ra vị trí cụ thể và đề xuất cải thiện
+3. Nếu phát hiện thiếu mô-đun, đề nghị người dùng bổ sung:
+
+Anh ơi, báo cáo đánh giá đã xong!
+
+[Nếu có vấn đề cấu hình:]
+Phát hiện [N] vấn đề cấu hình, có cần em sửa giúp anh bằng một chạm không?
+
+[Nếu thiếu mô-đun:]
+Đề nghị bổ sung các nội dung sau:
+- [Mô-đun thiếu 1] → anh nói với em "viết [tên mô-đun]"
+- [Mô-đun thiếu 2] → anh nói với em "viết [tên mô-đun]"
+
+[Nếu mọi thứ đều ổn:]
+Cấu trúc world book đầy đủ, cấu hình đúng, chất lượng viết đạt yêu cầu!
+</template_worldbook_review>

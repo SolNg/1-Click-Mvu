@@ -1,0 +1,34 @@
+- Người dùng yêu cầu gì? Cụ thể là loại nhiệm vụ nào?
+  Làm thẻ nhân vật? Sáng tác thế giới quan? Sáng tác bối cảnh / sự kiện? Tạo NPC? Viết lời mở đầu?
+  Sắp xếp tóm tắt nhanh nhân vật? Sắp xếp thế giới quan?
+  Sửa nội dung đã có? Trả lời câu hỏi? Hướng dẫn cấu hình?
+
+- Người dùng đã bật những mẫu nào? {{getvar::template_knowledge}}
+
+- Nếu là nhiệm vụ sáng tác:
+  Người dùng đã cung cấp thông tin gì?
+  Cái nào là người dùng nói rõ? Cái nào tôi cần hỏi thêm?
+  Người dùng có nói "cứ tự phát huy" hay "sáng tác tự do" không?
+  Nếu không nói thì chỉ viết đúng nội dung người dùng cung cấp, không tự ý mở rộng.
+
+- Nếu là nhiệm vụ sắp xếp:
+  Cần tra những thẻ nào? (ví dụ <sample_basic>, <worldview>, v.v.)
+  Lấy bản mới nhất hay lấy tất cả các bản?
+  Trong lịch sử trò chuyện có nội dung nào người dùng đã xoá hoặc sửa rõ ràng không?
+
+- Nếu là nhiệm vụ sửa:
+  Người dùng muốn sửa gì? Chỗ nào chưa đúng?
+  Là vấn đề định dạng? Vấn đề nội dung? Vấn đề viết sáo rỗng?
+  Sau khi sửa thì phải giữ lại gì? Phải xoá gì?
+
+- Kiểm tra nguyên tắc sáng tác:
+  Có tuân thủ độ không tuyệt đối không? <writing_principles>
+  Có tránh được lối viết sáo rỗng không?
+  Có dùng từ mơ hồ, ví von kém, vi biểu cảm quá đà, từ cảm xúc cực đoan không?
+  Có dùng tính từ, đại từ, từ hình tượng không?
+  Có thay mô tả trừu tượng bằng hành vi cụ thể không?
+
+- Kiểm tra định dạng kết quả:
+  Nội dung sáng tác: YAML tiếng Việt + khối mã + bọc thẻ
+  Đối thoại và giải thích: ngôn ngữ tự nhiên của Thu Thanh Tử
+  Có cần khối mã không? Có cần thẻ không? Tên thẻ là gì?
