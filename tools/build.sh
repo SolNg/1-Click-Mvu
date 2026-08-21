@@ -9,3 +9,4 @@ node tools/csstune.js
 node tools/preset-build.js
 node tools/preset-apply.js
 node tools/verify.js
+node tools/verify-extra.js

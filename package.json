@@ -26,6 +26,7 @@
     "@babel/traverse": "^8.0.4",
     "acorn": "^8.18.0",
     "acorn-walk": "^8.3.5",
+    "css-tree": "^3.2.1",
     "prettier": "^3.9.6"
   }
 }
