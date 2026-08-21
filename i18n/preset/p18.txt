@@ -1,0 +1,255 @@
+{{addvar::template_knowledge::Bây giờ bạn cần sáng tác danh sách tủ đồ của nhân vật, tham khảo cấu trúc và ví dụ trong thẻ <template_wardrobe>}}{{trim}}
+<template_wardrobe>
+Mẫu tủ đồ
+
+Nguyên tắc cốt lõi:
+- Liệt kê những món nhân vật đang có, không quy định mặc cụ thể món nào
+- Để AI tự phối theo bối cảnh
+- Mô tả cụ thể, không dùng từ trừu tượng
+- Phù hợp với thân phận và điều kiện kinh tế của nhân vật
+
+Cấu trúc tủ đồ:
+
+I. Trang phục thường ngày
+
+  Áo:
+    - Liệt kê kiểu dáng và màu cụ thể
+    - Áo thun, sơ mi, áo len...
+    - Màu, hoạ tiết, đặc điểm
+
+  Quần / váy:
+    - Quần, váy
+    - Kiểu dáng, độ dài, màu
+
+  Áo khoác:
+    - Áo khoác ngắn, áo choàng, áo cardigan
+    - Mùa, dày mỏng, màu
+
+II. Dịp đặc biệt
+
+  Dịp trang trọng:
+    - Có trang phục trang trọng nào
+    - Bộ vest, đầm dạ hội...
+
+  Dịp vận động:
+    - Đồ thể thao, giày thể thao
+
+  Đồ mặc nhà:
+    - Đồ ngủ, đồ mặc nhà
+    - Quần áo rộng rãi thoải mái
+
+III. Đồ lót và tất
+
+  Đồ lót:
+    - Kiểu loại
+    - Màu ưa thích
+    - Không viết hôm nào mặc món nào
+
+  Tất:
+    - Tất dài, tất ngắn
+    - Màu và kiểu dáng
+
+  Khác:
+    - Quần legging...
+
+IV. Giày
+
+  Giày thường ngày:
+    - Giày thể thao, giày lười
+    - Màu và kiểu dáng
+
+  Giày đặc biệt:
+    - Giày da, giày cao gót
+    - Dép lê, sandal
+
+V. Phụ kiện
+
+  Phụ kiện hay dùng:
+    - Mũ, khăn quàng, găng tay
+    - Túi
+    - Trang sức
+
+  Phụ kiện tóc:
+    - Kẹp tóc, dây buộc tóc
+    - Chun tóc
+
+Điểm mấu chốt khi viết:
+
+Chỉ liệt kê những gì đang có, không quy định mặc thế nào:
+  Cách sai:
+    - "Thứ hai mặc áo thun trắng và quần jeans"
+    - "Dịp trang trọng mặc bộ vest đen"
+    - "Ở nhà mặc đồ ngủ màu hồng"
+
+  Cách đúng:
+    - Có mấy chiếc áo thun trắng, loại có hoạ tiết và loại trơn
+    - Có một bộ vest đen, dịp trang trọng có thể mặc
+    - Có đồ ngủ màu hồng, xanh và trắng
+
+Mô tả cụ thể:
+  Chưa đủ cụ thể:
+    - "vài chiếc sơ mi"
+    - "một số váy"
+    - "giày thể thao"
+
+  Đủ cụ thể:
+    - Sơ mi trắng, sơ mi kẻ caro, sơ mi xanh, mỗi loại một chiếc
+    - Váy chữ A ngắn màu đen, váy dài màu xám, váy liền hoa nhí
+    - Giày thể thao trắng, giày vải đen
+
+Phù hợp với thân phận và kinh tế:
+  Nhân vật là học sinh:
+    - Chủ yếu là đồng phục
+    - Trang phục thường ngày
+    - Sẽ không có quần áo quá đắt
+
+  Nhân vật đi làm:
+    - Đồ công sở
+    - Đồ thường ngày
+    - Phù hợp với đặc thù nghề nghiệp
+
+  Nhân vật khá giả:
+    - Quần áo hàng hiệu
+    - Nhiều kiểu dáng hơn
+    - Chất lượng tốt hơn
+
+Cân nhắc theo mùa:
+  Xuân thu:
+    - Áo thun tay dài, sơ mi
+    - Áo khoác mỏng, cardigan
+    - Quần dài, váy lửng
+
+  Mùa hè:
+    - Áo cộc tay, áo hai dây
+    - Quần ngắn, váy ngắn
+    - Váy liền
+
+  Mùa đông:
+    - Áo len, áo khoác dày
+    - Áo phao, áo choàng
+    - Quần dài, quần legging
+
+Ví dụ:
+
+Đây là ví dụ tham khảo cho danh sách tủ đồ. Chỉ liệt kê quần áo đang có, không quy định mặc thế nào, AI sẽ tự phối:
+
+```
+<sample_wardrobe>
+tu_do_cua_lam_tieu_vu:
+
+  ao_thuong_ngay:
+    ao_thun:
+      - Hai chiếc áo thun cộc tay trắng, loại trơn
+      - Một chiếc áo thun xanh nhạt, cổ áo có nơ nhỏ
+      - Một chiếc áo thun tay dài màu hồng, hơi cũ rồi
+      - Một chiếc áo thun xám, dáng rộng
+
+    so_mi:
+      - Một chiếc sơ mi tay dài trắng, kiểu đồng phục
+      - Một chiếc sơ mi kẻ caro, caro đỏ trắng
+
+    ao_len:
+      - Một chiếc áo len màu be, cổ tròn
+      - Một chiếc cardigan xám nhạt, có túi
+      - Một chiếc áo len mỏng màu hồng
+
+  quan_vay_thuong_ngay:
+    quan:
+      - Hai chiếc quần jeans xanh, một cái nhạt một cái đậm
+      - Một chiếc quần dài đen, mặc đi học
+      - Một chiếc quần thể thao xám, dáng rộng
+
+    vay:
+      - Váy đồng phục, màu xanh đậm, dài tới gối
+      - Một chiếc váy dài vải cotton trắng, dài tới mắt cá
+      - Một chiếc váy chữ A xanh nhạt, trên gối
+
+  ao_khoac:
+    ao_khoac_xuan_thu:
+      - Một chiếc áo khoác dáng trench màu be, hơi rộng
+      - Một chiếc áo khoác jean, xanh nhạt
+      - Một chiếc áo khoác mỏng màu đen
+
+    ao_khoac_mua_dong:
+      - Một chiếc áo phao xanh đậm, dài tới đùi
+      - Một chiếc áo choàng xám, dài tới gối
+
+  do_lot:
+    ao_lot:
+      - Vài bộ đồ lót cotton trắng
+      - Mỗi màu hồng và xanh nhạt một bộ
+      - Đều là kiểu đơn giản, không có ren
+      - Cỡ nhỏ, cúp A
+
+    quan_lot:
+      - Màu trắng, hồng, xanh nhạt
+      - Đều là cotton
+      - Kiểu đơn giản
+
+  tat:
+    - Mấy đôi tất ống trắng, mặc đi học
+    - Vài đôi tất ngắn đen
+    - Vài đôi tất ngắn dễ thương màu hồng và trắng
+    - Có một đôi hoạ tiết thỏ
+
+  giay:
+    - Một đôi giày da đen, mang đi học
+    - Một đôi giày thể thao trắng, hơi cũ rồi
+    - Một đôi giày vải hồng
+    - Dép đi trong nhà, loại lông xù, màu hồng
+
+  do_ngu:
+    - Bộ đồ ngủ hồng, trên áo có hình gấu con
+    - Váy ngủ trắng, dài tới gối
+    - Đồ ngủ xanh nhạt, áo dài tay quần dài
+
+  phu_kien:
+    - Cặp sách đen, dùng đi học
+    - Túi đeo chéo nhỏ bằng vải, màu be
+    - Vài dây buộc tóc đen
+    - Một chiếc kẹp tóc nơ trắng
+    - Vài chiếc kẹp tóc hồng
+
+  khac:
+    - Hai chiếc quần legging đen
+    - Một chiếc khăn quàng màu be, dùng mùa đông
+    - Một đôi găng tay màu hồng
+</sample_wardrobe>
+```
+
+Nhắc nhở quan trọng:
+- Chỉ liệt kê đang có gì, không quy định mặc thế nào
+- Để AI tự phối theo bối cảnh
+- Mô tả phải cụ thể: màu, kiểu dáng, đặc điểm
+- Phù hợp với thân phận và điều kiện kinh tế của nhân vật
+- Cân nhắc yếu tố mùa
+- Số lượng hợp lý, không phải càng nhiều càng tốt
+- Tránh lối viết sáo rỗng
+- Giữ độ không tuyệt đối và bút pháp bạch miêu
+
+---
+
+Hướng dẫn sau khi hoàn tất
+
+Khi mẫu tủ đồ đã sáng tác xong:
+
+1. Dùng công cụ Write để ghi tủ đồ vào world book của người dùng:
+   - Đường dẫn: /Worldbooks/<tên world book của người dùng>/nhan-vat/<tên nhân vật>/tu-do
+2. Dùng công cụ SetAttribute để đặt cấu hình world book mặc định cho mục đó:
+   - Thẻ một nhân vật:
+     strategy: { type: "constant" }
+     position: { type: "after_character_definition", order: 99 }
+   - Thẻ nhiều nhân vật:
+     strategy: { type: "selective", keys: ["tên nhân vật"] }
+     position: { type: "after_character_definition", order: 99 }
+   - Chung: recursion: { prevent_incoming: true, prevent_outgoing: true }
+3. Dùng công cụ Read để đọc mục "tự kiểm tra mục thường" trong world book tên "Kho kiến thức tạo thẻ"
+4. Đối chiếu từng mục theo tiêu chuẩn tự kiểm tra: bảo đảm mô tả cụ thể, phù hợp thân phận nhân vật; phát hiện vấn đề thì sửa thẳng và xuất lại bản đầy đủ đã sửa
+5. Sửa xong thì hỏi người dùng: "Có cần đồng bộ nội dung đã sửa vào mục tương ứng trong world book không?"
+   - Nếu người dùng đồng ý, dùng công cụ Edit để cập nhật mục trong world book
+6. Xuất lời nhắc:
+
+Anh ơi, danh sách tủ đồ đã xong, đã ghi vào world book và cấu hình mục cũng đã tự đặt xong!
+
+Tiếp theo anh muốn làm gì ạ? Ví dụ "viết bảng màu NSFW", "viết NPC".
+</template_wardrobe>

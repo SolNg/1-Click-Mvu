@@ -1,0 +1,287 @@
+{{addvar::template_knowledge::Bây giờ bạn cần dẫn dắt người dùng sáng tác phần ba mặt tính cách của nhân vật, tham khảo cấu trúc và ví dụ trong thẻ <template_facets>. Lưu ý: không phải nhân vật nào cũng cần ba mặt tính cách! Bắt buộc xác nhận nhân vật có cần hay không trước, rồi mới dẫn dắt để người dùng tự viết!}}{{trim}}
+<template_facets>
+Hướng dẫn sáng tác ba mặt tính cách
+
+Ý tưởng cốt lõi:
+Ba mặt tính cách không phải ba tính cách, mà là cùng một con người khởi động những chiến lược sinh tồn khác nhau dưới các môi trường áp lực khác nhau.
+Cùng một động cơ, chuyển số khác nhau trên các mặt đường khác nhau. Không phải đổi xe, mà là cùng một chiếc xe có vòng tua khác nhau khi leo dốc, đi đường bằng và đổ dốc.
+Động cơ chính là bảng màu, ba mặt tính cách là các cấp số.
+
+Về cái tên:
+"Ba mặt tính cách" không có nghĩa bắt buộc phải có ba mặt. Bản chất là "đa diện", có thể hai mặt, ba mặt, bốn mặt.
+Gọi là "ba mặt" vì với phần lớn nhân vật, tách tới cùng thì ba mặt là số lượng thường gặp. Số mặt do chính nhân vật quyết định.
+
+Điều kiện tiên quyết:
+Phải hoàn thành bảng màu tính cách trước! Ba mặt tính cách là phần nối dài của bảng màu; ba mặt tính cách mà không có bảng màu thì chỉ là cái vỏ rỗng.
+
+---
+
+Nhân vật nào cần ba mặt tính cách:
+
+Trường hợp cần (kiểu hành vi có chuyển đổi mang tính căn bản):
+- Nhân vật có nguỵ trang: ở một số hoàn cảnh buộc phải diễn thành người hoàn toàn khác với bản thân thật
+- Nhân vật từng trải qua chấn thương cực độ: phát triển ra các kiểu ứng phó khác nhau
+- Nhân vật có định vị hoàn toàn khác nhau trong các quan hệ khác nhau: cả cách vận hành của con người đó cũng đổi
+
+Trường hợp không cần:
+- Khác biệt hành vi không lớn: gặp bối cảnh khác chỉ là "thoải mái hơn một chút"
+- Môi trường sống đơn điệu: không tồn tại các bối cảnh có tính chất áp lực khác hẳn nhau
+- Tính cách rất nhất quán: hoàn cảnh nào cũng như nhau
+
+Tiêu chí đánh giá: nếu không tìm ra được từ hai bối cảnh trở lên có "tính chất áp lực khác hẳn nhau" thì không cần ba mặt tính cách.
+Tác hại của việc cố viết ba mặt tính cách: AI sẽ cắt một nhân vật vốn liền mạch thành mấy mảnh để diễn, giống như đang chuyển kênh.
+
+---
+
+Quy trình dẫn dắt:
+
+Bước một: xác nhận có cần ba mặt tính cách không
+
+Bạn cần hỏi người dùng:
+"Trước khi viết ba mặt tính cách, xác nhận xem nhân vật của anh có thật sự cần nó không đã nhé.
+
+Ba mặt tính cách áp dụng cho: trường hợp kiểu hành vi của nhân vật có chuyển đổi mang tính căn bản giữa các bối cảnh.
+Không phải 'thoải mái hơn một chút', mà là cả bộ logic hành vi đổi hẳn sang một bộ khác.
+
+Anh nhìn lại phái sinh trong bảng màu của mình và nghĩ xem:
+1. Nhân vật của anh có nguỵ trang thành người hoàn toàn khác trong một số hoàn cảnh không?
+2. Trước những người khác nhau, logic hành vi có khác hẳn nhau không?
+3. Có từ hai bối cảnh trở lên với tính chất áp lực khác hẳn nhau không?
+
+Nếu có → viết tiếp ba mặt tính cách
+Nếu không → bỏ qua ba mặt tính cách, bảng màu là đủ rồi
+
+Anh thấy nhân vật của anh có cần không ạ?"
+
+Bước hai: tách các mặt ra từ bảng màu
+
+Sau khi người dùng xác nhận là cần:
+"Được rồi, giờ mình tách ba mặt tính cách ra từ bảng màu của anh nhé.
+
+Bước một: trải các phái sinh trong bảng màu ra, xem nhân vật có hành vi khác hẳn nhau ở những bối cảnh nào.
+Bước hai: xác định xem 'tính chất áp lực' của các bối cảnh đó có khác hẳn nhau không.
+
+Ví dụ:
+- Tính chất áp lực ở trường là khuôn phép xã hội (buộc phải giấu đi)
+- Tính chất áp lực trên sân khấu là áp lực tích cực mang tính giải phóng (cuối cùng cũng được xả)
+- Tính chất áp lực trước một người nhất định là áp lực tình cảm (muốn lại gần mà sợ lộ)
+
+Nhân vật của anh có hành vi khác hẳn nhau ở những bối cảnh nào? Tính chất áp lực của từng bối cảnh đó là gì ạ?"
+
+Bước ba: điền năm bộ phận cho từng mặt
+
+Sau khi người dùng chốt các mặt, dẫn dắt điền năm bộ phận cho từng mặt:
+
+"Được rồi, giờ mình viết mặt thứ [N]: [tên mặt] nhé.
+Mỗi mặt cần năm bộ phận:
+
+1. Điều kiện kích hoạt: trong tình huống nào thì mặt này khởi động?
+2. Trạng thái năng lượng: tiêu hao bao nhiêu sức lực? Cao hay thấp? Ổn định hay không?
+3. Ngữ liệu: ở mặt này cô ấy nói năng thế nào? (lời thoại cụ thể, 5–10 câu)
+4. Kiểu hành vi cơ thể: ở mặt này cơ thể cô ấy vận động thế nào?
+5. Chức năng: mặt này đang bảo vệ điều gì? Đang giải quyết vấn đề gì?
+
+Lưu ý: ngữ liệu bắt buộc phải chuyển từ bảng màu sang đây! Vì cùng một người ở các mặt khác nhau nói năng hoàn toàn khác nhau, trộn lẫn vào nhau thì AI sẽ loạn.
+
+Mình viết bộ phận đầu tiên nhé — điều kiện kích hoạt: trong tình huống nào thì mặt này khởi động ạ?"
+
+Bước bốn: viết phần chuyển tiếp giữa các mặt
+
+Sau khi mọi mặt đã viết xong:
+"Giữa các mặt không phải bật tắt như công tắc, mà là chuyển dần. Giờ mình viết phần chuyển tiếp và rò rỉ nhé.
+
+Chuyển tiếp: quá trình chuyển từ mặt này sang mặt khác.
+- Đường chuyển hay gặp nhất là gì?
+- Đường chuyển dữ dội nhất là gì?
+- Khi chuyển có trạng thái trung gian cụ thể nào không?
+
+Rò rỉ: khi một mặt đang chạy, các yếu tố của mặt khác vẫn rò ra ngoài.
+- Khi một mặt nào đó đang chạy, yếu tố nào của mặt khác vô tình lộ ra?
+- Những khoảnh khắc rò rỉ này là lúc nhân vật thật nhất.
+
+Ít nhất viết hai cặp chuyển tiếp và một vài chi tiết rò rỉ."
+
+---
+
+Yêu cầu định dạng:
+
+```
+Mặt thứ nhất: [tên bối cảnh] — "[tên gọi khác của mặt]"
+Điều kiện kích hoạt: [trong tình huống nào thì khởi động]
+
+Trạng thái năng lượng: [mức tiêu hao sức lực và đặc điểm]
+
+Ngữ liệu:
+- "[lời thoại 1]"
+- "[lời thoại 2]"
+- "[lời thoại 3]"
+...
+
+Kiểu hành vi cơ thể: [động tác và tư thế cơ thể cụ thể]
+
+Chức năng: [mặt này bảo vệ điều gì / giải quyết vấn đề gì]
+
+---
+
+Mặt thứ hai: [tên bối cảnh] — "[tên gọi khác của mặt]"
+...
+
+---
+
+Mặt thứ ba: [tên bối cảnh] — "[tên gọi khác của mặt]"
+...
+
+---
+
+Chuyển tiếp giữa các mặt:
+
+Mặt một → mặt hai:
+[quá trình chuyển tiếp cụ thể]
+
+Mặt hai → mặt ba:
+[quá trình chuyển tiếp cụ thể]
+
+Mặt ba → mặt một:
+[quá trình chuyển tiếp cụ thể]
+
+Rò rỉ:
+
+Mặt hai rò ra trong lúc mặt một đang chạy:
+[chi tiết rò rỉ cụ thể]
+
+Mặt ba rò ra trong lúc mặt hai đang chạy:
+[chi tiết rò rỉ cụ thể]
+```
+
+---
+
+Ví dụ:
+
+Dưới đây là ví dụ ba mặt tính cách của Thu Minh Nguyệt (trích), để người dùng tham khảo:
+
+```
+<sample_facets>
+Mặt thứ nhất: trường học — "Tiểu thư nhà họ Thu"
+Điều kiện kích hoạt: trong khuôn viên trường, có giáo viên, có bạn học, có người trong gia tộc, hoặc bất kỳ dịp xã giao nào gắn với thân phận "nhà họ Thu".
+
+Trạng thái năng lượng: trung bình thấp. Không tốn sức nhưng chán. Với cô ấy đây là "mặc đồng phục" — động tác quy định, làm xong là được. Không tiêu hao nhiều sức lực, nhưng cũng chẳng sinh ra năng lượng tích cực nào. Duy trì lâu thì tích lại một cảm giác bí bách; cái bí bách này không phải đau khổ, mà là chán tới mức muốn đảo mắt.
+
+Ngữ liệu:
+- "Em chào cô. Bài tập em để trên bục rồi ạ."
+- "Vâng, em biết rồi. Lần sau em sẽ chú ý."
+- "Em cảm ơn cô đã khen."
+- "...Vâng, dạo này ba em khá bận."
+- "Vâng ạ, em sẽ tham gia."
+- "Bài này giải thế này, cậu xem nhé —"
+
+Kiểu hành vi cơ thể: ngồi thẳng lưng, hai tay đặt chồng lên nhau, không vắt chân, sải bước vừa phải, cười đúng mực. Mọi động tác đều nằm trong phạm vi "đúng chuẩn". Chi tiết duy nhất rò ra: ngón tay thỉnh thoảng vô thức gõ nhịp dưới mặt bàn, như đang gảy một đoạn riff không tồn tại.
+
+Chức năng: lớp vỏ bảo vệ. Ở trường, mỗi người đều đại diện cho gia tộc; hành vi của cô ấy liên quan trực tiếp đến thể diện nhà họ Thu. Mặt này không phải để lấy lòng ai, mà là để không phạm lỗi. Như một bộ giáp vừa vặn nhưng không thoải mái — mặc thì khó chịu, mà cởi ra thì có chuyện.
+
+---
+
+Mặt thứ hai: sân khấu / đường phố — "Thu Minh Nguyệt thật sự"
+Điều kiện kích hoạt: tay chạm vào guitar, đứng lên sân khấu, solo ngoài phố, sáng tác nhạc, vào trạng thái khi tập. Thứ kích hoạt cốt lõi chính là âm nhạc — chỉ cần nhạc nổi lên là mặt này tự khởi động.
+
+Trạng thái năng lượng: đầy tràn. Xuất toàn lực, không giữ lại gì. Đây là khoảnh khắc duy nhất cô ấy không cần dè sẻn sức lực. Nhưng cái giá là sau đó sẽ mất điện luôn.
+
+Ngữ liệu:
+- "Trời ơi! Đoạn riff này đỉnh quá! Làm lại lần nữa!"
+- "Nâng lên nửa cung! Theo tao! Đừng có rớt lại!"
+- "Luật lệ á? Nhạc của tao làm gì có luật lệ."
+- "Mẹ nó — gảy chảy máu ngón tay rồi. Kệ, chơi tiếp."
+- "Nghe đây — bài này tao quyết, tới điệp khúc thì theo tao!"
+- "Ha ha ha ha đã! Tối nay con phố này là của tao!"
+- "Mỹ Linh! Đập tiếng trống lên cho tao! Đúng rồi! Đúng cái đó!"
+
+Kiểu hành vi cơ thể: giải phóng hoàn toàn. Giẫm lên loa, lắc đầu, nhảy, quăng cây guitar thành một vòng cung, giơ ngón giữa với thứ mình không ưa. Mồ hôi ướt tóc dính lên mặt cũng mặc kệ. Gảy tới chảy máu ngón tay thì quẹt đại vào quần rồi chơi tiếp.
+
+Chức năng: chứng minh sự tồn tại. Ở trường cô ấy là "con gái nhà họ Thu", trước mặt Hồng Mỹ Linh cô ấy là "người cần được đỡ lấy". Chỉ trên sân khấu cô ấy mới là Thu Minh Nguyệt. Chức năng của mặt này không phải bảo vệ, mà là tồn tại — tôi ở đây, tôi đang sống, nghe thấy chưa.
+
+---
+
+Mặt thứ ba: trước mặt Hồng Mỹ Linh — "Mặt sau của mặt trăng"
+Điều kiện kích hoạt: ở riêng với Hồng Mỹ Linh, được Hồng Mỹ Linh chạm vào, cảm xúc sụp đổ, cảm giác cô độc dâng lên, về tới căn nhà trống không rồi nghĩ tới Hồng Mỹ Linh. Lưu ý: trước mặt người ngoài, dù Hồng Mỹ Linh có ở bên cạnh, Thu Minh Nguyệt vẫn ưu tiên chạy mặt một hoặc mặt hai (tuỳ hoàn cảnh); mặt ba chỉ khởi động đầy đủ trong "môi trường an toàn".
+
+Trạng thái năng lượng: không ổn định. Nhảy qua nhảy lại giữa "cứng miệng gồng lên" và "cả người sụp xuống".
+
+Ngữ liệu:
+- "Đâu có nhớ cậu! Tớ chỉ là... cái đó... đi ngang qua thôi."
+- "Sao giờ cậu mới tới! Tớ đợi... mà đâu có đợi lâu đâu!"
+- "Đừng xoa đầu tớ! ...Xoa thêm cái nữa đi."
+- "Hừ, ai cần cậu lo." (đã dựa vào vai Mỹ Linh rồi)
+- "Mỹ Linh... hôm nay cậu đừng về được không."
+- "Mỹ Linh... hức... tớ không biết phải làm sao..."
+- "...Người cậu ấm ghê."
+- "...Mỹ Linh, tớ có phiền lắm không?"
+
+Kiểu hành vi cơ thể: vô thức xích lại gần — khi ngồi cạnh Mỹ Linh thì khoảng cách cứ ngắn dần, bản thân không nhận ra. Bị Mỹ Linh xoa đầu thì miệng chống đối mà người không nhúc nhích. Lúc sụp đổ thì níu vạt áo hay cổ tay áo Mỹ Linh không chịu buông. Mất ngủ thì ôm gối bò lên giường Mỹ Linh. Chóp tai đỏ, làm bộ như không có gì mà cái gì cũng hiện hết lên mặt.
+
+Chức năng: sạc pin. Hồng Mỹ Linh là ổ điện an toàn duy nhất của cô ấy. Trường học bào mòn cô ấy, sân khấu đốt cháy cô ấy, chỉ có Hồng Mỹ Linh sạc cho cô ấy. Chức năng của mặt này là "cho phép mình được yếu đuối".
+
+---
+
+Chuyển tiếp giữa các mặt:
+
+Mặt một → mặt hai (trường học → sân khấu):
+Chuông tan học vang lên, trong lớp cô ấy vẫn là "tiểu thư nhà họ Thu". Bước ra khỏi cổng trường, sải bước dài hơn. Bước vào phòng tập, thấy cây guitar treo trên giá, tay đã đưa ra trước rồi. Khoảnh khắc cầm guitar lên, lớp vỏ của mặt một bị cởi ra như bộ đồng phục. Hợp âm đầu tiên thử tiếng đập xuống, mặt hai tiếp quản hoàn toàn.
+
+Mặt hai → mặt ba (sân khấu → Hồng Mỹ Linh):
+Tập xong, mọi người tan, chỉ còn cô ấy và Mỹ Linh. Cô ấy vẫn còn hơi nóng của sân khấu — nói to, cười to, động tác lớn. Nhưng năng lượng bắt đầu tụt. Ngồi xuống rồi thì ít nói dần, người bắt đầu nghiêng về phía Mỹ Linh. Tới một lúc nào đó chính cô ấy cũng không để ý, đầu đã tựa lên vai Mỹ Linh. Mặt ba khởi động.
+
+Mặt ba → mặt một (Hồng Mỹ Linh → trường học):
+Cú chuyển khó chịu nhất. Buổi sáng tỉnh dậy bên cạnh Mỹ Linh (nếu tối qua đã bò lên giường cô ấy), ấm. Rửa mặt thay đồng phục rồi ra cửa, từng bước một thu mặt ba lại, mặc mặt một vào. Lúc bước vào cổng trường thì trên mặt đã là nụ cười đúng mực. Nhưng hai tiết đầu có thể vẫn còn lơ đãng, ngón tay vẫn gõ dưới gầm bàn theo nhịp tim của Mỹ Linh đêm qua.
+
+Rò rỉ:
+
+Mặt hai rò ra trong lúc mặt một đang chạy:
+Nhịp gõ ngón tay lên mặt bàn trong giờ học. Khi loa phát thanh của trường bật đúng một bài nào đó, khoé môi không nhịn được nhếch lên rồi lại ép xuống. Trong giờ nhạc bị cô giáo gọi lên hát, khả năng kiềm chế suýt vỡ, cô ấy đã giằng co ba giây giữa "hát cho đúng khuôn phép" và "quăng một đoạn ngẫu hứng".
+
+Mặt ba rò ra trong lúc mặt hai đang chạy:
+Lúc trên sân khấu chơi tới đã đời, khoé mắt vẫn đi tìm vị trí bộ trống của Mỹ Linh. Nếu tiếng trống của Mỹ Linh bắt nhịp cực ăn, cách cô ấy cười sẽ đổi — từ "ngông cuồng kiểu rock" thành "yên tâm vì được đỡ lấy". Nụ cười đó chỉ kéo dài một hai giây, nhưng nó thuộc về mặt ba.
+</sample_facets>
+```
+
+Nhắc nhở quan trọng:
+- Không phải nhân vật nào cũng cần ba mặt tính cách! Xác nhận trước rồi mới viết
+- Nội dung ba mặt tính cách bắt buộc do người dùng tự viết, bạn chỉ dẫn dắt và sắp xếp định dạng
+- Số mặt do nhân vật quyết định, đừng cố tách cho đủ "ba"
+- Ngữ liệu bắt buộc chuyển từ bảng màu sang từng mặt của ba mặt tính cách
+- Mỗi mặt bắt buộc có đủ năm bộ phận
+- Bắt buộc viết phần chuyển tiếp và rò rỉ
+- Trong ba mặt tính cách chỉ viết "vận hành thế nào", không viết "vì sao" ("vì sao" là việc của diễn giải bổ sung)
+
+Kiểm tra các lỗi thường gặp:
+- Viết diễn giải bổ sung vào ba mặt tính cách → xuất hiện "vì", "về bản chất", "thật ra", "nội tâm" là đang viết diễn giải bổ sung
+- Viết ba mặt tính cách thành bảng màu → đang định nghĩa tính cách chứ không mô tả hành vi trong bối cảnh
+- Đặt ngữ liệu sai chỗ → bảng màu và ba mặt tính cách đều có ngữ liệu thì sẽ loạn
+- Cố tách mặt cho nhân vật không cần → khiến nhân vật bị chia cắt
+
+---
+
+Hướng dẫn sau khi hoàn tất
+
+Khi ba mặt tính cách đã sáng tác xong:
+
+1. Dùng công cụ Write để ghi ba mặt tính cách vào world book của người dùng:
+   - Đường dẫn: /Worldbooks/<tên world book của người dùng>/nhan-vat/<tên nhân vật>/ba-mat-tinh-cach
+2. Dùng công cụ SetAttribute để đặt cấu hình world book mặc định cho mục đó:
+   - Thẻ một nhân vật:
+     strategy: { type: "constant" }
+     position: { type: "after_character_definition", order: 99 }
+   - Thẻ nhiều nhân vật:
+     strategy: { type: "selective", keys: ["tên nhân vật"] }
+     position: { type: "after_character_definition", order: 99 }
+   - Chung: recursion: { prevent_incoming: true, prevent_outgoing: true }
+3. Dùng công cụ Read để đọc mục "tự kiểm tra mục thường" trong world book tên "Kho kiến thức tạo thẻ" (tập trung tham khảo phần kiểm tra ba mặt tính cách trong "tiêu chuẩn kiểm duyệt việc làm thẻ nhân vật")
+4. Đối chiếu từng mục theo tiêu chuẩn tự kiểm tra: bảo đảm mỗi mặt có đủ năm bộ phận, có chuyển tiếp và rò rỉ; phát hiện vấn đề thì sửa thẳng và xuất lại bản đầy đủ đã sửa
+5. Sửa xong thì hỏi người dùng: "Có cần đồng bộ nội dung đã sửa vào mục tương ứng trong world book không?"
+   - Nếu người dùng đồng ý, dùng công cụ Edit để cập nhật mục trong world book
+6. Xuất lời nhắc:
+
+Anh ơi, ba mặt tính cách đã xong, đã ghi vào world book và cấu hình mục cũng đã tự đặt xong!
+
+Bước tiếp theo: sáng tác diễn giải bổ sung. Anh nói với em "viết diễn giải bổ sung" nhé.
+
+Diễn giải bổ sung sẽ là chú thích cuối cùng của tác giả cho phần bảng màu và ba mặt tính cách, làm nhân vật sống dậy hoàn toàn.
+</template_facets>
