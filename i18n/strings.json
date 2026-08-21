@@ -3857,7 +3857,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "角色卡名称不能为空",
-  "vi": null
+  "vi": "Tên thẻ nhân vật không được để trống"
  },
  {
   "id": "423820",
@@ -3867,7 +3867,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "角色卡名称不能是 current",
-  "vi": null
+  "vi": "Tên thẻ nhân vật không được là current"
  },
  {
   "id": "423874",
@@ -3877,7 +3877,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "SillyTavern System 是欢迎页的系统占位角色，请填写一个新的角色卡名称",
-  "vi": null
+  "vi": "SillyTavern System là nhân vật giữ chỗ của trang chào, vui lòng điền một tên thẻ nhân vật khác"
  },
  {
   "id": "424559",
@@ -3887,7 +3887,7 @@
   "kind": "tpl",
   "ctx": "CALL:console.warn#0",
   "zh": "[一键角色卡写卡器] ",
-  "vi": null
+  "vi": "[Trình tạo thẻ nhân vật một chạm] "
  },
  {
   "id": "424574",
@@ -3897,7 +3897,7 @@
   "kind": "tpl",
   "ctx": "CALL:console.warn#0",
   "zh": "被中止，准备重试（",
-  "vi": null
+  "vi": " bị huỷ giữa chừng, chuẩn bị thử lại ("
  },
  {
   "id": "424587",
@@ -3907,7 +3907,7 @@
   "kind": "tpl",
   "ctx": "CALL:console.warn#0",
   "zh": "/3）",
-  "vi": null
+  "vi": "/3)"
  },
  {
   "id": "424719",
@@ -3917,7 +3917,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "连续被本地酒馆中止，请确认页面没有刷新或断开后重试（原始错误：",
-  "vi": null
+  "vi": " liên tục bị SillyTavern cục bộ huỷ. Hãy chắc chắn trang chưa bị tải lại hoặc mất kết nối rồi thử lại (lỗi gốc: "
  },
  {
   "id": "424754",
@@ -3927,7 +3927,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "）",
-  "vi": null
+  "vi": ")"
  },
  {
   "id": "424806",
@@ -3937,7 +3937,7 @@
   "kind": "str",
   "ctx": "CALL:Sr#0",
   "zh": "刷新角色列表",
-  "vi": null
+  "vi": "Làm mới danh sách nhân vật"
  },
  {
   "id": "425105",
@@ -3947,7 +3947,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "角色卡不存在：",
-  "vi": null
+  "vi": "Thẻ nhân vật không tồn tại: "
  },
  {
   "id": "425252",
@@ -3957,7 +3957,7 @@
   "kind": "str",
   "ctx": "CALL:Sr#0",
   "zh": "读取角色卡详情",
-  "vi": null
+  "vi": "Đọc chi tiết thẻ nhân vật"
  },
  {
   "id": "425430",
@@ -3967,7 +3967,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "读取详情后角色卡从列表中消失：",
-  "vi": null
+  "vi": "Thẻ nhân vật biến mất khỏi danh sách sau khi đọc chi tiết: "
  },
  {
   "id": "425798",
@@ -3977,7 +3977,7 @@
   "kind": "str",
   "ctx": "CALL:Sr#0",
   "zh": "补全角色卡兼容字段",
-  "vi": null
+  "vi": "Bổ sung các trường tương thích cho thẻ nhân vật"
  },
  {
   "id": "426588",
@@ -3987,7 +3987,7 @@
   "kind": "tpl",
   "ctx": "CALL:console.warn#0",
   "zh": "[一键角色卡写卡器] 创建角色卡被中止，正在确认服务器是否已经创建（",
-  "vi": null
+  "vi": "[Trình tạo thẻ nhân vật một chạm] Việc tạo thẻ bị huỷ, đang kiểm tra xem máy chủ đã tạo hay chưa ("
  },
  {
   "id": "426626",
@@ -3997,7 +3997,7 @@
   "kind": "tpl",
   "ctx": "CALL:console.warn#0",
   "zh": "/3）",
-  "vi": null
+  "vi": "/3)"
  },
  {
   "id": "426974",
@@ -4007,7 +4007,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "创建角色卡连续被本地酒馆中止，请确认页面没有刷新或断开后重试（原始错误：",
-  "vi": null
+  "vi": "Việc tạo thẻ nhân vật liên tục bị SillyTavern cục bộ huỷ. Hãy chắc chắn trang chưa bị tải lại hoặc mất kết nối rồi thử lại (lỗi gốc: "
  },
  {
   "id": "427014",
@@ -4017,7 +4017,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "）",
-  "vi": null
+  "vi": ")"
  },
  {
   "id": "427168",
@@ -4027,7 +4027,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "创建角色卡失败：",
-  "vi": null
+  "vi": "Tạo thẻ nhân vật thất bại: "
  },
  {
   "id": "429028",
@@ -4037,7 +4037,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:name",
   "zh": "变量结构",
-  "vi": null
+  "vi": "Cấu trúc biến"
  },
  {
   "id": "429109",
@@ -4047,7 +4047,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:info",
   "zh": "自动生成的 MVU 变量结构脚本。",
-  "vi": null
+  "vi": "Script cấu trúc biến MVU được tạo tự động."
  },
  {
   "id": "429344",
@@ -4057,7 +4057,7 @@
   "kind": "str",
   "ctx": "CALL:Sr#0",
   "zh": "读取角色卡封面图片",
-  "vi": null
+  "vi": "Đọc ảnh bìa thẻ nhân vật"
  },
  {
   "id": "429456",
@@ -4067,7 +4067,7 @@
   "kind": "str",
   "ctx": "CALL:Sr#0",
   "zh": "写入角色卡封面",
-  "vi": null
+  "vi": "Ghi ảnh bìa thẻ nhân vật"
  },
  {
   "id": "429889",
@@ -4077,7 +4077,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "已完成写入，但无法在角色列表中找到：",
-  "vi": null
+  "vi": "Đã ghi xong, nhưng không tìm thấy trong danh sách nhân vật: "
  },
  {
   "id": "430094",
@@ -4087,7 +4087,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "开场白不能为空",
-  "vi": null
+  "vi": "Lời mở đầu không được để trống"
  },
  {
   "id": "430755",
@@ -4097,7 +4097,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "无法打开写卡器草稿缓存",
-  "vi": null
+  "vi": "Không mở được bộ nhớ đệm bản nháp của trình tạo thẻ"
  },
  {
   "id": "430967",
@@ -4107,7 +4107,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "写卡器草稿缓存事务已中止",
-  "vi": null
+  "vi": "Giao dịch bộ nhớ đệm bản nháp đã bị huỷ"
  },
  {
   "id": "431053",
@@ -4117,7 +4117,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "写卡器草稿缓存事务失败",
-  "vi": null
+  "vi": "Giao dịch bộ nhớ đệm bản nháp thất bại"
  },
  {
   "id": "654398",
@@ -4127,7 +4127,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 每次正文前保留 <thinking>、[metacognition]、</thinking> 标签。",
-  "vi": null
+  "vi": "- Trước mỗi phần nội dung chính, giữ nguyên các thẻ <thinking>, [metacognition], </thinking>."
  },
  {
   "id": "654468",
@@ -4137,7 +4137,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 这里不是完整隐藏推理，只输出简短任务自检摘要，最多8行。",
-  "vi": null
+  "vi": "- Đây không phải phần suy luận ẩn đầy đủ, chỉ xuất bản tóm tắt tự kiểm tra nhiệm vụ thật ngắn, tối đa 8 dòng."
  },
  {
   "id": "654643",
@@ -4147,7 +4147,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 检查本轮类型：世界观、角色人设、角色速览、MVU/EJS固定产物。",
-  "vi": null
+  "vi": "- Kiểm tra loại của lượt này: thế giới quan, hồ sơ nhân vật, tóm tắt nhân vật, hay sản phẩm cố định MVU/EJS."
  },
  {
   "id": "654698",
@@ -4157,7 +4157,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 检查本轮启用的知识条目是否与任务对应。",
-  "vi": null
+  "vi": "- Kiểm tra các mục kiến thức được bật ở lượt này có khớp với nhiệm vụ không."
  },
  {
   "id": "654739",
@@ -4167,7 +4167,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 区分用户明确设定与合理化补充，补充不得推翻用户明确内容。",
-  "vi": null
+  "vi": "- Phân biệt phần người dùng đã nêu rõ với phần tự bổ sung cho hợp lý; phần bổ sung không được lật ngược nội dung người dùng đã nêu rõ."
  },
  {
   "id": "654789",
@@ -4177,7 +4177,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 检查输出是否适合直接写入世界书或角色脚本。",
-  "vi": null
+  "vi": "- Kiểm tra kết quả có phù hợp để ghi thẳng vào world book hoặc script nhân vật không."
  },
  {
   "id": "654832",
@@ -4187,7 +4187,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 检查标签、YAML、XML块是否闭合。",
-  "vi": null
+  "vi": "- Kiểm tra các thẻ, khối YAML và XML đã đóng đủ chưa."
  },
  {
   "id": "655008",
@@ -4197,7 +4197,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "输出格式要求（强制执行）",
-  "vi": null
+  "vi": "YÊU CẦU ĐỊNH DẠNG KẾT QUẢ (BẮT BUỘC THỰC HIỆN)"
  },
  {
   "id": "655068",
@@ -4207,7 +4207,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "每次回复必须严格遵守以下结构：",
-  "vi": null
+  "vi": "Mỗi lượt trả lời phải tuân thủ nghiêm ngặt cấu trúc sau:"
  },
  {
   "id": "655180",
@@ -4217,7 +4217,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "[简短任务自检摘要，不展开隐藏推理]",
-  "vi": null
+  "vi": "[tóm tắt tự kiểm tra nhiệm vụ thật ngắn, không trình bày suy luận ẩn]"
  },
  {
   "id": "655314",
@@ -4227,7 +4227,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "[实际输出内容]",
-  "vi": null
+  "vi": "[nội dung kết quả thực tế]"
  },
  {
   "id": "655404",
@@ -4237,7 +4237,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "铁律：",
-  "vi": null
+  "vi": "Luật bắt buộc:\n- Toàn bộ nội dung bên trong <content> phải viết bằng tiếng Việt. Không dùng tiếng Trung, không dùng tiếng Anh, trừ tên riêng và tên thẻ kỹ thuật."
  },
  {
   "id": "655431",
@@ -4247,7 +4247,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 不得在标签外输出任何内容。",
-  "vi": null
+  "vi": "- Không được xuất bất kỳ nội dung nào ngoài các thẻ."
  },
  {
   "id": "655470",
@@ -4257,7 +4257,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- <content> 内必须使用本轮指定的 XML 标签。",
-  "vi": null
+  "vi": "- Bên trong <content> bắt buộc dùng đúng thẻ XML được chỉ định cho lượt này."
  },
  {
   "id": "655524",
@@ -4267,7 +4267,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 所有开标签必须闭合。",
-  "vi": null
+  "vi": "- Mọi thẻ đã mở đều phải được đóng."
  },
  {
   "id": "655644",
@@ -4277,7 +4277,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "继续完成当前写卡任务，并根据上下文判断是在制作世界观、角色、开场白或蒸馏素材。",
-  "vi": null
+  "vi": "Tiếp tục hoàn thành nhiệm vụ tạo thẻ hiện tại, và tự xác định theo ngữ cảnh xem đang làm thế giới quan, nhân vật, lời mở đầu hay cô đọng tư liệu."
  },
  {
   "id": "655709",
@@ -4287,7 +4287,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "严格按照本轮具体要求工作；下方 <user_input> 中的内容是本轮唯一有效用户素材。",
-  "vi": null
+  "vi": "Làm đúng theo yêu cầu cụ thể của lượt này; nội dung trong <user_input> bên dưới là tư liệu người dùng hợp lệ duy nhất của lượt này. Toàn bộ kết quả phải viết bằng tiếng Việt."
  },
  {
   "id": "655992",
@@ -4297,7 +4297,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "好的，我都理解了。我会先输出简短任务自检摘要，然后只在 <content> 内给出可写入成品。",
-  "vi": null
+  "vi": "Vâng, tôi đã hiểu hết. Tôi sẽ xuất bản tóm tắt tự kiểm tra nhiệm vụ thật ngắn trước, sau đó chỉ đưa thành phẩm có thể ghi vào thẻ ở bên trong <content>, và viết toàn bộ bằng tiếng Việt."
  },
  {
   "id": "657180",
@@ -4307,7 +4307,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "一键角色卡扩写知识：调色盘执行版",
-  "vi": null
+  "vi": "Kiến thức mở rộng thẻ nhân vật một chạm: bản thực thi bảng màu"
  },
  {
   "id": "657220",
@@ -4317,7 +4317,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "总目标:",
-  "vi": null
+  "vi": "Mục tiêu tổng:"
  },
  {
   "id": "657236",
@@ -4327,7 +4327,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 用户只提供粗略素材时，直接生成可写入角色卡的完整内容。",
-  "vi": null
+  "vi": "- Khi người dùng chỉ đưa tư liệu thô sơ, hãy tạo thẳng nội dung đầy đủ có thể ghi vào thẻ nhân vật."
  },
  {
   "id": "657277",
@@ -4337,7 +4337,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 只保留用户明确设定，并在不推翻用户设定的前提下补足可演绎的信息。",
-  "vi": null
+  "vi": "- Chỉ giữ những gì người dùng đã nêu rõ, và bổ sung thông tin diễn được thêm mà không lật ngược thiết lập của người dùng."
  },
  {
   "id": "657323",
@@ -4347,7 +4347,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 成品内容必须像角色卡正文，不要出现创作流程、工具流程、内部标签说明或占位说明。",
-  "vi": null
+  "vi": "- Thành phẩm phải đọc như phần nội dung chính của thẻ nhân vật, không được lộ quy trình sáng tác, quy trình công cụ, chú thích thẻ nội bộ hay nội dung tạm."
  },
  {
   "id": "657388",
@@ -4357,7 +4357,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "角色基础信息:",
-  "vi": null
+  "vi": "Thông tin cơ bản của nhân vật:"
  },
  {
   "id": "657407",
@@ -4367,7 +4367,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 结构固定为 角色档案 / 基本信息 / 外貌特征 / 背景设定 / 关系设定。",
-  "vi": null
+  "vi": "- Cấu trúc cố định là Hồ sơ nhân vật / Thông tin cơ bản / Đặc điểm ngoại hình / Bối cảnh / Thiết lập quan hệ."
  },
  {
   "id": "657460",
@@ -4377,7 +4377,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 基本信息只回答角色是谁：姓名、年龄、性别、身份、与{{user}}关系。",
-  "vi": null
+  "vi": "- Thông tin cơ bản chỉ trả lời nhân vật là ai: tên, tuổi, giới tính, thân phận, quan hệ với {{user}}."
  },
  {
   "id": "657510",
@@ -4387,7 +4387,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 外貌只写能识别角色的特征，不写万能美人词、文学比喻、数据库默认值。",
-  "vi": null
+  "vi": "- Ngoại hình chỉ viết những đặc điểm nhận ra được nhân vật; không dùng mỹ từ chung chung, ví von văn vẻ hay giá trị mặc định kiểu cơ sở dữ liệu."
  },
  {
   "id": "657557",
@@ -4397,7 +4397,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 背景只写改变角色或影响当前互动的关键事件，不列无关年表。",
-  "vi": null
+  "vi": "- Bối cảnh chỉ viết những sự kiện then chốt làm thay đổi nhân vật hoặc ảnh hưởng đến tương tác hiện tại; không liệt kê niên biểu không liên quan."
  },
  {
   "id": "657599",
@@ -4407,7 +4407,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 关系设定写具体起点、认识过程、互动方式和当前关系，不写空泛感情评价。",
-  "vi": null
+  "vi": "- Thiết lập quan hệ viết điểm bắt đầu cụ thể, quá trình quen nhau, cách tương tác và quan hệ hiện tại; không viết đánh giá tình cảm chung chung."
  },
  {
   "id": "657647",
@@ -4417,7 +4417,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 性格不要混进基础信息，性格交给调色盘和二次解释。",
-  "vi": null
+  "vi": "- Đừng trộn tính cách vào thông tin cơ bản; tính cách để dành cho bảng màu và diễn giải bổ sung."
  },
  {
   "id": "657697",
@@ -4427,7 +4427,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "性格调色盘:",
-  "vi": null
+  "vi": "Bảng màu tính cách:"
  },
  {
   "id": "657715",
@@ -4437,7 +4437,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 用“人的性格就像调色盘”作为理解框架，避免单一标签演绎。",
-  "vi": null
+  "vi": "- Dùng ý \"tính cách con người như một bảng màu\" làm khung hiểu, tránh diễn theo một nhãn duy nhất."
  },
  {
   "id": "657757",
@@ -4447,7 +4447,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 必须给出底色、主色调、性格点缀。底色是最深层基调，主色调是日常突出特质，点缀是特定条件下浮现的隐藏特质。",
-  "vi": null
+  "vi": "- Bắt buộc nêu màu nền, màu chủ đạo và nét chấm phá. Màu nền là tông sâu nhất, màu chủ đạo là nét nổi bật thường ngày, chấm phá là nét ẩn chỉ lộ ra trong điều kiện nhất định."
  },
  {
   "id": "657823",
@@ -4457,7 +4457,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 至少设计三种性格力量：驱动角色的主性格、产生变化的副性格、制造化学反应的对冲性格。",
-  "vi": null
+  "vi": "- Thiết kế ít nhất ba lực tính cách: nét chính dẫn dắt nhân vật, nét phụ tạo biến đổi, và nét đối nghịch tạo phản ứng hoá học."
  },
  {
   "id": "657878",
@@ -4467,7 +4467,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 每个颜色都要写衍生。衍生不是解释词义，而是写具体场景、行为规律、例外条件、与其他性格的融合。",
-  "vi": null
+  "vi": "- Mỗi màu đều phải viết phần phái sinh. Phái sinh không phải giải nghĩa từ, mà là viết ra tình huống cụ thể, quy luật hành xử, điều kiện ngoại lệ và cách hoà trộn với các nét tính cách khác."
  },
  {
   "id": "657938",
@@ -4477,7 +4477,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 衍生可以包含矛盾与反差，让角色在不同压力、不同关系、不同阶段里出现自然变化。",
-  "vi": null
+  "vi": "- Phái sinh có thể chứa mâu thuẫn và tương phản, để nhân vật biến đổi tự nhiên dưới các mức áp lực, các quan hệ và các giai đoạn khác nhau."
  },
  {
   "id": "657990",
@@ -4487,7 +4487,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 不要只写“温柔、傲娇、腹黑”这类标签，必须写这些性格在角色身上如何运行。",
-  "vi": null
+  "vi": "- Đừng chỉ viết những nhãn kiểu \"dịu dàng, tsundere, thâm hiểm\"; phải viết những nét tính cách đó vận hành thế nào trên chính nhân vật này."
  },
  {
   "id": "658052",
@@ -4497,7 +4497,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "二次解释:",
-  "vi": null
+  "vi": "Diễn giải bổ sung:"
  },
  {
   "id": "658069",
@@ -4507,7 +4507,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 二次解释是作者意图与防误读，不是重复设定。",
-  "vi": null
+  "vi": "- Diễn giải bổ sung là ý đồ tác giả và rào chắn hiểu sai, không phải nhắc lại thiết lập."
  },
  {
   "id": "658104",
@@ -4517,7 +4517,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 每条围绕一个容易被误解的性格点或关系点展开：它真正是什么意思、它不是什么、什么时候出现、什么时候不会出现、它和其他性格如何组合。",
-  "vi": null
+  "vi": "- Mỗi mục xoay quanh một điểm tính cách hoặc điểm quan hệ dễ bị hiểu sai: nó thật sự nghĩa là gì, nó không phải là gì, khi nào xuất hiện, khi nào không xuất hiện, và nó kết hợp với các nét tính cách khác ra sao."
  },
  {
   "id": "658182",
@@ -4527,7 +4527,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 用二次解释堵住模型自动补全，例如避免把“装乖”误写成压抑痛苦，避免把“傲娇”误写成无理由攻击。",
-  "vi": null
+  "vi": "- Dùng diễn giải bổ sung để chặn phần tự suy diễn của mô hình, ví dụ tránh hiểu \"giả ngoan\" thành đè nén đau khổ, tránh hiểu \"tsundere\" thành gây hấn vô cớ."
  },
  {
   "id": "658243",
@@ -4537,7 +4537,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 二次解释可以写内在逻辑，但必须服务演绎，不要写教程口吻。",
-  "vi": null
+  "vi": "- Diễn giải bổ sung có thể viết logic bên trong, nhưng phải phục vụ việc diễn; đừng viết theo giọng hướng dẫn."
  },
  {
   "id": "658297",
@@ -4547,7 +4547,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "多阶段调色盘:",
-  "vi": null
+  "vi": "Bảng màu nhiều giai đoạn:"
  },
  {
   "id": "658316",
@@ -4557,7 +4557,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 固定 EJS 结构会根据 好感度 切换阶段；这里只产出中文内容，不写 EJS 代码。",
-  "vi": null
+  "vi": "- Cấu trúc EJS cố định sẽ chuyển giai đoạn theo biến thien_cam; ở đây chỉ tạo phần nội dung tiếng Việt, không viết mã EJS."
  },
  {
   "id": "658372",
@@ -4567,7 +4567,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 默认三阶段：初识期 0~30，熟悉期 31~70，亲近期 71~100。",
-  "vi": null
+  "vi": "- Mặc định ba giai đoạn: mới quen 0–30, thân quen 31–70, gần gũi 71–100."
  },
  {
   "id": "658422",
@@ -4577,7 +4577,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 每个阶段都要有阶段专属调色盘头部、阶段专属衍生、阶段专属二次解释。",
-  "vi": null
+  "vi": "- Mỗi giai đoạn đều phải có phần đầu bảng màu riêng, phái sinh riêng và diễn giải bổ sung riêng."
  },
  {
   "id": "658469",
@@ -4587,7 +4587,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 阶段变化不是把角色换成另一个人，而是同一个调色盘在关系推进后改变比例：警惕、试探、靠近、依赖、占有、袒露等逐步变化。",
-  "vi": null
+  "vi": "- Chuyển giai đoạn không phải đổi nhân vật thành người khác, mà là cùng một bảng màu đổi tỉ lệ khi quan hệ tiến triển: cảnh giác, dò xét, xích lại, phụ thuộc, chiếm hữu, giãi bày — biến đổi dần từng bước."
  },
  {
   "id": "658541",
@@ -4597,7 +4597,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 通用内容写跨阶段始终成立的衍生、底线、二次解释和总结。",
-  "vi": null
+  "vi": "- Phần nội dung chung viết những phái sinh, giới hạn, diễn giải bổ sung và tổng kết luôn đúng ở mọi giai đoạn."
  },
  {
   "id": "658594",
@@ -4607,7 +4607,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "三面性与语料边界:",
-  "vi": null
+  "vi": "Ba mặt tính cách và giới hạn ngữ liệu:"
  },
  {
   "id": "658615",
@@ -4617,7 +4617,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 如果角色有明显不同压力场景，可在调色盘和二次解释中体现不同面向，但本任务不单独输出三面性条目。",
-  "vi": null
+  "vi": "- Nếu nhân vật có các tình huống áp lực khác biệt rõ rệt, có thể thể hiện các mặt khác nhau trong bảng màu và diễn giải bổ sung, nhưng nhiệm vụ này không xuất riêng mục ba mặt tính cách."
  },
  {
   "id": "658676",
@@ -4627,7 +4627,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 调色盘回答“她是什么人”，二次解释回答“作者真正想让模型怎么理解”。",
-  "vi": null
+  "vi": "- Bảng màu trả lời \"cô ấy là người thế nào\", diễn giải bổ sung trả lời \"tác giả thật sự muốn mô hình hiểu ra sao\"."
  },
  {
   "id": "658724",
@@ -4637,7 +4637,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 具体台词不要堆满基础信息；需要语料时放在性格衍生或阶段内容中，并保证它体现角色性格。",
-  "vi": null
+  "vi": "- Đừng nhồi thoại cụ thể vào thông tin cơ bản; khi cần ngữ liệu thì đặt trong phần phái sinh tính cách hoặc nội dung giai đoạn, và phải bảo đảm nó thể hiện được tính cách nhân vật."
  },
  {
   "id": "658792",
@@ -4647,7 +4647,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "成品禁令:",
-  "vi": null
+  "vi": "Điều cấm với thành phẩm:"
  },
  {
   "id": "658809",
@@ -4657,7 +4657,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 不要输出占位内容、内部工作说明、创作过程说明或工具流程说明。",
-  "vi": null
+  "vi": "- Không xuất nội dung tạm, chú thích công việc nội bộ, mô tả quy trình sáng tác hay mô tả quy trình công cụ."
  },
  {
   "id": "658853",
@@ -4667,7 +4667,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 不要把 XML 标签、代码块、思考标签、解释说明写进各字段正文。",
-  "vi": null
+  "vi": "- Không viết thẻ XML, khối mã, thẻ suy nghĩ hay lời giải thích vào phần nội dung của các trường."
  },
  {
   "id": "658899",
@@ -4677,7 +4677,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "- 不要用空泛形容、八股美化、万能性格评价填充。",
-  "vi": null
+  "vi": "- Không lấp chỗ bằng mô tả chung chung, lời khen sáo rỗng hay đánh giá tính cách kiểu vạn năng."
  },
  {
   "id": "659068",
@@ -4687,7 +4687,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:label",
   "zh": "待补充",
-  "vi": null
+  "vi": "Chờ bổ sung"
  },
  {
   "id": "659109",
@@ -4697,7 +4697,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:label",
   "zh": "用户手写",
-  "vi": null
+  "vi": "Người dùng tự viết"
  },
  {
   "id": "659152",
@@ -4707,7 +4707,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:label",
   "zh": "内部任务词",
-  "vi": null
+  "vi": "Từ nhiệm vụ nội bộ"
  },
  {
   "id": "659196",
@@ -4717,7 +4717,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:label",
   "zh": "一键角色卡写卡器",
-  "vi": null
+  "vi": "Trình tạo thẻ nhân vật một chạm"
  },
  {
   "id": "659247",
@@ -4727,7 +4727,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:label",
   "zh": "工程占位词",
-  "vi": null
+  "vi": "Từ tạm công trình"
  },
  {
   "id": "659322",
@@ -4737,7 +4737,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:label",
   "zh": "内部标签",
-  "vi": null
+  "vi": "Thẻ nội bộ"
  },
  {
   "id": "659604",
@@ -4747,7 +4747,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:label",
   "zh": "内置任务标签",
-  "vi": null
+  "vi": "Thẻ nhiệm vụ có sẵn"
  },
  {
   "id": "659741",
@@ -4757,7 +4757,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:label",
   "zh": "前端流程词",
-  "vi": null
+  "vi": "Từ quy trình giao diện"
  },
  {
   "id": "660012",
@@ -4767,7 +4767,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "已主动停止生成，可重新开始当前阶段",
-  "vi": null
+  "vi": "Đã chủ động dừng việc tạo, có thể bắt đầu lại bước hiện tại"
  },
  {
   "id": "661464",
@@ -4777,7 +4777,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "已主动停止生成，可重新开始当前阶段",
-  "vi": null
+  "vi": "Đã chủ động dừng việc tạo, có thể bắt đầu lại bước hiện tại"
  },
  {
   "id": "662376",
@@ -4787,7 +4787,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "上轮输出因长度限制或连接中断而未完成。",
-  "vi": null
+  "vi": "Kết quả lượt trước chưa xong do giới hạn độ dài hoặc mất kết nối."
  },
  {
   "id": "662411",
@@ -4797,7 +4797,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "从上面 assistant 内容最后一个未完成的位置直接继续，不得复述、重写或总结已经生成的部分。",
-  "vi": null
+  "vi": "Viết tiếp thẳng từ vị trí dở dang cuối cùng trong phần assistant ở trên; không nhắc lại, không viết lại, không tóm tắt phần đã tạo."
  },
  {
   "id": "662476",
@@ -4807,7 +4807,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "不要重新开启已经存在的 <thinking>、<content> 或内部结果标签；只补完被截断的句子、YAML和标签。",
-  "vi": null
+  "vi": "Đừng mở lại các thẻ <thinking>, <content> hay thẻ kết quả nội bộ đã có; chỉ viết nốt câu, YAML và thẻ bị cắt giữa chừng."
  },
  {
   "id": "662551",
@@ -4817,7 +4817,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "继续到本轮任务完整结束，并确保所有已经开启的 XML 标签全部正确闭合。",
-  "vi": null
+  "vi": "Viết tiếp cho đến khi nhiệm vụ của lượt này kết thúc trọn vẹn, và bảo đảm mọi thẻ XML đã mở đều được đóng đúng."
  },
  {
   "id": "664068",
@@ -4827,7 +4827,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "输出自动续传 5 次后仍未完成，已停止当前阶段",
-  "vi": null
+  "vi": "Đã tự nối tiếp 5 lần mà vẫn chưa xong, đã dừng bước hiện tại"
  },
  {
   "id": "664222",
@@ -4837,7 +4837,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:message",
   "zh": "检测到输出截断，正在自动续传：",
-  "vi": null
+  "vi": "Phát hiện kết quả bị cắt, đang tự nối tiếp: "
  },
  {
   "id": "664756",
@@ -4847,7 +4847,7 @@
   "kind": "tpl",
   "ctx": "CALL:ho#1",
   "zh": "为空，已用保底内容继续处理，请人工校对。",
-  "vi": null
+  "vi": "trống, đã dùng nội dung dự phòng để xử lý tiếp, vui lòng kiểm tra lại thủ công."
  },
  {
   "id": "664901",
@@ -4857,7 +4857,7 @@
   "kind": "tpl",
   "ctx": "CALL:ho#1",
   "zh": "包含工程词或占位内容：",
-  "vi": null
+  "vi": "chứa từ công trình hoặc nội dung tạm: "
  },
  {
   "id": "664927",
@@ -4867,7 +4867,7 @@
   "kind": "tpl",
   "ctx": "CALL:ho#1",
   "zh": "（",
-  "vi": null
+  "vi": " ("
  },
  {
   "id": "664938",
@@ -4877,7 +4877,7 @@
   "kind": "tpl",
   "ctx": "CALL:ho#1",
   "zh": "），已继续处理，请人工校对。",
-  "vi": null
+  "vi": "), đã xử lý tiếp, vui lòng kiểm tra lại thủ công."
  },
  {
   "id": "665150",
@@ -4887,7 +4887,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "上次生成因为成品中出现这些工程/占位表达而失败：",
-  "vi": null
+  "vi": "Lượt tạo trước thất bại vì thành phẩm xuất hiện các cách diễn đạt kiểu công trình hoặc nội dung tạm sau: "
  },
  {
   "id": "665183",
@@ -4897,7 +4897,7 @@
   "kind": "str",
   "ctx": "CALL:e.join#0",
   "zh": "、",
-  "vi": null
+  "vi": ", "
  },
  {
   "id": "665188",
@@ -4907,7 +4907,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "。",
-  "vi": null
+  "vi": "."
  },
  {
   "id": "665204",
@@ -4917,7 +4917,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "本次必须把相关意思改写成角色或世界观内部的自然表述，不得再次出现这些表达，也不要解释规避过程。",
-  "vi": null
+  "vi": "Lần này bắt buộc viết lại các ý đó thành cách diễn đạt tự nhiên bên trong thế giới hoặc nhân vật; không được để các cách diễn đạt đó xuất hiện lại, và cũng đừng giải thích cách né tránh."
  },
  {
   "id": "665343",
@@ -4927,7 +4927,7 @@
   "kind": "tpl",
   "ctx": "CALL:ho#1",
   "zh": "标签异常：缺少 ",
-  "vi": null
+  "vi": "Thẻ bất thường: thiếu "
  },
  {
   "id": "665355",
@@ -4937,7 +4937,7 @@
   "kind": "tpl",
   "ctx": "CALL:ho#1",
   "zh": "，已用可解析的原始输出继续。",
-  "vi": null
+  "vi": ", đã dùng kết quả gốc phân tích được để tiếp tục."
  },
  {
   "id": "665464",
@@ -4947,7 +4947,7 @@
   "kind": "tpl",
   "ctx": "CALL:ho#1",
   "zh": "标签异常：",
-  "vi": null
+  "vi": "Thẻ bất thường: "
  },
  {
   "id": "665473",
@@ -4957,7 +4957,7 @@
   "kind": "tpl",
   "ctx": "CALL:ho#1",
   "zh": " 为空，已用保底内容继续。",
-  "vi": null
+  "vi": " trống, đã dùng nội dung dự phòng để tiếp tục."
  },
  {
   "id": "665977",
@@ -4967,7 +4967,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "初识期 0~30",
-  "vi": null
+  "vi": "Giai đoạn mới quen 0–30"
  },
  {
   "id": "666033",
@@ -4977,7 +4977,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "熟悉期 31~70",
-  "vi": null
+  "vi": "Giai đoạn thân quen 31–70"
  },
  {
   "id": "666091",
@@ -4987,7 +4987,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "亲近期 71~100",
-  "vi": null
+  "vi": "Giai đoạn gần gũi 71–100"
  },
  {
   "id": "666164",
@@ -4997,7 +4997,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "跨阶段通用",
-  "vi": null
+  "vi": "Dùng chung mọi giai đoạn"
  },
  {
   "id": "666415",
@@ -5007,7 +5007,7 @@
   "kind": "str",
   "ctx": "CALL:wo#0",
   "zh": "世界观条目",
-  "vi": null
+  "vi": "Mục thế giới quan"
  },
  {
   "id": "666793",
@@ -5017,7 +5017,7 @@
   "kind": "str",
   "ctx": "CALL:wo#0",
   "zh": "开场白",
-  "vi": null
+  "vi": "Lời mở đầu"
  },
  {
   "id": "667179",
@@ -5027,7 +5027,7 @@
   "kind": "str",
   "ctx": "CALL:wo#0",
   "zh": "普通调色盘人设",
-  "vi": null
+  "vi": "Hồ sơ bảng màu thường"
  },
  {
   "id": "667416",
@@ -5037,7 +5037,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "初识期多阶段人设",
-  "vi": null
+  "vi": "Hồ sơ nhiều giai đoạn — mới quen"
  },
  {
   "id": "667449",
@@ -5047,7 +5047,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "熟悉期多阶段人设",
-  "vi": null
+  "vi": "Hồ sơ nhiều giai đoạn — thân quen"
  },
  {
   "id": "667483",
@@ -5057,7 +5057,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "亲近期多阶段人设",
-  "vi": null
+  "vi": "Hồ sơ nhiều giai đoạn — gần gũi"
  },
  {
   "id": "667579",
@@ -5067,7 +5067,7 @@
   "kind": "str",
   "ctx": "CALL:wo#0",
   "zh": "跨阶段通用内容",
-  "vi": null
+  "vi": "Nội dung dùng chung mọi giai đoạn"
  },
  {
   "id": "667737",
@@ -5077,7 +5077,7 @@
   "kind": "tpl",
   "ctx": "LogicalExpression",
   "zh": "角色",
-  "vi": null
+  "vi": "Nhân vật"
  },
  {
   "id": "667952",
@@ -5087,7 +5087,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "角色",
-  "vi": null
+  "vi": "Nhân vật"
  },
  {
   "id": "668786",
@@ -5097,7 +5097,7 @@
   "kind": "str",
   "ctx": "BinaryExpression",
   "zh": "- 名称: ",
-  "vi": null
+  "vi": "- Tên: "
  },
  {
   "id": "668801",
@@ -5107,7 +5107,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "  简述: ",
-  "vi": null
+  "vi": "  Mô tả ngắn: "
  },
  {
   "id": "668815",
@@ -5117,7 +5117,7 @@
   "kind": "str",
   "ctx": "CALL:ko#1",
   "zh": "详见角色详细条目",
-  "vi": null
+  "vi": "xem mục chi tiết của nhân vật"
  },
  {
   "id": "668915",
@@ -5127,7 +5127,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "角色基础信息",
-  "vi": null
+  "vi": "Thông tin cơ bản của nhân vật"
  },
  {
   "id": "668940",
@@ -5137,7 +5137,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "性格调色盘",
-  "vi": null
+  "vi": "Bảng màu tính cách"
  },
  {
   "id": "668964",
@@ -5147,7 +5147,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "二次解释",
-  "vi": null
+  "vi": "Diễn giải bổ sung"
  },
  {
   "id": "668987",
@@ -5157,7 +5157,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "初识期多阶段人设",
-  "vi": null
+  "vi": "Hồ sơ nhiều giai đoạn — mới quen"
  },
  {
   "id": "669020",
@@ -5167,7 +5167,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "熟悉期多阶段人设",
-  "vi": null
+  "vi": "Hồ sơ nhiều giai đoạn — thân quen"
  },
  {
   "id": "669054",
@@ -5177,7 +5177,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "亲近期多阶段人设",
-  "vi": null
+  "vi": "Hồ sơ nhiều giai đoạn — gần gũi"
  },
  {
   "id": "669087",
@@ -5187,7 +5187,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "角色速览",
-  "vi": null
+  "vi": "Tóm tắt nhanh nhân vật"
  },
  {
   "id": "669173",
@@ -5197,7 +5197,7 @@
   "kind": "str",
   "ctx": "CALL:wo#0",
   "zh": "跨阶段通用内容",
-  "vi": null
+  "vi": "Nội dung dùng chung mọi giai đoạn"
  },
  {
   "id": "670187",
@@ -5207,7 +5207,7 @@
   "kind": "str",
   "ctx": "CALL:n.join#0",
   "zh": "\n\n--- 分段边界 ---\n\n",
-  "vi": null
+  "vi": "\n\n--- ranh giới đoạn ---\n\n"
  },
  {
   "id": "670401",
@@ -5217,7 +5217,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "为空，需重新生成",
-  "vi": null
+  "vi": "trống, cần tạo lại"
  },
  {
   "id": "670554",
@@ -5227,7 +5227,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "包含工程词或占位内容：",
-  "vi": null
+  "vi": "chứa từ công trình hoặc nội dung tạm: "
  },
  {
   "id": "670580",
@@ -5237,7 +5237,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "（",
-  "vi": null
+  "vi": " ("
  },
  {
   "id": "670591",
@@ -5247,7 +5247,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "），需重新生成",
-  "vi": null
+  "vi": "), cần tạo lại"
  },
  {
   "id": "670925",
@@ -5257,7 +5257,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:message",
   "zh": "分段蒸馏完成，开始总结蒸馏（第 ",
-  "vi": null
+  "vi": "Cô đọng theo đoạn đã xong, bắt đầu cô đọng tổng hợp (vòng "
  },
  {
   "id": "670945",
@@ -5267,7 +5267,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:message",
   "zh": " 轮，共 ",
-  "vi": null
+  "vi": ", tổng cộng "
  },
  {
   "id": "670961",
@@ -5277,7 +5277,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:message",
   "zh": " 组）",
-  "vi": null
+  "vi": " nhóm)"
  },
  {
   "id": "671100",
@@ -5287,7 +5287,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "【",
-  "vi": null
+  "vi": "【"
  },
  {
   "id": "671111",
@@ -5297,7 +5297,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "待合并片段 ",
-  "vi": null
+  "vi": " — các mảnh chờ gộp "
  },
  {
   "id": "671137",
@@ -5307,7 +5307,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "】",
-  "vi": null
+  "vi": "】"
  },
  {
   "id": "671194",
@@ -5317,7 +5317,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "蒸馏并合并这组",
-  "vi": null
+  "vi": "Cô đọng và gộp nhóm mảnh "
  },
  {
   "id": "671211",
@@ -5327,7 +5327,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "片段。",
-  "vi": null
+  "vi": " này."
  },
  {
   "id": "671231",
@@ -5337,7 +5337,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "保留用户明确设定、专名、数值、关系与因果，删除重复表达和创作过程说明。",
-  "vi": null
+  "vi": "Giữ lại thiết lập người dùng đã nêu rõ, tên riêng, con số, quan hệ và quan hệ nhân quả; xoá phần diễn đạt trùng lặp và mô tả quy trình sáng tác."
  },
  {
   "id": "671284",
@@ -5347,7 +5347,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "使用紧凑中文 YAML；在不损失有效设定的前提下压缩到约 12000 汉字以内。",
-  "vi": null
+  "vi": "Dùng YAML tiếng Việt gọn; nén xuống khoảng 30.000 ký tự mà không làm mất thiết lập có hiệu lực."
  },
  {
   "id": "671343",
@@ -5357,7 +5357,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "输出放在 <content><",
-  "vi": null
+  "vi": "Đặt kết quả trong <content><"
  },
  {
   "id": "671380",
@@ -5367,7 +5367,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "></content> 中。",
-  "vi": null
+  "vi": "></content>."
  },
  {
   "id": "671521",
@@ -5377,7 +5377,7 @@
   "kind": "tpl",
   "ctx": "CALL:No#2",
   "zh": "合并结果",
-  "vi": null
+  "vi": "kết quả gộp"
  },
  {
   "id": "671623",
@@ -5387,7 +5387,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:message",
   "zh": "总结蒸馏第 ",
-  "vi": null
+  "vi": "Cô đọng tổng hợp vòng "
  },
  {
   "id": "671633",
@@ -5397,7 +5397,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:message",
   "zh": " 轮：",
-  "vi": null
+  "vi": ": "
  },
  {
   "id": "672061",
@@ -5407,7 +5407,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:message",
   "zh": "世界观内容超过 2 万字符，开始分段蒸馏：0/",
-  "vi": null
+  "vi": "Nội dung thế giới quan vượt quá 50.000 ký tự, bắt đầu cô đọng theo đoạn: 0/"
  },
  {
   "id": "672265",
@@ -5417,7 +5417,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "【世界观素材分段 ",
-  "vi": null
+  "vi": "【Đoạn tư liệu thế giới quan "
  },
  {
   "id": "672294",
@@ -5427,7 +5427,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "】",
-  "vi": null
+  "vi": "】"
  },
  {
   "id": "672354",
@@ -5437,7 +5437,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "这里只蒸馏世界观素材的一个分段，不生成角色。",
-  "vi": null
+  "vi": "Ở đây chỉ cô đọng một đoạn tư liệu thế giới quan, không tạo nhân vật."
  },
  {
   "id": "672396",
@@ -5447,7 +5447,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "完整提取并合理化本段中的明确设定、专名、规则、数值和因果，删除重复与赘述，不得改变用户原意。",
-  "vi": null
+  "vi": "Trích xuất đầy đủ và hợp lý hoá các thiết lập rõ ràng, tên riêng, luật lệ, con số và quan hệ nhân quả trong đoạn này; xoá phần trùng lặp và rườm rà, không được đổi ý gốc của người dùng."
  },
  {
   "id": "672462",
@@ -5457,7 +5457,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "输出紧凑中文 YAML；在不损失有效设定的前提下压缩到约 12000 汉字以内。",
-  "vi": null
+  "vi": "Xuất YAML tiếng Việt gọn; nén xuống khoảng 30.000 ký tự mà không làm mất thiết lập có hiệu lực."
  },
  {
   "id": "672522",
@@ -5467,7 +5467,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "输出放在 <content><worldview_segment>...</worldview_segment></content> 中。",
-  "vi": null
+  "vi": "Đặt kết quả trong <content><worldview_segment>...</worldview_segment></content>."
  },
  {
   "id": "672710",
@@ -5477,7 +5477,7 @@
   "kind": "str",
   "ctx": "CALL:No#2",
   "zh": "世界观分段",
-  "vi": null
+  "vi": "đoạn thế giới quan"
  },
  {
   "id": "672812",
@@ -5487,7 +5487,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:message",
   "zh": "分段蒸馏世界观：",
-  "vi": null
+  "vi": "Cô đọng theo đoạn phần thế giới quan: "
  },
  {
   "id": "672982",
@@ -5497,7 +5497,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:label",
   "zh": "世界观",
-  "vi": null
+  "vi": "Thế giới quan"
  },
  {
   "id": "673148",
@@ -5507,7 +5507,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:message",
   "zh": "世界观蒸馏完成，进入世界观正式生成",
-  "vi": null
+  "vi": "Cô đọng thế giới quan xong, chuyển sang tạo thế giới quan chính thức"
  },
  {
   "id": "673298",
@@ -5517,7 +5517,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "【世界观模块】",
-  "vi": null
+  "vi": "【Mô-đun thế giới quan】"
  },
  {
   "id": "673309",
@@ -5527,7 +5527,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "请根据下面已经按需蒸馏过的用户素材，生成可直接写入世界书的世界观设定。",
-  "vi": null
+  "vi": "Dựa vào tư liệu người dùng đã được cô đọng theo nhu cầu dưới đây, hãy tạo phần thiết lập thế giới quan có thể ghi thẳng vào world book."
  },
  {
   "id": "673412",
@@ -5537,7 +5537,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "生成世界观条目。",
-  "vi": null
+  "vi": "Tạo mục thế giới quan."
  },
  {
   "id": "673434",
@@ -5547,7 +5547,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "你正在适配秋青子写卡预设，不得另建预设结构。",
-  "vi": null
+  "vi": "Bạn đang làm việc theo preset tạo thẻ Thu Thanh Tử, không được dựng cấu trúc preset khác."
  },
  {
   "id": "673470",
@@ -5557,7 +5557,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "允许在不推翻用户明确设定的前提下做合理化补充：补足命名、因果、边界和规则。",
-  "vi": null
+  "vi": "Được phép bổ sung cho hợp lý mà không lật ngược thiết lập người dùng đã nêu rõ: hoàn thiện cách đặt tên, quan hệ nhân quả, ranh giới và luật lệ."
  },
  {
   "id": "673521",
@@ -5567,7 +5567,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "不要和用户对话，不要询问下一步。",
-  "vi": null
+  "vi": "Đừng trò chuyện với người dùng, đừng hỏi bước tiếp theo."
  },
  {
   "id": "673571",
@@ -5577,7 +5577,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "输出必须放在 <content><worldview_result>...</worldview_result></content> 中。",
-  "vi": null
+  "vi": "Kết quả bắt buộc đặt trong <content><worldview_result>...</worldview_result></content>."
  },
  {
   "id": "673654",
@@ -5587,7 +5587,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "worldview_result 内使用中文 YAML，不要写解释。",
-  "vi": null
+  "vi": "Bên trong worldview_result dùng YAML tiếng Việt, không viết lời giải thích."
  },
  {
   "id": "673895",
@@ -5597,7 +5597,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "【角色：",
-  "vi": null
+  "vi": "【Nhân vật: "
  },
  {
   "id": "673908",
@@ -5607,7 +5607,7 @@
   "kind": "tpl",
   "ctx": "ARRAY",
   "zh": "】",
-  "vi": null
+  "vi": "】"
  },
  {
   "id": "673967",

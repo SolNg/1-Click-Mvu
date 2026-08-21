@@ -4026,9 +4026,9 @@ var e = {
     }
     function Fr(n) {
       const e = n.trim();
-      if (!e) throw new Error("角色卡名称不能为空");
-      if ("current" === e) throw new Error("角色卡名称不能是 current");
-      if (Pr(e)) throw new Error("SillyTavern System 是欢迎页的系统占位角色，请填写一个新的角色卡名称");
+      if (!e) throw new Error("Tên thẻ nhân vật không được để trống");
+      if ("current" === e) throw new Error("Tên thẻ nhân vật không được là current");
+      if (Pr(e)) throw new Error("SillyTavern System là nhân vật giữ chỗ của trang chào, vui lòng điền một tên thẻ nhân vật khác");
       return e;
     }
     function qr(n) {
@@ -4047,27 +4047,27 @@ var e = {
           return await e();
         } catch (e) {
           if (!qr(e)) throw e;
-          ((t = e), console.warn(`[一键角色卡写卡器] ${n}被中止，准备重试（${a}/3）`, e), a < 3 && (await Ur(a)));
+          ((t = e), console.warn(`[Trình tạo thẻ nhân vật một chạm] ${n} bị huỷ giữa chừng, chuẩn bị thử lại (${a}/3)`, e), a < 3 && (await Ur(a)));
         }
       const a = t instanceof Error ? t.message : String(t);
-      throw new Error(`${n}连续被本地酒馆中止，请确认页面没有刷新或断开后重试（原始错误：${a}）`);
+      throw new Error(`${n} liên tục bị SillyTavern cục bộ huỷ. Hãy chắc chắn trang chưa bị tải lại hoặc mất kết nối rồi thử lại (lỗi gốc: ${a})`);
     }
     async function Xr() {
-      await Sr("刷新角色列表", () => SillyTavern.getCharacters());
+      await Sr("Làm mới danh sách nhân vật", () => SillyTavern.getCharacters());
     }
     async function Wr(n) {
       const e = Fr(n);
       let t = SillyTavern.characters.findIndex((n) => n.name === e);
       if ((t < 0 && (await Xr(), (t = SillyTavern.characters.findIndex((n) => n.name === e))), t < 0))
-        throw new Error(`角色卡不存在：${e}`);
+        throw new Error(`Thẻ nhân vật không tồn tại: ${e}`);
       let a = SillyTavern.characters[t];
       if (Array.isArray(a.data?.alternate_greetings)) return;
       if (
-        (await Sr("读取角色卡详情", () => SillyTavern.unshallowCharacter(String(t))),
+        (await Sr("Đọc chi tiết thẻ nhân vật", () => SillyTavern.unshallowCharacter(String(t))),
         (t = SillyTavern.characters.findIndex((n) => n.name === e)),
         t < 0)
       )
-        throw new Error(`读取详情后角色卡从列表中消失：${e}`);
+        throw new Error(`Thẻ nhân vật biến mất khỏi danh sách sau khi đọc chi tiết: ${e}`);
       ((a = SillyTavern.characters[t]), (a.data ??= {}));
       const r = a.data.alternate_greetings;
       if (Array.isArray(r)) return;
@@ -4075,7 +4075,7 @@ var e = {
         i = o.length > 0 ? o : ["​"];
       a.data.alternate_greetings = i;
       const A = a.first_mes ?? a.data.first_mes ?? "";
-      await Sr("补全角色卡兼容字段", () => replaceCharacter(e, { first_messages: [A, ...i] }, { render: "none" }));
+      await Sr("Bổ sung các trường tương thích cho thẻ nhân vật", () => replaceCharacter(e, { first_messages: [A, ...i] }, { render: "none" }));
       const s = SillyTavern.characters.find((n) => n.name === e);
       s && ((s.data ??= {}), Array.isArray(s.data.alternate_greetings) || (s.data.alternate_greetings = i));
     }
@@ -4093,7 +4093,7 @@ var e = {
             } catch (a) {
               if (!qr(a)) throw a;
               ((e = a),
-                console.warn(`[一键角色卡写卡器] 创建角色卡被中止，正在确认服务器是否已经创建（${t}/3）`, a),
+                console.warn(`[Trình tạo thẻ nhân vật một chạm] Việc tạo thẻ bị huỷ, đang kiểm tra xem máy chủ đã tạo hay chưa (${t}/3)`, a),
                 await Ur(t));
               try {
                 await Xr();
@@ -4104,7 +4104,7 @@ var e = {
             }
           }
           const t = e instanceof Error ? e.message : String(e);
-          throw new Error(`创建角色卡连续被本地酒馆中止，请确认页面没有刷新或断开后重试（原始错误：${t}）`);
+          throw new Error(`Việc tạo thẻ nhân vật liên tục bị SillyTavern cục bộ huỷ. Hãy chắc chắn trang chưa bị tải lại hoặc mất kết nối rồi thử lại (lỗi gốc: ${t})`);
         })(t)),
         await Wr(t),
         !a)
@@ -4112,7 +4112,7 @@ var e = {
         try {
           await getCharacter(t);
         } catch {
-          throw new Error(`创建角色卡失败：${t}`);
+          throw new Error(`Tạo thẻ nhân vật thất bại: ${t}`);
         }
       return (await Tr(t, e), { name: t, created: a });
     }
@@ -4164,10 +4164,10 @@ var e = {
       await Rr(
         n,
         Hr({
-          name: "变量结构",
+          name: "Cấu trúc biến",
           id: zr("qz-mvu-schema"),
           content: e,
-          info: "自动生成的 MVU 变量结构脚本。",
+          info: "Script cấu trúc biến MVU được tạo tự động.",
           button: { enabled: !0, buttons: [] },
           data: {},
         }),
@@ -4177,9 +4177,9 @@ var e = {
       if (!e) return;
       const t = Fr(n);
       await Wr(t);
-      const a = await Sr("读取角色卡封面图片", () => e.arrayBuffer()),
+      const a = await Sr("Đọc ảnh bìa thẻ nhân vật", () => e.arrayBuffer()),
         r = new Blob([a], { type: e.type || "image/png" });
-      await Sr("写入角色卡封面", async () => {
+      await Sr("Ghi ảnh bìa thẻ nhân vật", async () => {
         const n = await getCharacter(t);
         ((n.avatar = r), await replaceCharacter(t, n, { render: "immediate" }));
       });
@@ -4189,13 +4189,13 @@ var e = {
       let t = -1;
       for (let n = 0; n < 20 && ((t = SillyTavern.characters.findIndex((n) => n.name === e)), !(t >= 0)); n += 1)
         await new Promise((n) => setTimeout(n, 100));
-      if (t < 0) throw new Error(`已完成写入，但无法在角色列表中找到：${e}`);
+      if (t < 0) throw new Error(`Đã ghi xong, nhưng không tìm thấy trong danh sách nhân vật: ${e}`);
       await SillyTavern.selectCharacterById(t, { switchMenu: !0 });
     }
     async function Yr(n, e) {
       const t = Fr(n),
         a = e.trim();
-      if (!a) throw new Error("开场白不能为空");
+      if (!a) throw new Error("Lời mở đầu không được để trống");
       (await Wr(t),
         await updateCharacterWith(t, (n) => {
           const e = n.first_messages ?? [];
@@ -4212,14 +4212,14 @@ var e = {
           n.objectStoreNames.contains(jr) || n.createObjectStore(jr);
         }),
           t.addEventListener("success", () => n(t.result)),
-          t.addEventListener("error", () => e(t.error ?? new Error("无法打开写卡器草稿缓存"))));
+          t.addEventListener("error", () => e(t.error ?? new Error("Không mở được bộ nhớ đệm bản nháp của trình tạo thẻ"))));
       });
     }
     function Zr(n) {
       return new Promise((e, t) => {
         (n.addEventListener("complete", () => e()),
-          n.addEventListener("abort", () => t(n.error ?? new Error("写卡器草稿缓存事务已中止"))),
-          n.addEventListener("error", () => t(n.error ?? new Error("写卡器草稿缓存事务失败"))));
+          n.addEventListener("abort", () => t(n.error ?? new Error("Giao dịch bộ nhớ đệm bản nháp đã bị huỷ"))),
+          n.addEventListener("error", () => t(n.error ?? new Error("Giao dịch bộ nhớ đệm bản nháp thất bại"))));
       });
     }
     async function Kr(n) {
@@ -4258,51 +4258,51 @@ var e = {
       const a = (function (n, e) {
         return "41" === n
           ? [
-              "- 每次正文前保留 <thinking>、[metacognition]、</thinking> 标签。",
-              "- 这里不是完整隐藏推理，只输出简短任务自检摘要，最多8行。",
+              "- Trước mỗi phần nội dung chính, giữ nguyên các thẻ <thinking>, [metacognition], </thinking>.",
+              "- Đây không phải phần suy luận ẩn đầy đủ, chỉ xuất bản tóm tắt tự kiểm tra nhiệm vụ thật ngắn, tối đa 8 dòng.",
               "<thinking>",
               "[metacognition]",
             ].join("\n")
           : "42" === n
             ? [
-                "- 检查本轮类型：世界观、角色人设、角色速览、MVU/EJS固定产物。",
-                "- 检查本轮启用的知识条目是否与任务对应。",
-                "- 区分用户明确设定与合理化补充，补充不得推翻用户明确内容。",
-                "- 检查输出是否适合直接写入世界书或角色脚本。",
-                "- 检查标签、YAML、XML块是否闭合。",
+                "- Kiểm tra loại của lượt này: thế giới quan, hồ sơ nhân vật, tóm tắt nhân vật, hay sản phẩm cố định MVU/EJS.",
+                "- Kiểm tra các mục kiến thức được bật ở lượt này có khớp với nhiệm vụ không.",
+                "- Phân biệt phần người dùng đã nêu rõ với phần tự bổ sung cho hợp lý; phần bổ sung không được lật ngược nội dung người dùng đã nêu rõ.",
+                "- Kiểm tra kết quả có phù hợp để ghi thẳng vào world book hoặc script nhân vật không.",
+                "- Kiểm tra các thẻ, khối YAML và XML đã đóng đủ chưa.",
               ].join("\n")
             : "43" === n
               ? "\n</thinking>"
               : "44" === n
                 ? [
-                    "输出格式要求（强制执行）",
+                    "YÊU CẦU ĐỊNH DẠNG KẾT QUẢ (BẮT BUỘC THỰC HIỆN)",
                     "",
-                    "每次回复必须严格遵守以下结构：",
+                    "Mỗi lượt trả lời phải tuân thủ nghiêm ngặt cấu trúc sau:",
                     "<thinking>",
                     "[metacognition]",
-                    "[简短任务自检摘要，不展开隐藏推理]",
+                    "[tóm tắt tự kiểm tra nhiệm vụ thật ngắn, không trình bày suy luận ẩn]",
                     "</thinking>",
                     "",
                     "<content>",
-                    "[实际输出内容]",
+                    "[nội dung kết quả thực tế]",
                     "</content>",
                     "",
-                    "铁律：",
-                    "- 不得在标签外输出任何内容。",
-                    "- <content> 内必须使用本轮指定的 XML 标签。",
-                    "- 所有开标签必须闭合。",
+                    "Luật bắt buộc:\n- Toàn bộ nội dung bên trong <content> phải viết bằng tiếng Việt. Không dùng tiếng Trung, không dùng tiếng Anh, trừ tên riêng và tên thẻ kỹ thuật.",
+                    "- Không được xuất bất kỳ nội dung nào ngoài các thẻ.",
+                    "- Bên trong <content> bắt buộc dùng đúng thẻ XML được chỉ định cho lượt này.",
+                    "- Mọi thẻ đã mở đều phải được đóng.",
                   ].join("\n")
                 : "45" === n
                   ? [
-                      "继续完成当前写卡任务，并根据上下文判断是在制作世界观、角色、开场白或蒸馏素材。",
-                      "严格按照本轮具体要求工作；下方 <user_input> 中的内容是本轮唯一有效用户素材。",
+                      "Tiếp tục hoàn thành nhiệm vụ tạo thẻ hiện tại, và tự xác định theo ngữ cảnh xem đang làm thế giới quan, nhân vật, lời mở đầu hay cô đọng tư liệu.",
+                      "Làm đúng theo yêu cầu cụ thể của lượt này; nội dung trong <user_input> bên dưới là tư liệu người dùng hợp lệ duy nhất của lượt này. Toàn bộ kết quả phải viết bằng tiếng Việt.",
                       "<user_input>",
                       "{{lastUserMessage}}",
                       "</user_input>",
                     ].join("\n")
                   : "48" === n
                     ? [
-                        "好的，我都理解了。我会先输出简短任务自检摘要，然后只在 <content> 内给出可写入成品。",
+                        "Vâng, tôi đã hiểu hết. Tôi sẽ xuất bản tóm tắt tự kiểm tra nhiệm vụ thật ngắn trước, sau đó chỉ đưa thành phẩm có thể ghi vào thẻ ở bên trong <content>, và viết toàn bộ bằng tiếng Việt.",
                         "<thinking>",
                       ].join("\n")
                     : e;
@@ -4340,72 +4340,72 @@ var e = {
         .replace(/^_+|_+$/g, "");
     }
     const io = [
-        "一键角色卡扩写知识：调色盘执行版",
+        "Kiến thức mở rộng thẻ nhân vật một chạm: bản thực thi bảng màu",
         "",
-        "总目标:",
-        "- 用户只提供粗略素材时，直接生成可写入角色卡的完整内容。",
-        "- 只保留用户明确设定，并在不推翻用户设定的前提下补足可演绎的信息。",
-        "- 成品内容必须像角色卡正文，不要出现创作流程、工具流程、内部标签说明或占位说明。",
+        "Mục tiêu tổng:",
+        "- Khi người dùng chỉ đưa tư liệu thô sơ, hãy tạo thẳng nội dung đầy đủ có thể ghi vào thẻ nhân vật.",
+        "- Chỉ giữ những gì người dùng đã nêu rõ, và bổ sung thông tin diễn được thêm mà không lật ngược thiết lập của người dùng.",
+        "- Thành phẩm phải đọc như phần nội dung chính của thẻ nhân vật, không được lộ quy trình sáng tác, quy trình công cụ, chú thích thẻ nội bộ hay nội dung tạm.",
         "",
-        "角色基础信息:",
-        "- 结构固定为 角色档案 / 基本信息 / 外貌特征 / 背景设定 / 关系设定。",
-        "- 基本信息只回答角色是谁：姓名、年龄、性别、身份、与{{user}}关系。",
-        "- 外貌只写能识别角色的特征，不写万能美人词、文学比喻、数据库默认值。",
-        "- 背景只写改变角色或影响当前互动的关键事件，不列无关年表。",
-        "- 关系设定写具体起点、认识过程、互动方式和当前关系，不写空泛感情评价。",
-        "- 性格不要混进基础信息，性格交给调色盘和二次解释。",
+        "Thông tin cơ bản của nhân vật:",
+        "- Cấu trúc cố định là Hồ sơ nhân vật / Thông tin cơ bản / Đặc điểm ngoại hình / Bối cảnh / Thiết lập quan hệ.",
+        "- Thông tin cơ bản chỉ trả lời nhân vật là ai: tên, tuổi, giới tính, thân phận, quan hệ với {{user}}.",
+        "- Ngoại hình chỉ viết những đặc điểm nhận ra được nhân vật; không dùng mỹ từ chung chung, ví von văn vẻ hay giá trị mặc định kiểu cơ sở dữ liệu.",
+        "- Bối cảnh chỉ viết những sự kiện then chốt làm thay đổi nhân vật hoặc ảnh hưởng đến tương tác hiện tại; không liệt kê niên biểu không liên quan.",
+        "- Thiết lập quan hệ viết điểm bắt đầu cụ thể, quá trình quen nhau, cách tương tác và quan hệ hiện tại; không viết đánh giá tình cảm chung chung.",
+        "- Đừng trộn tính cách vào thông tin cơ bản; tính cách để dành cho bảng màu và diễn giải bổ sung.",
         "",
-        "性格调色盘:",
-        "- 用“人的性格就像调色盘”作为理解框架，避免单一标签演绎。",
-        "- 必须给出底色、主色调、性格点缀。底色是最深层基调，主色调是日常突出特质，点缀是特定条件下浮现的隐藏特质。",
-        "- 至少设计三种性格力量：驱动角色的主性格、产生变化的副性格、制造化学反应的对冲性格。",
-        "- 每个颜色都要写衍生。衍生不是解释词义，而是写具体场景、行为规律、例外条件、与其他性格的融合。",
-        "- 衍生可以包含矛盾与反差，让角色在不同压力、不同关系、不同阶段里出现自然变化。",
-        "- 不要只写“温柔、傲娇、腹黑”这类标签，必须写这些性格在角色身上如何运行。",
+        "Bảng màu tính cách:",
+        "- Dùng ý \"tính cách con người như một bảng màu\" làm khung hiểu, tránh diễn theo một nhãn duy nhất.",
+        "- Bắt buộc nêu màu nền, màu chủ đạo và nét chấm phá. Màu nền là tông sâu nhất, màu chủ đạo là nét nổi bật thường ngày, chấm phá là nét ẩn chỉ lộ ra trong điều kiện nhất định.",
+        "- Thiết kế ít nhất ba lực tính cách: nét chính dẫn dắt nhân vật, nét phụ tạo biến đổi, và nét đối nghịch tạo phản ứng hoá học.",
+        "- Mỗi màu đều phải viết phần phái sinh. Phái sinh không phải giải nghĩa từ, mà là viết ra tình huống cụ thể, quy luật hành xử, điều kiện ngoại lệ và cách hoà trộn với các nét tính cách khác.",
+        "- Phái sinh có thể chứa mâu thuẫn và tương phản, để nhân vật biến đổi tự nhiên dưới các mức áp lực, các quan hệ và các giai đoạn khác nhau.",
+        "- Đừng chỉ viết những nhãn kiểu \"dịu dàng, tsundere, thâm hiểm\"; phải viết những nét tính cách đó vận hành thế nào trên chính nhân vật này.",
         "",
-        "二次解释:",
-        "- 二次解释是作者意图与防误读，不是重复设定。",
-        "- 每条围绕一个容易被误解的性格点或关系点展开：它真正是什么意思、它不是什么、什么时候出现、什么时候不会出现、它和其他性格如何组合。",
-        "- 用二次解释堵住模型自动补全，例如避免把“装乖”误写成压抑痛苦，避免把“傲娇”误写成无理由攻击。",
-        "- 二次解释可以写内在逻辑，但必须服务演绎，不要写教程口吻。",
+        "Diễn giải bổ sung:",
+        "- Diễn giải bổ sung là ý đồ tác giả và rào chắn hiểu sai, không phải nhắc lại thiết lập.",
+        "- Mỗi mục xoay quanh một điểm tính cách hoặc điểm quan hệ dễ bị hiểu sai: nó thật sự nghĩa là gì, nó không phải là gì, khi nào xuất hiện, khi nào không xuất hiện, và nó kết hợp với các nét tính cách khác ra sao.",
+        "- Dùng diễn giải bổ sung để chặn phần tự suy diễn của mô hình, ví dụ tránh hiểu \"giả ngoan\" thành đè nén đau khổ, tránh hiểu \"tsundere\" thành gây hấn vô cớ.",
+        "- Diễn giải bổ sung có thể viết logic bên trong, nhưng phải phục vụ việc diễn; đừng viết theo giọng hướng dẫn.",
         "",
-        "多阶段调色盘:",
-        "- 固定 EJS 结构会根据 好感度 切换阶段；这里只产出中文内容，不写 EJS 代码。",
-        "- 默认三阶段：初识期 0~30，熟悉期 31~70，亲近期 71~100。",
-        "- 每个阶段都要有阶段专属调色盘头部、阶段专属衍生、阶段专属二次解释。",
-        "- 阶段变化不是把角色换成另一个人，而是同一个调色盘在关系推进后改变比例：警惕、试探、靠近、依赖、占有、袒露等逐步变化。",
-        "- 通用内容写跨阶段始终成立的衍生、底线、二次解释和总结。",
+        "Bảng màu nhiều giai đoạn:",
+        "- Cấu trúc EJS cố định sẽ chuyển giai đoạn theo biến thien_cam; ở đây chỉ tạo phần nội dung tiếng Việt, không viết mã EJS.",
+        "- Mặc định ba giai đoạn: mới quen 0–30, thân quen 31–70, gần gũi 71–100.",
+        "- Mỗi giai đoạn đều phải có phần đầu bảng màu riêng, phái sinh riêng và diễn giải bổ sung riêng.",
+        "- Chuyển giai đoạn không phải đổi nhân vật thành người khác, mà là cùng một bảng màu đổi tỉ lệ khi quan hệ tiến triển: cảnh giác, dò xét, xích lại, phụ thuộc, chiếm hữu, giãi bày — biến đổi dần từng bước.",
+        "- Phần nội dung chung viết những phái sinh, giới hạn, diễn giải bổ sung và tổng kết luôn đúng ở mọi giai đoạn.",
         "",
-        "三面性与语料边界:",
-        "- 如果角色有明显不同压力场景，可在调色盘和二次解释中体现不同面向，但本任务不单独输出三面性条目。",
-        "- 调色盘回答“她是什么人”，二次解释回答“作者真正想让模型怎么理解”。",
-        "- 具体台词不要堆满基础信息；需要语料时放在性格衍生或阶段内容中，并保证它体现角色性格。",
+        "Ba mặt tính cách và giới hạn ngữ liệu:",
+        "- Nếu nhân vật có các tình huống áp lực khác biệt rõ rệt, có thể thể hiện các mặt khác nhau trong bảng màu và diễn giải bổ sung, nhưng nhiệm vụ này không xuất riêng mục ba mặt tính cách.",
+        "- Bảng màu trả lời \"cô ấy là người thế nào\", diễn giải bổ sung trả lời \"tác giả thật sự muốn mô hình hiểu ra sao\".",
+        "- Đừng nhồi thoại cụ thể vào thông tin cơ bản; khi cần ngữ liệu thì đặt trong phần phái sinh tính cách hoặc nội dung giai đoạn, và phải bảo đảm nó thể hiện được tính cách nhân vật.",
         "",
-        "成品禁令:",
-        "- 不要输出占位内容、内部工作说明、创作过程说明或工具流程说明。",
-        "- 不要把 XML 标签、代码块、思考标签、解释说明写进各字段正文。",
-        "- 不要用空泛形容、八股美化、万能性格评价填充。",
+        "Điều cấm với thành phẩm:",
+        "- Không xuất nội dung tạm, chú thích công việc nội bộ, mô tả quy trình sáng tác hay mô tả quy trình công cụ.",
+        "- Không viết thẻ XML, khối mã, thẻ suy nghĩ hay lời giải thích vào phần nội dung của các trường.",
+        "- Không lấp chỗ bằng mô tả chung chung, lời khen sáo rỗng hay đánh giá tính cách kiểu vạn năng.",
       ].join("\n"),
       Ao = ["13", "39"],
       so = ["24", "39"],
       lo = new Set();
     let po = !1;
     const co = [
-      { label: "待补充", pattern: /chờ bổ sung|cần bổ sung|sẽ bổ sung|\bTBD\b|\bTODO\b/iu },
-      { label: "用户手写", pattern: /người dùng tự (viết|điền|nhập|bổ sung)/iu },
-      { label: "内部任务词", pattern: /nhiệm vụ (hiện tại|này)|tác vụ hiện tại/iu },
-      { label: "一键角色卡写卡器", pattern: /trình tạo thẻ nhân vật một chạm/iu },
-      { label: "工程占位词", pattern: /\b(mẫu|template|prompt|placeholder)\b|chỗ trống|nội dung tạm|điền sau/iu },
+      { label: "Chờ bổ sung", pattern: /chờ bổ sung|cần bổ sung|sẽ bổ sung|\bTBD\b|\bTODO\b/iu },
+      { label: "Người dùng tự viết", pattern: /người dùng tự (viết|điền|nhập|bổ sung)/iu },
+      { label: "Từ nhiệm vụ nội bộ", pattern: /nhiệm vụ (hiện tại|này)|tác vụ hiện tại/iu },
+      { label: "Trình tạo thẻ nhân vật một chạm", pattern: /trình tạo thẻ nhân vật một chạm/iu },
+      { label: "Từ tạm công trình", pattern: /\b(mẫu|template|prompt|placeholder)\b|chỗ trống|nội dung tạm|điền sau/iu },
       {
-        label: "内部标签",
+        label: "Thẻ nội bộ",
         pattern:
           /<\/?(?:thinking|content|role_result|worldview_result|opening_result|persona_result|role_name|aliases|basic|palette|reinterpret|quick_view|multistage_persona|stage_early|stage_middle|stage_close|stage_common)\b/iu,
       },
       {
-        label: "内置任务标签",
+        label: "Thẻ nhiệm vụ có sẵn",
         pattern: /one_click_card_writer_task|selected_template_knowledge|task_scope|task_reference/iu,
       },
-      { label: "前端流程词", pattern: /(giao diện|công cụ|hệ thống|trình tạo|mã nguồn|code) (sẽ|tự động) /iu },
+      { label: "Từ quy trình giao diện", pattern: /(giao diện|công cụ|hệ thống|trình tạo|mã nguồn|code) (sẽ|tự động) /iu },
     ];
     function Co() {
       po = !1;
@@ -4417,7 +4417,7 @@ var e = {
       return n;
     }
     function mo() {
-      if (po) throw new Error("已主动停止生成，可重新开始当前阶段");
+      if (po) throw new Error("Đã chủ động dừng việc tạo, có thể bắt đầu lại bước hiện tại");
     }
     async function fo(n, e, t) {
       mo();
@@ -4457,7 +4457,7 @@ var e = {
         });
         return (mo(), { text: "string" == typeof t ? t : t.content, interrupted: !1 });
       } catch (n) {
-        if (po) throw new Error("已主动停止生成，可重新开始当前阶段");
+        if (po) throw new Error("Đã chủ động dừng việc tạo, có thể bắt đầu lại bước hiện tại");
         if (A.trim()) return { text: A, interrupted: !0 };
         throw n;
       } finally {
@@ -4486,10 +4486,10 @@ var e = {
         {
           role: "user",
           content: [
-            "上轮输出因长度限制或连接中断而未完成。",
-            "从上面 assistant 内容最后一个未完成的位置直接继续，不得复述、重写或总结已经生成的部分。",
-            "不要重新开启已经存在的 <thinking>、<content> 或内部结果标签；只补完被截断的句子、YAML和标签。",
-            "继续到本轮任务完整结束，并确保所有已经开启的 XML 标签全部正确闭合。",
+            "Kết quả lượt trước chưa xong do giới hạn độ dài hoặc mất kết nối.",
+            "Viết tiếp thẳng từ vị trí dở dang cuối cùng trong phần assistant ở trên; không nhắc lại, không viết lại, không tóm tắt phần đã tạo.",
+            "Đừng mở lại các thẻ <thinking>, <content> hay thẻ kết quả nội bộ đã có; chỉ viết nốt câu, YAML và thẻ bị cắt giữa chừng.",
+            "Viết tiếp cho đến khi nhiệm vụ của lượt này kết thúc trọn vẹn, và bảo đảm mọi thẻ XML đã mở đều được đóng đúng.",
           ].join("\n"),
         },
       ];
@@ -4536,13 +4536,13 @@ var e = {
         if (!a.autoContinue) return o;
         if ((mo(), A >= 5)) {
           const n = await a.requestContinuation?.({ attempts: 5, generated: o });
-          if ((mo(), !n)) throw new Error("输出自动续传 5 次后仍未完成，已停止当前阶段");
+          if ((mo(), !n)) throw new Error("Đã tự nối tiếp 5 lần mà vẫn chưa xong, đã dừng bước hiện tại");
           A = 0;
         }
         ((A += 1),
           a.onProgress?.({
             phase: "complete",
-            message: `检测到输出截断，正在自动续传：${A}/5`,
+            message: `Phát hiện kết quả bị cắt, đang tự nối tiếp: ${A}/5`,
             completed: A,
             total: 5,
           }),
@@ -4565,23 +4565,23 @@ var e = {
       ).slice(0, 200);
     }
     function wo(n, e, t) {
-      if (!e.trim()) return void ho(t, `${n}为空，已用保底内容继续处理，请人工校对。`);
+      if (!e.trim()) return void ho(t, `${n}trống, đã dùng nội dung dự phòng để xử lý tiếp, vui lòng kiểm tra lại thủ công.`);
       const a = co.map((n) => ({ term: n, match: e.match(n.pattern)?.[0] })).find((n) => n.match);
-      a && ho(t, `${n}包含工程词或占位内容：${a.term.label}（${a.match}），已继续处理，请人工校对。`);
+      a && ho(t, `${n}chứa từ công trình hoặc nội dung tạm: ${a.term.label} (${a.match}), đã xử lý tiếp, vui lòng kiểm tra lại thủ công.`);
     }
     function Eo(n = {}) {
       const e = Array.from(new Set((n.avoidTerms ?? []).map((n) => n.trim()).filter(Boolean)));
       return 0 === e.length
         ? []
         : [
-            `上次生成因为成品中出现这些工程/占位表达而失败：${e.join("、")}。`,
-            "本次必须把相关意思改写成角色或世界观内部的自然表述，不得再次出现这些表达，也不要解释规避过程。",
+            `Lượt tạo trước thất bại vì thành phẩm xuất hiện các cách diễn đạt kiểu công trình hoặc nội dung tạm sau: ${e.join(", ")}.`,
+            "Lần này bắt buộc viết lại các ý đó thành cách diễn đạt tự nhiên bên trong thế giới hoặc nhân vật; không được để các cách diễn đạt đó xuất hiện lại, và cũng đừng giải thích cách né tránh.",
           ];
     }
     function yo(n, e, t, a, r) {
-      if (!ao(n, e)) return (ho(a, `标签异常：缺少 ${t}，已用可解析的原始输出继续。`), r.fallback);
+      if (!ao(n, e)) return (ho(a, `Thẻ bất thường: thiếu ${t}, đã dùng kết quả gốc phân tích được để tiếp tục.`), r.fallback);
       const o = to(n, e);
-      return r.allowEmpty || o.trim() ? o : (ho(a, `标签异常：${t} 为空，已用保底内容继续。`), r.fallback);
+      return r.allowEmpty || o.trim() ? o : (ho(a, `Thẻ bất thường: ${t} trống, đã dùng nội dung dự phòng để tiếp tục.`), r.fallback);
     }
     function Vo(n, e, t) {
       const a = Bo(n, t),
@@ -4595,22 +4595,22 @@ var e = {
     }
     function zo(n) {
       return [
-        "初识期 0~30",
+        "Giai đoạn mới quen 0–30",
         n.early.trim(),
         "",
-        "熟悉期 31~70",
+        "Giai đoạn thân quen 31–70",
         n.middle.trim(),
         "",
-        "亲近期 71~100",
+        "Giai đoạn gần gũi 71–100",
         n.close.trim(),
-        ...(n.common.trim() ? ["", "跨阶段通用", n.common.trim()] : []),
+        ...(n.common.trim() ? ["", "Dùng chung mọi giai đoạn", n.common.trim()] : []),
       ].join("\n");
     }
     function Po(n, e = "") {
       const t = [],
         a = ro(n),
         r = yo(a, "worldview_result", "<worldview_result>", t, { fallback: Bo(a, n.trim() || e.trim()) });
-      return (wo("世界观条目", r, t), { content: r, raw: n, warnings: t });
+      return (wo("Mục thế giới quan", r, t), { content: r, raw: n, warnings: t });
     }
     function Fo(n) {
       return `${n.replace(/<StatusPlaceHolderImpl\s*\/>/giu, "").trim()}\n\n<StatusPlaceHolderImpl/>`;
@@ -4619,7 +4619,7 @@ var e = {
       const t = [],
         a = ro(n),
         r = yo(a, "opening_result", "<opening_result>", t, { fallback: Bo(a, n.trim() || e.trim()) });
-      return (wo("开场白", r, t), { content: Fo(r), raw: n, warnings: t });
+      return (wo("Lời mở đầu", r, t), { content: Fo(r), raw: n, warnings: t });
     }
     function Uo(n, e, t = "") {
       const a = "multistage" === e,
@@ -4628,27 +4628,27 @@ var e = {
         i = yo(o, "persona_result", "<persona_result>", r, { fallback: Bo(o, n.trim() || t.trim()) });
       if (!a) {
         const a = yo(i, "palette", "<palette>", r, { fallback: Bo(i, t.trim()) });
-        return (wo("普通调色盘人设", a, r), { mode: e, content: a, raw: n, warnings: r });
+        return (wo("Hồ sơ bảng màu thường", a, r), { mode: e, content: a, raw: n, warnings: r });
       }
       const A = yo(i, "multistage_persona", "<multistage_persona>", r, { fallback: Bo(i, t.trim()) }),
         s = Vo(A, r, A);
       return (
         [
-          ["初识期多阶段人设", s.early],
-          ["熟悉期多阶段人设", s.middle],
-          ["亲近期多阶段人设", s.close],
+          ["Hồ sơ nhiều giai đoạn — mới quen", s.early],
+          ["Hồ sơ nhiều giai đoạn — thân quen", s.middle],
+          ["Hồ sơ nhiều giai đoạn — gần gũi", s.close],
         ].forEach(([n, e]) => wo(n, e, r)),
-        s.common.trim() && wo("跨阶段通用内容", s.common, r),
+        s.common.trim() && wo("Nội dung dùng chung mọi giai đoạn", s.common, r),
         { mode: e, content: zo(s), raw: n, warnings: r }
       );
     }
     function So(n, e, t) {
-      const a = e.name.trim() || `角色${t + 1}`,
+      const a = e.name.trim() || `Nhân vật${t + 1}`,
         r = [],
         o = ro(n),
         i = yo(o, "role_result", "<role_result>", r, { fallback: Bo(o, n.trim() || e.seed.trim() || a) }),
         A = (function (n, e) {
-          const t = oo(e) || "角色";
+          const t = oo(e) || "Nhân vật";
           return oo(n || e) || t;
         })(yo(i, "role_name", "<role_name>", r, { fallback: a }), a),
         s = Array.from(
@@ -4668,20 +4668,20 @@ var e = {
         C = Bo([d, c].filter(Boolean).join("\n\n"), p),
         g = yo(i, "multistage_persona", "<multistage_persona>", r, { fallback: C }),
         m = yo(i, "quick_view", "<quick_view>", r, {
-          fallback: ["- 名称: " + A, `  简述: ${ko(p, "详见角色详细条目")}`].join("\n"),
+          fallback: ["- Tên: " + A, `  Mô tả ngắn: ${ko(p, "xem mục chi tiết của nhân vật")}`].join("\n"),
         }),
         f = Vo(g, r, C);
       return (
         [
-          ["角色基础信息", p],
-          ["性格调色盘", d],
-          ["二次解释", c],
-          ["初识期多阶段人设", f.early],
-          ["熟悉期多阶段人设", f.middle],
-          ["亲近期多阶段人设", f.close],
-          ["角色速览", m],
+          ["Thông tin cơ bản của nhân vật", p],
+          ["Bảng màu tính cách", d],
+          ["Diễn giải bổ sung", c],
+          ["Hồ sơ nhiều giai đoạn — mới quen", f.early],
+          ["Hồ sơ nhiều giai đoạn — thân quen", f.middle],
+          ["Hồ sơ nhiều giai đoạn — gần gũi", f.close],
+          ["Tóm tắt nhanh nhân vật", m],
         ].forEach(([n, e]) => wo(n, e, r)),
-        f.common.trim() && wo("跨阶段通用内容", f.common, r),
+        f.common.trim() && wo("Nội dung dùng chung mọi giai đoạn", f.common, r),
         {
           draft: e,
           name: A,
@@ -4720,16 +4720,16 @@ var e = {
       return (o && r.push(o), r);
     }
     function Wo(n, e) {
-      return Xo(n.join("\n\n--- 分段边界 ---\n\n"), e);
+      return Xo(n.join("\n\n--- ranh giới đoạn ---\n\n"), e);
     }
     function No(n, e, t) {
       const a = ro(n),
         r = ao(a, e) ? to(a, e) : eo(a);
       return (
         (function (n, e) {
-          if (!e.trim()) throw new Error(`${n}为空，需重新生成`);
+          if (!e.trim()) throw new Error(`${n}trống, cần tạo lại`);
           const t = co.map((n) => ({ term: n, match: e.match(n.pattern)?.[0] })).find((n) => n.match);
-          if (t) throw new Error(`${n}包含工程词或占位内容：${t.term.label}（${t.match}），需重新生成`);
+          if (t) throw new Error(`${n}chứa từ công trình hoặc nội dung tạm: ${t.term.label} (${t.match}), cần tạo lại`);
         })(t, r),
         r
       );
@@ -4743,23 +4743,23 @@ var e = {
           r = [];
         e.options.onProgress?.({
           phase: "summary",
-          message: `分段蒸馏完成，开始总结蒸馏（第 ${a} 轮，共 ${n.length} 组）`,
+          message: `Cô đọng theo đoạn đã xong, bắt đầu cô đọng tổng hợp (vòng ${a}, tổng cộng ${n.length} nhóm)`,
           completed: 0,
           total: n.length,
         });
         for (let t = 0; t < n.length; t += 1) {
-          const o = [`【${e.label}待合并片段 ${t + 1}/${n.length}】`, n[t]].join("\n\n"),
+          const o = [`【${e.label} — các mảnh chờ gộp ${t + 1}/${n.length}】`, n[t]].join("\n\n"),
             i = [
-              `蒸馏并合并这组${e.label}片段。`,
-              "保留用户明确设定、专名、数值、关系与因果，删除重复表达和创作过程说明。",
-              "使用紧凑中文 YAML；在不损失有效设定的前提下压缩到约 12000 汉字以内。",
-              `输出放在 <content><${e.tag}>...</${e.tag}></content> 中。`,
+              `Cô đọng và gộp nhóm mảnh ${e.label} này.`,
+              "Giữ lại thiết lập người dùng đã nêu rõ, tên riêng, con số, quan hệ và quan hệ nhân quả; xoá phần diễn đạt trùng lặp và mô tả quy trình sáng tác.",
+              "Dùng YAML tiếng Việt gọn; nén xuống khoảng 30.000 ký tự mà không làm mất thiết lập có hiệu lực.",
+              `Đặt kết quả trong <content><${e.tag}>...</${e.tag}></content>.`,
             ].join("\n"),
             A = await vo(o, i, e.knowledge, e.options);
-          (r.push(No(A, e.tag, `${e.label}合并结果`)),
+          (r.push(No(A, e.tag, `${e.label}kết quả gộp`)),
             e.options.onProgress?.({
               phase: "summary",
-              message: `总结蒸馏第 ${a} 轮：${t + 1}/${n.length}`,
+              message: `Cô đọng tổng hợp vòng ${a}: ${t + 1}/${n.length}`,
               completed: t + 1,
               total: n.length,
             }));
@@ -4775,50 +4775,50 @@ var e = {
           if (1 === a.length) return a[0];
           e.onProgress?.({
             phase: "segment",
-            message: `世界观内容超过 2 万字符，开始分段蒸馏：0/${a.length}`,
+            message: `Nội dung thế giới quan vượt quá 50.000 ký tự, bắt đầu cô đọng theo đoạn: 0/${a.length}`,
             completed: 0,
             total: a.length,
           });
           const r = [];
           for (let n = 0; n < a.length; n += 1) {
-            const o = [`【世界观素材分段 ${n + 1}/${a.length}】`, a[n]].join("\n\n"),
+            const o = [`【Đoạn tư liệu thế giới quan ${n + 1}/${a.length}】`, a[n]].join("\n\n"),
               i = [
-                "这里只蒸馏世界观素材的一个分段，不生成角色。",
-                "完整提取并合理化本段中的明确设定、专名、规则、数值和因果，删除重复与赘述，不得改变用户原意。",
-                "输出紧凑中文 YAML；在不损失有效设定的前提下压缩到约 12000 汉字以内。",
-                "输出放在 <content><worldview_segment>...</worldview_segment></content> 中。",
+                "Ở đây chỉ cô đọng một đoạn tư liệu thế giới quan, không tạo nhân vật.",
+                "Trích xuất đầy đủ và hợp lý hoá các thiết lập rõ ràng, tên riêng, luật lệ, con số và quan hệ nhân quả trong đoạn này; xoá phần trùng lặp và rườm rà, không được đổi ý gốc của người dùng.",
+                "Xuất YAML tiếng Việt gọn; nén xuống khoảng 30.000 ký tự mà không làm mất thiết lập có hiệu lực.",
+                "Đặt kết quả trong <content><worldview_segment>...</worldview_segment></content>.",
               ].join("\n"),
               A = await vo(o, i, t, e);
-            (r.push(No(A, "worldview_segment", "世界观分段")),
+            (r.push(No(A, "worldview_segment", "đoạn thế giới quan")),
               e.onProgress?.({
                 phase: "segment",
-                message: `分段蒸馏世界观：${n + 1}/${a.length}`,
+                message: `Cô đọng theo đoạn phần thế giới quan: ${n + 1}/${a.length}`,
                 completed: n + 1,
                 total: a.length,
               }));
           }
-          const o = await Ho(r, { label: "世界观", tag: "worldview_segment", knowledge: t, options: e });
+          const o = await Ho(r, { label: "Thế giới quan", tag: "worldview_segment", knowledge: t, options: e });
           return (
             e.onProgress?.({
               phase: "complete",
-              message: "世界观蒸馏完成，进入世界观正式生成",
+              message: "Cô đọng thế giới quan xong, chuyển sang tạo thế giới quan chính thức",
               completed: 1,
               total: 1,
             }),
             o
           );
         })(n, e, t),
-        r = ["【世界观模块】", "请根据下面已经按需蒸馏过的用户素材，生成可直接写入世界书的世界观设定。", "", a].join(
+        r = ["【Mô-đun thế giới quan】", "Dựa vào tư liệu người dùng đã được cô đọng theo nhu cầu dưới đây, hãy tạo phần thiết lập thế giới quan có thể ghi thẳng vào world book.", "", a].join(
           "\n",
         ),
         o = [
-          "生成世界观条目。",
-          "你正在适配秋青子写卡预设，不得另建预设结构。",
-          "允许在不推翻用户明确设定的前提下做合理化补充：补足命名、因果、边界和规则。",
-          "不要和用户对话，不要询问下一步。",
+          "Tạo mục thế giới quan.",
+          "Bạn đang làm việc theo preset tạo thẻ Thu Thanh Tử, không được dựng cấu trúc preset khác.",
+          "Được phép bổ sung cho hợp lý mà không lật ngược thiết lập người dùng đã nêu rõ: hoàn thiện cách đặt tên, quan hệ nhân quả, ranh giới và luật lệ.",
+          "Đừng trò chuyện với người dùng, đừng hỏi bước tiếp theo.",
           ...Eo(e),
-          "输出必须放在 <content><worldview_result>...</worldview_result></content> 中。",
-          "worldview_result 内使用中文 YAML，不要写解释。",
+          "Kết quả bắt buộc đặt trong <content><worldview_result>...</worldview_result></content>.",
+          "Bên trong worldview_result dùng YAML tiếng Việt, không viết lời giải thích.",
         ].join("\n");
       return Po(await vo(r, o, t, e), n);
     }
@@ -4827,7 +4827,7 @@ var e = {
         i = a
           .map((n) =>
             [
-              `【角色：${n.name}】`,
+              `【Nhân vật: ${n.name}】`,
               n.basic,
               "",
               "【性格调色盘】",

@@ -19,11 +19,10 @@ for (const it of todo) {
   const cur = code.slice(it.start, it.end);
   const replacement = it.kind === "str" ? JSON.stringify(it.vi) : escTpl(it.vi);
   // kiem tra offset con dung: chuoi goc phai xuat hien trong doan nay
-  if (it.kind === "str") {
-    const lit = cur.slice(1, -1);
-    if (!lit.includes(it.zh.slice(0, 8).replace(/[\\`]/g, "")) && !cur.includes(it.zh.slice(0, 8))) {
-      throw new Error(`Offset lech tai id=${it.id} dong ${it.line}: ${cur.slice(0, 60)}`);
-    }
+  // Doi chieu bang doan chu Han dau tien (khong dinh toi ky tu escape nhu \\n).
+  const probe = (it.zh.match(/[\u4e00-\u9fff]{2,}/) || [])[0];
+  if (probe && !cur.includes(probe)) {
+    throw new Error(`Offset lech tai id=${it.id} dong ${it.line}: ${cur.slice(0, 60)}`);
   }
   out = out.slice(0, it.start) + replacement + out.slice(it.end);
   n++;
