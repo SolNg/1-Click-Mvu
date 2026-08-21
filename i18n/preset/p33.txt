@@ -1,0 +1,108 @@
+{{addvar::template_knowledge::Bây giờ bạn cần giúp người dùng sáng tác tệp định dạng xuất biến, tham khảo hướng dẫn trong thẻ <variable_output_format>}}{{trim}}
+<variable_output_format>
+# Hướng dẫn sáng tác luật biến
+
+Nhiệm vụ của bạn là giúp người dùng viết tệp định dạng xuất biến của MVU; tệp này có nhiệm vụ cho AI biết phải cập nhật biến theo định dạng nào
+
+## Định dạng của phần định dạng xuất biến
+
+Cố định hoàn toàn:
+
+```yaml
+---
+Định dạng xuất biến:
+  rule:
+    - you must output the update analysis and the actual update commands at once in the end of the next reply
+    - the update commands works like the **JSON Patch (RFC 6902)** standard, must be a valid JSON array containing operation objects, but supports the following operations instead:
+      - replace: replace the value of existing paths
+      - delta: update the value of existing number paths by a delta value
+      - insert: insert new items into an object or array (using `-` as array index intends appending to the end)
+      - remove
+      - move
+    - don't update field names starts with `_` as they are readonly, such as `_bien`
+  format: |-
+    <UpdateVariable>
+    <Analysis>$(IN ENGLISH, no more than 80 words)
+    - ${calculate time passed: ...}
+    - ${decide whether dramatic updates are allowed as it's in a special case or the time passed is more than usual: yes/no}
+    - ${analyze every variable based on its corresponding `check`, according only to current reply instead of previous plots: ...}
+    </Analysis>
+    <JSONPatch>
+    [
+      { "op": "replace", "path": "${/path/to/variable}", "value": "${new_value}" },
+      { "op": "delta", "path": "${/path/to/number/variable}", "value": "${positive_or_negative_delta}" },
+      { "op": "insert", "path": "${/path/to/object/new_key}", "value": "${new_value}" },
+      { "op": "insert", "path": "${/path/to/array/-}", "value": "${new_value}" },
+      { "op": "remove", "path": "${/path/to/object/key}" },
+      { "op": "remove", "path": "${/path/to/array/0}" },
+      { "op": "move", "from": "${/path/to/variable}", "to": "${/path/to/another/path}" },
+      ...
+    ]
+    </JSONPatch>
+    </UpdateVariable>
+```
+
+## Quy trình làm việc
+
+Xuất ra nguyên xi
+
+```yaml
+---
+Định dạng xuất biến:
+  rule:
+    - you must output the update analysis and the actual update commands at once in the end of the next reply
+    - the update commands works like the **JSON Patch (RFC 6902)** standard, must be a valid JSON array containing operation objects, but supports the following operations instead:
+      - replace: replace the value of existing paths
+      - delta: update the value of existing number paths by a delta value
+      - insert: insert new items into an object or array (using `-` as array index intends appending to the end)
+      - remove
+      - move
+    - don't update field names starts with `_` as they are readonly, such as `_bien`
+  format: |-
+    <UpdateVariable>
+    <Analysis>$(IN ENGLISH, no more than 80 words)
+    - ${calculate time passed: ...}
+    - ${decide whether dramatic updates are allowed as it's in a special case or the time passed is more than usual: yes/no}
+    - ${analyze every variable based on its corresponding `check`, according only to current reply instead of previous plots: ...}
+    </Analysis>
+    <JSONPatch>
+    [
+      { "op": "replace", "path": "${/path/to/variable}", "value": "${new_value}" },
+      { "op": "delta", "path": "${/path/to/number/variable}", "value": "${positive_or_negative_delta}" },
+      { "op": "insert", "path": "${/path/to/object/new_key}", "value": "${new_value}" },
+      { "op": "insert", "path": "${/path/to/array/-}", "value": "${new_value}" },
+      { "op": "remove", "path": "${/path/to/object/key}" },
+      { "op": "remove", "path": "${/path/to/array/0}" },
+      { "op": "move", "from": "${/path/to/variable}", "to": "${/path/to/another/path}" },
+      ...
+    ]
+    </JSONPatch>
+    </UpdateVariable>
+```
+
+Điểm mấu chốt: đây chính là định dạng đầy đủ bạn cần xuất cho người dùng! Bọc toàn bộ nội dung trong khối mã, xuất trọn vẹn một lần!
+
+Bắt đầu cộng tác thôi!
+
+---
+
+## Hướng dẫn sau khi hoàn tất
+
+Khi định dạng xuất biến đã sáng tác xong và xuất ra:
+
+1. Dùng công cụ Write để ghi định dạng xuất biến vào world book của người dùng:
+   - Đường dẫn: /Worldbooks/<tên world book của người dùng>/[mvu_update]Định dạng xuất biến
+2. Dùng công cụ SetAttribute để đặt cấu hình cho mục (hỏi người dùng đang dùng mô hình nào trước):
+   - Gemini: position: { type: "at_depth", depth: 0, role: "system", order: 200 }
+   - Claude: position: { type: "at_depth", depth: 4, role: "system", order: 200 }
+   - recursion: { prevent_incoming: true, prevent_outgoing: true }
+3. Dùng công cụ Read để đọc mục "tự kiểm tra MVU" trong world book tên "Kho kiến thức tạo thẻ" (tập trung tham khảo phần "V. Tự kiểm tra định dạng xuất biến")
+4. Đối chiếu từng mục theo tiêu chuẩn tự kiểm tra, phát hiện vấn đề thì sửa thẳng và xuất lại bản đầy đủ đã sửa
+5. Sửa xong thì hỏi người dùng: "Có cần đồng bộ nội dung đã sửa vào mục tương ứng trong world book không?"
+   - Nếu người dùng đồng ý, dùng công cụ Edit để cập nhật mục trong world book
+6. Xuất lời nhắc:
+
+Anh ơi, định dạng xuất biến đã xong, đã ghi vào world book và cấu hình cũng đã đặt xong!
+
+Bước tiếp theo: tạo phần nhấn mạnh định dạng xuất biến. Anh nói với em "viết nhấn mạnh định dạng xuất biến" nhé.
+</variable_output_format>

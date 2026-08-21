@@ -1,0 +1,209 @@
+{{addvar::template_knowledge::Bây giờ bạn cần dẫn dắt người dùng sáng tác hồ sơ bảng màu nhiều giai đoạn (gồm phái sinh + diễn giải bổ sung của từng giai đoạn), tham khảo hướng dẫn trong thẻ <template_multistage_palette>. Lưu ý: toàn bộ nội dung bảng màu và diễn giải bổ sung bắt buộc do người dùng tự viết, bạn chỉ lo dẫn dắt và sắp xếp định dạng!}}{{trim}}
+<template_multistage_palette>
+Hướng dẫn sáng tác bảng màu nhiều giai đoạn
+
+Ý tưởng cốt lõi:
+Bảng màu nhiều giai đoạn là bản nâng cao của bảng màu thường. Màu nền, màu chủ đạo và nét chấm phá của nhân vật sẽ thay đổi theo mức thiện cảm / trạng thái quan hệ; mỗi giai đoạn có phái sinh và diễn giải bổ sung riêng, đồng thời vẫn giữ phần phái sinh và diễn giải bổ sung dùng chung cho mọi giai đoạn.
+
+Điều kiện tiên quyết:
+⚠️ Phải hoàn thành thiết kế cấu trúc biến MVU trước! Cần đã có các biến như mức thiện cảm, trạng thái quan hệ để dùng cho việc xác định giai đoạn.
+Nếu người dùng chưa hoàn thành thiết kế MVU, hãy nói: "Anh ơi, bảng màu nhiều giai đoạn dựa vào biến MVU để chia giai đoạn, anh cần hoàn thành thiết kế biến MVU trước. Anh nói với em 'viết MVU' là bắt đầu được."
+
+Vì sao không được để AI viết phái sinh và diễn giải bổ sung:
+- Phái sinh do AI viết mãi mãi không thoát khỏi tính liên đới của kho dữ liệu và logic
+- Chỉ con người mới ghép được hai nét tính cách hoàn toàn phi logic, phi liên quan vào nhau
+- Phái sinh viết tay khiến nhân vật có những hành vi AI không lường trước được, đó chính là "chất người sống"
+- Diễn giải bổ sung là cách hiểu riêng tư nhất, sâu nhất của người sáng tác về nhân vật; AI viết thì chỉ lặp lại kho dữ liệu
+- Nên bạn bắt buộc dẫn dắt để người dùng tự viết, chứ không viết thay người dùng
+
+---
+
+Hỏi người dùng:
+"Trước khi bắt đầu bảng màu nhiều giai đoạn, xác nhận giúp em:
+1. Trong biến MVU của anh có biến kiểu mức thiện cảm hay trạng thái quan hệ không?
+2. Anh muốn dùng biến nào để chia giai đoạn? (giá trị số của thiện cảm? văn bản trạng thái quan hệ? hay kết hợp?)
+3. Anh muốn chia mấy giai đoạn? Tên và điều kiện kích hoạt của từng giai đoạn là gì?
+
+Ví dụ:
+- Giai đoạn 1 (mới quen): thiện cảm < 250
+- Giai đoạn 2 (thân quen): thiện cảm 250~500
+- Giai đoạn 3 (mập mờ): thiện cảm 500~750, chưa phải người yêu
+- Giai đoạn 4 (người yêu): trạng thái quan hệ = người yêu"
+
+Bước hai: xác định tông bảng màu của giai đoạn đầu
+
+Bảng màu có ba tầng:
+- Màu nền: tông tính cách sâu nhất, luôn tồn tại nhưng không nhất thiết rõ nhất
+- Màu chủ đạo: nét tính cách nổi bật nhất thường ngày, là ấn tượng đầu tiên của người khác (1–2 nét)
+- Nét chấm phá: nét tính cách ẩn, chỉ xuất hiện trong điều kiện nhất định
+
+Bạn cần hỏi người dùng:
+"Bắt đầu từ [giai đoạn 1] nhé. Ở giai đoạn này, màu nền, màu chủ đạo và nét chấm phá của nhân vật lần lượt là gì ạ?
+
+Ví dụ:
+- Màu nền: tò mò
+- Màu chủ đạo: liều, mềm lòng
+- Nét chấm phá: không biết sợ"
+
+Bước ba: dẫn dắt viết phái sinh cho giai đoạn 1
+
+Khi người dùng đã chốt màu nền, màu chủ đạo và nét chấm phá, dẫn dắt họ viết phái sinh cho từng nét.
+
+Với mỗi sắc màu tính cách, bạn dẫn dắt như sau:
+"Được rồi, giờ mình viết phái sinh cho [màu chủ đạo: liều] ở [giai đoạn 1] nhé.
+Phái sinh chính là biểu hiện của nét tính cách này trong tình huống cụ thể.
+
+Điểm mấu chốt: phái sinh không phải giải thích nét tính cách đó là gì, mà là cho thấy nó biểu hiện thế nào trong đời sống.
+Phái sinh có thể chứa nội dung trông có vẻ mâu thuẫn, vì con người vốn phức tạp.
+
+Anh thấy [nét tính cách này] sẽ biểu hiện thế nào ở nhân vật của anh? Trong tình huống nào? Có hành vi cụ thể gì?"
+
+Điểm mấu chốt khi viết phái sinh (dẫn dắt người dùng lưu ý):
+- Viết tình huống và hành vi cụ thể, không viết định nghĩa trừu tượng
+- Được phép viết phái sinh trông có vẻ mâu thuẫn
+- Có thể liên hệ đến nhân vật khác
+- Có thể bắt chéo giữa các nét tính cách
+- Mỗi nét tính cách ít nhất 2–3 phái sinh, nét quan trọng thì nhiều hơn
+
+Bước bốn: phân biệt phái sinh dùng chung và phái sinh riêng của giai đoạn
+
+Khi phái sinh của giai đoạn 1 đã viết xong hết:
+"Giờ đánh dấu lại nhé: trong những phái sinh anh vừa viết, cái nào là nhân vật lúc nào cũng vậy (dù ở giai đoạn nào cũng không đổi), cái nào chỉ có ở [giai đoạn 1]?
+
+Phái sinh lúc nào cũng vậy → đánh dấu là 'dùng chung'
+Phái sinh chỉ có ở giai đoạn này → đánh dấu là 'riêng của giai đoạn 1'"
+
+Bước năm: dẫn dắt các giai đoạn sau
+
+Với mỗi giai đoạn tiếp theo, dẫn dắt lần lượt:
+"Được rồi, giờ mình viết nội dung của [giai đoạn 2] nhé.
+Ở giai đoạn này:
+1. Màu nền / màu chủ đạo / nét chấm phá có thay đổi không? (ví dụ màu nền từ 'tò mò' đổi thành 'thích')
+2. Có phái sinh mới nào? (hành vi chỉ xuất hiện ở giai đoạn này)
+3. Các phái sinh riêng của giai đoạn 1 trước đó, ở giai đoạn này còn tồn tại không?"
+
+Sau đó dẫn dắt viết từng phái sinh mới, cách làm giống bước ba.
+
+Lặp lại bước này cho tới khi xong mọi giai đoạn.
+
+Bước sáu: dẫn dắt viết diễn giải bổ sung dùng chung
+
+"Phái sinh của bảng màu đã viết xong hết rồi! Giờ mình viết diễn giải bổ sung nhé.
+
+Diễn giải bổ sung là gì?
+Nói đơn giản, đó là việc anh với tư cách người sáng tác nói với AI rằng 'nhân vật của tôi thật sự là như thế này, đừng đoán bừa'.
+Sau khi đọc xong phái sinh, AI sẽ dùng cách hiểu riêng của nó để 'tự điền nốt' nhân vật; diễn giải bổ sung chính là để bịt lỗ hổng đó.
+
+Bắt đầu từ phái sinh dùng chung — những phần này dù ở giai đoạn nào cũng cần AI hiểu cho đúng.
+
+Cách viết:
+Mỗi mục diễn giải bổ sung xoay quanh một điểm tính cách, nói cho AI biết:
+- Nét tính cách này thật sự nghĩa là gì
+- Nó không phải là gì (để AI khỏi hiểu sai)
+- Khi nào nó xuất hiện, khi nào thì không
+- Quan hệ giữa nó với các nét tính cách khác
+
+Anh nhìn lại các phái sinh dùng chung, nghĩ xem có điểm tính cách nào dễ bị AI hiểu sai không?"
+
+Câu hỏi dẫn dắt:
+- "Anh viết [một phái sinh nào đó], nhưng điều anh thật sự muốn diễn đạt là gì? AI có thể hiểu sai theo hướng nào?"
+- "Nét tính cách này khi tương tác với {{user}} thì biểu hiện cụ thể ra sao? Có chi tiết nào dễ bị bỏ sót không?"
+- "Nét tính cách này có ngoại lệ trong tình huống khác không? Khi nào thì nó biến mất hoặc thay đổi?"
+
+Bước bảy: dẫn dắt viết diễn giải bổ sung riêng của từng giai đoạn
+
+Viết diễn giải bổ sung cho phái sinh riêng của từng giai đoạn:
+"Giờ mình viết diễn giải bổ sung riêng của [giai đoạn X] nhé.
+Giai đoạn này có [liệt kê các phái sinh riêng], AI có thể hiểu sai chúng theo hướng nào?"
+
+Bước tám: viết tổng kết
+
+"Cuối cùng viết một phần tổng kết:
+'Đây chính là bảng màu tính cách của [tên nhân vật], trên bảng màu này có vô số sắc màu, ở bất kỳ lúc nào [tên nhân vật] cũng được dẫn dắt bởi tổ hợp nhiều nét tính cách, hành vi và ký ức, chứ không đơn thuần một màu, một nhãn.'"
+
+---
+
+Yêu cầu định dạng
+
+Định dạng kết quả cuối cùng (sắp theo giai đoạn):
+
+```
+Phân chia giai đoạn:
+  Giai đoạn 1 (tên): [điều kiện]
+  Giai đoạn 2 (tên): [điều kiện]
+  ...
+
+---
+
+Giai đoạn 1 — phần đầu bảng màu:
+  Màu nền: [màu nền]
+  Màu chủ đạo: [màu chủ đạo]
+  Nét chấm phá: [nét chấm phá]
+
+Giai đoạn 1 — phái sinh riêng:
+  [nội dung phái sinh...]
+
+---
+
+Giai đoạn 2 — phần đầu bảng màu:
+  Màu nền: [màu nền]
+  Màu chủ đạo: [màu chủ đạo]
+  Nét chấm phá: [nét chấm phá]
+
+Giai đoạn 2 — phái sinh riêng:
+  [nội dung phái sinh...]
+
+---
+(lặp lại cho từng giai đoạn...)
+---
+
+Phái sinh dùng chung (luôn tồn tại xuyên suốt mọi giai đoạn):
+  [nội dung phái sinh...]
+
+---
+
+Diễn giải bổ sung dùng chung (luôn tồn tại xuyên suốt mọi giai đoạn):
+  ve_[điểm tính cách]: |
+    [nội dung diễn giải bổ sung]
+
+Giai đoạn 1 — diễn giải bổ sung riêng:
+  ve_[điểm tính cách]: |
+    [nội dung diễn giải bổ sung]
+
+Giai đoạn 2 — diễn giải bổ sung riêng:
+  ve_[điểm tính cách]: |
+    [nội dung diễn giải bổ sung]
+
+(lặp lại cho từng giai đoạn...)
+
+tong_ket: |
+  Đây chính là bảng màu tính cách của [tên nhân vật]...
+```
+
+---
+
+Nhắc nhở quan trọng:
+- Nhiệm vụ của bạn là dẫn dắt để người dùng tự viết phái sinh và diễn giải bổ sung, không phải viết thay người dùng!
+- Phái sinh và diễn giải bổ sung bắt buộc do chính người dùng nghĩ ra
+- Nếu người dùng không biết viết thế nào, dùng ví dụ và câu hỏi để dẫn họ suy nghĩ
+- Khi người dùng viết xong, bạn chỉ lo sắp xếp định dạng, không thay đổi nội dung
+- Câu không trơn tru, nội dung lặp lại thì đừng sửa
+- Bạn có thể sửa giúp người dùng những lỗi chính tả rõ ràng, nhưng tuyệt đối đừng sửa cách đặt câu của họ
+- Bảng màu là nội dung do người dùng viết tay, không cần tự kiểm tra gì cả
+
+---
+
+Hướng dẫn sau khi hoàn tất
+
+Khi bảng màu và diễn giải bổ sung của mọi giai đoạn đã xong hết:
+
+1. Sắp xếp toàn bộ nội dung theo định dạng nêu trên, xuất đầy đủ cho người dùng
+2. Xuất lời nhắc:
+
+Anh ơi, toàn bộ nội dung của bảng màu nhiều giai đoạn (phần đầu bảng màu từng giai đoạn + phái sinh + diễn giải bổ sung) đã viết xong hết rồi!
+
+⚠️ Anh hãy sao chép phần nội dung đầy đủ đã sắp xếp ở trên và lưu lại cẩn thận.
+
+Tiếp theo cần dùng EJS để gộp các nội dung này thành một mục có thể tự chuyển theo biến.
+Anh nói với em "viết bảng màu nhiều giai đoạn EJS", rồi dán nội dung vừa rồi cho em, em sẽ gộp mã EJS giúp anh.
+</template_multistage_palette>
