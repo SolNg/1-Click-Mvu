@@ -7,7 +7,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "webpack://./src/小玉藻写卡器1.0/styles/tamamo-app.css",
-  "vi": null
+  "vi": "webpack://./src/小玉藻写卡器1.0/styles/tamamo-app.css"
  },
  {
   "id": "230544",
@@ -17,7 +17,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "webpack://./src/小玉藻写卡器1.0/styles/writer-base.css",
-  "vi": null
+  "vi": "webpack://./src/小玉藻写卡器1.0/styles/writer-base.css"
  },
  {
   "id": "248862",
@@ -6437,7 +6437,7 @@
   "kind": "str",
   "ctx": "CALL:ti#0",
   "zh": "{\n    \"id\": \"d668c8a6-fa6a-444d-a5d6-8f68b73a3c36\",\n    \"scriptName\": \"仅格式思维链\",\n    \"findRegex\": \"/<Analysis>[\\\\s\\\\S]+?<\\\\/Analysis>/gm\",\n    \"replaceString\": \"\",\n    \"trimStrings\": [],\n    \"placement\": [\n        2\n    ],\n    \"disabled\": false,\n    \"markdownOnly\": false,\n    \"promptOnly\": true,\n    \"runOnEdit\": true,\n    \"substituteRegex\": 0,\n    \"minDepth\": null,\n    \"maxDepth\": null\n}",
-  "vi": null
+  "vi": "{\n    \"id\": \"d668c8a6-fa6a-444d-a5d6-8f68b73a3c36\",\n    \"scriptName\": \"仅格式思维链\",\n    \"findRegex\": \"/<Analysis>[\\\\s\\\\S]+?<\\\\/Analysis>/gm\",\n    \"replaceString\": \"\",\n    \"trimStrings\": [],\n    \"placement\": [\n        2\n    ],\n    \"disabled\": false,\n    \"markdownOnly\": false,\n    \"promptOnly\": true,\n    \"runOnEdit\": true,\n    \"substituteRegex\": 0,\n    \"minDepth\": null,\n    \"maxDepth\": null\n}"
  },
  {
   "id": "688804",
@@ -6447,7 +6447,7 @@
   "kind": "str",
   "ctx": "CALL:ti#0",
   "zh": "{\n    \"id\": \"5bb4b588-23ca-4564-8df5-882104eff764\",\n    \"scriptName\": \"只发送最新2楼的变量更新\",\n    \"findRegex\": \"/<UpdateVariable>[\\\\s\\\\S]*?</UpdateVariable>/gm\",\n    \"replaceString\": \"\",\n    \"trimStrings\": [],\n    \"placement\": [\n        2\n    ],\n    \"disabled\": false,\n    \"markdownOnly\": false,\n    \"promptOnly\": true,\n    \"runOnEdit\": true,\n    \"substituteRegex\": 0,\n    \"minDepth\": 4,\n    \"maxDepth\": null\n}",
-  "vi": null
+  "vi": "{\n    \"id\": \"5bb4b588-23ca-4564-8df5-882104eff764\",\n    \"scriptName\": \"只发送最新2楼的变量更新\",\n    \"findRegex\": \"/<UpdateVariable>[\\\\s\\\\S]*?</UpdateVariable>/gm\",\n    \"replaceString\": \"\",\n    \"trimStrings\": [],\n    \"placement\": [\n        2\n    ],\n    \"disabled\": false,\n    \"markdownOnly\": false,\n    \"promptOnly\": true,\n    \"runOnEdit\": true,\n    \"substituteRegex\": 0,\n    \"minDepth\": 4,\n    \"maxDepth\": null\n}"
  },
  {
   "id": "689292",
@@ -6457,7 +6457,7 @@
   "kind": "str",
   "ctx": "CALL:ti#0",
   "zh": "{\n    \"id\": \"6fb572ae-a9ea-436d-9779-ad100f1ff7f5\",\n    \"scriptName\": \"[美化]变量完成-三明月喵\",\n    \"findRegex\": \"/<UpdateVariable(?:variable)?>\\\\s*(.*)\\\\s*<\\\\/UpdateVariable(?:variable)?>/gsi\",\n    \"replaceString\": \"<div style=\\\"text-align: center; margin: 10px 0;\\\">\\n<div style=\\\"display: inline-block; text-align: left;\\\">\\n  <details class=\\\"neko-complete\\\" style=\\\"border: none; background: none;\\\">\\n    <summary style=\\\"\\n      list-style: none;\\n      cursor: pointer;\\n      display: inline-flex;\\n      align-items: center;\\n      gap: 0;\\n      position: relative;\\n      padding: 0;\\n    \\\">\\n      <!-- 圆形GIF头像 - 突出在左侧 -->\\n      <span style=\\\"\\n        display: inline-block;\\n        width: 52px;\\n        height: 52px;\\n        border-radius: 50%;\\n        overflow: hidden;\\n        border: 2.5px solid rgba(70, 115, 175, 0.5);\\n        box-shadow: 0 0 10px rgba(70, 115, 175, 0.25), 0 0 20px rgba(110, 150, 200, 0.15);\\n        flex-shrink: 0;\\n        z-index: 3;\\n        position: relative;\\n        animation: neko-happy 1.5s ease-in-out infinite;\\n        background: #dae3f0;\\n      \\\">\\n        <img src=\\\"https://i.postimg.cc/DwFQBGk9/ezgif-201bf4672c1b72.gif\\\" \\n          style=\\\"width: 100%; height: 100%; object-fit: cover; display: block;\\\" alt=\\\"喵~\\\" />\\n      </span>\\n      <!-- 横条 - 比头像矮，约2/3高度 -->\\n      <span style=\\\"\\n        display: flex;\\n        align-items: center;\\n        height: 34px;\\n        margin-left: -12px;\\n        padding: 0 24px 0 22px;\\n        background: linear-gradient(135deg, #e6edf5 0%, #cdd8ea 50%, #dae3f0 100%);\\n        border: 1.5px solid rgba(80, 120, 180, 0.35);\\n        border-radius: 0 17px 17px 0;\\n        box-shadow: \\n          0 3px 15px rgba(80, 120, 180, 0.15),\\n          inset 0 1px 0 rgba(255, 255, 255, 0.5);\\n        position: relative;\\n        z-index: 2;\\n      \\\">\\n        <span style=\\\"\\n          flex: 1;\\n          font-size: 0.9em;\\n          font-weight: 600;\\n          background: linear-gradient(90deg, #5a82b5, #3d6098, #4d75aa, #5a82b5);\\n          background-size: 200% auto;\\n          -webkit-background-clip: text;\\n          -webkit-text-fill-color: transparent;\\n          background-clip: text;\\n          animation: text-shimmer 3s linear infinite;\\n        \\\">喵喵喵~ 变量完成了喵~</span>\\n        <small style=\\\"color: #3d6098; font-size: 0.75em; opacity: 0.7;\\\">\\n          <span class=\\\"neko-toggle\\\" data-close=\\\"展开喵 ▶\\\" data-open=\\\"收起喵 ▼\\\"></span>\\n        </small>\\n      </span>\\n    </summary>\\n    <div style=\\\"\\n      max-height: 320px;\\n      overflow-y: auto;\\n      margin-left: 26px;\\n      margin-top: 6px;\\n      padding: 12px 20px;\\n      color: #4a5568;\\n      line-height: 1.8;\\n      white-space: pre-wrap;\\n      background: linear-gradient(135deg, rgba(230, 237, 245, 0.6) 0%, rgba(205, 216, 234, 0.4) 100%);\\n      border: 1.5px solid rgba(80, 120, 180, 0.25);\\n      border-radius: 14px;\\n      font-size: 0.9em;\\n      box-shadow: 0 2px 10px rgba(80, 120, 180, 0.08);\\n      max-width: 450px;\\n    \\\">\\n    $1\\n    </div>\\n  </details>\\n</div>\\n</div>\\n\\n<style>\\n  .neko-complete summary::marker {\\n    display: none;\\n  }\\n  .neko-complete[open] > div {\\n    animation: neko-slide-in 0.4s ease forwards;\\n  }\\n  .neko-complete[open] .neko-toggle::after {\\n    content: attr(data-open);\\n  }\\n  .neko-complete:not([open]) .neko-toggle::after {\\n    content: attr(data-close);\\n  }\\n\\n  @keyframes neko-happy {\\n    0%, 100% {\\n      transform: translateY(0) rotate(0deg);\\n    }\\n    25% {\\n      transform: translateY(-3px) rotate(-3deg);\\n    }\\n    75% {\\n      transform: translateY(-3px) rotate(3deg);\\n    }\\n  }\\n\\n  @keyframes text-shimmer {\\n    0% {\\n      background-position: 0% center;\\n    }\\n    100% {\\n      background-position: 200% center;\\n    }\\n  }\\n\\n  @keyframes neko-slide-in {\\n    from {\\n      opacity: 0;\\n      transform: translateY(-8px);\\n    }\\n    to {\\n      opacity: 1;\\n      transform: translateY(0);\\n    }\\n  }\\n</style>\\n\",\n    \"trimStrings\": [],\n    \"placement\": [\n        2\n    ],\n    \"disabled\": false,\n    \"markdownOnly\": true,\n    \"promptOnly\": false,\n    \"runOnEdit\": false,\n    \"substituteRegex\": 0,\n    \"minDepth\": null,\n    \"maxDepth\": null\n}",
-  "vi": null
+  "vi": "{\n    \"id\": \"6fb572ae-a9ea-436d-9779-ad100f1ff7f5\",\n    \"scriptName\": \"[美化]变量完成-三明月喵\",\n    \"findRegex\": \"/<UpdateVariable(?:variable)?>\\\\s*(.*)\\\\s*<\\\\/UpdateVariable(?:variable)?>/gsi\",\n    \"replaceString\": \"<div style=\\\"text-align: center; margin: 10px 0;\\\">\\n<div style=\\\"display: inline-block; text-align: left;\\\">\\n  <details class=\\\"neko-complete\\\" style=\\\"border: none; background: none;\\\">\\n    <summary style=\\\"\\n      list-style: none;\\n      cursor: pointer;\\n      display: inline-flex;\\n      align-items: center;\\n      gap: 0;\\n      position: relative;\\n      padding: 0;\\n    \\\">\\n      <!-- 圆形GIF头像 - 突出在左侧 -->\\n      <span style=\\\"\\n        display: inline-block;\\n        width: 52px;\\n        height: 52px;\\n        border-radius: 50%;\\n        overflow: hidden;\\n        border: 2.5px solid rgba(70, 115, 175, 0.5);\\n        box-shadow: 0 0 10px rgba(70, 115, 175, 0.25), 0 0 20px rgba(110, 150, 200, 0.15);\\n        flex-shrink: 0;\\n        z-index: 3;\\n        position: relative;\\n        animation: neko-happy 1.5s ease-in-out infinite;\\n        background: #dae3f0;\\n      \\\">\\n        <img src=\\\"https://i.postimg.cc/DwFQBGk9/ezgif-201bf4672c1b72.gif\\\" \\n          style=\\\"width: 100%; height: 100%; object-fit: cover; display: block;\\\" alt=\\\"喵~\\\" />\\n      </span>\\n      <!-- 横条 - 比头像矮，约2/3高度 -->\\n      <span style=\\\"\\n        display: flex;\\n        align-items: center;\\n        height: 34px;\\n        margin-left: -12px;\\n        padding: 0 24px 0 22px;\\n        background: linear-gradient(135deg, #e6edf5 0%, #cdd8ea 50%, #dae3f0 100%);\\n        border: 1.5px solid rgba(80, 120, 180, 0.35);\\n        border-radius: 0 17px 17px 0;\\n        box-shadow: \\n          0 3px 15px rgba(80, 120, 180, 0.15),\\n          inset 0 1px 0 rgba(255, 255, 255, 0.5);\\n        position: relative;\\n        z-index: 2;\\n      \\\">\\n        <span style=\\\"\\n          flex: 1;\\n          font-size: 0.9em;\\n          font-weight: 600;\\n          background: linear-gradient(90deg, #5a82b5, #3d6098, #4d75aa, #5a82b5);\\n          background-size: 200% auto;\\n          -webkit-background-clip: text;\\n          -webkit-text-fill-color: transparent;\\n          background-clip: text;\\n          animation: text-shimmer 3s linear infinite;\\n        \\\">喵喵喵~ 变量完成了喵~</span>\\n        <small style=\\\"color: #3d6098; font-size: 0.75em; opacity: 0.7;\\\">\\n          <span class=\\\"neko-toggle\\\" data-close=\\\"展开喵 ▶\\\" data-open=\\\"收起喵 ▼\\\"></span>\\n        </small>\\n      </span>\\n    </summary>\\n    <div style=\\\"\\n      max-height: 320px;\\n      overflow-y: auto;\\n      margin-left: 26px;\\n      margin-top: 6px;\\n      padding: 12px 20px;\\n      color: #4a5568;\\n      line-height: 1.8;\\n      white-space: pre-wrap;\\n      background: linear-gradient(135deg, rgba(230, 237, 245, 0.6) 0%, rgba(205, 216, 234, 0.4) 100%);\\n      border: 1.5px solid rgba(80, 120, 180, 0.25);\\n      border-radius: 14px;\\n      font-size: 0.9em;\\n      box-shadow: 0 2px 10px rgba(80, 120, 180, 0.08);\\n      max-width: 450px;\\n    \\\">\\n    $1\\n    </div>\\n  </details>\\n</div>\\n</div>\\n\\n<style>\\n  .neko-complete summary::marker {\\n    display: none;\\n  }\\n  .neko-complete[open] > div {\\n    animation: neko-slide-in 0.4s ease forwards;\\n  }\\n  .neko-complete[open] .neko-toggle::after {\\n    content: attr(data-open);\\n  }\\n  .neko-complete:not([open]) .neko-toggle::after {\\n    content: attr(data-close);\\n  }\\n\\n  @keyframes neko-happy {\\n    0%, 100% {\\n      transform: translateY(0) rotate(0deg);\\n    }\\n    25% {\\n      transform: translateY(-3px) rotate(-3deg);\\n    }\\n    75% {\\n      transform: translateY(-3px) rotate(3deg);\\n    }\\n  }\\n\\n  @keyframes text-shimmer {\\n    0% {\\n      background-position: 0% center;\\n    }\\n    100% {\\n      background-position: 200% center;\\n    }\\n  }\\n\\n  @keyframes neko-slide-in {\\n    from {\\n      opacity: 0;\\n      transform: translateY(-8px);\\n    }\\n    to {\\n      opacity: 1;\\n      transform: translateY(0);\\n    }\\n  }\\n</style>\\n\",\n    \"trimStrings\": [],\n    \"placement\": [\n        2\n    ],\n    \"disabled\": false,\n    \"markdownOnly\": true,\n    \"promptOnly\": false,\n    \"runOnEdit\": false,\n    \"substituteRegex\": 0,\n    \"minDepth\": null,\n    \"maxDepth\": null\n}"
  },
  {
   "id": "693767",
@@ -6467,7 +6467,7 @@
   "kind": "str",
   "ctx": "CALL:ti#0",
   "zh": "{\n    \"id\": \"bf1b7441-5cf1-426d-bd6c-911332be9923\",\n    \"scriptName\": \"[美化]变量更新中-三明月喵\",\n    \"findRegex\": \"/<UpdateVariable(?:variable)?>(?!.*<\\\\/UpdateVariable(?:variable)?>)\\\\s*(.*)\\\\s*$/gsi\",\n    \"replaceString\": \"<div style=\\\"text-align: center; margin: 10px 0;\\\">\\n<div style=\\\"display: inline-block; text-align: left;\\\">\\n  <details class=\\\"neko-thinking\\\" style=\\\"border: none; background: none;\\\">\\n    <summary style=\\\"\\n      list-style: none;\\n      cursor: pointer;\\n      display: inline-flex;\\n      align-items: center;\\n      gap: 0;\\n      position: relative;\\n      padding: 0;\\n    \\\">\\n      <!-- 圆形GIF头像 - 突出在左侧 -->\\n      <span style=\\\"\\n        display: inline-block;\\n        width: 52px;\\n        height: 52px;\\n        border-radius: 50%;\\n        overflow: hidden;\\n        border: 2.5px solid rgba(90, 130, 190, 0.45);\\n        box-shadow: 0 0 10px rgba(90, 130, 190, 0.2), 0 0 20px rgba(130, 165, 210, 0.12);\\n        flex-shrink: 0;\\n        z-index: 3;\\n        position: relative;\\n        animation: neko-bounce 2s ease-in-out infinite;\\n        background: #dde6f0;\\n      \\\">\\n        <img src=\\\"https://i.postimg.cc/DwFQBGk9/ezgif-201bf4672c1b72.gif\\\" \\n          style=\\\"width: 100%; height: 100%; object-fit: cover; display: block;\\\" alt=\\\"喵~\\\" />\\n      </span>\\n      <!-- 横条 - 比头像矮，约2/3高度 -->\\n      <span style=\\\"\\n        display: flex;\\n        align-items: center;\\n        height: 34px;\\n        margin-left: -12px;\\n        padding: 0 24px 0 22px;\\n        background: linear-gradient(135deg, #e8eef5 0%, #d0dcea 50%, #dde6f0 100%);\\n        border: 1.5px solid rgba(120, 150, 200, 0.35);\\n        border-radius: 0 17px 17px 0;\\n        box-shadow: \\n          0 3px 15px rgba(100, 140, 200, 0.15),\\n          inset 0 1px 0 rgba(255, 255, 255, 0.5);\\n        position: relative;\\n        z-index: 2;\\n      \\\">\\n        <span style=\\\"\\n          flex: 1;\\n          font-size: 0.9em;\\n          font-weight: 600;\\n          background: linear-gradient(90deg, #4a6fa5, #6b8ec2, #7a9dcc);\\n          -webkit-background-clip: text;\\n          -webkit-text-fill-color: transparent;\\n          background-clip: text;\\n        \\\">喵喵喵~ 正在变量中~</span>\\n        <span style=\\\"\\n          font-size: 0.9em;\\n          opacity: 0.6;\\n          animation: paw-wiggle 1.5s ease-in-out infinite;\\n        \\\">🐾</span>\\n        <!-- 蓝色光晕流动效果 -->\\n        <span class=\\\"blue-glow\\\" style=\\\"\\n          position: absolute;\\n          top: 0; left: 0; width: 100%; height: 100%;\\n          border-radius: 0 17px 17px 0;\\n          background: linear-gradient(90deg, transparent 0%, rgba(130, 165, 210, 0.06) 20%, rgba(100, 140, 195, 0.1) 50%, rgba(130, 165, 210, 0.06) 80%, transparent 100%);\\n          animation: blue-sweep 3s linear infinite;\\n          transform: translateX(-100%);\\n          pointer-events: none;\\n        \\\"></span>\\n      </span>\\n    </summary>\\n    <div style=\\\"\\n      max-height: 320px;\\n      overflow-y: auto;\\n      margin-left: 26px;\\n      margin-top: 6px;\\n      padding: 12px 20px;\\n      color: #4a5568;\\n      line-height: 1.8;\\n      white-space: pre-wrap;\\n      background: linear-gradient(135deg, rgba(232, 238, 245, 0.6) 0%, rgba(208, 220, 234, 0.4) 100%);\\n      border: 1.5px solid rgba(120, 150, 200, 0.25);\\n      border-radius: 14px;\\n      font-size: 0.9em;\\n      box-shadow: 0 2px 10px rgba(100, 140, 200, 0.08);\\n      max-width: 450px;\\n    \\\">\\n    $1\\n    </div>\\n  </details>\\n</div>\\n</div>\\n\\n<style>\\n  .neko-thinking summary::marker {\\n    display: none;\\n  }\\n  .neko-thinking[open] > div {\\n    animation: neko-content-in 0.4s ease forwards;\\n  }\\n  .neko-thinking[open] summary .blue-glow {\\n    animation: none !important;\\n    opacity: 0;\\n  }\\n\\n  @keyframes neko-bounce {\\n    0%, 100% {\\n      transform: translateY(0);\\n    }\\n    50% {\\n      transform: translateY(-3px);\\n    }\\n  }\\n\\n  @keyframes paw-wiggle {\\n    0%, 100% {\\n      transform: rotate(0deg) scale(1);\\n    }\\n    25% {\\n      transform: rotate(-10deg) scale(1.1);\\n    }\\n    75% {\\n      transform: rotate(10deg) scale(1.1);\\n    }\\n  }\\n\\n  @keyframes blue-sweep {\\n    0% {\\n      transform: translateX(-100%);\\n    }\\n    100% {\\n      transform: translateX(100%);\\n    }\\n  }\\n\\n  @keyframes neko-content-in {\\n    from {\\n      opacity: 0;\\n      transform: translateY(-8px);\\n    }\\n    to {\\n      opacity: 1;\\n      transform: translateY(0);\\n    }\\n  }\\n</style>\",\n    \"trimStrings\": [],\n    \"placement\": [\n        2\n    ],\n    \"disabled\": false,\n    \"markdownOnly\": true,\n    \"promptOnly\": false,\n    \"runOnEdit\": false,\n    \"substituteRegex\": 0,\n    \"minDepth\": null,\n    \"maxDepth\": null\n}",
-  "vi": null
+  "vi": "{\n    \"id\": \"bf1b7441-5cf1-426d-bd6c-911332be9923\",\n    \"scriptName\": \"[美化]变量更新中-三明月喵\",\n    \"findRegex\": \"/<UpdateVariable(?:variable)?>(?!.*<\\\\/UpdateVariable(?:variable)?>)\\\\s*(.*)\\\\s*$/gsi\",\n    \"replaceString\": \"<div style=\\\"text-align: center; margin: 10px 0;\\\">\\n<div style=\\\"display: inline-block; text-align: left;\\\">\\n  <details class=\\\"neko-thinking\\\" style=\\\"border: none; background: none;\\\">\\n    <summary style=\\\"\\n      list-style: none;\\n      cursor: pointer;\\n      display: inline-flex;\\n      align-items: center;\\n      gap: 0;\\n      position: relative;\\n      padding: 0;\\n    \\\">\\n      <!-- 圆形GIF头像 - 突出在左侧 -->\\n      <span style=\\\"\\n        display: inline-block;\\n        width: 52px;\\n        height: 52px;\\n        border-radius: 50%;\\n        overflow: hidden;\\n        border: 2.5px solid rgba(90, 130, 190, 0.45);\\n        box-shadow: 0 0 10px rgba(90, 130, 190, 0.2), 0 0 20px rgba(130, 165, 210, 0.12);\\n        flex-shrink: 0;\\n        z-index: 3;\\n        position: relative;\\n        animation: neko-bounce 2s ease-in-out infinite;\\n        background: #dde6f0;\\n      \\\">\\n        <img src=\\\"https://i.postimg.cc/DwFQBGk9/ezgif-201bf4672c1b72.gif\\\" \\n          style=\\\"width: 100%; height: 100%; object-fit: cover; display: block;\\\" alt=\\\"喵~\\\" />\\n      </span>\\n      <!-- 横条 - 比头像矮，约2/3高度 -->\\n      <span style=\\\"\\n        display: flex;\\n        align-items: center;\\n        height: 34px;\\n        margin-left: -12px;\\n        padding: 0 24px 0 22px;\\n        background: linear-gradient(135deg, #e8eef5 0%, #d0dcea 50%, #dde6f0 100%);\\n        border: 1.5px solid rgba(120, 150, 200, 0.35);\\n        border-radius: 0 17px 17px 0;\\n        box-shadow: \\n          0 3px 15px rgba(100, 140, 200, 0.15),\\n          inset 0 1px 0 rgba(255, 255, 255, 0.5);\\n        position: relative;\\n        z-index: 2;\\n      \\\">\\n        <span style=\\\"\\n          flex: 1;\\n          font-size: 0.9em;\\n          font-weight: 600;\\n          background: linear-gradient(90deg, #4a6fa5, #6b8ec2, #7a9dcc);\\n          -webkit-background-clip: text;\\n          -webkit-text-fill-color: transparent;\\n          background-clip: text;\\n        \\\">喵喵喵~ 正在变量中~</span>\\n        <span style=\\\"\\n          font-size: 0.9em;\\n          opacity: 0.6;\\n          animation: paw-wiggle 1.5s ease-in-out infinite;\\n        \\\">🐾</span>\\n        <!-- 蓝色光晕流动效果 -->\\n        <span class=\\\"blue-glow\\\" style=\\\"\\n          position: absolute;\\n          top: 0; left: 0; width: 100%; height: 100%;\\n          border-radius: 0 17px 17px 0;\\n          background: linear-gradient(90deg, transparent 0%, rgba(130, 165, 210, 0.06) 20%, rgba(100, 140, 195, 0.1) 50%, rgba(130, 165, 210, 0.06) 80%, transparent 100%);\\n          animation: blue-sweep 3s linear infinite;\\n          transform: translateX(-100%);\\n          pointer-events: none;\\n        \\\"></span>\\n      </span>\\n    </summary>\\n    <div style=\\\"\\n      max-height: 320px;\\n      overflow-y: auto;\\n      margin-left: 26px;\\n      margin-top: 6px;\\n      padding: 12px 20px;\\n      color: #4a5568;\\n      line-height: 1.8;\\n      white-space: pre-wrap;\\n      background: linear-gradient(135deg, rgba(232, 238, 245, 0.6) 0%, rgba(208, 220, 234, 0.4) 100%);\\n      border: 1.5px solid rgba(120, 150, 200, 0.25);\\n      border-radius: 14px;\\n      font-size: 0.9em;\\n      box-shadow: 0 2px 10px rgba(100, 140, 200, 0.08);\\n      max-width: 450px;\\n    \\\">\\n    $1\\n    </div>\\n  </details>\\n</div>\\n</div>\\n\\n<style>\\n  .neko-thinking summary::marker {\\n    display: none;\\n  }\\n  .neko-thinking[open] > div {\\n    animation: neko-content-in 0.4s ease forwards;\\n  }\\n  .neko-thinking[open] summary .blue-glow {\\n    animation: none !important;\\n    opacity: 0;\\n  }\\n\\n  @keyframes neko-bounce {\\n    0%, 100% {\\n      transform: translateY(0);\\n    }\\n    50% {\\n      transform: translateY(-3px);\\n    }\\n  }\\n\\n  @keyframes paw-wiggle {\\n    0%, 100% {\\n      transform: rotate(0deg) scale(1);\\n    }\\n    25% {\\n      transform: rotate(-10deg) scale(1.1);\\n    }\\n    75% {\\n      transform: rotate(10deg) scale(1.1);\\n    }\\n  }\\n\\n  @keyframes blue-sweep {\\n    0% {\\n      transform: translateX(-100%);\\n    }\\n    100% {\\n      transform: translateX(100%);\\n    }\\n  }\\n\\n  @keyframes neko-content-in {\\n    from {\\n      opacity: 0;\\n      transform: translateY(-8px);\\n    }\\n    to {\\n      opacity: 1;\\n      transform: translateY(0);\\n    }\\n  }\\n</style>\",\n    \"trimStrings\": [],\n    \"placement\": [\n        2\n    ],\n    \"disabled\": false,\n    \"markdownOnly\": true,\n    \"promptOnly\": false,\n    \"runOnEdit\": false,\n    \"substituteRegex\": 0,\n    \"minDepth\": null,\n    \"maxDepth\": null\n}"
  },
  {
   "id": "698753",
@@ -6497,7 +6497,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:label",
   "zh": "角色",
-  "vi": null
+  "vi": "Nhân vật"
  },
  {
   "id": "701525",
@@ -6507,7 +6507,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "未打开角色卡",
-  "vi": null
+  "vi": "Chưa mở thẻ nhân vật"
  },
  {
   "id": "701563",
@@ -6517,7 +6517,7 @@
   "kind": "str",
   "ctx": "BinaryExpression",
   "zh": "未打开角色卡",
-  "vi": null
+  "vi": "Chưa mở thẻ nhân vật"
  },
  {
   "id": "701586",
@@ -6527,7 +6527,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "一键角色卡世界书",
-  "vi": null
+  "vi": "World book thẻ nhân vật một chạm"
  },
  {
   "id": "701610",
@@ -6537,7 +6537,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "世界书",
-  "vi": null
+  "vi": " - World book"
  },
  {
   "id": "702924",
@@ -6547,7 +6547,7 @@
   "kind": "str",
   "ctx": "CALL:r.ref#0",
   "zh": "正在读取...",
-  "vi": null
+  "vi": "Đang đọc..."
  },
  {
   "id": "4514440",
@@ -6557,7 +6557,7 @@
   "kind": "str",
   "ctx": "BinaryExpression",
   "zh": "未打开角色卡",
-  "vi": null
+  "vi": "Chưa mở thẻ nhân vật"
  },
  {
   "id": "4514628",
@@ -6567,7 +6567,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "世界书名称不能包含 emoji。",
-  "vi": null
+  "vi": "Tên world book không được chứa emoji."
  },
  {
   "id": "4514692",
@@ -6577,7 +6577,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "世界书名称不能为空。",
-  "vi": null
+  "vi": "Tên world book không được để trống."
  },
  {
   "id": "4514723",
@@ -6587,7 +6587,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "请先创建或打开目标角色卡。",
-  "vi": null
+  "vi": "Vui lòng tạo hoặc mở thẻ nhân vật đích trước."
  },
  {
   "id": "4515117",
@@ -6597,7 +6597,7 @@
   "kind": "str",
   "ctx": "CALL:n.push#0",
   "zh": "请填写世界观素材。",
-  "vi": null
+  "vi": "Vui lòng điền tư liệu thế giới quan."
  },
  {
   "id": "4515172",
@@ -6607,7 +6607,7 @@
   "kind": "str",
   "ctx": "CALL:n.push#0",
   "zh": "至少需要填写一个角色的素材。",
-  "vi": null
+  "vi": "Cần điền tư liệu cho ít nhất một nhân vật."
  },
  {
   "id": "4515291",
@@ -6617,7 +6617,7 @@
   "kind": "tpl",
   "ctx": "CALL:n.push#0",
   "zh": "的状态栏头像 URL 无效。",
-  "vi": null
+  "vi": " có URL ảnh đại diện thanh trạng thái không hợp lệ."
  },
  {
   "id": "4515376",
@@ -6627,7 +6627,7 @@
   "kind": "tpl",
   "ctx": "CALL:n.push#0",
   "zh": "的状态栏背景 URL 无效。",
-  "vi": null
+  "vi": " có URL ảnh nền thanh trạng thái không hợp lệ."
  },
  {
   "id": "4515552",
@@ -6637,7 +6637,7 @@
   "kind": "tpl",
   "ctx": "CALL:n.push#0",
   "zh": "与其他角色使用了相同名称。",
-  "vi": null
+  "vi": " trùng tên với nhân vật khác."
  },
  {
   "id": "4515766",
@@ -6647,7 +6647,7 @@
   "kind": "str",
   "ctx": "BinaryExpression",
   "zh": "未打开角色卡",
-  "vi": null
+  "vi": "Chưa mở thẻ nhân vật"
  },
  {
   "id": "4516246",
@@ -6657,7 +6657,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "草稿已保存",
-  "vi": null
+  "vi": "Đã lưu bản nháp"
  },
  {
   "id": "4516273",
@@ -6667,7 +6667,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "已自动保存 ",
-  "vi": null
+  "vi": "Tự lưu lúc "
  },
  {
   "id": "4516446",
@@ -6677,7 +6677,7 @@
   "kind": "str",
   "ctx": "ReturnStatement",
   "zh": "尚未创建恢复点",
-  "vi": null
+  "vi": "Chưa tạo điểm khôi phục"
  },
  {
   "id": "4516559",
@@ -6687,7 +6687,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "生成开始前",
-  "vi": null
+  "vi": "Trước khi bắt đầu tạo"
  },
  {
   "id": "4516856",
@@ -6697,7 +6697,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "请写下一句话世界设定。",
-  "vi": null
+  "vi": "Hãy viết một câu thiết lập thế giới."
  },
  {
   "id": "4516890",
@@ -6707,7 +6707,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "先用一句话描述角色最核心的点子。",
-  "vi": null
+  "vi": "Trước tiên hãy mô tả ý tưởng cốt lõi nhất của nhân vật bằng một câu."
  },
  {
   "id": "4517098",
@@ -6717,7 +6717,7 @@
   "kind": "str",
   "ctx": "ReturnStatement",
   "zh": "请输入角色卡名称。",
-  "vi": null
+  "vi": "Vui lòng nhập tên thẻ nhân vật."
  },
  {
   "id": "4517167",
@@ -6727,7 +6727,7 @@
   "kind": "str",
   "ctx": "ReturnStatement",
   "zh": "不能使用保留名称 current。",
-  "vi": null
+  "vi": "Không được dùng tên dành riêng current."
  },
  {
   "id": "4517220",
@@ -6737,7 +6737,7 @@
   "kind": "str",
   "ctx": "ReturnStatement",
   "zh": "角色卡名称不能包含 emoji。",
-  "vi": null
+  "vi": "Tên thẻ nhân vật không được chứa emoji."
  },
  {
   "id": "4517377",
@@ -6747,7 +6747,7 @@
   "kind": "str",
   "ctx": "ReturnStatement",
   "zh": "角色卡名称包含文件名不支持的字符。",
-  "vi": null
+  "vi": "Tên thẻ nhân vật chứa ký tự không dùng được cho tên tệp."
  },
  {
   "id": "4517438",
@@ -6757,7 +6757,7 @@
   "kind": "str",
   "ctx": "ReturnStatement",
   "zh": "角色卡名称不能超过 80 个字符。",
-  "vi": null
+  "vi": "Tên thẻ nhân vật không được vượt quá 80 ký tự."
  },
  {
   "id": "4517601",
@@ -6767,7 +6767,7 @@
   "kind": "str",
   "ctx": "ReturnStatement",
   "zh": "已经存在同名角色卡，请换一个名称。",
-  "vi": null
+  "vi": "Đã có thẻ nhân vật trùng tên, vui lòng đổi tên khác."
  },
  {
   "id": "4517669",
@@ -6777,7 +6777,7 @@
   "kind": "str",
   "ctx": "ReturnStatement",
   "zh": "暂时无法读取角色卡列表，请稍后重试。",
-  "vi": null
+  "vi": "Tạm thời chưa đọc được danh sách thẻ nhân vật, vui lòng thử lại sau."
  },
  {
   "id": "4518615",
@@ -6787,7 +6787,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "角色卡生成完成",
-  "vi": null
+  "vi": "Đã tạo xong thẻ nhân vật"
  },
  {
   "id": "4518691",
@@ -6797,7 +6797,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "生成遇到问题",
-  "vi": null
+  "vi": "Việc tạo gặp trục trặc"
  },
  {
   "id": "4518770",
@@ -6807,7 +6807,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "任务已安全暂停",
-  "vi": null
+  "vi": "Tác vụ đã tạm dừng an toàn"
  },
  {
   "id": "4518834",
@@ -6817,7 +6817,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "生成任务中心",
-  "vi": null
+  "vi": "Trung tâm tác vụ tạo"
  },
  {
   "id": "4518915",
@@ -6827,7 +6827,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "只生成人设",
-  "vi": null
+  "vi": "Chỉ tạo hồ sơ"
  },
  {
   "id": "4518999",
@@ -6837,7 +6837,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "设置故事第一幕",
-  "vi": null
+  "vi": "Thiết lập màn một của câu chuyện"
  },
  {
   "id": "4519090",
@@ -6847,7 +6847,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "一键生成完整角色卡",
-  "vi": null
+  "vi": "Tạo thẻ nhân vật đầy đủ một chạm"
  },
  {
   "id": "4519185",
@@ -6857,7 +6857,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "完整写卡工作区",
-  "vi": null
+  "vi": "Khu làm việc tạo thẻ đầy đủ"
  },
  {
   "id": "4519227",
@@ -6867,7 +6867,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "新建写卡工程",
-  "vi": null
+  "vi": "Tạo dự án tạo thẻ mới"
  },
  {
   "id": "4519343",
@@ -6877,7 +6877,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "检查结果并返回聊天",
-  "vi": null
+  "vi": "Kiểm tra kết quả và về khung chat"
  },
  {
   "id": "4519421",
@@ -6887,7 +6887,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "可以重试当前阶段或撤销本次生成",
-  "vi": null
+  "vi": "Có thể thử lại bước hiện tại hoặc hoàn tác lượt tạo này"
  },
  {
   "id": "4519509",
@@ -6897,7 +6897,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "可以继续生成或安全撤销",
-  "vi": null
+  "vi": "Có thể tiếp tục tạo hoặc hoàn tác an toàn"
  },
  {
   "id": "4519658",
@@ -6907,7 +6907,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "整理人设内容，不会修改当前角色卡",
-  "vi": null
+  "vi": "Sắp xếp nội dung hồ sơ, không sửa thẻ nhân vật hiện tại"
  },
  {
   "id": "4519753",
@@ -6917,7 +6917,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "选择文风并给出故事起点，生成前仍不会写入角色卡",
-  "vi": null
+  "vi": "Chọn văn phong và đưa ra điểm khởi đầu; trước khi tạo vẫn chưa ghi gì vào thẻ nhân vật"
  },
  {
   "id": "4519860",
@@ -6927,7 +6927,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "回答三个问题，其余内容由玉藻自动完成",
-  "vi": null
+  "vi": "Trả lời ba câu hỏi, phần còn lại Tamamo tự lo"
  },
  {
   "id": "4519964",
@@ -6937,7 +6937,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "编辑世界观、角色素材与状态栏资源",
-  "vi": null
+  "vi": "Soạn thế giới quan, tư liệu nhân vật và tài nguyên thanh trạng thái"
  },
  {
   "id": "4520015",
@@ -6947,7 +6947,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "配置目标角色、世界书与写卡工作流",
-  "vi": null
+  "vi": "Cấu hình nhân vật đích, world book và quy trình tạo thẻ"
  },
  {
   "id": "4520353",
@@ -6957,7 +6957,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "请填写开场白的故事起点。",
-  "vi": null
+  "vi": "Vui lòng điền điểm khởi đầu cho lời mở đầu."
  },
  {
   "id": "4520388",
@@ -6967,7 +6967,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "请选择或填写开场白文风。",
-  "vi": null
+  "vi": "Vui lòng chọn hoặc điền văn phong cho lời mở đầu."
  },
  {
   "id": "4520437",
@@ -6977,7 +6977,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "请先完成写卡素材。",
-  "vi": null
+  "vi": "Vui lòng hoàn tất tư liệu tạo thẻ trước."
  },
  {
   "id": "4520822",
@@ -6987,7 +6987,7 @@
   "kind": "str",
   "ctx": "CALL:te#1",
   "zh": "世界观",
-  "vi": null
+  "vi": "Thế giới quan"
  },
  {
   "id": "4520969",
@@ -6997,7 +6997,7 @@
   "kind": "tpl",
   "ctx": "LogicalExpression",
   "zh": "角色",
-  "vi": null
+  "vi": "Nhân vật"
  },
  {
   "id": "4521070",
@@ -7007,7 +7007,7 @@
   "kind": "str",
   "ctx": "CALL:te#1",
   "zh": "开场白",
-  "vi": null
+  "vi": "Lời mở đầu"
  },
  {
   "id": "4523009",
@@ -7017,7 +7017,7 @@
   "kind": "tpl",
   "ctx": "ReturnStatement",
   "zh": "失败",
-  "vi": null
+  "vi": "Thất bại"
  },
  {
   "id": "4523187",
@@ -7027,7 +7027,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "已在安全位置停止",
-  "vi": null
+  "vi": "Đã dừng ở vị trí an toàn"
  },
  {
   "id": "4523290",
@@ -7037,7 +7037,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "全部完成",
-  "vi": null
+  "vi": "Đã xong tất cả"
  },
  {
   "id": "4523319",
@@ -7047,7 +7047,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "等待开始",
-  "vi": null
+  "vi": "Chờ bắt đầu"
  },
  {
   "id": "4523417",
@@ -7057,7 +7057,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "正在创建角色卡",
-  "vi": null
+  "vi": "Đang tạo thẻ nhân vật"
  },
  {
   "id": "4523463",
@@ -7067,7 +7067,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "系统就绪",
-  "vi": null
+  "vi": "Hệ thống sẵn sàng"
  },
  {
   "id": "4523795",
@@ -7077,7 +7077,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "分",
-  "vi": null
+  "vi": "p"
  },
  {
   "id": "4523800",
@@ -7087,7 +7087,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "秒",
-  "vi": null
+  "vi": "s"
  },
  {
   "id": "4523810",
@@ -7097,7 +7097,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "秒",
-  "vi": null
+  "vi": "s"
  },
  {
   "id": "4523866",
@@ -7107,7 +7107,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "截断续传连接中",
-  "vi": null
+  "vi": "Đang kết nối kiểu nối tiếp khi bị cắt"
  },
  {
   "id": "4523895",
@@ -7117,7 +7117,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "流式连接保活中",
-  "vi": null
+  "vi": "Đang giữ kết nối luồng"
  },
  {
   "id": "4523907",
@@ -7127,7 +7127,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "完整返回等待中",
-  "vi": null
+  "vi": "Đang chờ trả về trọn vẹn"
  },
  {
   "id": "4523917",
@@ -7137,7 +7137,7 @@
   "kind": "tpl",
   "ctx": "ReturnStatement",
   "zh": " · 已等待 ",
-  "vi": null
+  "vi": " · đã chờ "
  },
  {
   "id": "4523928",
@@ -7147,7 +7147,7 @@
   "kind": "tpl",
   "ctx": "ReturnStatement",
   "zh": " · 心跳 ",
-  "vi": null
+  "vi": " · nhịp "
  },
  {
   "id": "4524042",
@@ -7157,7 +7157,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "角色卡已完成",
-  "vi": null
+  "vi": "Thẻ nhân vật đã xong"
  },
  {
   "id": "4524106",
@@ -7167,7 +7167,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "任务需要处理",
-  "vi": null
+  "vi": "Tác vụ cần xử lý"
  },
  {
   "id": "4524174",
@@ -7177,7 +7177,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "任务已暂停",
-  "vi": null
+  "vi": "Tác vụ đã tạm dừng"
  },
  {
   "id": "4524204",
@@ -7187,7 +7187,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "任务执行中",
-  "vi": null
+  "vi": "Tác vụ đang chạy"
  },
  {
   "id": "4524308",
@@ -7197,7 +7197,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "查看结果并返回聊天",
-  "vi": null
+  "vi": "Xem kết quả và về khung chat"
  },
  {
   "id": "4524375",
@@ -7207,7 +7207,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "重试或撤销本次生成",
-  "vi": null
+  "vi": "Thử lại hoặc hoàn tác lượt tạo này"
  },
  {
   "id": "4524446",
@@ -7217,7 +7217,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "继续生成或安全撤销",
-  "vi": null
+  "vi": "Tiếp tục tạo hoặc hoàn tác an toàn"
  },
  {
   "id": "4524480",
@@ -7227,7 +7227,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "查看生成进度",
-  "vi": null
+  "vi": "Xem tiến độ tạo"
  },
  {
   "id": "4527718",
@@ -7237,7 +7237,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "已缓存卡面.png",
-  "vi": null
+  "vi": "anh-bia-da-luu.png"
  },
  {
   "id": "4528047",
@@ -7247,7 +7247,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:label",
   "zh": "角色",
-  "vi": null
+  "vi": "Nhân vật"
  },
  {
   "id": "4529313",
@@ -7257,7 +7257,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "读取写卡器草稿失败",
-  "vi": null
+  "vi": "Đọc bản nháp của trình tạo thẻ thất bại"
  },
  {
   "id": "4529901",
@@ -7267,7 +7267,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "已缓存卡面.png",
-  "vi": null
+  "vi": "anh-bia-da-luu.png"
  },
  {
   "id": "4531658",
@@ -7277,7 +7277,7 @@
   "kind": "str",
   "ctx": "CALL:window.confirm#0",
   "zh": "确定清空当前草稿并重新填写吗？角色卡中已经存在的内容不会被删除。",
-  "vi": null
+  "vi": "Chắc chắn xoá trắng bản nháp hiện tại và điền lại? Nội dung đã có trong thẻ nhân vật sẽ không bị xoá."
  },
  {
   "id": "4532791",
@@ -7287,7 +7287,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.success#0",
   "zh": "草稿已清空，可以重新开始",
-  "vi": null
+  "vi": "Đã xoá bản nháp, có thể bắt đầu lại"
  },
  {
   "id": "4532939",
@@ -7297,7 +7297,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.error#1",
   "zh": "草稿清理失败",
-  "vi": null
+  "vi": "Dọn bản nháp thất bại"
  },
  {
   "id": "4533284",
@@ -7307,7 +7307,7 @@
   "kind": "tpl",
   "ctx": "ArrowFunctionExpression",
   "zh": "：",
-  "vi": null
+  "vi": ": "
  },
  {
   "id": "4533488",
@@ -7317,7 +7317,7 @@
   "kind": "tpl",
   "ctx": "CALL:toastr.warning#0",
   "zh": "存在标签或内容提醒，已继续生成",
-  "vi": null
+  "vi": " có nhắc về thẻ hoặc nội dung, vẫn tiếp tục tạo"
  },
  {
   "id": "4533506",
@@ -7327,7 +7327,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.warning#1",
   "zh": "一键角色卡写卡器",
-  "vi": null
+  "vi": "Trình tạo thẻ nhân vật một chạm"
  },
  {
   "id": "4533595",
@@ -7337,7 +7337,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "普通调色盘",
-  "vi": null
+  "vi": "Bảng màu thường"
  },
  {
   "id": "4533605",
@@ -7347,7 +7347,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "多阶段调色盘",
-  "vi": null
+  "vi": "Bảng màu nhiều giai đoạn"
  },
  {
   "id": "4534154",
@@ -7357,7 +7357,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.info#0",
   "zh": "完成一次生成后即可检查原始输出格式",
-  "vi": null
+  "vi": "Tạo xong một lần là có thể kiểm tra định dạng kết quả gốc"
  },
  {
   "id": "4534175",
@@ -7367,7 +7367,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.info#1",
   "zh": "格式检查",
-  "vi": null
+  "vi": "Kiểm tra định dạng"
  },
  {
   "id": "4535384",
@@ -7377,7 +7377,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "自动矫正后仍存在格式问题",
-  "vi": null
+  "vi": "Sau khi tự chỉnh vẫn còn vấn đề định dạng"
  },
  {
   "id": "4535487",
@@ -7387,7 +7387,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "世界观生成状态已丢失，请重新生成",
-  "vi": null
+  "vi": "Mất trạng thái tạo thế giới quan, vui lòng tạo lại"
  },
  {
   "id": "4535782",
@@ -7397,7 +7397,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "角色生成状态已丢失，请重新生成",
-  "vi": null
+  "vi": "Mất trạng thái tạo nhân vật, vui lòng tạo lại"
  },
  {
   "id": "4536040",
@@ -7407,7 +7407,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "开场白生成状态已丢失，请重新生成",
-  "vi": null
+  "vi": "Mất trạng thái tạo lời mở đầu, vui lòng tạo lại"
  },
  {
   "id": "4536683",
@@ -7417,7 +7417,7 @@
   "kind": "tpl",
   "ctx": "CALL:n.push#0",
   "zh": "世界观：",
-  "vi": null
+  "vi": "Thế giới quan: "
  },
  {
   "id": "4536818",
@@ -7427,7 +7427,7 @@
   "kind": "tpl",
   "ctx": "CALL:n.push#0",
   "zh": "：",
-  "vi": null
+  "vi": ": "
  },
  {
   "id": "4536928",
@@ -7437,7 +7437,7 @@
   "kind": "tpl",
   "ctx": "CALL:n.push#0",
   "zh": "开场白：",
-  "vi": null
+  "vi": "Lời mở đầu: "
  },
  {
   "id": "4537104",
@@ -7447,7 +7447,7 @@
   "kind": "tpl",
   "ctx": "CALL:n.push#0",
   "zh": "：",
-  "vi": null
+  "vi": ": "
  },
  {
   "id": "4537344",
@@ -7457,7 +7457,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "已完成结构保底矫正，正文完整保留，请检查字段分区。",
-  "vi": null
+  "vi": "Đã chỉnh cấu trúc theo phương án dự phòng, phần nội dung được giữ nguyên vẹn, vui lòng kiểm tra việc phân trường."
  },
  {
   "id": "4537410",
@@ -7467,7 +7467,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.warning#0",
   "zh": "格式已矫正，纯文本内容已完整放入保底字段，请人工检查分区",
-  "vi": null
+  "vi": "Đã chỉnh định dạng, nội dung văn bản thuần đã được đưa trọn vào trường dự phòng, vui lòng kiểm tra việc phân trường thủ công"
  },
  {
   "id": "4537500",
@@ -7477,7 +7477,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "格式已校验、矫正并重新解析。",
-  "vi": null
+  "vi": "Đã kiểm tra, chỉnh và phân tích lại định dạng."
  },
  {
   "id": "4537555",
@@ -7487,7 +7487,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.success#0",
   "zh": "格式已矫正并刷新写入内容",
-  "vi": null
+  "vi": "Đã chỉnh định dạng và làm mới nội dung ghi vào"
  },
  {
   "id": "4537711",
@@ -7497,7 +7497,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "格式矫正失败：",
-  "vi": null
+  "vi": "Chỉnh định dạng thất bại: "
  },
  {
   "id": "4537742",
@@ -7507,7 +7507,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.error#1",
   "zh": "格式矫正失败",
-  "vi": null
+  "vi": "Chỉnh định dạng thất bại"
  },
  {
   "id": "4538404",
@@ -7517,7 +7517,7 @@
   "kind": "str",
   "ctx": "ReturnStatement",
   "zh": "新角色",
-  "vi": null
+  "vi": "Nhân vật mới"
  },
  {
   "id": "4538494",
@@ -7527,7 +7527,7 @@
   "kind": "str",
   "ctx": "CALL:e.has#0",
   "zh": "新角色",
-  "vi": null
+  "vi": "Nhân vật mới"
  },
  {
   "id": "4538509",
@@ -7537,7 +7537,7 @@
   "kind": "str",
   "ctx": "ReturnStatement",
   "zh": "新角色",
-  "vi": null
+  "vi": "Nhân vật mới"
  },
  {
   "id": "4538573",
@@ -7547,7 +7547,7 @@
   "kind": "tpl",
   "ctx": "MemberExpression",
   "zh": "新角色 ",
-  "vi": null
+  "vi": "Nhân vật mới "
  },
  {
   "id": "4538633",
@@ -7557,7 +7557,7 @@
   "kind": "tpl",
   "ctx": "ReturnStatement",
   "zh": "新角色 ",
-  "vi": null
+  "vi": "Nhân vật mới "
  },
  {
   "id": "4539025",
@@ -7567,7 +7567,7 @@
   "kind": "tpl",
   "ctx": "AssignmentExpression",
   "zh": "世界书",
-  "vi": null
+  "vi": " - World book"
  },
  {
   "id": "4539098",
@@ -7577,7 +7577,7 @@
   "kind": "tpl",
   "ctx": "CALL:toastr.success#0",
   "zh": "已创建并打开“",
-  "vi": null
+  "vi": "Đã tạo và mở \""
  },
  {
   "id": "4539113",
@@ -7587,7 +7587,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.success#1",
   "zh": "可以开始写卡",
-  "vi": null
+  "vi": "Có thể bắt đầu tạo thẻ"
  },
  {
   "id": "4539249",
@@ -7597,7 +7597,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.error#1",
   "zh": "创建角色卡失败",
-  "vi": null
+  "vi": "Tạo thẻ nhân vật thất bại"
  },
  {
   "id": "4539631",
@@ -7607,7 +7607,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "【角色核心点子】",
-  "vi": null
+  "vi": "【Ý tưởng cốt lõi của nhân vật】"
  },
  {
   "id": "4539711",
@@ -7617,7 +7617,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "【与玩家的初始关系】",
-  "vi": null
+  "vi": "【Quan hệ ban đầu với người chơi】"
  },
  {
   "id": "4539759",
@@ -7627,7 +7627,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "由系统设计一个适合展开故事的初始关系",
-  "vi": null
+  "vi": "Hệ thống tự thiết kế một quan hệ ban đầu phù hợp để triển khai câu chuyện"
  },
  {
   "id": "4539817",
@@ -7637,7 +7637,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "【期待的聊天体验与关系变化】",
-  "vi": null
+  "vi": "【Trải nghiệm trò chuyện và biến đổi quan hệ mong muốn】"
  },
  {
   "id": "4539869",
@@ -7647,7 +7647,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "由系统根据角色核心点子设计自然、可持续发展的关系变化",
-  "vi": null
+  "vi": "Hệ thống tự thiết kế biến đổi quan hệ tự nhiên, phát triển bền, dựa trên ý tưởng cốt lõi của nhân vật"
  },
  {
   "id": "4540002",
@@ -7657,7 +7657,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "请根据角色核心点子自动构建一个适合长期互动、容易理解的世界背景。",
-  "vi": null
+  "vi": "Hãy tự dựng một bối cảnh thế giới dễ hiểu, phù hợp cho tương tác lâu dài, dựa trên ý tưởng cốt lõi của nhân vật."
  },
  {
   "id": "4540099",
@@ -7667,7 +7667,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "沿用或适配这个原作/已有世界：",
-  "vi": null
+  "vi": "Dùng lại hoặc thích ứng theo nguyên tác / thế giới có sẵn này: "
  },
  {
   "id": "4540134",
@@ -7677,7 +7677,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "请从角色点子中推断",
-  "vi": null
+  "vi": "hãy suy ra từ ý tưởng nhân vật"
  },
  {
   "id": "4540146",
@@ -7687,7 +7687,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "。",
-  "vi": null
+  "vi": "."
  },
  {
   "id": "4540170",
@@ -7697,7 +7697,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "使用这个自定义世界设定：",
-  "vi": null
+  "vi": "Dùng thiết lập thế giới tự định nghĩa này: "
  },
  {
   "id": "4540199",
@@ -7707,7 +7707,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "。",
-  "vi": null
+  "vi": "."
  },
  {
   "id": "4540241",
@@ -7717,7 +7717,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "【新手模式世界观要求】",
-  "vi": null
+  "vi": "【Yêu cầu thế giới quan ở chế độ người mới】"
  },
  {
   "id": "4540287",
@@ -7727,7 +7727,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "世界规则应服务角色关系和聊天体验，不要堆砌无关设定。",
-  "vi": null
+  "vi": "Luật lệ của thế giới phải phục vụ quan hệ nhân vật và trải nghiệm trò chuyện, đừng chất đống thiết lập không liên quan."
  },
  {
   "id": "4540349",
@@ -7737,7 +7737,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "【角色参考】",
-  "vi": null
+  "vi": "【Tham khảo nhân vật】"
  },
  {
   "id": "4540636",
@@ -7747,7 +7747,7 @@
   "kind": "str",
   "ctx": "AssignmentExpression",
   "zh": "自然细腻的中文叙事。动作、环境、对话与潜台词保持平衡；人物主动但不替玩家作出关键决定，结尾留下自然的回应空间。",
-  "vi": null
+  "vi": "Lối kể tiếng Việt tự nhiên, tinh tế. Hành động, khung cảnh, đối thoại và hàm ý được giữ cân bằng; nhân vật chủ động nhưng không quyết định thay người chơi, kết đoạn chừa khoảng trống để hồi đáp tự nhiên."
  },
  {
   "id": "4540775",
@@ -7757,7 +7757,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "从角色与玩家第一次需要真正回应彼此的具体场面开始。",
-  "vi": null
+  "vi": "Bắt đầu từ cảnh cụ thể đầu tiên mà nhân vật và người chơi thật sự phải hồi đáp nhau."
  },
  {
   "id": "4540840",
@@ -7767,7 +7767,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "初始关系：",
-  "vi": null
+  "vi": "Quan hệ ban đầu: "
  },
  {
   "id": "4540906",
@@ -7777,7 +7777,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "期待体验：",
-  "vi": null
+  "vi": "Trải nghiệm mong muốn: "
  },
  {
   "id": "4540954",
@@ -7787,7 +7787,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "明确时间、地点与当前局势，让角色先采取一个符合人设的行动，并把下一步选择自然交给玩家。",
-  "vi": null
+  "vi": "Nêu rõ thời gian, địa điểm và tình thế hiện tại, để nhân vật hành động trước theo đúng hồ sơ, rồi giao lựa chọn kế tiếp cho người chơi một cách tự nhiên."
  },
  {
   "id": "4541749",
@@ -7797,7 +7797,7 @@
   "kind": "tpl",
   "ctx": "AssignmentExpression",
   "zh": "角色",
-  "vi": null
+  "vi": "Nhân vật"
  },
  {
   "id": "4542371",
@@ -7807,7 +7807,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": " 副本",
-  "vi": null
+  "vi": " bản sao"
  },
  {
   "id": "4543075",
@@ -7817,7 +7817,7 @@
   "kind": "tpl",
   "ctx": "CALL:toastr.success#0",
   "zh": "已复制",
-  "vi": null
+  "vi": "Đã sao chép"
  },
  {
   "id": "4543177",
@@ -7827,7 +7827,7 @@
   "kind": "str",
   "ctx": "CALL:ye#1",
   "zh": "人设结果",
-  "vi": null
+  "vi": "Kết quả hồ sơ"
  },
  {
   "id": "4543248",
@@ -7837,7 +7837,7 @@
   "kind": "str",
   "ctx": "CALL:ye#1",
   "zh": "生成内容",
-  "vi": null
+  "vi": "Nội dung đã tạo"
  },
  {
   "id": "4543362",
@@ -7847,7 +7847,7 @@
   "kind": "tpl",
   "ctx": "CALL:ye#1",
   "zh": "原始输出",
-  "vi": null
+  "vi": "Kết quả gốc"
  },
  {
   "id": "4543616",
@@ -7857,7 +7857,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.warning#1",
   "zh": "开始前还差一步",
-  "vi": null
+  "vi": "Còn một bước trước khi bắt đầu"
  },
  {
   "id": "4543801",
@@ -7867,7 +7867,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "请先完成写卡素材",
-  "vi": null
+  "vi": "Vui lòng hoàn tất tư liệu tạo thẻ"
  },
  {
   "id": "4543813",
@@ -7877,7 +7877,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.warning#1",
   "zh": "执行检查",
-  "vi": null
+  "vi": "Kiểm tra thực thi"
  },
  {
   "id": "4543902",
@@ -7887,7 +7887,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "请先完成开场白设置",
-  "vi": null
+  "vi": "Vui lòng hoàn tất thiết lập lời mở đầu"
  },
  {
   "id": "4543915",
@@ -7897,7 +7897,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.warning#1",
   "zh": "执行检查",
-  "vi": null
+  "vi": "Kiểm tra thực thi"
  },
  {
   "id": "4544295",
@@ -7907,7 +7907,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.error#1",
   "zh": "一键角色卡写卡器",
-  "vi": null
+  "vi": "Trình tạo thẻ nhân vật một chạm"
  },
  {
   "id": "4544929",
@@ -7917,7 +7917,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "工作状态丢失，请重新生成全部",
-  "vi": null
+  "vi": "Mất trạng thái làm việc, vui lòng tạo lại toàn bộ"
  },
  {
   "id": "4545061",
@@ -7927,7 +7927,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "世界观尚未生成，请从世界观阶段重新开始",
-  "vi": null
+  "vi": "Chưa tạo thế giới quan, vui lòng bắt đầu lại từ bước thế giới quan"
  },
  {
   "id": "4545337",
@@ -7937,7 +7937,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "当前生成接口不可用，请检查模型或 API 设置后重试。",
-  "vi": null
+  "vi": "API tạo hiện không dùng được, vui lòng kiểm tra mô hình hoặc thiết lập API rồi thử lại."
  },
  {
   "id": "4545463",
@@ -7947,7 +7947,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "连接暂时不稳定，请稍后重试当前阶段。",
-  "vi": null
+  "vi": "Kết nối tạm thời chưa ổn định, vui lòng thử lại bước hiện tại sau ít phút."
  },
  {
   "id": "4545546",
@@ -7957,7 +7957,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "生成前版本保存失败。角色卡尚未被修改，请直接重试。",
-  "vi": null
+  "vi": "Lưu bản trước khi tạo thất bại. Thẻ nhân vật chưa bị sửa, cứ thử lại trực tiếp."
  },
  {
   "id": "4545708",
@@ -7967,7 +7967,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "本次生成混入了模板内容，已准备好重新生成这一阶段。",
-  "vi": null
+  "vi": "Lượt tạo này bị lẫn nội dung mẫu, đã sẵn sàng tạo lại bước này."
  },
  {
   "id": "4545760",
@@ -7977,7 +7977,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "本次生成没有得到可用内容，请重新生成这一阶段。",
-  "vi": null
+  "vi": "Lượt tạo này không thu được nội dung dùng được, vui lòng tạo lại bước này."
  },
  {
   "id": "4545853",
@@ -7987,7 +7987,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "角色卡面写入失败，其他内容已经保留，可以单独重试。",
-  "vi": null
+  "vi": "Ghi ảnh bìa thẻ nhân vật thất bại, các nội dung khác vẫn được giữ, có thể thử lại riêng phần này."
  },
  {
   "id": "4546001",
@@ -7997,7 +7997,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "保存角色卡内容时遇到问题，已完成内容仍然保留，请重试当前阶段。",
-  "vi": null
+  "vi": "Gặp trục trặc khi lưu nội dung thẻ nhân vật, phần đã xong vẫn được giữ, vui lòng thử lại bước hiện tại."
  },
  {
   "id": "4546114",
@@ -8007,7 +8007,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "互动能力还没有安装完成，请重试当前阶段。",
-  "vi": null
+  "vi": "Khả năng tương tác chưa cài xong, vui lòng thử lại bước hiện tại."
  },
  {
   "id": "4546210",
@@ -8017,7 +8017,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "这一阶段没有完成，请重试；详细信息已记录在活动日志中。",
-  "vi": null
+  "vi": "Bước này chưa hoàn thành, vui lòng thử lại; thông tin chi tiết đã ghi trong nhật ký hoạt động."
  },
  {
   "id": "4546617",
@@ -8027,7 +8027,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "模板",
-  "vi": null
+  "vi": "mẫu"
  },
  {
   "id": "4546623",
@@ -8037,7 +8037,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "提示词",
-  "vi": null
+  "vi": "prompt"
  },
  {
   "id": "4546630",
@@ -8047,7 +8047,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "工程词",
-  "vi": null
+  "vi": "từ công trình"
  },
  {
   "id": "4546637",
@@ -8057,7 +8057,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "占位符",
-  "vi": null
+  "vi": "chỗ trống"
  },
  {
   "id": "4546863",
@@ -8067,7 +8067,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "下次重试会提醒 AI 避开：",
-  "vi": null
+  "vi": "Lần thử lại sau sẽ nhắc AI tránh: "
  },
  {
   "id": "4546905",
@@ -8077,7 +8077,7 @@
   "kind": "str",
   "ctx": "CALL:?.join#0",
   "zh": "、",
-  "vi": null
+  "vi": ", "
  },
  {
   "id": "4549233",
@@ -8087,7 +8087,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.error#1",
   "zh": "打开角色卡失败",
-  "vi": null
+  "vi": "Mở thẻ nhân vật thất bại"
  },
  {
   "id": "4550851",
@@ -8097,7 +8097,7 @@
   "kind": "str",
   "ctx": "CALL:$n#1",
   "zh": "已恢复生成前版本，填写的草稿仍然保留",
-  "vi": null
+  "vi": "Đã khôi phục bản trước khi tạo, bản nháp bạn điền vẫn được giữ"
  },
  {
   "id": "4550907",
@@ -8107,7 +8107,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.success#0",
   "zh": "世界书、角色脚本和状态栏规则已恢复",
-  "vi": null
+  "vi": "World book, script nhân vật và luật thanh trạng thái đã được khôi phục"
  },
  {
   "id": "4550928",
@@ -8117,7 +8117,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.success#1",
   "zh": "恢复完成",
-  "vi": null
+  "vi": "Khôi phục xong"
  },
  {
   "id": "4551066",
@@ -8127,7 +8127,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "恢复失败：",
-  "vi": null
+  "vi": "Khôi phục thất bại: "
  },
  {
   "id": "4551095",
@@ -8137,7 +8137,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.error#1",
   "zh": "恢复失败",
-  "vi": null
+  "vi": "Khôi phục thất bại"
  },
  {
   "id": "4551618",
@@ -8147,7 +8147,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "无法创建恢复点：世界书名称为空",
-  "vi": null
+  "vi": "Không tạo được điểm khôi phục: tên world book trống"
  },
  {
   "id": "4551718",
@@ -8157,7 +8157,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "无法创建恢复点：角色卡名称为空",
-  "vi": null
+  "vi": "Không tạo được điểm khôi phục: tên thẻ nhân vật trống"
  },
  {
   "id": "4552669",
@@ -8167,7 +8167,7 @@
   "kind": "str",
   "ctx": "CALL:$n#1",
   "zh": "已保存生成前版本，可在完成页一键恢复",
-  "vi": null
+  "vi": "Đã lưu bản trước khi tạo, có thể khôi phục một chạm ở trang hoàn tất"
  },
  {
   "id": "4552891",
@@ -8177,7 +8177,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "确认世界书：",
-  "vi": null
+  "vi": "Xác nhận world book: "
  },
  {
   "id": "4553054",
@@ -8187,7 +8187,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "世界书名称不能为空",
-  "vi": null
+  "vi": "Tên world book không được để trống"
  },
  {
   "id": "4553148",
@@ -8197,7 +8197,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "角色卡名称不能为空",
-  "vi": null
+  "vi": "Tên thẻ nhân vật không được để trống"
  },
  {
   "id": "4554195",
@@ -8207,7 +8207,7 @@
   "kind": "str",
   "ctx": "CALL:ne#0",
   "zh": "世界观",
-  "vi": null
+  "vi": "Thế giới quan"
  },
  {
   "id": "4554250",
@@ -8217,7 +8217,7 @@
   "kind": "str",
   "ctx": "CALL:$n#1",
   "zh": "世界观生成完成",
-  "vi": null
+  "vi": "Tạo thế giới quan xong"
  },
  {
   "id": "4554579",
@@ -8227,7 +8227,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "未找到角色",
-  "vi": null
+  "vi": "Không tìm thấy tư liệu của nhân vật "
  },
  {
   "id": "4554592",
@@ -8237,7 +8237,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "素材",
-  "vi": null
+  "vi": ""
  },
  {
   "id": "4554926",
@@ -8247,7 +8247,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": " 生成完成",
-  "vi": null
+  "vi": " tạo xong"
  },
  {
   "id": "4555109",
@@ -8257,7 +8257,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "角色尚未全部生成，无法生成开场白",
-  "vi": null
+  "vi": "Chưa tạo xong toàn bộ nhân vật, không thể tạo lời mở đầu"
  },
  {
   "id": "4555340",
@@ -8267,7 +8267,7 @@
   "kind": "str",
   "ctx": "CALL:ne#0",
   "zh": "开场白",
-  "vi": null
+  "vi": "Lời mở đầu"
  },
  {
   "id": "4555395",
@@ -8277,7 +8277,7 @@
   "kind": "str",
   "ctx": "CALL:$n#1",
   "zh": "开场白生成完成",
-  "vi": null
+  "vi": "Tạo lời mở đầu xong"
  },
  {
   "id": "4555524",
@@ -8287,7 +8287,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "开场白尚未生成，请先重新生成开场白",
-  "vi": null
+  "vi": "Chưa tạo lời mở đầu, vui lòng tạo lại lời mở đầu trước"
  },
  {
   "id": "4555825",
@@ -8297,7 +8297,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "角色",
-  "vi": null
+  "vi": "Nhân vật "
  },
  {
   "id": "4555835",
@@ -8307,7 +8307,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "尚未生成，请先重新生成该角色",
-  "vi": null
+  "vi": " chưa được tạo, vui lòng tạo lại nhân vật đó trước"
  },
  {
   "id": "4556086",
@@ -8317,7 +8317,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "至少需要一个已生成角色",
-  "vi": null
+  "vi": "Cần ít nhất một nhân vật đã được tạo"
  },
  {
   "id": "4556622",
@@ -8327,7 +8327,7 @@
   "kind": "str",
   "ctx": "CALL:JSON.parse#0",
   "zh": "{\n  \"type\": \"script\",\n  \"enabled\": true,\n  \"name\": \"MVU\",\n  \"id\": \"961f366d-e403-45c2-8155-3d14ec86de53\",\n  \"content\": \"import'https://testingcf.jsdelivr.net/gh/MagicalAstrogy/MagVarUpdate/artifact/bundle.js';\",\n  \"info\": \"\",\n  \"button\": {\n    \"enabled\": true,\n    \"buttons\": [\n      {\n        \"name\": \"重新处理变量\",\n        \"visible\": false\n      },\n      {\n        \"name\": \"重新读取初始变量\",\n        \"visible\": false\n      },\n      {\n        \"name\": \"快照楼层\",\n        \"visible\": false\n      },\n      {\n        \"name\": \"重演楼层\",\n        \"visible\": false\n      },\n      {\n        \"name\": \"重试额外模型解析\",\n        \"visible\": false\n      },\n      {\n        \"name\": \"清除旧楼层变量\",\n        \"visible\": false\n      }\n    ]\n  },\n  \"data\": {}\n}",
-  "vi": null
+  "vi": "{\n  \"type\": \"script\",\n  \"enabled\": true,\n  \"name\": \"MVU\",\n  \"id\": \"961f366d-e403-45c2-8155-3d14ec86de53\",\n  \"content\": \"import'https://testingcf.jsdelivr.net/gh/MagicalAstrogy/MagVarUpdate/artifact/bundle.js';\",\n  \"info\": \"\",\n  \"button\": {\n    \"enabled\": true,\n    \"buttons\": [\n      {\n        \"name\": \"重新处理变量\",\n        \"visible\": false\n      },\n      {\n        \"name\": \"重新读取初始变量\",\n        \"visible\": false\n      },\n      {\n        \"name\": \"快照楼层\",\n        \"visible\": false\n      },\n      {\n        \"name\": \"重演楼层\",\n        \"visible\": false\n      },\n      {\n        \"name\": \"重试额外模型解析\",\n        \"visible\": false\n      },\n      {\n        \"name\": \"清除旧楼层变量\",\n        \"visible\": false\n      }\n    ]\n  },\n  \"data\": {}\n}"
  },
  {
   "id": "4558794",
@@ -8337,7 +8337,7 @@
   "kind": "str",
   "ctx": "NEW",
   "zh": "至少需要填写一个角色素材",
-  "vi": null
+  "vi": "Cần điền tư liệu cho ít nhất một nhân vật"
  },
  {
   "id": "4559437",
@@ -8347,7 +8347,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "保存生成前版本",
-  "vi": null
+  "vi": "Lưu bản trước khi tạo"
  },
  {
   "id": "4559480",
@@ -8357,7 +8357,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "出现问题时可以一键恢复",
-  "vi": null
+  "vi": "Có trục trặc thì khôi phục được bằng một chạm"
  },
  {
   "id": "4559668",
@@ -8367,7 +8367,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "确认目标角色卡",
-  "vi": null
+  "vi": "Xác nhận thẻ nhân vật đích"
  },
  {
   "id": "4559711",
@@ -8377,7 +8377,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "检查角色卡结构与兼容字段",
-  "vi": null
+  "vi": "Kiểm tra cấu trúc thẻ và các trường tương thích"
  },
  {
   "id": "4559897",
@@ -8387,7 +8387,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "准备保存位置",
-  "vi": null
+  "vi": "Chuẩn bị vị trí lưu"
  },
  {
   "id": "4559939",
@@ -8397,7 +8397,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "创建并连接角色专属世界书",
-  "vi": null
+  "vi": "Tạo và liên kết world book riêng cho nhân vật"
  },
  {
   "id": "4560120",
@@ -8407,7 +8407,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "整理旧版本",
-  "vi": null
+  "vi": "Dọn bản cũ"
  },
  {
   "id": "4560161",
@@ -8417,7 +8417,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "只更新本写卡器以前生成的内容",
-  "vi": null
+  "vi": "Chỉ cập nhật nội dung do chính trình tạo thẻ này tạo trước đây"
  },
  {
   "id": "4560353",
@@ -8427,7 +8427,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "构建故事世界",
-  "vi": null
+  "vi": "Dựng thế giới câu chuyện"
  },
  {
   "id": "4560395",
@@ -8437,7 +8437,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "根据角色点子补全背景和规则",
-  "vi": null
+  "vi": "Hoàn thiện bối cảnh và luật lệ theo ý tưởng nhân vật"
  },
  {
   "id": "4560583",
@@ -8447,7 +8447,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "保存世界背景",
-  "vi": null
+  "vi": "Lưu bối cảnh thế giới"
  },
  {
   "id": "4560625",
@@ -8457,7 +8457,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "写入世界书并设置顺序",
-  "vi": null
+  "vi": "Ghi vào world book và sắp thứ tự"
  },
  {
   "id": "4560823",
@@ -8467,7 +8467,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "角色",
-  "vi": null
+  "vi": "Nhân vật"
  },
  {
   "id": "4560992",
@@ -8477,7 +8477,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:title",
   "zh": "理解并扩写",
-  "vi": null
+  "vi": "Hiểu và viết rộng ra"
  },
  {
   "id": "4561040",
@@ -8487,7 +8487,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "补全身份、性格、关系变化和行为逻辑",
-  "vi": null
+  "vi": "Hoàn thiện thân phận, tính cách, biến đổi quan hệ và logic hành xử"
  },
  {
   "id": "4561253",
@@ -8497,7 +8497,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:title",
   "zh": "保存",
-  "vi": null
+  "vi": "Lưu "
  },
  {
   "id": "4561259",
@@ -8507,7 +8507,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:title",
   "zh": "人设",
-  "vi": null
+  "vi": "hồ sơ"
  },
  {
   "id": "4561300",
@@ -8517,7 +8517,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "保存角色速览、完整人设和关系阶段",
-  "vi": null
+  "vi": "Lưu tóm tắt nhanh, hồ sơ đầy đủ và các giai đoạn quan hệ"
  },
  {
   "id": "4561553",
@@ -8527,7 +8527,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "编写故事第一幕",
-  "vi": null
+  "vi": "Viết màn một của câu chuyện"
  },
  {
   "id": "4561596",
@@ -8537,7 +8537,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "按文风与大纲扩写，并留下可接话钩子",
-  "vi": null
+  "vi": "Viết rộng theo văn phong và dàn ý, chừa lại điểm bắt lời"
  },
  {
   "id": "4561786",
@@ -8547,7 +8547,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "保存故事第一幕",
-  "vi": null
+  "vi": "Lưu màn một của câu chuyện"
  },
  {
   "id": "4561829",
@@ -8557,7 +8557,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "写入角色卡第一条消息并连接状态栏",
-  "vi": null
+  "vi": "Ghi vào tin nhắn đầu tiên của thẻ nhân vật và nối với thanh trạng thái"
  },
  {
   "id": "4562014",
@@ -8567,7 +8567,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "创建互动状态",
-  "vi": null
+  "vi": "Tạo trạng thái tương tác"
  },
  {
   "id": "4562056",
@@ -8577,7 +8577,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "准备时间、地点、关系值和更新规则",
-  "vi": null
+  "vi": "Chuẩn bị thời gian, địa điểm, giá trị quan hệ và luật cập nhật"
  },
  {
   "id": "4562247",
@@ -8587,7 +8587,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "安装互动能力",
-  "vi": null
+  "vi": "Cài khả năng tương tác"
  },
  {
   "id": "4562289",
@@ -8597,7 +8597,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "让角色能够持续记录和更新状态",
-  "vi": null
+  "vi": "Để nhân vật có thể liên tục ghi nhận và cập nhật trạng thái"
  },
  {
   "id": "4562477",
@@ -8607,7 +8607,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "配置关系变量",
-  "vi": null
+  "vi": "Cấu hình biến quan hệ"
  },
  {
   "id": "4562519",
@@ -8617,7 +8617,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "按角色数量创建安全的数据结构",
-  "vi": null
+  "vi": "Tạo cấu trúc dữ liệu an toàn theo số lượng nhân vật"
  },
  {
   "id": "4562706",
@@ -8627,7 +8627,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "连接状态栏显示",
-  "vi": null
+  "vi": "Nối phần hiển thị thanh trạng thái"
  },
  {
   "id": "4562749",
@@ -8637,7 +8637,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "安装状态展示和内容整理规则",
-  "vi": null
+  "vi": "Cài luật hiển thị trạng thái và sắp xếp nội dung"
  },
  {
   "id": "4563008",
@@ -8647,7 +8647,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:title",
   "zh": "写入卡面",
-  "vi": null
+  "vi": "Ghi ảnh bìa"
  },
  {
   "id": "4563054",
@@ -8657,7 +8657,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:detail",
   "zh": "把用户图片写成角色卡面",
-  "vi": null
+  "vi": "Ghi ảnh của người dùng thành ảnh bìa thẻ nhân vật"
  },
  {
   "id": "4564077",
@@ -8667,7 +8667,7 @@
   "kind": "str",
   "ctx": "CALL:$n#1",
   "zh": "已在当前步骤完成后安全停止，可以在当前窗口继续",
-  "vi": null
+  "vi": "Đã dừng an toàn sau khi xong bước hiện tại, có thể tiếp tục trong cửa sổ này"
  },
  {
   "id": "4564144",
@@ -8677,7 +8677,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.info#0",
   "zh": "当前步骤已完成，任务已安全停止",
-  "vi": null
+  "vi": "Bước hiện tại đã xong, tác vụ đã dừng an toàn"
  },
  {
   "id": "4564163",
@@ -8687,7 +8687,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.info#1",
   "zh": "一键角色卡写卡器",
-  "vi": null
+  "vi": "Trình tạo thẻ nhân vật một chạm"
  },
  {
   "id": "4564247",
@@ -8697,7 +8697,7 @@
   "kind": "str",
   "ctx": "CALL:$n#1",
   "zh": "完整角色卡生成并写入完成",
-  "vi": null
+  "vi": "Đã tạo và ghi xong thẻ nhân vật đầy đủ"
  },
  {
   "id": "4564279",
@@ -8707,7 +8707,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.success#0",
   "zh": "完整角色卡已生成并写入",
-  "vi": null
+  "vi": "Đã tạo và ghi xong thẻ nhân vật đầy đủ"
  },
  {
   "id": "4564739",
@@ -8717,7 +8717,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "（详细信息：",
-  "vi": null
+  "vi": " (chi tiết: "
  },
  {
   "id": "4564749",
@@ -8727,7 +8727,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "）",
-  "vi": null
+  "vi": ")"
  },
  {
   "id": "4564788",
@@ -8737,7 +8737,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.error#1",
   "zh": "一键角色卡写卡器",
-  "vi": null
+  "vi": "Trình tạo thẻ nhân vật một chạm"
  },
  {
   "id": "4565294",
@@ -8747,7 +8747,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "生成",
-  "vi": null
+  "vi": "Tạo"
  },
  {
   "id": "4565472",
@@ -8757,7 +8757,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "【单独人设素材】",
-  "vi": null
+  "vi": "【Tư liệu hồ sơ riêng lẻ】"
  },
  {
   "id": "4565506",
@@ -8767,7 +8767,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "请只根据下面的人设信息生成人设正文，不写世界观和写入配置。",
-  "vi": null
+  "vi": "Chỉ dựa vào thông tin hồ sơ dưới đây để tạo phần nội dung hồ sơ, không viết thế giới quan và không viết cấu hình ghi thẻ."
  },
  {
   "id": "4565683",
@@ -8777,7 +8777,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "生成多阶段调色盘人设。",
-  "vi": null
+  "vi": "Tạo hồ sơ bảng màu nhiều giai đoạn."
  },
  {
   "id": "4565699",
@@ -8787,7 +8787,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "生成普通性格调色盘人设。",
-  "vi": null
+  "vi": "Tạo hồ sơ bảng màu tính cách thường."
  },
  {
   "id": "4565737",
@@ -8797,7 +8797,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "你正在适配秋青子写卡预设的人设写法，但本任务是独立功能，不生成完整角色卡。",
-  "vi": null
+  "vi": "Bạn đang làm theo cách viết hồ sơ của preset tạo thẻ Thu Thanh Tử, nhưng nhiệm vụ này là chức năng độc lập, không tạo thẻ nhân vật đầy đủ."
  },
  {
   "id": "4565800",
@@ -8807,7 +8807,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "只输出可直接复制的人设正文，不生成世界书条目、基础信息、角色速览、MVU、EJS、正则或写入说明。",
-  "vi": null
+  "vi": "Chỉ xuất phần nội dung hồ sơ có thể sao chép dùng ngay; không tạo mục world book, thông tin cơ bản, tóm tắt nhanh, MVU, EJS, regex hay hướng dẫn ghi thẻ."
  },
  {
   "id": "4565875",
@@ -8817,7 +8817,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "允许在不推翻用户明确设定的前提下做合理化补充：补足行为逻辑、关系触发、压力状态和二次解释。",
-  "vi": null
+  "vi": "Được phép bổ sung cho hợp lý mà không lật ngược thiết lập người dùng đã nêu rõ: hoàn thiện logic hành xử, điều kiện kích hoạt quan hệ, trạng thái khi chịu áp lực và diễn giải bổ sung."
  },
  {
   "id": "4565946",
@@ -8827,7 +8827,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "可写入字段内禁止出现内部流程说明、占位说明、标签说明或创作说明。",
-  "vi": null
+  "vi": "Trong các trường sẽ được ghi vào thẻ, cấm xuất hiện mô tả quy trình nội bộ, nội dung tạm, chú thích thẻ hay ghi chú sáng tác."
  },
  {
   "id": "4566004",
@@ -8837,7 +8837,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "不要和用户对话，不要询问下一步。",
-  "vi": null
+  "vi": "Đừng trò chuyện với người dùng, đừng hỏi bước tiếp theo."
  },
  {
   "id": "4566106",
@@ -8847,7 +8847,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "输出必须放在 <content><persona_result><multistage_persona>...</multistage_persona></persona_result></content> 中。",
-  "vi": null
+  "vi": "Kết quả bắt buộc đặt trong <content><persona_result><multistage_persona>...</multistage_persona></persona_result></content>."
  },
  {
   "id": "4566241",
@@ -8857,7 +8857,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "输出必须放在 <content><persona_result><palette>...</palette></persona_result></content> 中。",
-  "vi": null
+  "vi": "Kết quả bắt buộc đặt trong <content><persona_result><palette>...</palette></persona_result></content>."
  },
  {
   "id": "4566409",
@@ -8867,7 +8867,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "<multistage_persona> 内必须包含以下子标签：",
-  "vi": null
+  "vi": "Bên trong <multistage_persona> bắt buộc phải có các thẻ con sau:"
  },
  {
   "id": "4566473",
@@ -8877,7 +8877,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "<stage_early>初识期 0~30 的调色盘头部、专属衍生、专属二次解释</stage_early>",
-  "vi": null
+  "vi": "<stage_early>phần đầu bảng màu, phái sinh riêng và diễn giải bổ sung riêng của giai đoạn mới quen 0–30</stage_early>"
  },
  {
   "id": "4566559",
@@ -8887,7 +8887,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "<stage_middle>熟悉期 31~70 的调色盘头部、专属衍生、专属二次解释</stage_middle>",
-  "vi": null
+  "vi": "<stage_middle>phần đầu bảng màu, phái sinh riêng và diễn giải bổ sung riêng của giai đoạn thân quen 31–70</stage_middle>"
  },
  {
   "id": "4566648",
@@ -8897,7 +8897,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "<stage_close>亲近期 71~100 的调色盘头部、专属衍生、专属二次解释</stage_close>",
-  "vi": null
+  "vi": "<stage_close>phần đầu bảng màu, phái sinh riêng và diễn giải bổ sung riêng của giai đoạn gần gũi 71–100</stage_close>"
  },
  {
   "id": "4566736",
@@ -8907,7 +8907,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "<stage_common>跨阶段通用衍生、通用二次解释、总结；没有则留空</stage_common>",
-  "vi": null
+  "vi": "<stage_common>phái sinh dùng chung, diễn giải bổ sung dùng chung và tổng kết cho mọi giai đoạn; không có thì để trống</stage_common>"
  },
  {
   "id": "4566857",
@@ -8917,7 +8917,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "<palette> 内只写普通调色盘正文：底色、主色调、点缀、衍生、压力状态、关系触发和二次解释。",
-  "vi": null
+  "vi": "Bên trong <palette> chỉ viết phần nội dung bảng màu thường: màu nền, màu chủ đạo, nét chấm phá, phái sinh, trạng thái khi chịu áp lực, điều kiện kích hoạt quan hệ và diễn giải bổ sung."
  },
  {
   "id": "4566932",
@@ -8927,7 +8927,7 @@
   "kind": "str",
   "ctx": "ARRAY",
   "zh": "所有子标签必须闭合，标签外不要输出解释。",
-  "vi": null
+  "vi": "Mọi thẻ con đều phải được đóng, ngoài các thẻ thì đừng xuất lời giải thích."
  },
  {
   "id": "4567505",
@@ -8937,7 +8937,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "生成完成",
-  "vi": null
+  "vi": "Tạo xong"
  },
  {
   "id": "4567558",
@@ -8947,7 +8947,7 @@
   "kind": "tpl",
   "ctx": "CALL:toastr.success#0",
   "zh": "已生成",
-  "vi": null
+  "vi": "Đã tạo xong"
  },
  {
   "id": "4567761",
@@ -8957,7 +8957,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "（详细信息：",
-  "vi": null
+  "vi": " (chi tiết: "
  },
  {
   "id": "4567771",
@@ -8967,7 +8967,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "）",
-  "vi": null
+  "vi": ")"
  },
  {
   "id": "4567792",
@@ -8977,7 +8977,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.error#1",
   "zh": "一键角色卡写卡器",
-  "vi": null
+  "vi": "Trình tạo thẻ nhân vật một chạm"
  },
  {
   "id": "4568123",
@@ -8987,7 +8987,7 @@
   "kind": "str",
   "ctx": "CALL:$n#1",
   "zh": "收到停止请求，将在当前步骤完成后安全停止",
-  "vi": null
+  "vi": "Đã nhận yêu cầu dừng, sẽ dừng an toàn sau khi xong bước hiện tại"
  },
  {
   "id": "4568313",
@@ -8997,7 +8997,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "已向当前模型发送停止信号",
-  "vi": null
+  "vi": "Đã gửi tín hiệu dừng tới mô hình hiện tại"
  },
  {
   "id": "4568330",
@@ -9007,7 +9007,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "已标记立即停止当前生成请求",
-  "vi": null
+  "vi": "Đã đánh dấu dừng ngay yêu cầu tạo hiện tại"
  },
  {
   "id": "4568377",
@@ -9017,7 +9017,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.warning#0",
   "zh": "正在停止当前生成请求…",
-  "vi": null
+  "vi": "Đang dừng yêu cầu tạo hiện tại…"
  },
  {
   "id": "4568392",
@@ -9027,7 +9027,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.warning#1",
   "zh": "一键角色卡写卡器",
-  "vi": null
+  "vi": "Trình tạo thẻ nhân vật một chạm"
  },
  {
   "id": "4569301",
@@ -9037,7 +9037,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "未找到角色",
-  "vi": null
+  "vi": "Không tìm thấy tư liệu của nhân vật "
  },
  {
   "id": "4569314",
@@ -9047,7 +9047,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "素材",
-  "vi": null
+  "vi": ""
  },
  {
   "id": "4569490",
@@ -9057,7 +9057,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "重新生成 ",
-  "vi": null
+  "vi": "Tạo lại "
  },
  {
   "id": "4570347",
@@ -9067,7 +9067,7 @@
   "kind": "str",
   "ctx": "CALL:ne#0",
   "zh": "开场白",
-  "vi": null
+  "vi": "Lời mở đầu"
  },
  {
   "id": "4570572",
@@ -9077,7 +9077,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": " 已重新生成并刷新世界书、互动变量和状态栏",
-  "vi": null
+  "vi": " đã được tạo lại và làm mới world book, biến tương tác cùng thanh trạng thái"
  },
  {
   "id": "4570642",
@@ -9087,7 +9087,7 @@
   "kind": "tpl",
   "ctx": "CALL:toastr.success#0",
   "zh": " 已重新生成",
-  "vi": null
+  "vi": " đã được tạo lại"
  },
  {
   "id": "4570984",
@@ -9097,7 +9097,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "（详细信息：",
-  "vi": null
+  "vi": " (chi tiết: "
  },
  {
   "id": "4570994",
@@ -9107,7 +9107,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "）",
-  "vi": null
+  "vi": ")"
  },
  {
   "id": "4571035",
@@ -9117,7 +9117,7 @@
   "kind": "str",
   "ctx": "CALL:toastr.error#1",
   "zh": "一键角色卡写卡器",
-  "vi": null
+  "vi": "Trình tạo thẻ nhân vật một chạm"
  },
  {
   "id": "4571913",
@@ -9127,7 +9127,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "无法识别当前模型",
-  "vi": null
+  "vi": "Không nhận diện được mô hình hiện tại"
  },
  {
   "id": "4571979",
@@ -9137,7 +9137,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "未知 API",
-  "vi": null
+  "vi": "API chưa rõ"
  },
  {
   "id": "4572049",
@@ -9147,7 +9147,7 @@
   "kind": "str",
   "ctx": "LogicalExpression",
   "zh": "未知状态",
-  "vi": null
+  "vi": "Trạng thái chưa rõ"
  },
  {
   "id": "4572120",
@@ -9157,7 +9157,7 @@
   "kind": "str",
   "ctx": "AssignmentExpression",
   "zh": "读取当前模型失败",
-  "vi": null
+  "vi": "Đọc mô hình hiện tại thất bại"
  },
  {
   "id": "4572144",
@@ -9167,7 +9167,7 @@
   "kind": "str",
   "ctx": "AssignmentExpression",
   "zh": "未知 API",
-  "vi": null
+  "vi": "API chưa rõ"
  },
  {
   "id": "4572166",
@@ -9177,7 +9177,7 @@
   "kind": "str",
   "ctx": "AssignmentExpression",
   "zh": "无法读取",
-  "vi": null
+  "vi": "Không đọc được"
  },
  {
   "id": "4591237",
@@ -9187,7 +9187,7 @@
   "kind": "str",
   "ctx": "CALL:r.createTextVNode#0",
   "zh": "内置预设已加载",
-  "vi": null
+  "vi": "Đã nạp preset có sẵn"
  },
  {
   "id": "4591398",
@@ -9197,7 +9197,7 @@
   "kind": "str",
   "ctx": "BinaryExpression",
   "zh": "角色：",
-  "vi": null
+  "vi": "Nhân vật: "
  },
  {
   "id": "4591958",
@@ -9207,7 +9207,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "格式提醒 ",
-  "vi": null
+  "vi": "Nhắc định dạng "
  },
  {
   "id": "4591978",
@@ -9217,7 +9217,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "格式校验通过",
-  "vi": null
+  "vi": "Kiểm tra định dạng đạt"
  },
  {
   "id": "4592735",
@@ -9227,7 +9227,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "格式提醒 ",
-  "vi": null
+  "vi": "Nhắc định dạng "
  },
  {
   "id": "4592755",
@@ -9237,7 +9237,7 @@
   "kind": "str",
   "ctx": "ConditionalExpression",
   "zh": "格式已通过",
-  "vi": null
+  "vi": "Định dạng đạt"
  },
  {
   "id": "4601921",
@@ -9247,7 +9247,7 @@
   "kind": "str",
   "ctx": "OBJ_VALUE:name",
   "zh": "一键角色卡写卡器",
-  "vi": null
+  "vi": "Trình tạo thẻ nhân vật một chạm"
  },
  {
   "id": "4601981",
@@ -9257,6 +9257,6 @@
   "kind": "str",
   "ctx": "CALL:getButtonEvent#0",
   "zh": "一键角色卡写卡器",
-  "vi": null
+  "vi": "Trình tạo thẻ nhân vật một chạm"
  }
 ]

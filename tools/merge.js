@@ -12,6 +12,6 @@ for (const f of fs.readdirSync("i18n/vi").filter((f) => f.endsWith(".json")).sor
   }
 }
 fs.writeFileSync("i18n/strings.json", JSON.stringify(items, null, 1));
-const total = items.length, done = items.filter((i) => i.vi).length;
+const total = items.length, done = items.filter((i) => i.vi != null).length;
 console.log(`Gop ${n} ban dich | tien do ${done}/${total} (${(100 * done / total).toFixed(1)}%)`);
 if (miss.length) { console.log("ID khong khop:", miss.slice(0, 10)); process.exit(1); }

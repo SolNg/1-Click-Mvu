@@ -5316,7 +5316,7 @@ var e = {
           function a(n) {
             return {
               id: t("role"),
-              label: `角色${n + 1}`,
+              label: `Nhân vật${n + 1}`,
               name: "",
               seed: "",
               statusAvatarUrl: "",
@@ -5324,8 +5324,8 @@ var e = {
             };
           }
           const o = getCurrentCharacterName(),
-            i = (0, r.ref)(o && !Pr(o) ? o : "未打开角色卡"),
-            A = (0, r.ref)("未打开角色卡" === i.value ? "一键角色卡世界书" : `${i.value}世界书`),
+            i = (0, r.ref)(o && !Pr(o) ? o : "Chưa mở thẻ nhân vật"),
+            A = (0, r.ref)("Chưa mở thẻ nhân vật" === i.value ? "World book thẻ nhân vật một chạm" : `${i.value} - World book`),
             s = (0, r.ref)(""),
             l = (0, r.ref)(""),
             p = (0, r.ref)(""),
@@ -5364,7 +5364,7 @@ var e = {
             I = (0, r.ref)(null),
             Z = (0, r.ref)(null),
             K = (0, r.ref)(!0),
-            G = (0, r.ref)("正在读取..."),
+            G = (0, r.ref)("Đang đọc..."),
             M = (0, r.ref)(""),
             O = (0, r.ref)(""),
             nn =
@@ -5385,15 +5385,15 @@ var e = {
               return !1;
             }
           }
-          const ln = (0, r.computed)(() => "未打开角色卡" !== i.value && !Pr(i.value)),
+          const ln = (0, r.computed)(() => "Chưa mở thẻ nhân vật" !== i.value && !Pr(i.value)),
             pn = (0, r.computed)(() =>
               ln.value
                 ? A.value.trim()
                   ? on(A.value)
-                    ? "世界书名称不能包含 emoji。"
+                    ? "Tên world book không được chứa emoji."
                     : ""
-                  : "世界书名称不能为空。"
-                : "请先创建或打开目标角色卡。",
+                  : "Tên world book không được để trống."
+                : "Vui lòng tạo hoặc mở thẻ nhân vật đích trước.",
             ),
             dn = (0, r.computed)(() => c.filter((n) => n.seed.trim()).length),
             cn = (0, r.computed)(() => ("beginner" === F.value ? (u.value.trim() ? 1 : 0) : dn.value)),
@@ -5401,14 +5401,14 @@ var e = {
               const n = [];
               return (
                 pn.value && n.push(pn.value),
-                s.value.trim() || n.push("请填写世界观素材。"),
-                0 === dn.value && n.push("至少需要填写一个角色的素材。"),
+                s.value.trim() || n.push("Vui lòng điền tư liệu thế giới quan."),
+                0 === dn.value && n.push("Cần điền tư liệu cho ít nhất một nhân vật."),
                 c.forEach((e, t) => {
-                  (sn(e.statusAvatarUrl) || n.push(`${e.label}的状态栏头像 URL 无效。`),
-                    sn(e.statusBackgroundUrl) || n.push(`${e.label}的状态栏背景 URL 无效。`));
+                  (sn(e.statusAvatarUrl) || n.push(`${e.label} có URL ảnh đại diện thanh trạng thái không hợp lệ.`),
+                    sn(e.statusBackgroundUrl) || n.push(`${e.label} có URL ảnh nền thanh trạng thái không hợp lệ.`));
                   e.name.trim() &&
                     c.some((n, a) => a !== t && n.name.trim() === e.name.trim()) &&
-                    n.push(`${e.label}与其他角色使用了相同名称。`);
+                    n.push(`${e.label} trùng tên với nhân vật khác.`);
                 }),
                 Array.from(new Set(n))
               );
@@ -5416,7 +5416,7 @@ var e = {
             gn = (0, r.computed)(() => {
               let n = 0;
               return (
-                "未打开角色卡" !== i.value && (n += 15),
+                "Chưa mở thẻ nhân vật" !== i.value && (n += 15),
                 A.value.trim() && !on(A.value) && (n += 15),
                 s.value.trim() && (n += 30),
                 dn.value > 0 && (n += 40),
@@ -5427,13 +5427,13 @@ var e = {
               if (!Z.value) return "";
               const n = "number" == typeof Z.value ? new Date(Z.value) : new Date(String(Z.value));
               return Number.isNaN(n.getTime())
-                ? "草稿已保存"
-                : `已自动保存 ${n.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" })}`;
+                ? "Đã lưu bản nháp"
+                : `Tự lưu lúc ${n.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" })}`;
             }),
             fn = (0, r.computed)(() => {
-              if (!I.value) return "尚未创建恢复点";
+              if (!I.value) return "Chưa tạo điểm khôi phục";
               const n = new Date(I.value.createdAt);
-              return Number.isNaN(n.getTime()) ? "生成开始前" : n.toLocaleString("zh-CN", { hour12: !1 });
+              return Number.isNaN(n.getTime()) ? "Trước khi bắt đầu tạo" : n.toLocaleString("zh-CN", { hour12: !1 });
             }),
             bn = (0, r.computed)(() =>
               pn.value
@@ -5441,23 +5441,23 @@ var e = {
                 : u.value.trim()
                   ? "custom" !== v.value || h.value.trim()
                     ? ""
-                    : "请写下一句话世界设定。"
-                  : "先用一句话描述角色最核心的点子。",
+                    : "Hãy viết một câu thiết lập thế giới."
+                  : "Trước tiên hãy mô tả ý tưởng cốt lõi nhất của nhân vật bằng một câu.",
             ),
             xn = (0, r.computed)(() => 0 === bn.value.length),
             vn = (0, r.computed)(() => {
               const n = j.value.trim();
-              if (!n) return "请输入角色卡名称。";
-              if ("current" === n.toLowerCase()) return "不能使用保留名称 current。";
-              if (on(n)) return "角色卡名称不能包含 emoji。";
+              if (!n) return "Vui lòng nhập tên thẻ nhân vật.";
+              if ("current" === n.toLowerCase()) return "Không được dùng tên dành riêng current.";
+              if (on(n)) return "Tên thẻ nhân vật không được chứa emoji.";
               if (Array.from(n).some((n) => n.charCodeAt(0) < 32) || /[<>:"/\\|?*]/u.test(n) || /[. ]$/u.test(n))
-                return "角色卡名称包含文件名不支持的字符。";
-              if (n.length > 80) return "角色卡名称不能超过 80 个字符。";
+                return "Tên thẻ nhân vật chứa ký tự không dùng được cho tên tệp.";
+              if (n.length > 80) return "Tên thẻ nhân vật không được vượt quá 80 ký tự.";
               try {
                 if (getCharacterNames().some((e) => e.trim().toLowerCase() === n.toLowerCase()))
-                  return "已经存在同名角色卡，请换一个名称。";
+                  return "Đã có thẻ nhân vật trùng tên, vui lòng đổi tên khác.";
               } catch {
-                return "暂时无法读取角色卡列表，请稍后重试。";
+                return "Tạm thời chưa đọc được danh sách thẻ nhân vật, vui lòng thử lại sau.";
               }
               return "";
             }),
@@ -5482,41 +5482,41 @@ var e = {
             ),
             Bn = (0, r.computed)(() =>
               q.value && Dn.value
-                ? "角色卡生成完成"
+                ? "Đã tạo xong thẻ nhân vật"
                 : q.value && null !== S.value
-                  ? "生成遇到问题"
+                  ? "Việc tạo gặp trục trặc"
                   : q.value && null !== X.value
-                    ? "任务已安全暂停"
+                    ? "Tác vụ đã tạm dừng an toàn"
                     : q.value
-                      ? "生成任务中心"
+                      ? "Trung tâm tác vụ tạo"
                       : "persona" === F.value
-                        ? "只生成人设"
+                        ? "Chỉ tạo hồ sơ"
                         : "opening" === F.value
-                          ? "设置故事第一幕"
+                          ? "Thiết lập màn một của câu chuyện"
                           : "beginner" === F.value
-                            ? "一键生成完整角色卡"
+                            ? "Tạo thẻ nhân vật đầy đủ một chạm"
                             : "editor" === F.value
-                              ? "完整写卡工作区"
-                              : "新建写卡工程",
+                              ? "Khu làm việc tạo thẻ đầy đủ"
+                              : "Tạo dự án tạo thẻ mới",
             ),
             kn = (0, r.computed)(() =>
               q.value && Dn.value
-                ? "检查结果并返回聊天"
+                ? "Kiểm tra kết quả và về khung chat"
                 : q.value && null !== S.value
-                  ? "可以重试当前阶段或撤销本次生成"
+                  ? "Có thể thử lại bước hiện tại hoặc hoàn tác lượt tạo này"
                   : q.value && null !== X.value
-                    ? "可以继续生成或安全撤销"
+                    ? "Có thể tiếp tục tạo hoặc hoàn tác an toàn"
                     : q.value
                       ? Tn.value
                       : "persona" === F.value
-                        ? "整理人设内容，不会修改当前角色卡"
+                        ? "Sắp xếp nội dung hồ sơ, không sửa thẻ nhân vật hiện tại"
                         : "opening" === F.value
-                          ? "选择文风并给出故事起点，生成前仍不会写入角色卡"
+                          ? "Chọn văn phong và đưa ra điểm khởi đầu; trước khi tạo vẫn chưa ghi gì vào thẻ nhân vật"
                           : "beginner" === F.value
-                            ? "回答三个问题，其余内容由玉藻自动完成"
+                            ? "Trả lời ba câu hỏi, phần còn lại Tamamo tự lo"
                             : "editor" === F.value
-                              ? "编辑世界观、角色素材与状态栏资源"
-                              : "配置目标角色、世界书与写卡工作流",
+                              ? "Soạn thế giới quan, tư liệu nhân vật và tài nguyên thanh trạng thái"
+                              : "Cấu hình nhân vật đích, world book và quy trình tạo thẻ",
             ),
             En = (0, r.computed)(() => 0 === pn.value.length),
             yn = (0, r.computed)(() => 0 === Cn.value.length),
@@ -5525,9 +5525,9 @@ var e = {
                 ? l.value.trim()
                   ? p.value.trim()
                     ? ""
-                    : "请填写开场白的故事起点。"
-                  : "请选择或填写开场白文风。"
-                : (Cn.value[0] ?? "请先完成写卡素材。"),
+                    : "Vui lòng điền điểm khởi đầu cho lời mở đầu."
+                  : "Vui lòng chọn hoặc điền văn phong cho lời mở đầu."
+                : (Cn.value[0] ?? "Vui lòng hoàn tất tư liệu tạo thẻ trước."),
             ),
             zn = (0, r.computed)(() => 0 === Vn.value.length),
             Pn = (0, r.computed)(() => C.value.trim().length > 0),
@@ -5536,11 +5536,11 @@ var e = {
               const n = [],
                 e = Q.value;
               if (
-                (e?.worldview && n.push(te("worldview", "世界观", "worldview", e.worldview.raw)),
+                (e?.worldview && n.push(te("worldview", "Thế giới quan", "worldview", e.worldview.raw)),
                 e?.roleResults.forEach((e, t) => {
-                  e && n.push(te(`role:${t}`, e.name || `角色${t + 1}`, "role", e.raw));
+                  e && n.push(te(`role:${t}`, e.name || `Nhân vật${t + 1}`, "role", e.raw));
                 }),
-                e?.opening && n.push(te("opening", "开场白", "opening", e.opening.raw)),
+                e?.opening && n.push(te("opening", "Lời mở đầu", "opening", e.opening.raw)),
                 f.value)
               ) {
                 const e = "multistage" === f.value.mode ? "persona-multistage" : "persona-normal";
@@ -5581,18 +5581,18 @@ var e = {
             Dn = (0, r.computed)(() => U.value.length > 0 && Wn.value === U.value.length && !P.value),
             Tn = (0, r.computed)(() => {
               const n = U.value.find((n) => "error" === n.status);
-              if (n) return `${n.title}失败`;
+              if (n) return `${n.title}Thất bại`;
               const e = U.value.find((n) => "running" === n.status);
               return e
                 ? e.title
                 : null !== X.value
-                  ? "已在安全位置停止"
+                  ? "Đã dừng ở vị trí an toàn"
                   : U.value.length > 0 && Wn.value === U.value.length
-                    ? "全部完成"
-                    : "等待开始";
+                    ? "Đã xong tất cả"
+                    : "Chờ bắt đầu";
             }),
             Ln = (0, r.computed)(() =>
-              P.value ? (D.value ? "正在创建角色卡" : Yn.value ? Yn.value : Tn.value) : "系统就绪",
+              P.value ? (D.value ? "Đang tạo thẻ nhân vật" : Yn.value ? Yn.value : Tn.value) : "Hệ thống sẵn sàng",
             ),
             Yn = (0, r.computed)(() => {
               const n = N.value;
@@ -5600,26 +5600,26 @@ var e = {
               const e = Math.max(0, Math.floor(n.elapsedMs / 1e3)),
                 t = Math.floor(e / 60),
                 a = String(e % 60).padStart(2, "0"),
-                r = t > 0 ? `${t}分${a}秒` : `${e}秒`;
-              return `${"fake-stream" === d.value ? "截断续传连接中" : n.shouldStream ? "流式连接保活中" : "完整返回等待中"} · 已等待 ${r} · 心跳 ${n.beat}`;
+                r = t > 0 ? `${t}p${a}s` : `${e}s`;
+              return `${"fake-stream" === d.value ? "Đang kết nối kiểu nối tiếp khi bị cắt" : n.shouldStream ? "Đang giữ kết nối luồng" : "Đang chờ trả về trọn vẹn"} · đã chờ ${r} · nhịp ${n.beat}`;
             }),
             jn = (0, r.computed)(() =>
               Dn.value
-                ? "角色卡已完成"
+                ? "Thẻ nhân vật đã xong"
                 : null !== S.value
-                  ? "任务需要处理"
+                  ? "Tác vụ cần xử lý"
                   : null !== X.value
-                    ? "任务已暂停"
-                    : "任务执行中",
+                    ? "Tác vụ đã tạm dừng"
+                    : "Tác vụ đang chạy",
             ),
             Jn = (0, r.computed)(() =>
               Dn.value
-                ? "查看结果并返回聊天"
+                ? "Xem kết quả và về khung chat"
                 : null !== S.value
-                  ? "重试或撤销本次生成"
+                  ? "Thử lại hoặc hoàn tác lượt tạo này"
                   : null !== X.value
-                    ? "继续生成或安全撤销"
-                    : "查看生成进度",
+                    ? "Tiếp tục tạo hoặc hoàn tác an toàn"
+                    : "Xem tiến độ tạo",
             );
           function In() {
             return `tamamo-card-writer:draft:v1:${i.value}`;
@@ -5690,13 +5690,13 @@ var e = {
               n.avatarFile instanceof File
                 ? (k.value = n.avatarFile)
                 : n.avatarFile instanceof Blob &&
-                  (k.value = new File([n.avatarFile], "已缓存卡面.png", { type: n.avatarFile.type || "image/png" })));
+                  (k.value = new File([n.avatarFile], "anh-bia-da-luu.png", { type: n.avatarFile.type || "image/png" })));
             const r = Array.isArray(n.roles)
               ? n.roles
                   .filter((n) => n && "object" == typeof n)
                   .map((n, e) => ({
                     id: "string" == typeof n.id && n.id ? n.id : t("role"),
-                    label: `角色${e + 1}`,
+                    label: `Nhân vật${e + 1}`,
                     name: "string" == typeof n.name ? n.name : "",
                     seed: "string" == typeof n.seed ? n.seed : "",
                     statusAvatarUrl: "string" == typeof n.statusAvatarUrl ? n.statusAvatarUrl : "",
@@ -5722,7 +5722,7 @@ var e = {
                     t = e.objectStore(jr).get(Jr),
                     a = await new Promise((n, e) => {
                       (t.addEventListener("success", () => n(t.result)),
-                        t.addEventListener("error", () => e(t.error ?? new Error("读取写卡器草稿失败"))));
+                        t.addEventListener("error", () => e(t.error ?? new Error("Đọc bản nháp của trình tạo thẻ thất bại"))));
                     });
                   if ((await Zr(e), !a || "object" != typeof a)) return null;
                   const r = a;
@@ -5734,7 +5734,7 @@ var e = {
                       r.avatarFile instanceof File
                         ? r.avatarFile
                         : r.avatarFile instanceof Blob
-                          ? new File([r.avatarFile], "已缓存卡面.png", { type: r.avatarFile.type || "image/png" })
+                          ? new File([r.avatarFile], "anh-bia-da-luu.png", { type: r.avatarFile.type || "image/png" })
                           : null;
                   return {
                     version: 2,
@@ -5773,7 +5773,7 @@ var e = {
             } catch {}
           }
           async function _n() {
-            if (!P.value && window.confirm("确定清空当前草稿并重新填写吗？角色卡中已经存在的内容不会被删除。")) {
+            if (!P.value && window.confirm("Chắc chắn xoá trắng bản nháp hiện tại và điền lại? Nội dung đã có trong thẻ nhân vật sẽ không bị xoá.")) {
               (null !== en && (window.clearTimeout(en), (en = null)), await tn?.catch(() => {}), (K.value = !0));
               try {
                 ((s.value = ""),
@@ -5802,10 +5802,10 @@ var e = {
                 try {
                   localStorage.removeItem(In());
                 } catch {}
-                ((rn = !0), toastr.success("草稿已清空，可以重新开始"));
+                ((rn = !0), toastr.success("Đã xoá bản nháp, có thể bắt đầu lại"));
               } catch (n) {
                 const e = n instanceof Error ? n.message : String(n);
-                toastr.error(e, "草稿清理失败");
+                toastr.error(e, "Dọn bản nháp thất bại");
               } finally {
                 K.value = !1;
               }
@@ -5815,14 +5815,14 @@ var e = {
             w.value.unshift({ id: t("log"), level: n, text: e });
           }
           function ne(n, e) {
-            const t = Array.from(new Set(e.map((n) => n.trim()).filter(Boolean))).map((e) => `${n}：${e}`);
+            const t = Array.from(new Set(e.map((n) => n.trim()).filter(Boolean))).map((e) => `${n}: ${e}`);
             0 !== t.length &&
               ((E.value = Array.from(new Set([...t, ...E.value])).slice(0, 30)),
               t.forEach((n) => $n("warning", n)),
-              toastr.warning(`${n}存在标签或内容提醒，已继续生成`, "一键角色卡写卡器"));
+              toastr.warning(`${n} có nhắc về thẻ hoặc nội dung, vẫn tiếp tục tạo`, "Trình tạo thẻ nhân vật một chạm"));
           }
           function ee(n) {
-            return "normal" === n ? "普通调色盘" : "多阶段调色盘";
+            return "normal" === n ? "Bảng màu thường" : "Bảng màu nhiều giai đoạn";
           }
           function te(n, e, t, a) {
             const r = Io(t, a);
@@ -5839,7 +5839,7 @@ var e = {
           function ae(n = "") {
             qn.value.length
               ? ((Y.value = n || qn.value.find((n) => !n.valid)?.id || qn.value[0]?.id || ""), (T.value = !0))
-              : toastr.info("完成一次生成后即可检查原始输出格式", "格式检查");
+              : toastr.info("Tạo xong một lần là có thể kiểm tra định dạng kết quả gốc", "Kiểm tra định dạng");
           }
           async function re(n) {
             const e = Ne(n),
@@ -5867,19 +5867,19 @@ var e = {
                   a = t ? Number(t[1]) : -1,
                   r = a >= 0 ? e?.activeRoles[a] : void 0,
                   o = $o(n.kind, n.raw, { fallbackName: r?.name.trim() || r?.label || n.title });
-                if (!o.after.valid) throw new Error(o.after.issues[0]?.message || "自动矫正后仍存在格式问题");
+                if (!o.after.valid) throw new Error(o.after.issues[0]?.message || "Sau khi tự chỉnh vẫn còn vấn đề định dạng");
                 if ("worldview" === n.id) {
-                  if (!e) throw new Error("世界观生成状态已丢失，请重新生成");
+                  if (!e) throw new Error("Mất trạng thái tạo thế giới quan, vui lòng tạo lại");
                   ((e.worldview = Po(o.raw, e.worldviewSeed)),
                     (e.artifacts = void 0),
                     (y.value = e.worldview.content),
                     await re(e));
                 } else if (t) {
-                  if (!e || !r) throw new Error("角色生成状态已丢失，请重新生成");
+                  if (!e || !r) throw new Error("Mất trạng thái tạo nhân vật, vui lòng tạo lại");
                   const n = So(o.raw, r, a);
                   ((e.roleResults[a] = n), (e.artifacts = void 0), (y.value = n.basic), await re(e));
                 } else if ("opening" === n.id) {
-                  if (!e) throw new Error("开场白生成状态已丢失，请重新生成");
+                  if (!e) throw new Error("Mất trạng thái tạo lời mở đầu, vui lòng tạo lại");
                   ((e.opening = qo(o.raw, e.openingOutline)),
                     (y.value = e.opening.content),
                     await Yr(e.targetCharacter, e.opening.content));
@@ -5891,27 +5891,27 @@ var e = {
                   const n = [],
                     e = Q.value;
                   if (
-                    (e?.worldview && e.worldview.warnings.forEach((e) => n.push(`世界观：${e}`)),
+                    (e?.worldview && e.worldview.warnings.forEach((e) => n.push(`Thế giới quan: ${e}`)),
                     e?.roleResults.forEach((e) => {
-                      e && e.warnings.forEach((t) => n.push(`${e.name}：${t}`));
+                      e && e.warnings.forEach((t) => n.push(`${e.name}: ${t}`));
                     }),
-                    e?.opening && e.opening.warnings.forEach((e) => n.push(`开场白：${e}`)),
+                    e?.opening && e.opening.warnings.forEach((e) => n.push(`Lời mở đầu: ${e}`)),
                     f.value)
                   ) {
                     const e = ee(f.value.mode);
-                    f.value.warnings.forEach((t) => n.push(`${e}：${t}`));
+                    f.value.warnings.forEach((t) => n.push(`${e}: ${t}`));
                   }
                   E.value = Array.from(new Set(n)).slice(0, 30);
                 })(),
                   (Y.value = n.id),
                   o.usedFallbackLayout
-                    ? ($n("warning", `${n.title}已完成结构保底矫正，正文完整保留，请检查字段分区。`),
-                      toastr.warning("格式已矫正，纯文本内容已完整放入保底字段，请人工检查分区", n.title))
-                    : ($n("success", `${n.title}格式已校验、矫正并重新解析。`),
-                      toastr.success("格式已矫正并刷新写入内容", n.title)));
+                    ? ($n("warning", `${n.title}Đã chỉnh cấu trúc theo phương án dự phòng, phần nội dung được giữ nguyên vẹn, vui lòng kiểm tra việc phân trường.`),
+                      toastr.warning("Đã chỉnh định dạng, nội dung văn bản thuần đã được đưa trọn vào trường dự phòng, vui lòng kiểm tra việc phân trường thủ công", n.title))
+                    : ($n("success", `${n.title}Đã kiểm tra, chỉnh và phân tích lại định dạng.`),
+                      toastr.success("Đã chỉnh định dạng và làm mới nội dung ghi vào", n.title)));
               } catch (n) {
                 const e = n instanceof Error ? n.message : String(n);
-                ($n("error", `格式矫正失败：${e}`), toastr.error(e, "格式矫正失败"));
+                ($n("error", `Chỉnh định dạng thất bại: ${e}`), toastr.error(e, "Chỉnh định dạng thất bại"));
               } finally {
                 P.value = !1;
               }
@@ -5934,13 +5934,13 @@ var e = {
                 try {
                   n = getCharacterNames().map((n) => n.trim().toLowerCase());
                 } catch {
-                  return "新角色";
+                  return "Nhân vật mới";
                 }
                 const e = new Set(n);
-                if (!e.has("新角色")) return "新角色";
+                if (!e.has("Nhân vật mới")) return "Nhân vật mới";
                 let t = 2;
-                for (; e.has(`新角色 ${t}`.toLowerCase()); ) t += 1;
-                return `新角色 ${t}`;
+                for (; e.has(`Nhân vật mới ${t}`.toLowerCase()); ) t += 1;
+                return `Nhân vật mới ${t}`;
               })()),
               (D.value = !0));
           }
@@ -5953,12 +5953,12 @@ var e = {
                 await Lr(n),
                 (D.value = !1),
                 (i.value = n),
-                (A.value = `${n}世界书`),
+                (A.value = `${n} - World book`),
                 (Z.value = null),
-                toastr.success(`已创建并打开“${n}”`, "可以开始写卡"));
+                toastr.success(`Đã tạo và mở "${n}”`, "Có thể bắt đầu tạo thẻ"));
             } catch (n) {
               const e = n instanceof Error ? n.message : String(n);
-              toastr.error(e, "创建角色卡失败");
+              toastr.error(e, "Tạo thẻ nhân vật thất bại");
             } finally {
               P.value = !1;
             }
@@ -5970,27 +5970,27 @@ var e = {
             const n = c[0] ?? a(0);
             (c[0] || c.push(n),
               (n.seed = [
-                "【角色核心点子】",
+                "【Ý tưởng cốt lõi của nhân vật】",
                 u.value.trim(),
                 "",
-                "【与玩家的初始关系】",
-                b.value.trim() || "由系统设计一个适合展开故事的初始关系",
+                "【Quan hệ ban đầu với người chơi】",
+                b.value.trim() || "Hệ thống tự thiết kế một quan hệ ban đầu phù hợp để triển khai câu chuyện",
                 "",
-                "【期待的聊天体验与关系变化】",
-                x.value.trim() || "由系统根据角色核心点子设计自然、可持续发展的关系变化",
+                "【Trải nghiệm trò chuyện và biến đổi quan hệ mong muốn】",
+                x.value.trim() || "Hệ thống tự thiết kế biến đổi quan hệ tự nhiên, phát triển bền, dựa trên ý tưởng cốt lõi của nhân vật",
               ].join("\n")));
             const e =
               "auto" === v.value
-                ? "请根据角色核心点子自动构建一个适合长期互动、容易理解的世界背景。"
+                ? "Hãy tự dựng một bối cảnh thế giới dễ hiểu, phù hợp cho tương tác lâu dài, dựa trên ý tưởng cốt lõi của nhân vật."
                 : "existing" === v.value
-                  ? `沿用或适配这个原作/已有世界：${h.value.trim() || "请从角色点子中推断"}。`
-                  : `使用这个自定义世界设定：${h.value.trim()}。`;
+                  ? `Dùng lại hoặc thích ứng theo nguyên tác / thế giới có sẵn này: ${h.value.trim() || "hãy suy ra từ ý tưởng nhân vật"}.`
+                  : `Dùng thiết lập thế giới tự định nghĩa này: ${h.value.trim()}.`;
             s.value = [
-              "【新手模式世界观要求】",
+              "【Yêu cầu thế giới quan ở chế độ người mới】",
               e,
-              "世界规则应服务角色关系和聊天体验，不要堆砌无关设定。",
+              "Luật lệ của thế giới phải phục vụ quan hệ nhân vật và trải nghiệm trò chuyện, đừng chất đống thiết lập không liên quan.",
               "",
-              "【角色参考】",
+              "【Tham khảo nhân vật】",
               u.value.trim(),
             ].join("\n");
           }
@@ -6000,13 +6000,13 @@ var e = {
           function ce() {
             (l.value.trim() ||
               (l.value =
-                "自然细腻的中文叙事。动作、环境、对话与潜台词保持平衡；人物主动但不替玩家作出关键决定，结尾留下自然的回应空间。"),
+                "Lối kể tiếng Việt tự nhiên, tinh tế. Hành động, khung cảnh, đối thoại và hàm ý được giữ cân bằng; nhân vật chủ động nhưng không quyết định thay người chơi, kết đoạn chừa khoảng trống để hồi đáp tự nhiên."),
               p.value.trim() ||
                 (p.value = [
-                  "从角色与玩家第一次需要真正回应彼此的具体场面开始。",
-                  b.value.trim() ? `初始关系：${b.value.trim()}` : "",
-                  x.value.trim() ? `期待体验：${x.value.trim()}` : "",
-                  "明确时间、地点与当前局势，让角色先采取一个符合人设的行动，并把下一步选择自然交给玩家。",
+                  "Bắt đầu từ cảnh cụ thể đầu tiên mà nhân vật và người chơi thật sự phải hồi đáp nhau.",
+                  b.value.trim() ? `Quan hệ ban đầu: ${b.value.trim()}` : "",
+                  x.value.trim() ? `Trải nghiệm mong muốn: ${x.value.trim()}` : "",
+                  "Nêu rõ thời gian, địa điểm và tình thế hiện tại, để nhân vật hành động trước theo đúng hồ sơ, rồi giao lựa chọn kế tiếp cho người chơi một cách tự nhiên.",
                 ]
                   .filter(Boolean)
                   .join("\n")));
@@ -6028,7 +6028,7 @@ var e = {
           }
           function be() {
             c.forEach((n, e) => {
-              n.label = `角色${e + 1}`;
+              n.label = `Nhân vật${e + 1}`;
             });
           }
           function xe() {
@@ -6048,7 +6048,7 @@ var e = {
           }
           function we(n) {
             const e = c[n];
-            e && (c.splice(n + 1, 0, { ...e, id: t("role"), label: "", name: e.name ? `${e.name} 副本` : "" }), be());
+            e && (c.splice(n + 1, 0, { ...e, id: t("role"), label: "", name: e.name ? `${e.name} bản sao` : "" }), be());
           }
           function Ee(n) {
             const e = n.target;
@@ -6068,29 +6068,29 @@ var e = {
                   document.execCommand("copy"),
                   e.remove());
               }
-              toastr.success(`${e}已复制`);
+              toastr.success(`${e}Đã sao chép`);
             }
           }
           function Ve() {
-            f.value && ye(f.value.content, "人设结果");
+            f.value && ye(f.value.content, "Kết quả hồ sơ");
           }
           function ze() {
-            ye(y.value, "生成内容");
+            ye(y.value, "Nội dung đã tạo");
           }
           function Pe() {
-            Xn.value && ye(Xn.value.originalRaw, `${Xn.value.title}原始输出`);
+            Xn.value && ye(Xn.value.originalRaw, `${Xn.value.title}Kết quả gốc`);
           }
           function Fe() {
             if (!P.value)
               return "beginner" === F.value
                 ? xn.value
                   ? (pe(), ce(), void (F.value = "opening"))
-                  : void toastr.warning(bn.value, "开始前还差一步")
+                  : void toastr.warning(bn.value, "Còn một bước trước khi bắt đầu")
                 : "editor" === F.value
                   ? yn.value
                     ? void (F.value = "opening")
-                    : void toastr.warning(Cn.value[0] ?? "请先完成写卡素材", "执行检查")
-                  : void (zn.value ? (R.value = !0) : toastr.warning(Vn.value || "请先完成开场白设置", "执行检查"));
+                    : void toastr.warning(Cn.value[0] ?? "Vui lòng hoàn tất tư liệu tạo thẻ", "Kiểm tra thực thi")
+                  : void (zn.value ? (R.value = !0) : toastr.warning(Vn.value || "Vui lòng hoàn tất thiết lập lời mở đầu", "Kiểm tra thực thi"));
           }
           async function qe() {
             ((R.value = !1),
@@ -6100,7 +6100,7 @@ var e = {
                   await $e(0);
                 } catch (n) {
                   const e = n instanceof Error ? n.message : String(n);
-                  ($n("error", e), toastr.error(e, "一键角色卡写卡器"));
+                  ($n("error", e), toastr.error(e, "Trình tạo thẻ nhân vật một chạm"));
                 }
               })());
           }
@@ -6119,11 +6119,11 @@ var e = {
             };
           }
           function We() {
-            if (!Q.value) throw new Error("工作状态丢失，请重新生成全部");
+            if (!Q.value) throw new Error("Mất trạng thái làm việc, vui lòng tạo lại toàn bộ");
             return Q.value;
           }
           function Ne(n) {
-            if (!n.worldview) throw new Error("世界观尚未生成，请从世界观阶段重新开始");
+            if (!n.worldview) throw new Error("Chưa tạo thế giới quan, vui lòng bắt đầu lại từ bước thế giới quan");
             return n.worldview;
           }
           function He(n) {
@@ -6131,23 +6131,23 @@ var e = {
           }
           function Qe(n, e) {
             return /401|403|unauthorized|api.?key|quota|余额|额度|số dư|hạn mức|hết lượt/iu.test(e)
-              ? "当前生成接口不可用，请检查模型或 API 设置后重试。"
+              ? "API tạo hiện không dùng được, vui lòng kiểm tra mô hình hoặc thiết lập API rồi thử lại."
               : /network|failed to fetch|timeout|timed out|网络|连接超时|mạng|hết thời gian chờ|quá thời gian/iu.test(e)
-                ? "连接暂时不稳定，请稍后重试当前阶段。"
+                ? "Kết nối tạm thời chưa ổn định, vui lòng thử lại bước hiện tại sau ít phút."
                 : "create-snapshot" === n
-                  ? "生成前版本保存失败。角色卡尚未被修改，请直接重试。"
+                  ? "Lưu bản trước khi tạo thất bại. Thẻ nhân vật chưa bị sửa, cứ thử lại trực tiếp."
                   : n.startsWith("generate-")
                     ? /từ công trình|nội dung tạm|từ mẫu|placeholder|thẻ nội bộ/iu.test(e)
-                      ? "本次生成混入了模板内容，已准备好重新生成这一阶段。"
-                      : "本次生成没有得到可用内容，请重新生成这一阶段。"
+                      ? "Lượt tạo này bị lẫn nội dung mẫu, đã sẵn sàng tạo lại bước này."
+                      : "Lượt tạo này không thu được nội dung dùng được, vui lòng tạo lại bước này."
                     : "write-avatar" === n
-                      ? "角色卡面写入失败，其他内容已经保留，可以单独重试。"
+                      ? "Ghi ảnh bìa thẻ nhân vật thất bại, các nội dung khác vẫn được giữ, có thể thử lại riêng phần này."
                       : "bind-worldbook" === n || "clear-old" === n || n.startsWith("write-")
-                        ? "保存角色卡内容时遇到问题，已完成内容仍然保留，请重试当前阶段。"
+                        ? "Gặp trục trặc khi lưu nội dung thẻ nhân vật, phần đã xong vẫn được giữ, vui lòng thử lại bước hiện tại."
                         : n.startsWith("install-")
-                          ? "互动能力还没有安装完成，请重试当前阶段。"
+                          ? "Khả năng tương tác chưa cài xong, vui lòng thử lại bước hiện tại."
                           : e.length > 160
-                            ? "这一阶段没有完成，请重试；详细信息已记录在活动日志中。"
+                            ? "Bước này chưa hoàn thành, vui lòng thử lại; thông tin chi tiết đã ghi trong nhật ký hoạt động."
                             : e;
           }
           function De(n, e, t) {
@@ -6158,12 +6158,12 @@ var e = {
               return e.length > 0
                 ? e
                 : /từ công trình|nội dung tạm|từ mẫu|từ tạm công trình/iu.test(n)
-                  ? ["模板", "提示词", "工程词", "占位符", "placeholder"]
+                  ? ["mẫu", "prompt", "từ công trình", "chỗ trống", "placeholder"]
                   : [];
             })(t);
             0 !== a.length &&
               ((n.retryAvoidTerms[e] = Array.from(new Set([...(n.retryAvoidTerms[e] ?? []), ...a]))),
-              $n("warning", `下次重试会提醒 AI 避开：${n.retryAvoidTerms[e].join("、")}`));
+              $n("warning", `Lần thử lại sau sẽ nhắc AI tránh: ${n.retryAvoidTerms[e].join(", ")}`));
           }
           function Te(n) {
             return (
@@ -6226,7 +6226,7 @@ var e = {
                 ((Z.value = null), e.onExit());
               } catch (n) {
                 const e = n instanceof Error ? n.message : String(n);
-                ($n("error", e), toastr.error(e, "打开角色卡失败"));
+                ($n("error", e), toastr.error(e, "Mở thẻ nhân vật thất bại"));
               } finally {
                 P.value = !1;
               }
@@ -6262,11 +6262,11 @@ var e = {
                   (E.value = []),
                   (I.value = null),
                   (F.value = B.value),
-                  $n("success", "已恢复生成前版本，填写的草稿仍然保留"),
-                  toastr.success("世界书、角色脚本和状态栏规则已恢复", "恢复完成"));
+                  $n("success", "Đã khôi phục bản trước khi tạo, bản nháp bạn điền vẫn được giữ"),
+                  toastr.success("World book, script nhân vật và luật thanh trạng thái đã được khôi phục", "Khôi phục xong"));
               } catch (n) {
                 const e = n instanceof Error ? n.message : String(n);
-                ($n("error", `恢复失败：${e}`), toastr.error(e, "恢复失败"));
+                ($n("error", `Khôi phục thất bại: ${e}`), toastr.error(e, "Khôi phục thất bại"));
               } finally {
                 P.value = !1;
               }
@@ -6281,9 +6281,9 @@ var e = {
               return (
                 (I.value = await (async function (n, e) {
                   const t = n.trim();
-                  if (!t) throw new Error("无法创建恢复点：世界书名称为空");
+                  if (!t) throw new Error("Không tạo được điểm khôi phục: tên world book trống");
                   const a = e.trim();
-                  if (!a) throw new Error("无法创建恢复点：角色卡名称为空");
+                  if (!a) throw new Error("Không tạo được điểm khôi phục: tên thẻ nhân vật trống");
                   const r = getWorldbookNames().includes(t),
                     [o, i] = await Promise.all([getCharacter(a), r ? getWorldbook(t) : Promise.resolve([])]),
                     A = getCurrentCharacterName() === a,
@@ -6300,17 +6300,17 @@ var e = {
                     worldbookName: t,
                   });
                 })(e.targetWorldbook, e.targetCharacter)),
-                void $n("success", "已保存生成前版本，可在完成页一键恢复")
+                void $n("success", "Đã lưu bản trước khi tạo, có thể khôi phục một chạm ở trang hoàn tất")
               );
             if ("prepare-character" === n) return void (await Nr(e.targetCharacter, null));
             if ("bind-worldbook" === n)
               return (
-                $n("info", `确认世界书：${e.targetWorldbook}`),
+                $n("info", `Xác nhận world book: ${e.targetWorldbook}`),
                 void (await (async function (n, e) {
                   const t = n.trim();
-                  if (!t) throw new Error("世界书名称不能为空");
+                  if (!t) throw new Error("Tên world book không được để trống");
                   const a = e.trim();
-                  if (!a) throw new Error("角色卡名称不能为空");
+                  if (!a) throw new Error("Tên thẻ nhân vật không được để trống");
                   if (
                     (getWorldbookNames().includes(t) || (await createWorldbook(t, [])),
                     await Wr(a),
@@ -6332,8 +6332,8 @@ var e = {
               return (
                 (e.worldview = t),
                 (y.value = t.content),
-                ne("世界观", t.warnings),
-                void $n("success", "世界观生成完成")
+                ne("Thế giới quan", t.warnings),
+                void $n("success", "Tạo thế giới quan xong")
               );
             }
             if ("write-worldview" === n) return void (await Ai(e.targetWorldbook, Br(Ne(e))));
@@ -6341,7 +6341,7 @@ var e = {
             if (t) {
               const a = Number(t[1]),
                 r = e.activeRoles[a];
-              if (!r) throw new Error(`未找到角色${a + 1}素材`);
+              if (!r) throw new Error(`Không tìm thấy tư liệu của nhân vật ${a + 1}`);
               const o = await Do(r, Ne(e).content, a, Ye(e, n));
               return (
                 (e.roleResults[a] = o),
@@ -6349,34 +6349,34 @@ var e = {
                 (e.artifacts = void 0),
                 (y.value = o.basic),
                 ne(o.name, o.warnings),
-                void $n("success", `${o.name} 生成完成`)
+                void $n("success", `${o.name} tạo xong`)
               );
             }
             if ("generate-opening" === n) {
               const t = He(e);
-              if (t.length !== e.activeRoles.length) throw new Error("角色尚未全部生成，无法生成开场白");
+              if (t.length !== e.activeRoles.length) throw new Error("Chưa tạo xong toàn bộ nhân vật, không thể tạo lời mở đầu");
               const a = await Ro(e.openingStyle, e.openingOutline, Ne(e).content, t, Ye(e, n));
               return (
                 (e.opening = a),
                 (y.value = a.content),
-                ne("开场白", a.warnings),
-                void $n("success", "开场白生成完成")
+                ne("Lời mở đầu", a.warnings),
+                void $n("success", "Tạo lời mở đầu xong")
               );
             }
             if ("write-opening" === n) {
-              if (!e.opening) throw new Error("开场白尚未生成，请先重新生成开场白");
+              if (!e.opening) throw new Error("Chưa tạo lời mở đầu, vui lòng tạo lại lời mở đầu trước");
               return void (await Yr(e.targetCharacter, e.opening.content));
             }
             const a = n.match(/^write-role-(\d+)$/);
             if (a) {
               const n = Number(a[1]),
                 t = e.roleResults[n];
-              if (!t) throw new Error(`角色${n + 1}尚未生成，请先重新生成该角色`);
+              if (!t) throw new Error(`Nhân vật ${n + 1} chưa được tạo, vui lòng tạo lại nhân vật đó trước`);
               return void (await Ai(e.targetWorldbook, [...kr(He(e)), ...wr(t, n, e.isMultiRole)]));
             }
             if ("write-mvu" === n) {
               const n = He(e);
-              if (0 === n.length) throw new Error("至少需要一个已生成角色");
+              if (0 === n.length) throw new Error("Cần ít nhất một nhân vật đã được tạo");
               return void (await Ai(e.targetWorldbook, Er(n)));
             }
             "install-runtime" !== n
@@ -6424,7 +6424,7 @@ var e = {
                 const n = ("beginner" === B.value ? c.slice(0, 1) : c)
                   .filter((n) => n.seed.trim())
                   .map((n) => ({ ...n }));
-                if (0 === n.length) throw ((P.value = !1), new Error("至少需要填写一个角色素材"));
+                if (0 === n.length) throw ((P.value = !1), new Error("Cần điền tư liệu cho ít nhất một nhân vật"));
                 ((Q.value = {
                   targetCharacter: i.value,
                   targetWorldbook: A.value.trim(),
@@ -6440,99 +6440,99 @@ var e = {
                     return [
                       {
                         key: "create-snapshot",
-                        title: "保存生成前版本",
-                        detail: "出现问题时可以一键恢复",
+                        title: "Lưu bản trước khi tạo",
+                        detail: "Có trục trặc thì khôi phục được bằng một chạm",
                         status: "pending",
                       },
                       {
                         key: "prepare-character",
-                        title: "确认目标角色卡",
-                        detail: "检查角色卡结构与兼容字段",
+                        title: "Xác nhận thẻ nhân vật đích",
+                        detail: "Kiểm tra cấu trúc thẻ và các trường tương thích",
                         status: "pending",
                       },
                       {
                         key: "bind-worldbook",
-                        title: "准备保存位置",
-                        detail: "创建并连接角色专属世界书",
+                        title: "Chuẩn bị vị trí lưu",
+                        detail: "Tạo và liên kết world book riêng cho nhân vật",
                         status: "pending",
                       },
                       {
                         key: "clear-old",
-                        title: "整理旧版本",
-                        detail: "只更新本写卡器以前生成的内容",
+                        title: "Dọn bản cũ",
+                        detail: "Chỉ cập nhật nội dung do chính trình tạo thẻ này tạo trước đây",
                         status: "pending",
                       },
                       {
                         key: "generate-worldview",
-                        title: "构建故事世界",
-                        detail: "根据角色点子补全背景和规则",
+                        title: "Dựng thế giới câu chuyện",
+                        detail: "Hoàn thiện bối cảnh và luật lệ theo ý tưởng nhân vật",
                         status: "pending",
                       },
                       {
                         key: "write-worldview",
-                        title: "保存世界背景",
-                        detail: "写入世界书并设置顺序",
+                        title: "Lưu bối cảnh thế giới",
+                        detail: "Ghi vào world book và sắp thứ tự",
                         status: "pending",
                       },
                       ...n.flatMap((e, t) => {
-                        const a = e.name.trim() || (1 === n.length ? "角色" : e.label);
+                        const a = e.name.trim() || (1 === n.length ? "Nhân vật" : e.label);
                         return [
                           {
                             key: `generate-role-${t}`,
-                            title: `理解并扩写${a}`,
-                            detail: "补全身份、性格、关系变化和行为逻辑",
+                            title: `Hiểu và viết rộng ra${a}`,
+                            detail: "Hoàn thiện thân phận, tính cách, biến đổi quan hệ và logic hành xử",
                             status: "pending",
                           },
                           {
                             key: `write-role-${t}`,
-                            title: `保存${a}人设`,
-                            detail: "保存角色速览、完整人设和关系阶段",
+                            title: `Lưu ${a}hồ sơ`,
+                            detail: "Lưu tóm tắt nhanh, hồ sơ đầy đủ và các giai đoạn quan hệ",
                             status: "pending",
                           },
                         ];
                       }),
                       {
                         key: "generate-opening",
-                        title: "编写故事第一幕",
-                        detail: "按文风与大纲扩写，并留下可接话钩子",
+                        title: "Viết màn một của câu chuyện",
+                        detail: "Viết rộng theo văn phong và dàn ý, chừa lại điểm bắt lời",
                         status: "pending",
                       },
                       {
                         key: "write-opening",
-                        title: "保存故事第一幕",
-                        detail: "写入角色卡第一条消息并连接状态栏",
+                        title: "Lưu màn một của câu chuyện",
+                        detail: "Ghi vào tin nhắn đầu tiên của thẻ nhân vật và nối với thanh trạng thái",
                         status: "pending",
                       },
                       {
                         key: "write-mvu",
-                        title: "创建互动状态",
-                        detail: "准备时间、地点、关系值和更新规则",
+                        title: "Tạo trạng thái tương tác",
+                        detail: "Chuẩn bị thời gian, địa điểm, giá trị quan hệ và luật cập nhật",
                         status: "pending",
                       },
                       {
                         key: "install-runtime",
-                        title: "安装互动能力",
-                        detail: "让角色能够持续记录和更新状态",
+                        title: "Cài khả năng tương tác",
+                        detail: "Để nhân vật có thể liên tục ghi nhận và cập nhật trạng thái",
                         status: "pending",
                       },
                       {
                         key: "install-schema",
-                        title: "配置关系变量",
-                        detail: "按角色数量创建安全的数据结构",
+                        title: "Cấu hình biến quan hệ",
+                        detail: "Tạo cấu trúc dữ liệu an toàn theo số lượng nhân vật",
                         status: "pending",
                       },
                       {
                         key: "install-regex",
-                        title: "连接状态栏显示",
-                        detail: "安装状态展示和内容整理规则",
+                        title: "Nối phần hiển thị thanh trạng thái",
+                        detail: "Cài luật hiển thị trạng thái và sắp xếp nội dung",
                         status: "pending",
                       },
                       ...(e
                         ? [
                             {
                               key: "write-avatar",
-                              title: "写入卡面",
-                              detail: "把用户图片写成角色卡面",
+                              title: "Ghi ảnh bìa",
+                              detail: "Ghi ảnh của người dùng thành ảnh bìa thẻ nhân vật",
                               status: "pending",
                             },
                           ]
@@ -6560,11 +6560,11 @@ var e = {
                   )
                     return (
                       (X.value = e + 1),
-                      $n("warning", "已在当前步骤完成后安全停止，可以在当前窗口继续"),
-                      void toastr.info("当前步骤已完成，任务已安全停止", "一键角色卡写卡器")
+                      $n("warning", "Đã dừng an toàn sau khi xong bước hiện tại, có thể tiếp tục trong cửa sổ này"),
+                      void toastr.info("Bước hiện tại đã xong, tác vụ đã dừng an toàn", "Trình tạo thẻ nhân vật một chạm")
                     );
                 }
-                ($n("success", "完整角色卡生成并写入完成"), toastr.success("完整角色卡已生成并写入"));
+                ($n("success", "Đã tạo và ghi xong thẻ nhân vật đầy đủ"), toastr.success("Đã tạo và ghi xong thẻ nhân vật đầy đủ"));
               } catch (e) {
                 const t = e instanceof Error ? e.message : String(e);
                 ((S.value = U.value.findIndex((n) => "running" === n.status)), S.value < 0 && (S.value = n));
@@ -6572,8 +6572,8 @@ var e = {
                   r = Qe(a?.key ?? "", t);
                 (Xe(S.value, "error", r),
                   Q.value && a && De(Q.value, a.key, t),
-                  $n("error", r === t ? t : `${r}（详细信息：${t}）`),
-                  toastr.error(r, "一键角色卡写卡器"));
+                  $n("error", r === t ? t : `${r} (chi tiết: ${t})`),
+                  toastr.error(r, "Trình tạo thẻ nhân vật một chạm"));
               } finally {
                 ((N.value = null), (P.value = !1));
               }
@@ -6590,36 +6590,36 @@ var e = {
                 (y.value = ""),
                 (w.value = []));
               try {
-                $n("info", `生成${Fn.value}`);
+                $n("info", `Tạo${Fn.value}`);
                 const n = await (async function (n, e, t = {}) {
                   const a = "multistage" === e,
                     r = [
-                      "【单独人设素材】",
-                      "请只根据下面的人设信息生成人设正文，不写世界观和写入配置。",
+                      "【Tư liệu hồ sơ riêng lẻ】",
+                      "Chỉ dựa vào thông tin hồ sơ dưới đây để tạo phần nội dung hồ sơ, không viết thế giới quan và không viết cấu hình ghi thẻ.",
                       "",
                       n.trim(),
                     ].join("\n"),
                     o = [
-                      a ? "生成多阶段调色盘人设。" : "生成普通性格调色盘人设。",
-                      "你正在适配秋青子写卡预设的人设写法，但本任务是独立功能，不生成完整角色卡。",
-                      "只输出可直接复制的人设正文，不生成世界书条目、基础信息、角色速览、MVU、EJS、正则或写入说明。",
-                      "允许在不推翻用户明确设定的前提下做合理化补充：补足行为逻辑、关系触发、压力状态和二次解释。",
-                      "可写入字段内禁止出现内部流程说明、占位说明、标签说明或创作说明。",
-                      "不要和用户对话，不要询问下一步。",
+                      a ? "Tạo hồ sơ bảng màu nhiều giai đoạn." : "Tạo hồ sơ bảng màu tính cách thường.",
+                      "Bạn đang làm theo cách viết hồ sơ của preset tạo thẻ Thu Thanh Tử, nhưng nhiệm vụ này là chức năng độc lập, không tạo thẻ nhân vật đầy đủ.",
+                      "Chỉ xuất phần nội dung hồ sơ có thể sao chép dùng ngay; không tạo mục world book, thông tin cơ bản, tóm tắt nhanh, MVU, EJS, regex hay hướng dẫn ghi thẻ.",
+                      "Được phép bổ sung cho hợp lý mà không lật ngược thiết lập người dùng đã nêu rõ: hoàn thiện logic hành xử, điều kiện kích hoạt quan hệ, trạng thái khi chịu áp lực và diễn giải bổ sung.",
+                      "Trong các trường sẽ được ghi vào thẻ, cấm xuất hiện mô tả quy trình nội bộ, nội dung tạm, chú thích thẻ hay ghi chú sáng tác.",
+                      "Đừng trò chuyện với người dùng, đừng hỏi bước tiếp theo.",
                       ...Eo(t),
                       a
-                        ? "输出必须放在 <content><persona_result><multistage_persona>...</multistage_persona></persona_result></content> 中。"
-                        : "输出必须放在 <content><persona_result><palette>...</palette></persona_result></content> 中。",
+                        ? "Kết quả bắt buộc đặt trong <content><persona_result><multistage_persona>...</multistage_persona></persona_result></content>."
+                        : "Kết quả bắt buộc đặt trong <content><persona_result><palette>...</palette></persona_result></content>.",
                       a
                         ? [
-                            "<multistage_persona> 内必须包含以下子标签：",
-                            "<stage_early>初识期 0~30 的调色盘头部、专属衍生、专属二次解释</stage_early>",
-                            "<stage_middle>熟悉期 31~70 的调色盘头部、专属衍生、专属二次解释</stage_middle>",
-                            "<stage_close>亲近期 71~100 的调色盘头部、专属衍生、专属二次解释</stage_close>",
-                            "<stage_common>跨阶段通用衍生、通用二次解释、总结；没有则留空</stage_common>",
+                            "Bên trong <multistage_persona> bắt buộc phải có các thẻ con sau:",
+                            "<stage_early>phần đầu bảng màu, phái sinh riêng và diễn giải bổ sung riêng của giai đoạn mới quen 0–30</stage_early>",
+                            "<stage_middle>phần đầu bảng màu, phái sinh riêng và diễn giải bổ sung riêng của giai đoạn thân quen 31–70</stage_middle>",
+                            "<stage_close>phần đầu bảng màu, phái sinh riêng và diễn giải bổ sung riêng của giai đoạn gần gũi 71–100</stage_close>",
+                            "<stage_common>phái sinh dùng chung, diễn giải bổ sung dùng chung và tổng kết cho mọi giai đoạn; không có thì để trống</stage_common>",
                           ].join("\n")
-                        : "<palette> 内只写普通调色盘正文：底色、主色调、点缀、衍生、压力状态、关系触发和二次解释。",
-                      "所有子标签必须闭合，标签外不要输出解释。",
+                        : "Bên trong <palette> chỉ viết phần nội dung bảng màu thường: màu nền, màu chủ đạo, nét chấm phá, phái sinh, trạng thái khi chịu áp lực, điều kiện kích hoạt quan hệ và diễn giải bổ sung.",
+                      "Mọi thẻ con đều phải được đóng, ngoài các thẻ thì đừng xuất lời giải thích.",
                     ].join("\n");
                   return Uo(await vo(r, o, io, t), e, n);
                 })(C.value.trim(), g.value, {
@@ -6632,12 +6632,12 @@ var e = {
                 });
                 ((f.value = n),
                   ne(Fn.value, n.warnings),
-                  $n("success", `${Fn.value}生成完成`),
-                  toastr.success(`${Fn.value}已生成`));
+                  $n("success", `${Fn.value}Tạo xong`),
+                  toastr.success(`${Fn.value}Đã tạo xong`));
               } catch (n) {
                 const e = n instanceof Error ? n.message : String(n),
                   t = Qe("generate-persona", e);
-                ($n("error", t === e ? e : `${t}（详细信息：${e}）`), toastr.error(t, "一键角色卡写卡器"));
+                ($n("error", t === e ? e : `${t} (chi tiết: ${e})`), toastr.error(t, "Trình tạo thẻ nhân vật một chạm"));
               } finally {
                 ((N.value = null), (P.value = !1));
               }
@@ -6647,14 +6647,14 @@ var e = {
             null === S.value || P.value || (await $e(S.value));
           }
           function tt() {
-            P.value && !W.value && ((W.value = !0), $n("info", "收到停止请求，将在当前步骤完成后安全停止"));
+            P.value && !W.value && ((W.value = !0), $n("info", "Đã nhận yêu cầu dừng, sẽ dừng an toàn sau khi xong bước hiện tại"));
           }
           function rt() {
             if (!P.value) return;
             const n = go();
             (H.value && Le(!1),
-              $n("warning", n ? "已向当前模型发送停止信号" : "已标记立即停止当前生成请求"),
-              toastr.warning("正在停止当前生成请求…", "一键角色卡写卡器"));
+              $n("warning", n ? "Đã gửi tín hiệu dừng tới mô hình hiện tại" : "Đã đánh dấu dừng ngay yêu cầu tạo hiện tại"),
+              toastr.warning("Đang dừng yêu cầu tạo hiện tại…", "Trình tạo thẻ nhân vật một chạm"));
           }
           async function ot() {
             null === X.value || P.value || (await $e(X.value));
@@ -6676,10 +6676,10 @@ var e = {
               (await (async function (n, e) {
                 const t = We(),
                   a = t.activeRoles[n];
-                if (!a) throw new Error(`未找到角色${n + 1}素材`);
+                if (!a) throw new Error(`Không tìm thấy tư liệu của nhân vật ${n + 1}`);
                 (Co(), (N.value = null), (P.value = !0), (S.value = null));
                 try {
-                  (delete J[`role:${n}`], Xe(e, "running"), $n("info", `重新生成 ${a.label}`));
+                  (delete J[`role:${n}`], Xe(e, "running"), $n("info", `Tạo lại ${a.label}`));
                   const r = `generate-role-${n}`,
                     o = await Do(a, Ne(t).content, n, Ye(t, r));
                   ((t.roleResults[n] = o), (t.artifacts = void 0), (y.value = o.basic), ne(o.name, o.warnings));
@@ -6693,21 +6693,21 @@ var e = {
                     i.length === t.activeRoles.length)
                   ) {
                     const n = await Ro(t.openingStyle, t.openingOutline, Ne(t).content, i, Ye(t, "generate-opening"));
-                    ((t.opening = n), await Yr(t.targetCharacter, n.content), ne("开场白", n.warnings));
+                    ((t.opening = n), await Yr(t.targetCharacter, n.content), ne("Lời mở đầu", n.warnings));
                   }
                   (Xe(e, "done"), je(t, r));
                   const s = Ue(`write-role-${n}`);
                   (s >= 0 && Xe(s, "done"),
-                    $n("success", `${o.name} 已重新生成并刷新世界书、互动变量和状态栏`),
-                    toastr.success(`${o.name} 已重新生成`));
+                    $n("success", `${o.name} đã được tạo lại và làm mới world book, biến tương tác cùng thanh trạng thái`),
+                    toastr.success(`${o.name} đã được tạo lại`));
                 } catch (a) {
                   const r = a instanceof Error ? a.message : String(a),
                     o = Qe(`generate-role-${n}`, r);
                   ((S.value = e),
                     Xe(e, "error", o),
                     De(t, `generate-role-${n}`, r),
-                    $n("error", o === r ? r : `${o}（详细信息：${r}）`),
-                    toastr.error(o, "一键角色卡写卡器"));
+                    $n("error", o === r ? r : `${o} (chi tiết: ${r})`),
+                    toastr.error(o, "Trình tạo thẻ nhân vật một chạm"));
                 } finally {
                   ((N.value = null), (P.value = !1));
                 }
@@ -6731,11 +6731,11 @@ var e = {
                 (function () {
                   const n = SillyTavern;
                   try {
-                    ((G.value = n.getChatCompletionModel?.() || n.getTokenizerModel() || "无法识别当前模型"),
-                      (M.value = String(n.mainApi || "未知 API")),
-                      (O.value = String(n.onlineStatus || "未知状态")));
+                    ((G.value = n.getChatCompletionModel?.() || n.getTokenizerModel() || "Không nhận diện được mô hình hiện tại"),
+                      (M.value = String(n.mainApi || "API chưa rõ")),
+                      (O.value = String(n.onlineStatus || "Trạng thái chưa rõ")));
                   } catch {
-                    ((G.value = "读取当前模型失败"), (M.value = "未知 API"), (O.value = "无法读取"));
+                    ((G.value = "Đọc mô hình hiện tại thất bại"), (M.value = "API chưa rõ"), (O.value = "Không đọc được"));
                   }
                 })(),
                 (K.value = !1));
@@ -7103,11 +7103,11 @@ var e = {
                           null,
                           [
                             (0, r.createElementVNode)("i", { class: "status-light" }),
-                            (0, r.createTextVNode)("内置预设已加载"),
+                            (0, r.createTextVNode)("Đã nạp preset có sẵn"),
                           ],
                           -1,
                         )),
-                      (0, r.createElementVNode)("span", null, "角色：" + (0, r.toDisplayString)(i.value), 1),
+                      (0, r.createElementVNode)("span", null, "Nhân vật: " + (0, r.toDisplayString)(i.value), 1),
                       Sn.value
                         ? ((0, r.openBlock)(),
                           (0, r.createElementBlock)(
@@ -7117,7 +7117,7 @@ var e = {
                               class: (0, r.normalizeClass)(["format-status-button", { invalid: Un.value > 0 }]),
                               onClick: e[18] || (e[18] = (n) => ae()),
                             },
-                            (0, r.toDisplayString)(Un.value ? `格式提醒 ${Un.value}` : "格式校验通过"),
+                            (0, r.toDisplayString)(Un.value ? `Nhắc định dạng ${Un.value}` : "Kiểm tra định dạng đạt"),
                             3,
                           ))
                         : (0, r.createCommentVNode)("v-if", !0),
@@ -7132,7 +7132,7 @@ var e = {
                             class: (0, r.normalizeClass)(["format-floating-button", { invalid: Un.value > 0 }]),
                             onClick: e[19] || (e[19] = (n) => ae()),
                           },
-                          (0, r.toDisplayString)(Un.value ? `格式提醒 ${Un.value}` : "格式已通过"),
+                          (0, r.toDisplayString)(Un.value ? `Nhắc định dạng ${Un.value}` : "Định dạng đạt"),
                           3,
                         ))
                       : (0, r.createCommentVNode)("v-if", !0),
@@ -7400,8 +7400,8 @@ var e = {
       function s() {
         (a && (a.unmount(), (a = null)), i && (i(), (i = null)), A && (A(), (A = null)), o && (o.remove(), (o = null)));
       }
-      (replaceScriptButtons([{ name: "一键角色卡写卡器", visible: !0 }]),
-        eventOn(getButtonEvent("一键角色卡写卡器"), function () {
+      (replaceScriptButtons([{ name: "Trình tạo thẻ nhân vật một chạm", visible: !0 }]),
+        eventOn(getButtonEvent("Trình tạo thẻ nhân vật một chạm"), function () {
           if (a) return;
           const n = document.createElement("iframe");
           (n.setAttribute("script_id", getScriptId()),

@@ -60,11 +60,13 @@ if (!lockFail) ok(`${LOCKED.length} chuoi khoa con nguyen`);
 
 // 5. Kiem tra chu Han con sot trong vung DA dich
 const items = JSON.parse(fs.readFileSync("i18n/strings.json", "utf8"));
-const done = items.filter((i) => i.vi);
+const done = items.filter((i) => i.vi != null);
 const CJK = /[一-鿿]/;
-let leftover = done.filter((i) => CJK.test(i.vi)).length;
-if (leftover) bad(`${leftover} ban dich van con chu Han`);
-else ok(`${done.length} ban dich khong con chu Han`);
+// Cac id co y giu tieng Trung: duong dan sourcemap goc + 5 blob JSON xu ly o codepatch.js
+const KEEP_ZH = new Set(["80667", "230544", "688327", "688804", "689292", "693767", "4556622"]);
+const leftover = done.filter((i) => CJK.test(i.vi) && !KEEP_ZH.has(i.id));
+if (leftover.length) bad(`${leftover.length} ban dich van con chu Han: ${leftover.slice(0, 5).map((i) => i.line).join(", ")}`);
+else ok(`${done.length - KEEP_ZH.size} ban dich khong con chu Han (${KEEP_ZH.size} chuoi co y giu nguyen)`);
 
 // 6. Bao cao chu Han con lai trong file ket qua (tru anh base64 va sourcemap)
 const lines = b.split("\n");
