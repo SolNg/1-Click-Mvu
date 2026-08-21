@@ -1,0 +1,31 @@
+{
+  "name": "1-click-mvu",
+  "version": "1.0.0",
+  "description": "Repo này chứa bản đã format và tài liệu rà soát trước khi Việt hóa extension SillyTavern `小玉藻写卡器1.0` (Tamamo Card Writer / 1-Click MVU).",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SolNg/1-Click-Mvu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SolNg/1-Click-Mvu/issues"
+  },
+  "homepage": "https://github.com/SolNg/1-Click-Mvu#readme",
+  "devDependencies": {
+    "@babel/generator": "^8.0.0",
+    "@babel/parser": "^8.0.4",
+    "@babel/traverse": "^8.0.4",
+    "acorn": "^8.18.0",
+    "acorn-walk": "^8.3.5",
+    "prettier": "^3.9.6"
+  }
+}
