@@ -1,3 +1,5 @@
 node_modules/
 dist/
 package-lock.json
+tools/smoke/bundle.test.js
+tools/smoke/screen-text.txt

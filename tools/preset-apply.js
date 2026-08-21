@@ -12,6 +12,36 @@ for (const [id, patch] of Object.entries(vi)) {
   if (patch.name != null) { p.name = patch.name; nName++; }
   if (patch.content != null) { p.content = patch.content; nContent++; }
 }
+// --- Nhanh extensions: va theo duong dan, khong dung identifier ---
+const EXT = JSON.parse(fs.readFileSync("i18n/preset-extensions.json", "utf8"));
+function at(root, path) {
+  const keys = path.replace(/\[(\d+)\]/g, ".$1").split(".");
+  let o = root;
+  for (const k of keys.slice(0, -1)) {
+    if (o == null) return [null, null];
+    o = o[k];
+  }
+  return [o, keys[keys.length - 1]];
+}
+let nExt = 0;
+for (const [path, value] of Object.entries(EXT)) {
+  if (path.startsWith("_")) continue;
+  const [obj, key] = at(preset.extensions, path);
+  if (!obj || !(key in obj)) throw new Error("preset.extensions: khong tim thay duong dan " + path);
+  if (typeof obj[key] !== "string") throw new Error("preset.extensions: " + path + " khong phai chuoi");
+  obj[key] = value;
+  nExt++;
+}
+for (const [path, pairs] of Object.entries(EXT._thay_the_trong_chuoi || {})) {
+  const [obj, key] = at(preset.extensions, path);
+  if (!obj || typeof obj[key] !== "string") throw new Error("preset.extensions: khong tim thay " + path);
+  for (const [a, b] of pairs) {
+    if (!obj[key].includes(a)) throw new Error("preset.extensions: " + path + " khong chua " + a);
+    obj[key] = obj[key].split(a).join(b);
+    nExt++;
+  }
+}
+
 const literal = JSON.stringify(JSON.stringify(preset, null, 2));
 const src = fs.readFileSync("src/index.vi.js", "utf8");
 // Offset lay tu file goc; sau khi dich cac chuoi khac offset da lech -> tim lai bang moc dau/cuoi.
@@ -23,4 +53,4 @@ let node = null;
 traverse(ast, { StringLiteral(p) { if (p.node.value.startsWith('{\n  "max_context_unlocked"')) node = p.node; } });
 if (!node) throw new Error("Khong xac dinh duoc node preset");
 fs.writeFileSync("src/index.vi.js", src.slice(0, node.start) + literal + src.slice(node.end));
-console.log(`Preset: da dich ${nName} ten prompt, ${nContent} noi dung prompt`);
+console.log(`Preset: da dich ${nName} ten prompt, ${nContent} noi dung prompt, ${nExt} muc trong extensions`);

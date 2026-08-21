@@ -12,6 +12,7 @@ SillyTavern `小玉藻写卡器1.0` (Tamamo Card Writer / 1-Click MVU).
 | `docs/i18n-status.md` | **Trạng thái bản dịch** — đã làm gì, còn gì, thay đổi hành vi nào |
 | `i18n/` | Bản dịch theo lô (`vi/*.json`), preset (`preset/*.txt`), danh sách chuỗi khóa |
 | `tools/` | Pipeline trích / áp / vá / kiểm tra |
+| `tools/smoke/` | Chạy thật trong Chromium: harness + đo layout + ảnh chụp |
 | `docs/i18n-plan.md` | **Kế hoạch đã chốt (hướng B)** — đọc file này trước |
 | `docs/i18n-review.md` | Báo cáo rà soát gốc — bản đồ file, phân loại chuỗi, rủi ro layout |
 | `docs/i18n-glossary.md` | Bảng thuật ngữ nháp + quy ước dấu câu |
@@ -27,14 +28,18 @@ SillyTavern `小玉藻写卡器1.0` (Tamamo Card Writer / 1-Click MVU).
 
 Chi tiết đầy đủ: `docs/i18n-status.md`.
 
-## Dựng lại
+## Dựng lại và kiểm tra
 
 ```bash
-./tools/build.sh
+./tools/check.sh     # dựng lại + 9 vòng kiểm tra tĩnh + 13 vòng audit + chạy thật trong Chromium
+./tools/build.sh     # chỉ dựng lại + kiểm tra tĩnh (không cần trình duyệt)
 ```
 
-Chạy lần lượt: gộp bản dịch → áp theo offset AST → vá code → chèn CSS → ghi preset →
-9 vòng kiểm tra (acorn + babel + so cấu trúc AST + chuỗi khóa + CSS + mã hoá).
+`build.sh`: gộp bản dịch → áp theo offset AST → vá code → chèn CSS → ghi preset → prettier →
+`verify.js` + `verify-extra.js`.
+
+`check.sh` chạy thêm `audit.js` (13 vòng soi thẳng file kết quả) và `tools/smoke/` — nạp bundle
+vào Chromium với global SillyTavern giả lập, bấm nút mở trình tạo thẻ, đo layout thật.
 
 ## Cách format lại
 

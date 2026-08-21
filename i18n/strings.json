@@ -1647,7 +1647,7 @@
   "kind": "tpl",
   "ctx": "ConditionalExpression",
   "zh": "生成",
-  "vi": "Tạo"
+  "vi": "Tạo "
  },
  {
   "id": "323785",
@@ -4847,7 +4847,7 @@
   "kind": "tpl",
   "ctx": "CALL:ho#1",
   "zh": "为空，已用保底内容继续处理，请人工校对。",
-  "vi": "trống, đã dùng nội dung dự phòng để xử lý tiếp, vui lòng kiểm tra lại thủ công."
+  "vi": " trống, đã dùng nội dung dự phòng để xử lý tiếp, vui lòng kiểm tra lại thủ công."
  },
  {
   "id": "664901",
@@ -4857,7 +4857,7 @@
   "kind": "tpl",
   "ctx": "CALL:ho#1",
   "zh": "包含工程词或占位内容：",
-  "vi": "chứa từ công trình hoặc nội dung tạm: "
+  "vi": " chứa từ công trình hoặc nội dung tạm: "
  },
  {
   "id": "664927",
@@ -5077,7 +5077,7 @@
   "kind": "tpl",
   "ctx": "LogicalExpression",
   "zh": "角色",
-  "vi": "Nhân vật"
+  "vi": "Nhân vật "
  },
  {
   "id": "667952",
@@ -5217,7 +5217,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "为空，需重新生成",
-  "vi": "trống, cần tạo lại"
+  "vi": " trống, cần tạo lại"
  },
  {
   "id": "670554",
@@ -5227,7 +5227,7 @@
   "kind": "tpl",
   "ctx": "NEW",
   "zh": "包含工程词或占位内容：",
-  "vi": "chứa từ công trình hoặc nội dung tạm: "
+  "vi": " chứa từ công trình hoặc nội dung tạm: "
  },
  {
   "id": "670580",
@@ -5377,7 +5377,7 @@
   "kind": "tpl",
   "ctx": "CALL:No#2",
   "zh": "合并结果",
-  "vi": "kết quả gộp"
+  "vi": " (kết quả gộp)"
  },
  {
   "id": "671623",
@@ -5887,7 +5887,7 @@
   "kind": "tpl",
   "ctx": "LogicalExpression",
   "zh": "角色",
-  "vi": "Nhân vật"
+  "vi": "Nhân vật "
  },
  {
   "id": "676778",
@@ -5897,7 +5897,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:message",
   "zh": "内容超过 2 万字符，开始分段蒸馏：0/",
-  "vi": "Nội dung vượt quá 50.000 ký tự, bắt đầu cô đọng theo đoạn: 0/"
+  "vi": ": nội dung vượt quá 50.000 ký tự, bắt đầu cô đọng theo đoạn: 0/"
  },
  {
   "id": "676995",
@@ -5997,7 +5997,7 @@
   "kind": "tpl",
   "ctx": "CALL:No#2",
   "zh": "素材分段",
-  "vi": "đoạn tư liệu"
+  "vi": " (đoạn tư liệu)"
  },
  {
   "id": "677689",
@@ -6027,7 +6027,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:label",
   "zh": "素材",
-  "vi": "tư liệu"
+  "vi": " (tư liệu)"
  },
  {
   "id": "678049",
@@ -6037,7 +6037,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:message",
   "zh": "蒸馏完成，进入角色正式生成",
-  "vi": "Cô đọng xong, chuyển sang tạo nhân vật chính thức"
+  "vi": ": cô đọng xong, chuyển sang tạo nhân vật chính thức"
  },
  {
   "id": "678209",
@@ -6497,7 +6497,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:label",
   "zh": "角色",
-  "vi": "Nhân vật"
+  "vi": "Nhân vật "
  },
  {
   "id": "701525",
@@ -6997,7 +6997,7 @@
   "kind": "tpl",
   "ctx": "LogicalExpression",
   "zh": "角色",
-  "vi": "Nhân vật"
+  "vi": "Nhân vật "
  },
  {
   "id": "4521070",
@@ -7017,7 +7017,7 @@
   "kind": "tpl",
   "ctx": "ReturnStatement",
   "zh": "失败",
-  "vi": "Thất bại"
+  "vi": " thất bại"
  },
  {
   "id": "4523187",
@@ -7247,7 +7247,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:label",
   "zh": "角色",
-  "vi": "Nhân vật"
+  "vi": "Nhân vật "
  },
  {
   "id": "4529313",
@@ -7457,7 +7457,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "已完成结构保底矫正，正文完整保留，请检查字段分区。",
-  "vi": "Đã chỉnh cấu trúc theo phương án dự phòng, phần nội dung được giữ nguyên vẹn, vui lòng kiểm tra việc phân trường."
+  "vi": ": đã chỉnh cấu trúc theo phương án dự phòng, phần nội dung được giữ nguyên vẹn, vui lòng kiểm tra việc phân trường."
  },
  {
   "id": "4537410",
@@ -7477,7 +7477,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "格式已校验、矫正并重新解析。",
-  "vi": "Đã kiểm tra, chỉnh và phân tích lại định dạng."
+  "vi": ": đã kiểm tra, chỉnh và phân tích lại định dạng."
  },
  {
   "id": "4537555",
@@ -7797,7 +7797,7 @@
   "kind": "tpl",
   "ctx": "AssignmentExpression",
   "zh": "角色",
-  "vi": "Nhân vật"
+  "vi": "Nhân vật "
  },
  {
   "id": "4542371",
@@ -7817,7 +7817,7 @@
   "kind": "tpl",
   "ctx": "CALL:toastr.success#0",
   "zh": "已复制",
-  "vi": "Đã sao chép"
+  "vi": " đã được sao chép"
  },
  {
   "id": "4543177",
@@ -7847,7 +7847,7 @@
   "kind": "tpl",
   "ctx": "CALL:ye#1",
   "zh": "原始输出",
-  "vi": "Kết quả gốc"
+  "vi": " — kết quả gốc"
  },
  {
   "id": "4543616",
@@ -8477,7 +8477,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:title",
   "zh": "理解并扩写",
-  "vi": "Hiểu và viết rộng ra"
+  "vi": "Hiểu và viết rộng ra "
  },
  {
   "id": "4561040",
@@ -8497,7 +8497,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:title",
   "zh": "保存",
-  "vi": "Lưu "
+  "vi": "Lưu hồ sơ "
  },
  {
   "id": "4561259",
@@ -8507,7 +8507,7 @@
   "kind": "tpl",
   "ctx": "OBJ_VALUE:title",
   "zh": "人设",
-  "vi": "hồ sơ"
+  "vi": ""
  },
  {
   "id": "4561300",
@@ -8747,7 +8747,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "生成",
-  "vi": "Tạo"
+  "vi": "Tạo "
  },
  {
   "id": "4565472",
@@ -8937,7 +8937,7 @@
   "kind": "tpl",
   "ctx": "CALL:$n#1",
   "zh": "生成完成",
-  "vi": "Tạo xong"
+  "vi": " tạo xong"
  },
  {
   "id": "4567558",
@@ -8947,7 +8947,7 @@
   "kind": "tpl",
   "ctx": "CALL:toastr.success#0",
   "zh": "已生成",
-  "vi": "Đã tạo xong"
+  "vi": " đã được tạo xong"
  },
  {
   "id": "4567761",

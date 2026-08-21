@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>Smoke test — 1-Click MVU (ban Viet hoa)</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #f4f1e8;
+        font-family: sans-serif;
+      }
+    </style>
+    <script src="../../node_modules/vue/dist/vue.global.prod.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/pinia/dist/pinia.iife.prod.js"></script>
+    <script>
+      // ---- Bat moi loi de test co the doc lai ----
+      window.__errors = [];
+      window.addEventListener("error", (e) => window.__errors.push("error: " + (e.message || e)));
+      window.addEventListener("unhandledrejection", (e) =>
+        window.__errors.push("unhandledrejection: " + (e.reason && e.reason.message ? e.reason.message : e.reason)),
+      );
+
+      // ---- Stub cac global cua SillyTavern / Tavern Helper ----
+      const CHARS = [{ name: "Thu Minh Nguyet", avatar: "a.png", data: { extensions: {} } }];
+      window.SillyTavern = {
+        characters: CHARS,
+        getCharacters: async () => CHARS,
+        unshallowCharacter: async () => {},
+        selectCharacterById: async () => {},
+      };
+      window.getCurrentCharacterName = () => "Thu Minh Nguyet";
+      window.getCharacterNames = () => CHARS.map((c) => c.name);
+      window.getCharacter = () => CHARS[0];
+      window.replaceCharacter = async () => {};
+      window.updateCharacterWith = async (n, f) => f(CHARS[0]);
+      window.createCharacter = async () => CHARS[0];
+      window.getWorldbookNames = () => [];
+      window.getCharWorldbookNames = () => ({ primary: null, additional: [] });
+      window.getWorldbook = async () => [];
+      window.createWorldbook = async () => true;
+      window.deleteWorldbook = async () => true;
+      window.replaceWorldbook = async () => {};
+      window.updateWorldbookWith = async (n, f) => f([]);
+      window.createWorldbookEntries = async () => ({ entries: [], new_entries: [] });
+      window.rebindCharWorldbooks = async () => {};
+      window.getScriptTrees = () => ({ type: "character", trees: [] });
+      window.replaceScriptTrees = async () => {};
+      window.updateScriptTreesWith = async (f) => f({ trees: [] });
+      window.replaceTavernRegexes = async () => {};
+      window.updateTavernRegexesWith = async (f) => f([]);
+      window.generateRaw = async () => "";
+      window.stopGenerationById = () => true;
+      window.getScriptId = () => "smoke-test-script";
+      window.iframe_events = { STREAM_TOKEN_RECEIVED_FULLY: "stream_token" };
+      window.eventOn = () => {};
+      window.toastr = {
+        success: (m, t) => window.__errors.push("toastr.success: " + t + " / " + m),
+        error: (m, t) => window.__errors.push("toastr.error: " + t + " / " + m),
+        warning: (m, t) => window.__errors.push("toastr.warning: " + t + " / " + m),
+        info: (m, t) => window.__errors.push("toastr.info: " + t + " / " + m),
+      };
+      // Nut cua script: ghi lai handler de test tu bam
+      window.__buttons = [];
+      window.replaceScriptButtons = (b) => {
+        window.__buttons = b;
+      };
+      window.getButtonEvent = (name) => "button:" + name;
+      const _eventOn = window.eventOn;
+      window.__handlers = {};
+      window.eventOn = (evt, fn) => {
+        window.__handlers[evt] = fn;
+      };
+    </script>
+  </head>
+  <body>
+    <script type="module" src="./bundle.test.js"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "_ghi_chu": [
+    "Nhanh preset.extensions — app khong doc nhanh nay (Mr chi dung .prompts va .prompt_order),",
+    "nhung van dich nhan hien thi cho nhat quan voi prompt id 49 (ban sao cua chinh nhanh nay).",
+    "KHONG dich: button.name (script tu CDN khop handler theo ten), depth_injection placeholder",
+    "(ten macro do script dang ky), *.content (ma da minify / URL CDN), moi id UUID."
+  ],
+  "regex_scripts[0].scriptName": "Bỏ nội dung chuỗi suy nghĩ",
+  "regex_scripts[1].scriptName": "Đang tạo chuỗi suy nghĩ - chủ đề trăng",
+  "regex_scripts[2].scriptName": "Chuỗi suy nghĩ đầy đủ - chủ đề trăng",
+  "regex_scripts[3].scriptName": "Bỏ các thẻ linh tinh",
+  "SPreset.RegexBinding.regexes[0].scriptName": "Bỏ nội dung chuỗi suy nghĩ",
+  "SPreset.RegexBinding.regexes[1].scriptName": "Đang tạo chuỗi suy nghĩ - chủ đề trăng",
+  "SPreset.RegexBinding.regexes[2].scriptName": "Chuỗi suy nghĩ đầy đủ - chủ đề trăng",
+  "SPreset.RegexBinding.regexes[3].scriptName": "Bỏ các thẻ linh tinh",
+  "tavern_helper.scripts[0].name": "Di sản San Mingyue để lại cho bạn",
+  "tavern_helper.scripts[1].name": "Cô Thanh Không Lị là tsundere",
+  "tavern_helper.scripts[2].name": "MAG lén giúp bạn tạo thẻ ở hậu trường",
+  "tavern_helper.scripts[1].data.chat_history.user_prefix": "<observed_piece class=\"chi_dan_tinh_tiet_doan_sau\">\n",
+  "tavern_helper.scripts[1].data.chat_history.assistant_prefix": "<observed_piece class=\"tinh_tiet\">\n",
+  "tavern_helper.scripts[1].data.chat_history.system_prefix": "<observed_piece class=\"thiet_lap\">\n",
+  "_thay_the_trong_chuoi": {
+    "regex_scripts[1].replaceString": [["思绪如星，散落夜空", "Suy nghĩ như sao, rải khắp trời đêm"]],
+    "regex_scripts[2].replaceString": [["月满如镜，思绪澄明", "Trăng tròn như gương, suy nghĩ trong veo"]],
+    "SPreset.RegexBinding.regexes[1].replaceString": [["思绪如星，散落夜空", "Suy nghĩ như sao, rải khắp trời đêm"]],
+    "SPreset.RegexBinding.regexes[2].replaceString": [["月满如镜，思绪澄明", "Trăng tròn như gương, suy nghĩ trong veo"]]
+  }
+}
