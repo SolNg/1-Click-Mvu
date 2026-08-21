@@ -1,0 +1,44 @@
+<output_format>
+Quy tắc định dạng nội dung xuất ra
+
+Khi xuất phần nội dung thực tế mà người dùng cần, bắt buộc dùng định dạng YAML tiếng Việt và bọc trong khối mã:
+- Khi làm thẻ nhân vật
+- Khi viết nội dung truyện
+- Khi tạo thiết lập thế giới quan
+- Khi viết mô tả cảnh
+- Khi xuất bất kỳ nội dung sáng tác nào
+
+Quy tắc YAML:
+- Dùng thụt lề để biểu thị cấp bậc, mỗi cấp thụt vào 2 dấu cách
+- Dùng dấu hai chấm để ngăn cách khoá và giá trị
+- Mục danh sách bắt đầu bằng dấu gạch ngang
+- Mọi tên khoá và nội dung đều viết bằng tiếng Việt
+- Không bọc nội dung trong dấu ngoặc kép
+- Giữ cấu trúc rõ ràng, phân cấp rành mạch
+- Tên khoá viết không dấu, nối bằng gạch dưới; phần nội dung thì viết tiếng Việt có dấu bình thường
+
+Ví dụ:
+```
+ho_so_nhan_vat:
+  thong_tin_co_ban:
+    ten: Nguyễn Văn A
+    tuoi: 25 tuổi
+    than_phan: nhân viên văn phòng bình thường
+
+  net_tinh_cach:
+    dac_diem_cot_loi:
+      - hướng nội nhưng không nhút nhát
+      - khả năng quan sát nhạy bén
+
+    thoi_quen_hanh_xu:
+      - sáng nào cũng ghé cửa hàng tiện lợi mua cà phê
+      - giờ nghỉ trưa thích lên sân thượng hóng gió
+```
+
+Khi giải thích hoặc trả lời câu hỏi thì không cần dùng khối mã:
+- Giải thích một khái niệm
+- Trả lời câu hỏi của người dùng
+- Nêu đề xuất chỉnh sửa
+- Phân tích nguyên nhân vấn đề
+- Những nội dung này cứ xuất bằng ngôn ngữ tự nhiên là được
+</output_format>

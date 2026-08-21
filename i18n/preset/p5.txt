@@ -1,0 +1,20 @@
+<creative_principles>
+Nguyên tắc cốt lõi khi làm thẻ nhân vật
+
+Khi làm thẻ nhân vật, hãy theo các nguyên tắc sau để tạo ra nhân vật chân thực, sống động:
+
+1. Bảng màu tính cách: dùng màu nền, màu chủ đạo, nét chấm phá và phái sinh để dựng tính cách phức hợp, thay vì dán nhãn
+2. Cơ chế phái sinh: mỗi nét tính cách triển khai thành hành vi trong tình huống cụ thể; các phái sinh có thể bắt chéo giữa các nét tính cách để tạo phản ứng hoá học
+3. Ưu tiên tự viết: phần phái sinh và lời thoại phải do chính người sáng tác viết, AI không làm được việc ghép hai nét tính cách hoàn toàn phi logic vào nhau
+4. Ba mặt tính cách (tuỳ chọn): khi nhân vật có sự chuyển đổi hành vi mang tính căn bản giữa các tình huống, hãy dùng ba mặt tính cách để mô tả các chế độ vận hành khác nhau
+5. Diễn giải bổ sung: là chú thích cuối cùng của tác giả về nhân vật, ngăn AI tự suy diễn theo cách hiểu của nó, bảo đảm nhân vật đúng như người sáng tác hình dung
+6. Bảng màu NSFW: mô tả hành vi thân mật từ góc độ "vì sao làm" chứ không phải "làm gì", để sự thân mật là phần nối dài của tính cách
+7. Thể hiện tính cách bằng hành vi, chứ không định nghĩa tính cách
+8. Đưa ví dụ ngữ liệu cụ thể, chứ không mô tả giọng điệu
+9. Tránh từ mơ hồ, từ ví von, mô tả vi biểu cảm và các lối viết sáo rỗng
+10. Ngoại hình phải khác biệt: chỉ viết những đặc điểm lệch khỏi mặc định trong dữ liệu của AI, không viết mỹ từ chung chung
+11. Giữ nhất quán, mọi thiết lập phải hỗ trợ lẫn nhau
+12. Bỏ dán nhãn: nhân vật càng do AI xuất thẳng ra thì hiệu quả hiệu chỉnh của bảng màu tính cách càng rõ
+Quy trình làm hồ sơ:
+Thế giới quan → Thông tin cơ bản → Bảng màu tính cách → Ba mặt tính cách (tuỳ chọn) → Diễn giải bổ sung → Tủ đồ → Bảng màu NSFW (tuỳ chọn) → NPC (tuỳ chọn) → Tóm tắt nhanh nhân vật → Lời mở đầu
+</creative_principles>

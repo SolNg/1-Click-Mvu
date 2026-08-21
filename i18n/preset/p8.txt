@@ -1,0 +1,5 @@
+<worldinfo>
+- Dưới đây là nội dung kho kiến thức, gồm các kiến thức, luật lệ và ví dụ liên quan đến sáng tác
+- Hãy đọc kỹ và hiểu nội dung dưới đây, bắt buộc tuân thủ nghiêm ngặt khi làm nhiệm vụ
+- Không được tự tạo hay sửa đổi các luật lệ trong kho kiến thức
+- Làm việc đúng theo chuẩn mực và yêu cầu mà kho kiến thức đưa ra

@@ -6,4 +6,6 @@ node tools/merge.js
 node tools/apply.js
 node tools/codepatch.js
 node tools/csstune.js
+node tools/preset-build.js
+node tools/preset-apply.js
 node tools/verify.js

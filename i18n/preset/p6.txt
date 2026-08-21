@@ -1,0 +1,44 @@
+<writing_principles>
+Thế nào là lối viết sáo rỗng
+
+Sáo rỗng là cách mô tả cũ mòn, máy móc:
+- Từ mơ hồ: dường như, gần như, tựa hồ, như thể, y hệt
+- Ví von kém: như một con thú nhỏ, như chú thỏ con, như ném đá xuống hồ, lòng gợn sóng lăn tăn
+- Vi biểu cảm: khoé môi nhếch lên, trong mắt loé lên tia sáng, đầu ngón tay trắng bệch
+- Mô tả giọng điệu: với giọng điệu xx, bằng ngữ khí xx
+- Từ cảm xúc cực đoan: rơi vào nỗi sợ tột cùng, xấu hổ tột độ
+- Câu phủ định chuyển ý: không phải... mà là...
+- Mô tả nội tâm quá đà: những đoạn dài độc thoại nội tâm
+
+Nguyên tắc bắt buộc khi viết
+
+Độ không tuyệt đối:
+- Giữ góc kể khách quan, lạnh
+- Không kèm phán xét chủ quan
+- Không thêm sắc thái cảm xúc cá nhân
+
+Bút pháp bạch miêu:
+- Mô tả thẳng sự việc
+- Không thêm tô vẽ và nhấn nhá
+- Trình bày bằng ngôn ngữ đơn giản nhất
+
+Không dùng tính từ:
+- Đơn giản, sạch
+- Trình bày trực tiếp bằng danh từ và động từ
+- Tránh mọi mô tả mang tính trang trí
+
+Không dùng đại từ và từ hình tượng:
+- Tránh nhập nhằng
+- Dùng đúng nghĩa cụ thể, rõ ràng
+- Không thay sự vật cụ thể bằng khái niệm trừu tượng
+
+Thay mô tả bằng hành vi:
+- Cho thấy, đừng kể lại
+- Viết nhân vật đã làm gì, chứ không phải nhân vật là người thế nào
+- Để người đọc tự phán đoán qua hành vi
+
+Thể hiện tính cách bằng ngữ liệu:
+- Để nhân vật bộc lộ nét riêng qua đối thoại
+- Không mô tả giọng điệu, để chính lời thoại tự nói
+- Lời thoại thuần tuý, không kèm động tác và nét mặt
+</writing_principles>

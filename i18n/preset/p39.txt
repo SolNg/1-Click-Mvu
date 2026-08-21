@@ -1,0 +1,171 @@
+{{addvar::template_knowledge::Khi ghi nội dung vào world book, bạn bắt buộc tuân thủ quy tắc bọc thẻ được định nghĩa trong thẻ <template_tag_spec>, thêm đúng thẻ cho nội dung của từng mục}}{{trim}}
+<template_tag_spec>
+Quy tắc bọc thẻ cho mục world book
+
+Luật cốt lõi:
+- Nội dung của mỗi mục world book bắt buộc được bọc bằng thẻ <ten_idN>
+- N là số ID tăng dần, phân bổ theo các luật dưới đây
+- Thẻ giúp AI phân biệt nguồn nội dung và quan hệ phân cấp giữa các mục
+- Mọi mục của cùng một nhân vật (thông tin cơ bản, bảng màu, diễn giải bổ sung, tủ đồ, NSFW, v.v.) đều dùng chung một ID thẻ
+- Tên trong thẻ viết không dấu, nối bằng gạch dưới
+
+==========
+
+【THỨ TỰ PHÂN BỔ ID】
+
+Thứ tự ưu tiên tổng thể (từ nhỏ đến lớn):
+1. Mục thế giới quan (id1~idX)
+2. Tóm tắt nhanh nhân vật (ngay sau thế giới quan)
+3. Các mục của từng nhân vật (phân bổ theo thứ tự tạo, cùng nhân vật dùng chung ID)
+4. Mục NPC (phân bổ sau cùng)
+
+==========
+
+【THẺ THẾ GIỚI QUAN】
+
+Phân bổ ID theo cấp của thế giới quan:
+
+Hướng A/B (thế giới quan một mục):
+- Khi chỉ có một mục thế giới quan, chỉ dùng <the_gioi_quan_id1>
+
+Hướng C (thế giới lớn, nhiều mục):
+- <the_gioi_quan_id1> — cương lĩnh / thiết lập tổng của thế giới
+- <the_gioi_quan_id2> — tóm lược khu vực / bối cảnh
+- <the_gioi_quan_id3> — chi tiết từng thế lực / bối cảnh (có thể có nhiều mục, đều dùng id3)
+- <the_gioi_quan_id4> — các loại sự kiện
+
+==========
+
+【THẺ TÓM TẮT NHANH NHÂN VẬT】
+
+- <tom_tat_nhan_vat_id0> — mục tổng quan nhân vật
+- Tóm tắt nhanh nhân vật dùng id0, không chiếm chỗ trong dãy ID chính thức
+
+==========
+
+【THẺ NHÂN VẬT】
+
+Luật cốt lõi: mọi mục của cùng một nhân vật dùng chung một ID thẻ
+
+- Thông tin cơ bản, hồ sơ bảng màu, ba mặt tính cách, diễn giải bổ sung, tủ đồ, bảng màu NSFW... của cùng một nhân vật tuy là các mục world book khác nhau, nhưng khi ghi đều được bọc bằng cùng một thẻ <ten_nhan_vat_idN>
+- Nhân vật khác nhau dùng ID khác nhau
+- Bên trong mục không lồng thêm thẻ nào nữa
+- ID tăng dần theo thứ tự tạo nhân vật
+
+Ví dụ:
+- Thu Minh Nguyệt là nhân vật được tạo đầu tiên → mọi mục của cô ấy đều dùng <thu_minh_nguyet_id1>
+- Lâm Tiểu Vũ là nhân vật được tạo thứ hai → mọi mục của cô ấy đều dùng <lam_tieu_vu_id2>
+
+Lưu ý: nếu thế giới quan đã chiếm id1~id4 thì nhân vật đầu tiên bắt đầu từ id5
+
+==========
+
+【THẺ NPC】
+
+- Mỗi NPC một thẻ riêng
+- Định dạng: <ten_npc_idN>
+- ID tiếp tục tăng dần sau các nhân vật
+- Mỗi NPC chỉ có một mục, nên mỗi NPC một ID
+
+==========
+
+【VÍ DỤ ĐẦY ĐỦ】
+
+Giả sử một thẻ nhân vật gồm:
+- Thiết lập thế giới lớn (hướng C): cương lĩnh, tóm lược khu vực, 2 chi tiết thế lực, 1 sự kiện
+- Tóm tắt nhanh nhân vật
+- 2 nhân vật chính: Thu Thanh Tử, Hạ Quất
+- 3 NPC: thầy Vương, Tiểu Lâm, chủ tiệm
+
+Thì ID được phân bổ như sau:
+
+Thế giới quan:
+  <the_gioi_quan_id1> — cương lĩnh thế giới
+  <the_gioi_quan_id2> — tóm lược khu vực
+  <the_gioi_quan_id3> — chi tiết thế lực A
+  <the_gioi_quan_id3> — chi tiết thế lực B (cùng cấp, dùng chung id3)
+  <the_gioi_quan_id4> — loại sự kiện
+
+Tóm tắt nhanh nhân vật:
+  <tom_tat_nhan_vat_id0> — tổng quan nhân vật
+
+Nhân vật (bắt đầu từ id5, vì thế giới quan đã dùng id1~id4):
+  <thu_thanh_tu_id5> — thông tin cơ bản của Thu Thanh Tử
+  <thu_thanh_tu_id5> — hồ sơ bảng màu của Thu Thanh Tử (cùng nhân vật, cùng ID)
+  <thu_thanh_tu_id5> — diễn giải bổ sung của Thu Thanh Tử (cùng nhân vật, cùng ID)
+  <thu_thanh_tu_id5> — tủ đồ của Thu Thanh Tử (cùng nhân vật, cùng ID)
+  <ha_quat_id6> — thông tin cơ bản của Hạ Quất
+  <ha_quat_id6> — hồ sơ bảng màu của Hạ Quất (cùng nhân vật, cùng ID)
+
+NPC (tiếp tục tăng dần):
+  <thay_vuong_id7> — thầy Vương
+  <tieu_lam_id8> — Tiểu Lâm
+  <chu_tiem_id9> — chủ tiệm
+
+---
+
+Giả sử một thẻ đơn giản chỉ có một nhân vật:
+- Thế giới quan bối cảnh đời thực (hướng A): 1 mục
+- Tóm tắt nhanh nhân vật
+- 1 nhân vật chính: Thu Thanh Tử
+- 1 NPC: Tiểu Lâm
+
+Thì ID được phân bổ như sau:
+
+Thế giới quan:
+  <the_gioi_quan_id1> — thiết lập tổng
+
+Tóm tắt nhanh nhân vật:
+  <tom_tat_nhan_vat_id0> — tổng quan nhân vật
+
+Nhân vật (bắt đầu từ id2):
+  <thu_thanh_tu_id2> — thông tin cơ bản của Thu Thanh Tử
+  <thu_thanh_tu_id2> — hồ sơ bảng màu của Thu Thanh Tử (cùng nhân vật, cùng ID)
+  <thu_thanh_tu_id2> — diễn giải bổ sung của Thu Thanh Tử (cùng nhân vật, cùng ID)
+
+NPC:
+  <tieu_lam_id3> — Tiểu Lâm
+
+==========
+
+【ĐỊNH DẠNG KHI GHI】
+
+Khi ghi vào world book, định dạng thực tế của nội dung mục là:
+
+```
+<ten_nhan_vat_idN>
+(phần nội dung của mục)
+</ten_nhan_vat_idN>
+```
+
+Ví dụ, mục thông tin cơ bản của Thu Thanh Tử khi ghi vào world book:
+```
+<thu_thanh_tu_id2>
+ho_so_nhan_vat:
+  thong_tin_co_ban:
+    ten: Thu Thanh Tử
+    ...
+</thu_thanh_tu_id2>
+```
+
+Mục bảng màu của Thu Thanh Tử khi ghi vào world book:
+```
+<thu_thanh_tu_id2>
+bang_mau_tinh_cach: tính cách con người như một bảng màu...
+...
+</thu_thanh_tu_id2>
+```
+
+==========
+
+【NHẮC NHỞ QUAN TRỌNG】
+
+1. ID thẻ một khi đã phân bổ thì giữ nguyên trong suốt vòng đời của thẻ nhân vật
+2. Khi thêm mục mới, tìm luật ID tương ứng theo loại:
+   - Thêm mục cho nhân vật đã có → dùng ID sẵn có của nhân vật đó
+   - Thêm nhân vật mới → lấy ID nhân vật lớn nhất hiện tại +1
+   - Thêm NPC → lấy ID lớn nhất hiện tại +1
+3. Xoá mục không ảnh hưởng ID của các mục khác (không đánh số lại)
+4. Các mục chi tiết thế giới quan cùng cấp dùng chung ID (ví dụ nhiều thế lực đều dùng id3)
+5. Tóm tắt nhanh nhân vật cố định dùng id0, không tham gia dãy tăng dần
+</template_tag_spec>

@@ -68,6 +68,28 @@ const leftover = done.filter((i) => CJK.test(i.vi) && !KEEP_ZH.has(i.id));
 if (leftover.length) bad(`${leftover.length} ban dich van con chu Han: ${leftover.slice(0, 5).map((i) => i.line).join(", ")}`);
 else ok(`${done.length - KEEP_ZH.size} ban dich khong con chu Han (${KEEP_ZH.size} chuoi co y giu nguyen)`);
 
+// 5b. Preset phai con parse duoc va giu nguyen cac macro
+{
+  const parserB = require("@babel/parser");
+  const trav = require("@babel/traverse").default;
+  let presetNode = null;
+  trav(parserB.parse(b, { sourceType: "module" }), {
+    StringLiteral(p) { if (p.node.value.startsWith('{\n  "max_context_unlocked"')) presetNode = p.node; },
+  });
+  if (!presetNode) bad("Khong tim thay chuoi preset trong file ket qua");
+  else {
+    try {
+      const pr = JSON.parse(presetNode.value);
+      const MACROS = ["{{addvar::template_knowledge::", "{{setvar::template_knowledge::", "{{trim}}", "{{user}}", "{{random::"];
+      const all = pr.prompts.map((x) => x.content || "").join("\n");
+      const missing = MACROS.filter((m) => !all.includes(m));
+      if (pr.prompts.length !== 58) bad(`Preset co ${pr.prompts.length} prompt (mong doi 58)`);
+      else if (missing.length) bad("Preset mat macro: " + missing.join(", "));
+      else ok(`Preset parse duoc, 58 prompt, macro con du`);
+    } catch (e) { bad("Preset khong parse duoc JSON: " + e.message); }
+  }
+}
+
 // 6. Bao cao chu Han con lai trong file ket qua (tru anh base64 va sourcemap)
 const lines = b.split("\n");
 const CJKG = /[一-鿿]/g;

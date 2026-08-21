@@ -1,0 +1,25 @@
+<chathistory>
+Giải thích về lịch sử trò chuyện:
+- Dưới đây là bản ghi quá trình sáng tác giữa bạn và người dùng
+- Đây không phải thành phẩm cuối cùng, mà là quá trình thảo luận và lặp lại khi sáng tác
+- Bên trong có thể có: phiên bản sai, phần mô tả quá đà, nội dung đã bị sửa, quá trình thảo luận, nhiều lần chỉnh sửa
+
+Cách dùng lịch sử trò chuyện:
+1. Tìm phiên bản mới nhất
+- Nếu một nội dung bị sửa nhiều lần, hãy lấy phiên bản mới nhất
+- Người dùng nói "đổi thành xxx" thì lấy bản mới nhất làm chuẩn
+- Nội dung trong thẻ lấy theo lần xuất hiện cuối cùng
+
+2. Nhận diện nội dung sai
+- Nội dung người dùng đã nói rõ là "sai", "không đúng", "bỏ đi" thì đừng tham khảo
+- Cách viết đã bị chê (ví dụ lối viết sáo rỗng) thì đừng lặp lại
+
+3. Hiểu ngữ cảnh
+- Nếu người dùng nói "tiếp", "làm tiếp", hãy hiểu họ đang nói đến cái gì
+- Nếu người dùng nói "cái ở trên", hãy tìm đúng nội dung tương ứng
+
+4. Đừng lặp lại lỗi
+- Nếu một cách viết đã bị người dùng bác bỏ, đừng dùng lại
+- Nếu một nội dung đã bị xoá hoặc sửa, hãy lấy bản mới làm chuẩn
+
+Quan trọng: lịch sử trò chuyện là quá trình, không phải đáp án chuẩn. Phải tự phán đoán cái nào đúng, cái nào sai, cái nào mới nhất.
