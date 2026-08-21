@@ -11,8 +11,9 @@ echo
 echo "===== 3. Chay that trong Chromium ====="
 node tools/smoke/run.js | tail -8
 echo
-echo "===== 4. Do layout: ban goc vs ban Viet hoa ====="
+echo "===== 4. Do layout o moi breakpoint ====="
 echo "--- ban goc (tieng Trung) ---"
-node tools/smoke/layout.js src/index.formatted.js | grep -E "^===|Tran ngang|chong lan" || true
+node tools/smoke/breakpoints.js src/index.formatted.js || true
+echo
 echo "--- ban Viet hoa ---"
-node tools/smoke/layout.js src/index.vi.js | grep -E "^===|Tran ngang|chong lan"
+node tools/smoke/breakpoints.js src/index.vi.js

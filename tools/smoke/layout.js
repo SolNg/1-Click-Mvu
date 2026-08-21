@@ -24,7 +24,8 @@ function serve(root) {
 (async () => {
   const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
   const srv = await serve(ROOT);
-  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const W = +(process.env.VW || 1280), H = +(process.env.VH || 900);
+  const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 2, isMobile: W < 700, hasTouch: W < 700 });
   await page.goto(`http://127.0.0.1:${srv.port}/tools/smoke/harness.html`);
   await page.waitForTimeout(1200);
   await page.evaluate(() => {
@@ -76,6 +77,22 @@ function serve(root) {
     out.overflowY = dedupe(out.overflowY, "txt");
     out.tiny = dedupe(out.tiny, "sel");
     out.bodyScrollX = document.body.scrollWidth > document.body.clientWidth;
+    out.docW = document.documentElement.clientWidth;
+    out.scrollW = Math.max(document.body.scrollWidth, document.documentElement.scrollWidth);
+    // Phan tu nao vuot ra ngoai be ngang khung nhin
+    out.wide = [];
+    for (const el of document.querySelectorAll(".writer-shell *")) {
+      const r = el.getBoundingClientRect();
+      if (r.width === 0) continue;
+      if (r.right > out.docW + 2 || r.left < -2) {
+        out.wide.push({
+          sel: el.tagName.toLowerCase() + "." + (el.className || "").toString().split(" ").filter(Boolean).slice(0, 2).join("."),
+          left: Math.round(r.left), right: Math.round(r.right), w: Math.round(r.width),
+        });
+      }
+    }
+    const seen = new Set();
+    out.wide = out.wide.filter((x) => (seen.has(x.sel) ? false : seen.add(x.sel)));
     // Do do chong lan giua cac panel trong luoi setup
     const panels = [...document.querySelectorAll(".setup-dashboard-grid > section, .setup-dashboard-grid section.tool-panel")];
     let overlap = 0;
@@ -91,7 +108,8 @@ function serve(root) {
     return out;
   });
 
-  console.log("=== Chu bi cat ngang (" + report.clipped.length + ") ===");
+  console.log("### Khung nhin " + W + "x" + H + " ###");
+console.log("=== Chu bi cat ngang (" + report.clipped.length + ") ===");
   report.clipped.forEach((c) =>
     console.log(`  ${c.sel}  [${c.w}px, can ${c.need}px]  white-space:${c.ws}  ${JSON.stringify(c.txt)}`),
   );
@@ -101,6 +119,9 @@ function serve(root) {
   report.tiny.slice(0, 12).forEach((c) => console.log(`  ${c.sel}  ${c.fs}  ${JSON.stringify(c.txt)}`));
   console.log("\nTran ngang toan trang:", report.bodyScrollX);
 console.log("Dien tich panel chong lan:", report.overlapPx, "px2");
+console.log("Be ngang tai lieu:", report.docW, "-> can", report.scrollW);
+console.log("\n=== Phan tu tran ra ngoai khung nhin (" + report.wide.length + ") ===");
+report.wide.slice(0, 14).forEach((c) => console.log(`  ${c.sel}  left=${c.left} right=${c.right} w=${c.w}`));
 
   await browser.close();
   srv.close();

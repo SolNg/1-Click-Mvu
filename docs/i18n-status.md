@@ -67,7 +67,38 @@ của chính nhánh đó, nên sau khi dịch prompt 49 mà không dịch nhánh
 placeholder macro `{{压缩相邻消息::…}}` (tên macro do script đăng ký) và toàn bộ `content`
 (mã đã minify / URL CDN). Audit §12 giờ liệt kê từng vị trí còn chữ Hán kèm lý do.
 
-### 3. Lớp CSS tiếng Việt không có tác dụng
+### 3. Panel lệch và đè nhau trên PC — lỗi nặng nhất
+
+Cái này chỉ lộ ra khi nhìn ảnh chụp thật. `.setup-dashboard-grid` ở breakpoint ≥1181px có
+**chiều cao hàng cứng** theo tỉ lệ khung nhìn:
+
+```css
+grid-template-rows: minmax(0,1fr) minmax(240px,0.42fr);
+```
+
+Bản gốc tiếng Trung đủ gọn nên gần vừa (nội dung 460px trong hàng 420px, tràn 13px — đã hơi
+lỗi sẵn). Sau khi mình cho chữ xuống dòng, nội dung tràn hẳn ra ngoài panel và **bị panel dưới
+đè lên** — đo được 7 chỗ tràn, chỗ nặng nhất 62px.
+
+Đây là lỗi mình gây ra: đổi "chữ bị cắt bằng dấu ba chấm" thành "chữ tràn ra ngoài panel".
+
+Sửa hai phần:
+
+1. `min-height: min-content` cho lưới — hàng tự co theo nội dung, không bị ép thấp hơn.
+   `.app-view.setup-dashboard` vốn đã có `overflow-y:auto` nên cuộn bình thường.
+2. Ở màn hình rộng, đưa panel "Quy trình tạo thẻ đầy đủ" xuống **full chiều ngang** và trải
+   6 bước thành một hàng — đúng cách bản gốc đã làm ở breakpoint 901–1040px. Trước đó panel
+   này nằm trong cột trái rộng 414px nên nhãn tiếng Việt phải xuống 2–3 dòng, đẩy cột trái
+   cao 838px trong khi màn hình chỉ cho 786px.
+
+Kết quả: lưới từ 838px xuống **664px**, bảng điều khiển lại vừa một màn hình, hai cột cao
+bằng nhau, không còn tràn hay đè.
+
+Các phương án đều được **đo trước khi chọn** (`tools/smoke/tryvariant.js` chèn CSS thẳng vào
+trình duyệt rồi đo chiều cao): 2 cột (849px), 2 cột + huy hiệu gọn (840px), 3 cột + huy hiệu
+gọn (802px), full ngang 6 cột (**664px**).
+
+### 4. Lớp CSS tiếng Việt không có tác dụng
 
 Mình chèn lớp CSS vào `writer-base.css` với selector cùng độ ưu tiên như rule gốc, đinh ninh
 writer-base được inject sau. Đo trong trình duyệt thì **ngược lại** — và kể cả khi đúng thứ tự
@@ -76,17 +107,16 @@ thì cách làm đó vẫn mong manh.
 Sửa: mọi selector được thêm tiền tố `.writer-shell`, nâng độ ưu tiên lên một bậc
 (0,2,1 so với 0,1,1), nên không phụ thuộc thứ tự stylesheet nữa.
 
-Kết quả đo trong Chromium ở 1280×900:
+Kết quả đo trong Chromium trên **9 khổ màn hình** (1600 → 390px):
 
 | | Bản gốc tiếng Trung | Bản Việt hóa |
 |---|---:|---:|
-| Nhãn bị cắt chữ | 2 | **0** |
-| Chữ nhỏ hơn 11px | 8 | 4 |
+| Khổ màn hình có vấn đề | 1/9 (ở 1280×900) | **0/9** |
+| Nhãn bị cắt chữ (1280) | 2 | **0** |
+| Chữ tràn ra ngoài panel (1280) | 1 | **0** |
 | Panel chồng lấn | 0 px² | 0 px² |
 | Tràn ngang toàn trang | không | không |
-
-(4 chỗ còn dưới 11px là `PROJECT SETUP`, `NEW PROJECT`, số `01` — không dấu — và một dòng
-trạng thái 9px vẫn đọc rõ.)
+| Chiều cao lưới ở 1280 | 672px | **664px** |
 
 ## Quy trình kiểm tra tự động
 
