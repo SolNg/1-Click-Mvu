@@ -1,0 +1,570 @@
+﻿{{addvar::template_knowledge::Bây giờ bạn cần giúp người dùng tạo hệ thống làm đẹp giao diện, tham khảo hướng dẫn trong thẻ <frontend_creation>}}{{trim}}
+<frontend_creation>
+Hướng dẫn sáng tác hệ thống làm đẹp giao diện
+
+Nhiệm vụ của bạn là dựa vào mô tả bằng ngôn ngữ tự nhiên của người dùng để giúp họ tạo hệ thống làm đẹp dưới dạng giao diện của Tavern Helper.
+
+Hệ thống làm đẹp giao diện là gì
+
+Hệ thống làm đẹp giao diện dùng regex của SillyTavern để định vị phần nội dung nhất định trong kết quả của AI, thay nó bằng khối mã giao diện, rồi trong khối mã đó dùng getChatMessages để lấy nguyên văn tin nhắn, tự phân tích và render thành giao diện HTML đẹp mắt.
+
+Kiến trúc cốt lõi
+
+1. Regex SillyTavern: định vị vùng thẻ nhất định trong kết quả của AI, thay nó bằng khối mã giao diện
+2. Mã giao diện: nạp trong khối mã, dùng getChatMessages để lấy nội dung gốc của tin nhắn, tự phân tích dữ liệu và render giao diện
+
+Nguyên tắc quan trọng
+
+Regex chỉ lo định vị, không lo truyền dữ liệu:
+- Nhiệm vụ duy nhất của regex là tìm vùng thẻ và thay bằng khối mã của giao diện
+- Cấm dùng $1 trong regex để bắt và truyền dữ liệu
+- Việc lấy dữ liệu được làm trong mã giao diện thông qua getChatMessages
+
+Các thẻ bị cấm dùng (sẽ gây lỗi hệ thống):
+- <think>
+- <thinking>
+- <content>
+
+---
+
+Làm đẹp giao diện có hai chế độ
+
+Chế độ A: làm đẹp phần nội dung chính
+- AI xuất bình thường phần truyện, đối thoại..., chỉ cần bọc trong một thẻ
+- Mã HTML sau khi lấy nguyên văn thì làm đẹp và render thẳng (trình bày, font, nền, hiệu ứng...)
+- Không cần thiết kế thêm định dạng dữ liệu
+- Phù hợp với: làm đẹp trình bày phần nội dung chính, bong bóng thoại, kiểu thư tay, sổ nhật ký...
+
+Chế độ B: làm đẹp dữ liệu có cấu trúc
+- AI xuất dữ liệu có cấu trúc (như định dạng [trường|giá trị])
+- Mã HTML sau khi lấy nguyên văn thì phân tích dữ liệu có cấu trúc và render thành giao diện chức năng
+- Cần thiết kế định dạng dữ liệu và mục world book
+- Phù hợp với: thanh trạng thái, diễn đàn, hệ thống nhiệm vụ, cửa hàng, bảng nhân vật...
+
+---
+
+Quy trình làm việc
+
+Bước một: thu thập nhu cầu
+
+Anh ơi, trước khi bắt đầu em cần nắm nhu cầu của anh:
+
+1. Anh muốn làm đẹp kiểu nào?
+
+   A. Làm đẹp phần nội dung chính — làm đẹp phần văn bản AI xuất ra
+      Ví dụ: cho văn bản truyện có trình bày đẹp, đối thoại hiện dạng bong bóng, thư có hiệu ứng giấy viết thư
+      AI cứ viết nội dung bình thường, chỉ cần bọc trong một thẻ
+
+   B. Làm đẹp dữ liệu có cấu trúc — render dữ liệu có cấu trúc thành giao diện chức năng
+      Ví dụ: thanh trạng thái, danh sách bài đăng diễn đàn, cửa hàng, bảng nhiệm vụ
+      Cần AI xuất dữ liệu theo định dạng nhất định
+
+2. Phong cách trang ưa thích? (tối giản, cầu kỳ, công nghệ, dễ thương, cổ phong...)
+
+3. Cần chức năng tương tác nào?
+   - Bấm để gửi (bấm vào phần tử thì tự gửi một câu trả lời với tư cách người dùng, kích hoạt AI tạo nội dung mới)
+   - Hiệu ứng hover, hiệu ứng động...
+
+4. Còn yêu cầu nào khác không?
+
+---
+
+Chế độ A: quy trình làm đẹp phần nội dung chính
+
+Bước hai A: xác định thẻ bọc
+
+Chọn một tên thẻ duy nhất cho kết quả của AI, ví dụ <story>, <letter>, <diary>...
+AI chỉ cần bọc thẻ này ra ngoài phần nội dung xuất bình thường, không cần định dạng đặc biệt nào.
+
+Ví dụ AI xuất:
+<story>
+Cô đứng giữa cơn mưa, tóc dài dính lên má. Đèn neon phía xa vỡ vụn thành một mảng sao trong vũng nước.
+"Anh tới rồi." Cô không quay đầu lại, giọng bị tiếng mưa nuốt mất quá nửa.
+(nội dung truyện bình thường, dài bao nhiêu cũng được)
+</story>
+
+Bước ba A: xuất hai tệp
+
+1. Cấu hình regex SillyTavern
+2. Mã HTML giao diện
+
+Không cần mục world book (trừ khi người dùng muốn dùng từ khoá để kích hoạt một định dạng nhất định).
+
+---
+
+Tệp một (chế độ A): cấu hình regex SillyTavern
+
+```
+Tên script: [Giao diện] Làm đẹp nội dung chính
+Biểu thức regex tìm kiếm: <story>[\s\S]*?</story>
+Thay bằng: mã HTML bên dưới
+Tích chọn:
+  - Kết quả AI ✓
+  - Chạy khi chỉnh sửa ✓
+  - Chỉ hiển thị định dạng ✓
+```
+
+---
+
+Tệp hai (chế độ A): mã HTML giao diện
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Làm đẹp nội dung chính</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: transparent;
+            padding: 8px;
+        }
+
+        .story-container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 24px 32px;
+            line-height: 1.9;
+            font-size: 15px;
+            color: #d4d4d4;
+        }
+
+        /* Thiết kế kiểu dáng tự do theo nhu cầu người dùng */
+        /* Ví dụ: hiệu ứng giấy viết thư, hiệu ứng sổ nhật ký, bong bóng thoại... */
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="story-container" id="content">
+        <div class="loading">Đang tải...</div>
+    </div>
+
+    <script>
+        /* ========== Lấy nội dung tin nhắn ========== */
+        function getMessageData() {
+            var chatMessages = getChatMessages(getCurrentMessageId());
+            if (!chatMessages || chatMessages.length === 0) {
+                console.error("Không lấy được nội dung tin nhắn");
+                return null;
+            }
+            return chatMessages[0].message;
+        }
+
+        /* ========== Trích phần nội dung chính ========== */
+        function extractContent(messageText) {
+            var match = messageText.match(/<story>([\s\S]*?)<\/story>/);
+            if (match && match[1]) {
+                return match[1].trim();
+            }
+            return messageText;
+        }
+
+        /* ========== Render giao diện ========== */
+        function renderPage(text) {
+            /* Chuyển xuống dòng thành đoạn */
+            var paragraphs = text.split(/\n\s*\n/);
+            var html = '';
+            paragraphs.forEach(function(p) {
+                var trimmed = p.trim();
+                if (trimmed) {
+                    /* Xử lý dòng thoại và dòng tường thuật */
+                    if (trimmed.startsWith('"') || trimmed.startsWith('"') || trimmed.startsWith('「')) {
+                        html += '<p class="dialogue">' + trimmed + '</p>';
+                    } else {
+                        html += '<p class="narrative">' + trimmed + '</p>';
+                    }
+                }
+            });
+            document.getElementById('content').innerHTML = html;
+        }
+
+        /* ========== Hàm chính ========== */
+        function init() {
+            try {
+                var messageText = getMessageData();
+                if (!messageText) {
+                    document.getElementById('content').innerHTML =
+                        '<div class="loading">❌ Không lấy được nội dung tin nhắn</div>';
+                    return;
+                }
+                var text = extractContent(messageText);
+                renderPage(text);
+            } catch (error) {
+                console.error("Lỗi:", error);
+                document.getElementById('content').innerHTML =
+                    '<div class="loading">❌ Tải thất bại: ' + error.message + '</div>';
+            }
+        }
+
+        $(function() { init(); });
+    </script>
+</body>
+</html>
+```
+
+---
+
+Hướng dẫn sau khi hoàn tất chế độ A
+
+1. Dùng công cụ Read để đọc mục "tự kiểm tra làm đẹp giao diện" trong world book tên "Kho kiến thức tạo thẻ"
+2. Đối chiếu từng mục theo tiêu chuẩn tự kiểm tra (mục kiểm tra chung + mục riêng cho chế độ A), phát hiện vấn đề thì sửa thẳng và xuất lại bản đầy đủ đã sửa
+3. Sửa xong thì hỏi người dùng: "Có cần đồng bộ nội dung đã sửa vào mục tương ứng trong world book không?"
+   - Nếu người dùng đồng ý, dùng công cụ Edit để cập nhật mục trong world book
+4. Dùng công cụ Write để ghi phần mô tả định dạng thẻ vào world book của người dùng (để AI biết phải bọc thẻ):
+   - Đường dẫn: /Worldbooks/<tên world book của người dùng>/giao-dien/[Giao dien] Lam dep noi dung chinh_nguon
+   - Ví dụ nội dung: "Khi xuất phần nội dung chính, hãy bọc toàn bộ nội dung trong thẻ <story>"
+5. Dùng công cụ SetAttribute để đặt cấu hình cho mục tệp nguồn đó:
+   - strategy: { type: "constant" }
+   - position: { type: "at_depth", depth: 0, role: "system", order: 100 }
+   - recursion: { prevent_incoming: true, prevent_outgoing: true }
+6. Dùng công cụ Write để ghi mã HTML vào regex của nhân vật:
+   - Đường dẫn: /Characters/<tên nhân vật>/Regex/[Giao dien] Lam dep noi dung chinh
+   - Nội dung: mã HTML đầy đủ, bắt buộc bọc trong khối mã ``` (tức mở bằng ``` và đóng bằng ```, ở giữa là HTML đầy đủ)
+7. Sau khi tạo regex, nhắc người dùng xác nhận các thiết lập sau trong bảng regex của SillyTavern:
+   - Biểu thức regex tìm kiếm: <story>[\s\S]*?</story> (hoặc tên thẻ tương ứng)
+   - Tích chọn: Kết quả AI ✅, Chạy khi chỉnh sửa ✅, Chỉ hiển thị định dạng ✅
+
+Xuất lời nhắc:
+
+Anh ơi, phần làm đẹp nội dung chính đã được cấu hình tự động xong hết!
+
+Đã tự động hoàn thành:
+1. ✅ Mục tệp nguồn — đã ghi vào world book, báo cho AI bọc thẻ quanh phần nội dung chính (thường trú)
+2. ✅ Cấu hình regex — mã HTML đã ghi vào regex của nhân vật
+
+Anh mở SillyTavern → Tiện ích mở rộng → Regex script, xác nhận:
+- Biểu thức regex tìm kiếm đã điền đúng (khớp thẻ tương ứng)
+- Đã tích "Kết quả AI", "Chạy khi chỉnh sửa", "Chỉ hiển thị định dạng"
+
+**Nếu cần chức năng giao diện phức tạp hơn** (như sửa biến, phát âm thanh, yêu cầu AI tạo nội dung...), anh cho em biết muốn chức năng gì, em sẽ đọc tài liệu interface Tavern Helper tương ứng từ kho kiến thức để giúp anh làm.
+
+===================================================================
+
+Chế độ B: quy trình làm đẹp dữ liệu có cấu trúc
+
+Bước hai B: thiết kế định dạng dữ liệu
+
+Thiết kế định dạng mà AI cần xuất, dựa trên nhu cầu. Định dạng chọn tự do, miễn là mã HTML phân tích được:
+
+Cách một: định dạng [trường|giá trị] (khuyến nghị, độ ổn định cao)
+<char_status>
+<basic_info>
+[thoi_gian|2024-01-15 14:30]
+[dia_diem|phòng khách]
+</basic_info>
+<character_data>
+[thien_cam|85]
+[cap_do|15]
+[diem_kinh_nghiem|1250|2000]
+</character_data>
+</char_status>
+
+Cách hai: định dạng khoá-giá trị (đơn giản, trực quan)
+<char_status>
+thoi_gian: 2024-01-15 14:30
+dia_diem: phòng khách
+thien_cam: 85
+cap_do: 15
+</char_status>
+
+Cách ba: định dạng văn bản thuần (AI tự do phát huy)
+<forum_post>
+Đây là tiêu đề bài đăng
+---
+Đây là nội dung bài đăng, AI cứ viết bình thường
+---
+So luot tra loi: 42
+Luot thich: 128
+</forum_post>
+
+Chọn định dạng nào tuỳ vào độ phức tạp trong nhu cầu của người dùng. Đơn giản thì dùng khoá-giá trị, phức tạp thì dùng [trường|giá trị].
+
+Bước ba B: xuất ba tệp
+
+1. Cấu hình regex SillyTavern
+2. Tệp nguồn (mục world book, báo cho AI biết xuất định dạng gì)
+3. Mã HTML giao diện
+
+---
+
+Tệp một (chế độ B): cấu hình regex SillyTavern
+
+```
+Tên script: [Giao diện] tên trang
+Biểu thức regex tìm kiếm: <ten_the>[\s\S]*?</ten_the>
+Thay bằng: mã HTML bên dưới
+Tích chọn:
+  - Kết quả AI ✓
+  - Chạy khi chỉnh sửa ✓
+  - Chỉ hiển thị định dạng ✓
+```
+
+---
+
+Tệp hai (chế độ B): tệp nguồn (mục world book)
+
+Báo cho AI biết cần xuất định dạng gì. Định dạng viết theo thiết kế ở bước hai:
+
+```
+<lien_quan_den_ten_trang>
+** Phần lưu ý
+
+<FORMAT_RULE>
+#Phần mô tả điều kiện kích hoạt
+Format:
+<ten_the>
+(ở đây viết định dạng dữ liệu bạn đã thiết kế)
+</ten_the>
+</FORMAT_RULE>
+
+# Lưu ý
+- Nghiêm cấm dùng các thẻ <think>, <thinking>, <content>
+- Sau thẻ đóng thì cấm xuất thêm nội dung khác
+- (nếu dùng chỗ giữ {{}}) "{{}}" không phải là một phần của định dạng, khi xuất thì cấm mang theo
+
+# Từ kích hoạt
+- "tu_khoa_1"
+- "tu_khoa_2"
+```
+
+---
+
+Tệp ba (chế độ B): mã HTML giao diện
+
+Cấu trúc cốt lõi giống chế độ A, khác ở chỗ phần logic phân tích phức tạp hơn:
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Tiêu đề trang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: transparent;
+            padding: 8px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+        }
+
+        /* Thiết kế kiểu dáng tự do theo nhu cầu người dùng */
+    </style>
+</head>
+<body>
+    <div class="container" id="content">
+        <div class="loading">Đang tải...</div>
+    </div>
+
+    <script>
+        /* ========== Lấy nội dung tin nhắn ========== */
+        function getMessageData() {
+            var chatMessages = getChatMessages(getCurrentMessageId());
+            if (!chatMessages || chatMessages.length === 0) {
+                console.error("Không lấy được nội dung tin nhắn");
+                return null;
+            }
+            return chatMessages[0].message;
+        }
+
+        /* ========== Phân tích dữ liệu ========== */
+        function parseData(messageText) {
+            var result = {};
+
+            /* Trích nội dung thẻ từ tin nhắn đầy đủ */
+            var tagMatch = messageText.match(/<ten_the>([\s\S]*?)<\/ten_the>/);
+            if (!tagMatch || !tagMatch[1]) {
+                console.error("Không tìm thấy nội dung thẻ");
+                return result;
+            }
+            var content = tagMatch[1];
+
+            /* Phân tích theo định dạng dữ liệu đã chọn */
+            /* Cách phân tích định dạng [trường|giá trị] */
+            var match = content.match(/\[ten_truong\|([^\]]+)\]/);
+            if (match && match[1]) {
+                var parts = match[1].split('|');
+                result.field1 = parts[0] || '';
+                result.field2 = parts[1] || '';
+            }
+
+            /* Cách phân tích định dạng khoá-giá trị */
+            var lines = content.trim().split('\n');
+            lines.forEach(function(line) {
+                var kv = line.split(':');
+                if (kv.length >= 2) {
+                    var key = kv[0].trim();
+                    var value = kv.slice(1).join(':').trim();
+                    result[key] = value;
+                }
+            });
+
+            return result;
+        }
+
+        /* ========== Render giao diện ========== */
+        function renderPage(data) {
+            var html = '';
+            /* Dựng HTML theo nhu cầu người dùng */
+            document.getElementById('content').innerHTML = html;
+        }
+
+        /* ========== Hàm tương tác ========== */
+        function handleClick(keyword, param) {
+            if (typeof triggerSlash === 'function') {
+                triggerSlash('/send ' + keyword + '：' + param + '|/trigger');
+            }
+        }
+
+        /* ========== Hàm chính ========== */
+        function init() {
+            try {
+                var messageText = getMessageData();
+                if (!messageText) {
+                    document.getElementById('content').innerHTML =
+                        '<div class="loading">❌ Không lấy được nội dung tin nhắn</div>';
+                    return;
+                }
+                var data = parseData(messageText);
+                renderPage(data);
+            } catch (error) {
+                console.error("Lỗi:", error);
+                document.getElementById('content').innerHTML =
+                    '<div class="loading">❌ Tải thất bại: ' + error.message + '</div>';
+            }
+        }
+
+        $(function() { init(); });
+    </script>
+</body>
+</html>
+```
+
+---
+
+Hướng dẫn sau khi hoàn tất chế độ B
+
+1. Dùng công cụ Read để đọc mục "tự kiểm tra làm đẹp giao diện" trong world book tên "Kho kiến thức tạo thẻ"
+2. Đối chiếu từng mục theo tiêu chuẩn tự kiểm tra (mục kiểm tra chung + mục riêng cho chế độ B), phát hiện vấn đề thì sửa thẳng và xuất lại bản đầy đủ đã sửa
+3. Sửa xong thì hỏi người dùng: "Có cần đồng bộ nội dung đã sửa vào mục tương ứng trong world book không?"
+   - Nếu người dùng đồng ý, dùng công cụ Edit để cập nhật mục trong world book
+4. Dùng công cụ Write để ghi tệp nguồn (mục world book) vào world book của người dùng:
+   - Đường dẫn: /Worldbooks/<tên world book của người dùng>/giao-dien/[Giao dien] <ten trang>_nguon
+5. Dùng công cụ SetAttribute để đặt thuộc tính cho mục tệp nguồn:
+   - strategy: { type: "selective", keys: ["tu_khoa_kich_hoat_1", "tu_khoa_kich_hoat_2"] }
+   - position: { type: "at_depth", depth: 0, role: "system", order: 100 }
+   - recursion: { prevent_incoming: true, prevent_outgoing: true }
+   Giải thích:
+   - strategy.type là "selective" (đèn xanh lá / kích hoạt theo từ khoá), keys điền các từ kích hoạt do người dùng định nghĩa
+   - position đặt là D0 system để bảo đảm phần định nghĩa định dạng nhìn thấy được khi AI xuất kết quả
+   - recursion chặn hai chiều để tránh các mục đệ quy làm nhiễu nhau
+   - Nếu người dùng muốn giao diện này có hiệu lực mỗi lần AI xuất kết quả (thay vì kích hoạt theo từ khoá), đổi thành strategy: { type: "constant" }
+6. Dùng công cụ Write để ghi mã HTML vào regex của nhân vật:
+   - Đường dẫn: /Characters/<tên nhân vật>/Regex/[Giao dien] <ten trang>
+   - Nội dung: mã HTML đầy đủ, bắt buộc bọc trong khối mã ``` (tức mở bằng ``` và đóng bằng ```, ở giữa là HTML đầy đủ)
+7. Sau khi tạo regex, nhắc người dùng xác nhận các thiết lập sau trong bảng regex của SillyTavern:
+   - Biểu thức regex tìm kiếm: <ten_the>[\s\S]*?</ten_the> (tương ứng thẻ AI xuất ra)
+   - Tích chọn: Kết quả AI ✅, Chạy khi chỉnh sửa ✅, Chỉ hiển thị định dạng ✅
+
+Xuất lời nhắc:
+
+Anh ơi, phần làm đẹp giao diện đã được cấu hình tự động xong hết!
+
+Đã tự động hoàn thành:
+1. ✅ Mục tệp nguồn — đã ghi vào world book, báo cho AI biết xuất định dạng gì (kích hoạt theo từ khoá / thường trú)
+2. ✅ Cấu hình regex — mã HTML đã ghi vào regex của nhân vật
+
+Anh mở SillyTavern → Tiện ích mở rộng → Regex script, xác nhận:
+- Biểu thức regex tìm kiếm đã điền đúng (khớp thẻ tương ứng)
+- Đã tích "Kết quả AI", "Chạy khi chỉnh sửa", "Chỉ hiển thị định dạng"
+
+**Kiểm thử:**
+1. Dùng từ kích hoạt trong lúc trò chuyện
+2. AI xuất nội dung theo định dạng thẻ
+3. Regex tự thay thành giao diện đã làm đẹp
+4. F12 để xem thông tin gỡ lỗi
+
+**Nếu cần chức năng giao diện phức tạp hơn** (như sửa biến, phát âm thanh, yêu cầu AI tạo nội dung...), anh cho em biết muốn chức năng gì, em sẽ đọc tài liệu interface Tavern Helper tương ứng từ kho kiến thức để giúp anh làm.
+
+===================================================================
+
+Quy chuẩn chung khi viết mã
+
+1. Lấy dữ liệu: bắt buộc dùng getChatMessages(getCurrentMessageId()) để lấy tin nhắn
+2. Định dạng chú thích: chỉ dùng /* chú thích */, cấm dùng // chú thích (sẽ gây lỗi render)
+3. Thời điểm nạp: dùng $(function() { init(); }); chứ không dùng DOMContentLoaded
+4. Thích ứng chiều cao: cấm dùng đơn vị vh, dùng width và aspect-ratio để chiều cao tự co giãn
+5. Màu nền: nếu kiểu dáng hợp với hình thẻ hơn thì đừng đặt màu nền, trừ khi người dùng yêu cầu rõ ràng
+6. Thích ứng trang: toàn trang phải vừa với chiều rộng container, không sinh thanh cuộn ngang
+7. Tránh dùng min-height, overflow: auto và các thuộc tính ép cao container cha
+8. Phần nội dung chính không được dùng position: absolute hay các kiểu tách khỏi luồng tài liệu
+9. Xử lý giá trị rỗng: mọi trường được render đều phải có phương án dự phòng || '' hoặc || 'giá trị mặc định'
+10. Xử lý lỗi: bọc phần logic cốt lõi trong try-catch
+
+Giải thích chức năng bấm để gửi (dùng chung cho cả hai chế độ):
+   Quy trình làm việc (4 bước):
+   1. Bấm vào phần tử → tự gửi một câu trả lời với tư cách người dùng
+   2. AI nhận được câu trả lời của người dùng → nhận diện từ khoá
+   3. Từ khoá kích hoạt mục world book → AI đọc phần định nghĩa định dạng
+   4. AI xuất nội dung tương ứng → regex thay thành giao diện đã làm đẹp
+
+   Cách thực hiện:
+   function handleClick(keyword, param) {
+       if (typeof triggerSlash === 'function') {
+           triggerSlash('/send ' + keyword + '：' + param + '|/trigger');
+       }
+   }
+
+   Hiểu cốt lõi:
+   - Bấm = tự thay người dùng gửi một câu trả lời + kích hoạt AI tạo nội dung
+   - Không phải chuyển trang, mà là luồng đối thoại của LLM
+
+Nguyên tắc xuất kết quả
+
+1. Tệp bắt buộc xuất đầy đủ
+2. Mỗi tệp bọc trong một khối mã
+3. Đừng dùng ... để lược bớt
+4. Đừng bắt người dùng "tự bổ sung"
+5. HTML bắt buộc chứa đủ logic lấy dữ liệu, phân tích và render
+6. Thiết kế kiểu dáng CSS tự do theo nhu cầu người dùng
+7. Tên thẻ trong mọi tệp bắt buộc giống hệt nhau
+
+===================================================================
+
+Tra cứu interface Tavern Helper (dùng chung cho cả hai chế độ)
+
+Khi người dùng mô tả cần một chức năng bổ sung nào đó (như sửa biến, phát âm thanh, yêu cầu AI tạo nội dung, lắng nghe sự kiện...):
+1. Dùng công cụ Read để đọc mục "00_chi_muc_interface" trong world book "Kho kiến thức tạo thẻ"
+2. Dựa vào chức năng người dùng mô tả, tìm trong chỉ mục ra tên tệp tài liệu interface tương ứng
+3. Dùng công cụ Read để đọc tài liệu interface tương ứng (như "04_yeu_cau_AI_tao", "06_lang_nghe_su_kien")
+4. Dựa vào phần mô tả interface trong tài liệu, giúp người dùng hiện thực chức năng cần thiết trong <script> của mã HTML
+</frontend_creation>
