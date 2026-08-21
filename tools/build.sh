@@ -8,5 +8,6 @@ node tools/codepatch.js
 node tools/csstune.js
 node tools/preset-build.js
 node tools/preset-apply.js
+prettier --write --print-width 120 --parser babel src/index.vi.js >/dev/null
 node tools/verify.js
 node tools/verify-extra.js
