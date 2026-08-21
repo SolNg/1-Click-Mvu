@@ -60,6 +60,20 @@ const P = [
    "'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace", 2],
   ['font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;',
    'font-family: "Be Vietnam Pro", -apple-system, "Segoe UI", Roboto, system-ui, sans-serif;', 1],
+
+  // --- 9. Manh tieng Trung trong 4 blob JSON regex script (dong 5227/5232/5237/5242) ---
+  ['"scriptName": "仅格式思维链"', '"scriptName": "Chi loc chuoi suy nghi"', 1],
+  ['"scriptName": "只发送最新2楼的变量更新"', '"scriptName": "Chi gui cap nhat bien cua 2 luot moi nhat"', 1],
+  ['"scriptName": "[美化]变量完成-三明月喵"', '"scriptName": "[Lam dep] Bien cap nhat xong"', 1],
+  ['"scriptName": "[美化]变量更新中-三明月喵"', '"scriptName": "[Lam dep] Dang cap nhat bien"', 1],
+  ["\\x3c!-- 圆形GIF头像 - 突出在左侧 --\\x3e", "\\x3c!-- Anh dai dien GIF tron - noi ra ben trai --\\x3e", 2],
+  ["\\x3c!-- 横条 - 比头像矮，约2/3高度 --\\x3e", "\\x3c!-- Thanh ngang - thap hon anh dai dien, khoang 2/3 chieu cao --\\x3e", 2],
+  ["\\x3c!-- 蓝色光晕流动效果 --\\x3e", "\\x3c!-- Hieu ung quang xanh chay ngang --\\x3e", 1],
+  ["喵喵喵~ 变量完成了喵~", "Meo meo meo~ cap nhat bien xong roi~", 1],
+  ["喵喵喵~ 正在变量中~", "Meo meo meo~ dang cap nhat bien~", 1],
+  ["展开喵 ▶", "Mo ra meo ▶", 1],
+  ["收起喵 ▼", "Thu lai meo ▼", 1],
+  ['alt=\\\\"喵~\\\\"', 'alt=\\\\"meo~\\\\"', 2],
 ];
 
 let n = 0;

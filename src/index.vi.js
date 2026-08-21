@@ -4830,28 +4830,28 @@ var e = {
               `【Nhân vật: ${n.name}】`,
               n.basic,
               "",
-              "【性格调色盘】",
+              "【Bảng màu tính cách】",
               n.palette,
               "",
-              "【初识期表现】",
+              "【Biểu hiện giai đoạn mới quen】",
               n.stagePersonas.early,
               "",
-              "【角色速览】",
+              "【Tóm tắt nhanh nhân vật】",
               n.quickView,
             ].join("\n"),
           )
           .join("\n\n"),
         A = [
-          "【用户指定文风】",
+          "【Văn phong người dùng chỉ định】",
           n.trim(),
           "",
-          "【用户开场大纲】",
+          "【Dàn ý mở đầu của người dùng】",
           e.trim(),
           "",
-          "【已生成世界观】",
+          "【Thế giới quan đã tạo】",
           t.trim(),
           "",
-          "【已生成角色设定】",
+          "【Thiết lập nhân vật đã tạo】",
           i,
         ].join("\n"),
         s = await (async function (n, e, t) {
@@ -4859,93 +4859,93 @@ var e = {
           if (1 === a.length) return a[0];
           e.onProgress?.({
             phase: "segment",
-            message: `开场白参考内容超过 2 万字符，开始分段蒸馏：0/${a.length}`,
+            message: `Nội dung tham khảo cho lời mở đầu vượt quá 50.000 ký tự, bắt đầu cô đọng theo đoạn: 0/${a.length}`,
             completed: 0,
             total: a.length,
           });
           const r = [];
           for (let n = 0; n < a.length; n += 1) {
-            const o = [`【开场白参考分段 ${n + 1}/${a.length}】`, a[n]].join("\n\n"),
+            const o = [`【Đoạn tham khảo lời mở đầu ${n + 1}/${a.length}】`, a[n]].join("\n\n"),
               i = [
-                "这里只蒸馏开场白创作参考的一个分段，不直接写开场白。",
-                "保留文风特征、大纲中的时间地点人物状态与事件顺序，以及世界观和角色设定中的关键约束。",
-                "删除重复与赘述，不得混淆“文风参考”“开场大纲”“设定参考”。",
-                "输出紧凑中文 YAML，并在不损失有效设定的前提下压缩到约 12000 汉字以内。",
-                "输出放在 <content><opening_material>...</opening_material></content> 中。",
+                "Ở đây chỉ cô đọng một đoạn tham khảo cho việc viết lời mở đầu, không viết thẳng lời mở đầu.",
+                "Giữ lại đặc trưng văn phong, thời gian - địa điểm - trạng thái nhân vật và trình tự sự kiện trong dàn ý, cùng các ràng buộc then chốt trong thế giới quan và thiết lập nhân vật.",
+                "Xoá phần trùng lặp và rườm rà; không được lẫn lộn giữa \"tham khảo văn phong\", \"dàn ý mở đầu\" và \"tham khảo thiết lập\".",
+                "Xuất YAML tiếng Việt gọn, nén xuống khoảng 30.000 ký tự mà không làm mất thiết lập có hiệu lực.",
+                "Đặt kết quả trong <content><opening_material>...</opening_material></content>.",
               ].join("\n"),
               A = await vo(o, i, t, e);
-            (r.push(No(A, "opening_material", "开场白参考分段")),
+            (r.push(No(A, "opening_material", "đoạn tham khảo lời mở đầu")),
               e.onProgress?.({
                 phase: "segment",
-                message: `分段蒸馏开场白参考：${n + 1}/${a.length}`,
+                message: `Cô đọng theo đoạn phần tham khảo lời mở đầu: ${n + 1}/${a.length}`,
                 completed: n + 1,
                 total: a.length,
               }));
           }
-          const o = await Ho(r, { label: "开场白参考", tag: "opening_material", knowledge: t, options: e });
+          const o = await Ho(r, { label: "Tham khảo lời mở đầu", tag: "opening_material", knowledge: t, options: e });
           return (
             e.onProgress?.({
               phase: "complete",
-              message: "开场白参考蒸馏完成，进入开场白正式生成",
+              message: "Cô đọng tham khảo lời mở đầu xong, chuyển sang tạo lời mở đầu chính thức",
               completed: 1,
               total: 1,
             }),
             o
           );
         })(A, r, o),
-        l = ["【开场白模块】", s].join("\n\n"),
+        l = ["【Mô-đun lời mở đầu】", s].join("\n\n"),
         p = [
-          "把用户开场大纲扩写为可以直接放入角色卡“第一条消息”的完整开场白。",
-          "严格模仿用户提供的文风特征，但不要复述或照抄文风参考里的具体情节与句子。",
-          "完整落实大纲中的时间、地点、在场人物、人物状态、局势和事件起点，不得擅自改掉明确设定。",
-          "人物言行必须符合已生成的世界观、角色基础、性格调色盘和初识期表现。",
-          "结尾必须留下自然、具体、能够让用户立即接话或行动的钩子；不得总结、升华、封闭事件，也不得替用户作出关键决定。",
-          "直接输出故事正文，不要解释创作过程，不要输出标题，不要自行添加状态栏占位符。",
+          "Mở rộng dàn ý mở đầu của người dùng thành một lời mở đầu hoàn chỉnh, có thể đặt thẳng vào \"tin nhắn đầu tiên\" của thẻ nhân vật.",
+          "Mô phỏng sát đặc trưng văn phong người dùng cung cấp, nhưng đừng nhắc lại hay bê nguyên tình tiết và câu chữ cụ thể trong phần tham khảo văn phong.",
+          "Thực hiện đầy đủ thời gian, địa điểm, nhân vật có mặt, trạng thái nhân vật, tình thế và điểm khởi đầu sự kiện trong dàn ý; không được tự ý đổi các thiết lập đã nêu rõ.",
+          "Lời nói và hành động của nhân vật phải khớp với thế giới quan, thông tin cơ bản, bảng màu tính cách và biểu hiện giai đoạn mới quen đã tạo.",
+          "Đoạn kết bắt buộc để lại một điểm bắt lời tự nhiên, cụ thể, đủ để người dùng đáp lời hoặc hành động ngay; không được tổng kết, nâng tầm hay khép lại sự kiện, cũng không được quyết định thay người dùng.",
+          "Xuất thẳng phần nội dung truyện, đừng giải thích quá trình sáng tác, đừng xuất tiêu đề, đừng tự thêm chỗ trống cho thanh trạng thái.",
           ...Eo(r),
-          "输出必须放在 <content><opening_result>...</opening_result></content> 中。",
+          "Kết quả bắt buộc đặt trong <content><opening_result>...</opening_result></content>.",
         ].join("\n");
       return qo(await vo(l, p, o, r), e);
     }
     async function Do(n, e, t, a = {}) {
-      const r = n.name.trim() || `角色${t + 1}`,
+      const r = n.name.trim() || `Nhân vật${t + 1}`,
         o = await (async function (n, e, t, a) {
           const r = Xo(n.seed);
           if (1 === r.length) return r[0];
           a.onProgress?.({
             phase: "segment",
-            message: `${n.label}内容超过 2 万字符，开始分段蒸馏：0/${r.length}`,
+            message: `${n.label}Nội dung vượt quá 50.000 ký tự, bắt đầu cô đọng theo đoạn: 0/${r.length}`,
             completed: 0,
             total: r.length,
           });
           const o = [];
           for (let i = 0; i < r.length; i += 1) {
             const A = [
-                "【已处理世界观，仅作角色整理参考】",
+                "【Thế giới quan đã xử lý, chỉ dùng để tham khảo khi sắp xếp nhân vật】",
                 e.trim(),
                 "",
-                `【${n.label}素材分段 ${i + 1}/${r.length}】`,
+                `【${n.label} — đoạn tư liệu ${i + 1}/${r.length}】`,
                 r[i],
               ].join("\n"),
               s = [
-                `这里只蒸馏角色${t + 1}自己的一个素材分段，不得混入其他角色。`,
-                "结合已处理世界观，完整提取该角色的明确设定、关系、经历、能力、禁忌、性格机制与阶段变化。",
-                "删除重复与赘述，不得改变用户原意；输出紧凑中文 YAML，并在不损失有效设定的前提下压缩到约 12000 汉字以内。",
-                "输出放在 <content><role_material>...</role_material></content> 中。",
+                `Ở đây chỉ cô đọng một đoạn tư liệu của riêng nhân vật ${t + 1}, không được trộn lẫn nhân vật khác.`,
+                "Kết hợp với thế giới quan đã xử lý, trích xuất đầy đủ thiết lập rõ ràng, quan hệ, quá khứ, năng lực, điều cấm kỵ, cơ chế tính cách và biến đổi theo giai đoạn của nhân vật này.",
+                "Xoá phần trùng lặp và rườm rà, không được đổi ý gốc của người dùng; xuất YAML tiếng Việt gọn, nén xuống khoảng 30.000 ký tự mà không làm mất thiết lập có hiệu lực.",
+                "Đặt kết quả trong <content><role_material>...</role_material></content>.",
               ].join("\n"),
               l = await vo(A, s, io, a);
-            (o.push(No(l, "role_material", `${n.label}素材分段`)),
+            (o.push(No(l, "role_material", `${n.label}đoạn tư liệu`)),
               a.onProgress?.({
                 phase: "segment",
-                message: `分段蒸馏${n.label}：${i + 1}/${r.length}`,
+                message: `Cô đọng theo đoạn ${n.label}: ${i + 1}/${r.length}`,
                 completed: i + 1,
                 total: r.length,
               }));
           }
-          const i = await Ho(o, { label: `${n.label}素材`, tag: "role_material", knowledge: io, options: a });
+          const i = await Ho(o, { label: `${n.label}tư liệu`, tag: "role_material", knowledge: io, options: a });
           return (
             a.onProgress?.({
               phase: "complete",
-              message: `${n.label}蒸馏完成，进入角色正式生成`,
+              message: `${n.label}Cô đọng xong, chuyển sang tạo nhân vật chính thức`,
               completed: 1,
               total: 1,
             }),
@@ -4954,38 +4954,38 @@ var e = {
         })(n, e, t, a),
         i = [
           `【${n.label}】`,
-          `角色临时名称：${r}`,
+          `Tên tạm của nhân vật: ${r}`,
           "",
-          "【已生成世界观，仅作本角色参考】",
+          "【Thế giới quan đã tạo, chỉ dùng để tham khảo cho nhân vật này】",
           e.trim(),
           "",
-          `【本轮唯一角色素材：${n.label}】`,
+          `【Tư liệu nhân vật duy nhất của lượt này: ${n.label}】`,
           o,
         ].join("\n"),
         A = [
-          `只生成${n.label}，不得读取、推测或混入其他角色素材。`,
-          "生成一个完整角色的写卡条目。",
-          "你正在适配秋青子写卡预设，不得另建预设结构。",
-          "允许在不推翻用户明确设定的前提下做合理化补充：补足身份、关系、行为逻辑、调色盘衍生和二次解释。",
-          "角色多阶段人设只产出中文正文；固定 EJS 结构会在写入阶段包裹这些正文。",
-          "默认用好感度划分三个阶段：初识期 0~30，熟悉期 31~70，亲近期 71~100。若用户素材给出其他阶段，以用户为准。",
-          "可写入字段内禁止出现内部流程说明、占位说明、标签说明或创作说明。",
-          "不要和用户对话，不要询问下一步。",
+          `Chỉ tạo ${n.label}, không được đọc, suy đoán hay trộn lẫn tư liệu của nhân vật khác.`,
+          "Tạo mục tạo thẻ cho một nhân vật hoàn chỉnh.",
+          "Bạn đang làm việc theo preset tạo thẻ Thu Thanh Tử, không được dựng cấu trúc preset khác.",
+          "Được phép bổ sung cho hợp lý mà không lật ngược thiết lập người dùng đã nêu rõ: hoàn thiện thân phận, quan hệ, logic hành xử, phái sinh bảng màu và diễn giải bổ sung.",
+          "Hồ sơ nhiều giai đoạn của nhân vật chỉ xuất phần nội dung tiếng Việt; cấu trúc EJS cố định sẽ bọc phần nội dung này ở bước ghi.",
+          "Mặc định chia ba giai đoạn theo biến thien_cam: mới quen 0–30, thân quen 31–70, gần gũi 71–100. Nếu tư liệu người dùng nêu giai đoạn khác thì theo người dùng.",
+          "Trong các trường sẽ được ghi vào thẻ, cấm xuất hiện mô tả quy trình nội bộ, nội dung tạm, chú thích thẻ hay ghi chú sáng tác.",
+          "Đừng trò chuyện với người dùng, đừng hỏi bước tiếp theo.",
           ...Eo(a),
-          "输出必须放在 <content><role_result>...</role_result></content> 中，并包含以下子标签：",
-          "<role_name>角色正式名</role_name>",
-          "<aliases>英文逗号分隔的角色名、昵称、外号</aliases>",
-          "<basic>角色基础信息 YAML</basic>",
-          "<palette>性格调色盘正文</palette>",
-          "<reinterpret>二次解释正文</reinterpret>",
+          "Kết quả bắt buộc đặt trong <content><role_result>...</role_result></content>, và phải chứa các thẻ con sau:",
+          "<role_name>tên chính thức của nhân vật</role_name>",
+          "<aliases>tên, biệt danh, tên gọi khác — phân tách bằng dấu phẩy</aliases>",
+          "<basic>YAML thông tin cơ bản của nhân vật</basic>",
+          "<palette>nội dung bảng màu tính cách</palette>",
+          "<reinterpret>nội dung diễn giải bổ sung</reinterpret>",
           "<multistage_persona>",
-          "<stage_early>初识期 0~30 的调色盘头部、专属衍生、专属二次解释</stage_early>",
-          "<stage_middle>熟悉期 31~70 的调色盘头部、专属衍生、专属二次解释</stage_middle>",
-          "<stage_close>亲近期 71~100 的调色盘头部、专属衍生、专属二次解释</stage_close>",
-          "<stage_common>跨阶段通用衍生、通用二次解释、总结；没有则留空</stage_common>",
+          "<stage_early>phần đầu bảng màu, phái sinh riêng và diễn giải bổ sung riêng của giai đoạn mới quen 0–30</stage_early>",
+          "<stage_middle>phần đầu bảng màu, phái sinh riêng và diễn giải bổ sung riêng của giai đoạn thân quen 31–70</stage_middle>",
+          "<stage_close>phần đầu bảng màu, phái sinh riêng và diễn giải bổ sung riêng của giai đoạn gần gũi 71–100</stage_close>",
+          "<stage_common>phái sinh dùng chung, diễn giải bổ sung dùng chung và tổng kết cho mọi giai đoạn; không có thì để trống</stage_common>",
           "</multistage_persona>",
-          "<quick_view>角色速览单项 YAML</quick_view>",
-          "所有子标签必须闭合。",
+          "<quick_view>YAML một mục tóm tắt nhanh nhân vật</quick_view>",
+          "Mọi thẻ con đều phải được đóng.",
         ].join("\n"),
         s = io;
       return So(await vo(i, A, s, a), n, t);
@@ -5074,14 +5074,14 @@ var e = {
       const t = eo(e).trim(),
         a = jo(e),
         r = [];
-      a !== t && r.push({ code: "noncanonical-tags", message: "检测到双尖括号、全角符号或标签别名，可自动规范化。" });
+      a !== t && r.push({ code: "noncanonical-tags", message: "Phát hiện ngoặc nhọn đôi, ký hiệu toàn giác hoặc thẻ viết khác tên — có thể chuẩn hoá tự động." });
       for (const e of Lo[n]) {
         const n = Jo(a, e);
         "missing" !== n
           ? "unclosed" !== n
-            ? Yo.has(e) || to(a, e).trim() || r.push({ code: `empty-${e}`, message: `<${e}> 内容为空。` })
-            : r.push({ code: `unclosed-${e}`, message: `<${e}> 未正确闭合。` })
-          : r.push({ code: `missing-${e}`, message: `缺少 <${e}> 结构。` });
+            ? Yo.has(e) || to(a, e).trim() || r.push({ code: `empty-${e}`, message: `<${e}> trống rỗng.` })
+            : r.push({ code: `unclosed-${e}`, message: `<${e}> chưa được đóng đúng.` })
+          : r.push({ code: `missing-${e}`, message: `Thiếu cấu trúc <${e}>.` });
       }
       return { issues: r, normalizedRaw: a, valid: 0 === r.length };
     }
@@ -5127,7 +5127,7 @@ var e = {
               return ao(e, "worldview_result")
                 ? { raw: Oo("worldview_result", to(e, "worldview_result")), usedFallbackLayout: !1 }
                 : {
-                    raw: Oo("worldview_result", Zo(Ko(e) || e.trim() || "世界观内容待人工检查")),
+                    raw: Oo("worldview_result", Zo(Ko(e) || e.trim() || "Nội dung thế giới quan cần người kiểm tra")),
                     usedFallbackLayout: !0,
                   };
             })(a)
@@ -5137,7 +5137,7 @@ var e = {
                 return ao(e, "opening_result")
                   ? { raw: Oo("opening_result", to(e, "opening_result")), usedFallbackLayout: !1 }
                   : {
-                      raw: Oo("opening_result", Zo(Ko(e) || e.trim() || "开场白内容待人工检查")),
+                      raw: Oo("opening_result", Zo(Ko(e) || e.trim() || "Nội dung lời mở đầu cần người kiểm tra")),
                       usedFallbackLayout: !0,
                     };
               })(a)
@@ -5155,7 +5155,8 @@ var e = {
                     l = Mo(a, "palette", s),
                     p = Mo(a, "reinterpret", l),
                     d = Zo(Ko([l, p].join("\n\n")) || Ko(s) || e),
-                    c = Mo(a, "quick_view", `- 名称: ${Zo(Ko(i) || e)}\n  简述: ${Zo((Ko(s) || e).slice(0, 200))}`);
+                    c = Mo(a, "quick_view", `- Tên: ${Zo(Ko(i) || e)}
+  Mô tả ngắn: ${Zo((Ko(s) || e).slice(0, 200))}`);
                   return {
                     raw: Oo(
                       "role_result",
@@ -5171,11 +5172,11 @@ var e = {
                     ),
                     usedFallbackLayout: 0 === r,
                   };
-                })(a, t.fallbackName?.trim() || "角色")
+                })(a, t.fallbackName?.trim() || "Nhân vật")
               : (function (n, e) {
                   const t = Go(n),
                     a = ao(t, "persona_result") ? to(t, "persona_result") : t,
-                    r = Zo(Ko(a) || "人设内容待人工检查");
+                    r = Zo(Ko(a) || "Nội dung hồ sơ cần người kiểm tra");
                   if (!e)
                     return {
                       raw: Oo("persona_result", `<palette>${Mo(a, "palette", r)}</palette>`),
@@ -5220,31 +5221,31 @@ var e = {
     }
     async function oi(n, e) {
       const t = n.trim();
-      if (!t) throw new Error("角色卡名称不能为空");
+      if (!t) throw new Error("Tên thẻ nhân vật không được để trống");
       const a = [
         ri(
           ti(
-            '{\n    "id": "d668c8a6-fa6a-444d-a5d6-8f68b73a3c36",\n    "scriptName": "仅格式思维链",\n    "findRegex": "/<Analysis>[\\\\s\\\\S]+?<\\\\/Analysis>/gm",\n    "replaceString": "",\n    "trimStrings": [],\n    "placement": [\n        2\n    ],\n    "disabled": false,\n    "markdownOnly": false,\n    "promptOnly": true,\n    "runOnEdit": true,\n    "substituteRegex": 0,\n    "minDepth": null,\n    "maxDepth": null\n}',
+            '{\n    "id": "d668c8a6-fa6a-444d-a5d6-8f68b73a3c36",\n    "scriptName": "Chi loc chuoi suy nghi",\n    "findRegex": "/<Analysis>[\\\\s\\\\S]+?<\\\\/Analysis>/gm",\n    "replaceString": "",\n    "trimStrings": [],\n    "placement": [\n        2\n    ],\n    "disabled": false,\n    "markdownOnly": false,\n    "promptOnly": true,\n    "runOnEdit": true,\n    "substituteRegex": 0,\n    "minDepth": null,\n    "maxDepth": null\n}',
           ),
         ),
         ri(
           ti(
-            '{\n    "id": "5bb4b588-23ca-4564-8df5-882104eff764",\n    "scriptName": "只发送最新2楼的变量更新",\n    "findRegex": "/<UpdateVariable>[\\\\s\\\\S]*?</UpdateVariable>/gm",\n    "replaceString": "",\n    "trimStrings": [],\n    "placement": [\n        2\n    ],\n    "disabled": false,\n    "markdownOnly": false,\n    "promptOnly": true,\n    "runOnEdit": true,\n    "substituteRegex": 0,\n    "minDepth": 4,\n    "maxDepth": null\n}',
+            '{\n    "id": "5bb4b588-23ca-4564-8df5-882104eff764",\n    "scriptName": "Chi gui cap nhat bien cua 2 luot moi nhat",\n    "findRegex": "/<UpdateVariable>[\\\\s\\\\S]*?</UpdateVariable>/gm",\n    "replaceString": "",\n    "trimStrings": [],\n    "placement": [\n        2\n    ],\n    "disabled": false,\n    "markdownOnly": false,\n    "promptOnly": true,\n    "runOnEdit": true,\n    "substituteRegex": 0,\n    "minDepth": 4,\n    "maxDepth": null\n}',
           ),
         ),
         ri(
           ti(
-            '{\n    "id": "6fb572ae-a9ea-436d-9779-ad100f1ff7f5",\n    "scriptName": "[美化]变量完成-三明月喵",\n    "findRegex": "/<UpdateVariable(?:variable)?>\\\\s*(.*)\\\\s*<\\\\/UpdateVariable(?:variable)?>/gsi",\n    "replaceString": "<div style=\\"text-align: center; margin: 10px 0;\\">\\n<div style=\\"display: inline-block; text-align: left;\\">\\n  <details class=\\"neko-complete\\" style=\\"border: none; background: none;\\">\\n    <summary style=\\"\\n      list-style: none;\\n      cursor: pointer;\\n      display: inline-flex;\\n      align-items: center;\\n      gap: 0;\\n      position: relative;\\n      padding: 0;\\n    \\">\\n      \x3c!-- 圆形GIF头像 - 突出在左侧 --\x3e\\n      <span style=\\"\\n        display: inline-block;\\n        width: 52px;\\n        height: 52px;\\n        border-radius: 50%;\\n        overflow: hidden;\\n        border: 2.5px solid rgba(70, 115, 175, 0.5);\\n        box-shadow: 0 0 10px rgba(70, 115, 175, 0.25), 0 0 20px rgba(110, 150, 200, 0.15);\\n        flex-shrink: 0;\\n        z-index: 3;\\n        position: relative;\\n        animation: neko-happy 1.5s ease-in-out infinite;\\n        background: #dae3f0;\\n      \\">\\n        <img src=\\"https://i.postimg.cc/DwFQBGk9/ezgif-201bf4672c1b72.gif\\" \\n          style=\\"width: 100%; height: 100%; object-fit: cover; display: block;\\" alt=\\"喵~\\" />\\n      </span>\\n      \x3c!-- 横条 - 比头像矮，约2/3高度 --\x3e\\n      <span style=\\"\\n        display: flex;\\n        align-items: center;\\n        height: 34px;\\n        margin-left: -12px;\\n        padding: 0 24px 0 22px;\\n        background: linear-gradient(135deg, #e6edf5 0%, #cdd8ea 50%, #dae3f0 100%);\\n        border: 1.5px solid rgba(80, 120, 180, 0.35);\\n        border-radius: 0 17px 17px 0;\\n        box-shadow: \\n          0 3px 15px rgba(80, 120, 180, 0.15),\\n          inset 0 1px 0 rgba(255, 255, 255, 0.5);\\n        position: relative;\\n        z-index: 2;\\n      \\">\\n        <span style=\\"\\n          flex: 1;\\n          font-size: 0.9em;\\n          font-weight: 600;\\n          background: linear-gradient(90deg, #5a82b5, #3d6098, #4d75aa, #5a82b5);\\n          background-size: 200% auto;\\n          -webkit-background-clip: text;\\n          -webkit-text-fill-color: transparent;\\n          background-clip: text;\\n          animation: text-shimmer 3s linear infinite;\\n        \\">喵喵喵~ 变量完成了喵~</span>\\n        <small style=\\"color: #3d6098; font-size: 0.75em; opacity: 0.7;\\">\\n          <span class=\\"neko-toggle\\" data-close=\\"展开喵 ▶\\" data-open=\\"收起喵 ▼\\"></span>\\n        </small>\\n      </span>\\n    </summary>\\n    <div style=\\"\\n      max-height: 320px;\\n      overflow-y: auto;\\n      margin-left: 26px;\\n      margin-top: 6px;\\n      padding: 12px 20px;\\n      color: #4a5568;\\n      line-height: 1.8;\\n      white-space: pre-wrap;\\n      background: linear-gradient(135deg, rgba(230, 237, 245, 0.6) 0%, rgba(205, 216, 234, 0.4) 100%);\\n      border: 1.5px solid rgba(80, 120, 180, 0.25);\\n      border-radius: 14px;\\n      font-size: 0.9em;\\n      box-shadow: 0 2px 10px rgba(80, 120, 180, 0.08);\\n      max-width: 450px;\\n    \\">\\n    $1\\n    </div>\\n  </details>\\n</div>\\n</div>\\n\\n<style>\\n  .neko-complete summary::marker {\\n    display: none;\\n  }\\n  .neko-complete[open] > div {\\n    animation: neko-slide-in 0.4s ease forwards;\\n  }\\n  .neko-complete[open] .neko-toggle::after {\\n    content: attr(data-open);\\n  }\\n  .neko-complete:not([open]) .neko-toggle::after {\\n    content: attr(data-close);\\n  }\\n\\n  @keyframes neko-happy {\\n    0%, 100% {\\n      transform: translateY(0) rotate(0deg);\\n    }\\n    25% {\\n      transform: translateY(-3px) rotate(-3deg);\\n    }\\n    75% {\\n      transform: translateY(-3px) rotate(3deg);\\n    }\\n  }\\n\\n  @keyframes text-shimmer {\\n    0% {\\n      background-position: 0% center;\\n    }\\n    100% {\\n      background-position: 200% center;\\n    }\\n  }\\n\\n  @keyframes neko-slide-in {\\n    from {\\n      opacity: 0;\\n      transform: translateY(-8px);\\n    }\\n    to {\\n      opacity: 1;\\n      transform: translateY(0);\\n    }\\n  }\\n</style>\\n",\n    "trimStrings": [],\n    "placement": [\n        2\n    ],\n    "disabled": false,\n    "markdownOnly": true,\n    "promptOnly": false,\n    "runOnEdit": false,\n    "substituteRegex": 0,\n    "minDepth": null,\n    "maxDepth": null\n}',
+            '{\n    "id": "6fb572ae-a9ea-436d-9779-ad100f1ff7f5",\n    "scriptName": "[Lam dep] Bien cap nhat xong",\n    "findRegex": "/<UpdateVariable(?:variable)?>\\\\s*(.*)\\\\s*<\\\\/UpdateVariable(?:variable)?>/gsi",\n    "replaceString": "<div style=\\"text-align: center; margin: 10px 0;\\">\\n<div style=\\"display: inline-block; text-align: left;\\">\\n  <details class=\\"neko-complete\\" style=\\"border: none; background: none;\\">\\n    <summary style=\\"\\n      list-style: none;\\n      cursor: pointer;\\n      display: inline-flex;\\n      align-items: center;\\n      gap: 0;\\n      position: relative;\\n      padding: 0;\\n    \\">\\n      \x3c!-- Anh dai dien GIF tron - noi ra ben trai --\x3e\\n      <span style=\\"\\n        display: inline-block;\\n        width: 52px;\\n        height: 52px;\\n        border-radius: 50%;\\n        overflow: hidden;\\n        border: 2.5px solid rgba(70, 115, 175, 0.5);\\n        box-shadow: 0 0 10px rgba(70, 115, 175, 0.25), 0 0 20px rgba(110, 150, 200, 0.15);\\n        flex-shrink: 0;\\n        z-index: 3;\\n        position: relative;\\n        animation: neko-happy 1.5s ease-in-out infinite;\\n        background: #dae3f0;\\n      \\">\\n        <img src=\\"https://i.postimg.cc/DwFQBGk9/ezgif-201bf4672c1b72.gif\\" \\n          style=\\"width: 100%; height: 100%; object-fit: cover; display: block;\\" alt=\\"meo~\\" />\\n      </span>\\n      \x3c!-- Thanh ngang - thap hon anh dai dien, khoang 2/3 chieu cao --\x3e\\n      <span style=\\"\\n        display: flex;\\n        align-items: center;\\n        height: 34px;\\n        margin-left: -12px;\\n        padding: 0 24px 0 22px;\\n        background: linear-gradient(135deg, #e6edf5 0%, #cdd8ea 50%, #dae3f0 100%);\\n        border: 1.5px solid rgba(80, 120, 180, 0.35);\\n        border-radius: 0 17px 17px 0;\\n        box-shadow: \\n          0 3px 15px rgba(80, 120, 180, 0.15),\\n          inset 0 1px 0 rgba(255, 255, 255, 0.5);\\n        position: relative;\\n        z-index: 2;\\n      \\">\\n        <span style=\\"\\n          flex: 1;\\n          font-size: 0.9em;\\n          font-weight: 600;\\n          background: linear-gradient(90deg, #5a82b5, #3d6098, #4d75aa, #5a82b5);\\n          background-size: 200% auto;\\n          -webkit-background-clip: text;\\n          -webkit-text-fill-color: transparent;\\n          background-clip: text;\\n          animation: text-shimmer 3s linear infinite;\\n        \\">Meo meo meo~ cap nhat bien xong roi~</span>\\n        <small style=\\"color: #3d6098; font-size: 0.75em; opacity: 0.7;\\">\\n          <span class=\\"neko-toggle\\" data-close=\\"Mo ra meo ▶\\" data-open=\\"Thu lai meo ▼\\"></span>\\n        </small>\\n      </span>\\n    </summary>\\n    <div style=\\"\\n      max-height: 320px;\\n      overflow-y: auto;\\n      margin-left: 26px;\\n      margin-top: 6px;\\n      padding: 12px 20px;\\n      color: #4a5568;\\n      line-height: 1.8;\\n      white-space: pre-wrap;\\n      background: linear-gradient(135deg, rgba(230, 237, 245, 0.6) 0%, rgba(205, 216, 234, 0.4) 100%);\\n      border: 1.5px solid rgba(80, 120, 180, 0.25);\\n      border-radius: 14px;\\n      font-size: 0.9em;\\n      box-shadow: 0 2px 10px rgba(80, 120, 180, 0.08);\\n      max-width: 450px;\\n    \\">\\n    $1\\n    </div>\\n  </details>\\n</div>\\n</div>\\n\\n<style>\\n  .neko-complete summary::marker {\\n    display: none;\\n  }\\n  .neko-complete[open] > div {\\n    animation: neko-slide-in 0.4s ease forwards;\\n  }\\n  .neko-complete[open] .neko-toggle::after {\\n    content: attr(data-open);\\n  }\\n  .neko-complete:not([open]) .neko-toggle::after {\\n    content: attr(data-close);\\n  }\\n\\n  @keyframes neko-happy {\\n    0%, 100% {\\n      transform: translateY(0) rotate(0deg);\\n    }\\n    25% {\\n      transform: translateY(-3px) rotate(-3deg);\\n    }\\n    75% {\\n      transform: translateY(-3px) rotate(3deg);\\n    }\\n  }\\n\\n  @keyframes text-shimmer {\\n    0% {\\n      background-position: 0% center;\\n    }\\n    100% {\\n      background-position: 200% center;\\n    }\\n  }\\n\\n  @keyframes neko-slide-in {\\n    from {\\n      opacity: 0;\\n      transform: translateY(-8px);\\n    }\\n    to {\\n      opacity: 1;\\n      transform: translateY(0);\\n    }\\n  }\\n</style>\\n",\n    "trimStrings": [],\n    "placement": [\n        2\n    ],\n    "disabled": false,\n    "markdownOnly": true,\n    "promptOnly": false,\n    "runOnEdit": false,\n    "substituteRegex": 0,\n    "minDepth": null,\n    "maxDepth": null\n}',
           ),
         ),
         ri(
           ti(
-            '{\n    "id": "bf1b7441-5cf1-426d-bd6c-911332be9923",\n    "scriptName": "[美化]变量更新中-三明月喵",\n    "findRegex": "/<UpdateVariable(?:variable)?>(?!.*<\\\\/UpdateVariable(?:variable)?>)\\\\s*(.*)\\\\s*$/gsi",\n    "replaceString": "<div style=\\"text-align: center; margin: 10px 0;\\">\\n<div style=\\"display: inline-block; text-align: left;\\">\\n  <details class=\\"neko-thinking\\" style=\\"border: none; background: none;\\">\\n    <summary style=\\"\\n      list-style: none;\\n      cursor: pointer;\\n      display: inline-flex;\\n      align-items: center;\\n      gap: 0;\\n      position: relative;\\n      padding: 0;\\n    \\">\\n      \x3c!-- 圆形GIF头像 - 突出在左侧 --\x3e\\n      <span style=\\"\\n        display: inline-block;\\n        width: 52px;\\n        height: 52px;\\n        border-radius: 50%;\\n        overflow: hidden;\\n        border: 2.5px solid rgba(90, 130, 190, 0.45);\\n        box-shadow: 0 0 10px rgba(90, 130, 190, 0.2), 0 0 20px rgba(130, 165, 210, 0.12);\\n        flex-shrink: 0;\\n        z-index: 3;\\n        position: relative;\\n        animation: neko-bounce 2s ease-in-out infinite;\\n        background: #dde6f0;\\n      \\">\\n        <img src=\\"https://i.postimg.cc/DwFQBGk9/ezgif-201bf4672c1b72.gif\\" \\n          style=\\"width: 100%; height: 100%; object-fit: cover; display: block;\\" alt=\\"喵~\\" />\\n      </span>\\n      \x3c!-- 横条 - 比头像矮，约2/3高度 --\x3e\\n      <span style=\\"\\n        display: flex;\\n        align-items: center;\\n        height: 34px;\\n        margin-left: -12px;\\n        padding: 0 24px 0 22px;\\n        background: linear-gradient(135deg, #e8eef5 0%, #d0dcea 50%, #dde6f0 100%);\\n        border: 1.5px solid rgba(120, 150, 200, 0.35);\\n        border-radius: 0 17px 17px 0;\\n        box-shadow: \\n          0 3px 15px rgba(100, 140, 200, 0.15),\\n          inset 0 1px 0 rgba(255, 255, 255, 0.5);\\n        position: relative;\\n        z-index: 2;\\n      \\">\\n        <span style=\\"\\n          flex: 1;\\n          font-size: 0.9em;\\n          font-weight: 600;\\n          background: linear-gradient(90deg, #4a6fa5, #6b8ec2, #7a9dcc);\\n          -webkit-background-clip: text;\\n          -webkit-text-fill-color: transparent;\\n          background-clip: text;\\n        \\">喵喵喵~ 正在变量中~</span>\\n        <span style=\\"\\n          font-size: 0.9em;\\n          opacity: 0.6;\\n          animation: paw-wiggle 1.5s ease-in-out infinite;\\n        \\">🐾</span>\\n        \x3c!-- 蓝色光晕流动效果 --\x3e\\n        <span class=\\"blue-glow\\" style=\\"\\n          position: absolute;\\n          top: 0; left: 0; width: 100%; height: 100%;\\n          border-radius: 0 17px 17px 0;\\n          background: linear-gradient(90deg, transparent 0%, rgba(130, 165, 210, 0.06) 20%, rgba(100, 140, 195, 0.1) 50%, rgba(130, 165, 210, 0.06) 80%, transparent 100%);\\n          animation: blue-sweep 3s linear infinite;\\n          transform: translateX(-100%);\\n          pointer-events: none;\\n        \\"></span>\\n      </span>\\n    </summary>\\n    <div style=\\"\\n      max-height: 320px;\\n      overflow-y: auto;\\n      margin-left: 26px;\\n      margin-top: 6px;\\n      padding: 12px 20px;\\n      color: #4a5568;\\n      line-height: 1.8;\\n      white-space: pre-wrap;\\n      background: linear-gradient(135deg, rgba(232, 238, 245, 0.6) 0%, rgba(208, 220, 234, 0.4) 100%);\\n      border: 1.5px solid rgba(120, 150, 200, 0.25);\\n      border-radius: 14px;\\n      font-size: 0.9em;\\n      box-shadow: 0 2px 10px rgba(100, 140, 200, 0.08);\\n      max-width: 450px;\\n    \\">\\n    $1\\n    </div>\\n  </details>\\n</div>\\n</div>\\n\\n<style>\\n  .neko-thinking summary::marker {\\n    display: none;\\n  }\\n  .neko-thinking[open] > div {\\n    animation: neko-content-in 0.4s ease forwards;\\n  }\\n  .neko-thinking[open] summary .blue-glow {\\n    animation: none !important;\\n    opacity: 0;\\n  }\\n\\n  @keyframes neko-bounce {\\n    0%, 100% {\\n      transform: translateY(0);\\n    }\\n    50% {\\n      transform: translateY(-3px);\\n    }\\n  }\\n\\n  @keyframes paw-wiggle {\\n    0%, 100% {\\n      transform: rotate(0deg) scale(1);\\n    }\\n    25% {\\n      transform: rotate(-10deg) scale(1.1);\\n    }\\n    75% {\\n      transform: rotate(10deg) scale(1.1);\\n    }\\n  }\\n\\n  @keyframes blue-sweep {\\n    0% {\\n      transform: translateX(-100%);\\n    }\\n    100% {\\n      transform: translateX(100%);\\n    }\\n  }\\n\\n  @keyframes neko-content-in {\\n    from {\\n      opacity: 0;\\n      transform: translateY(-8px);\\n    }\\n    to {\\n      opacity: 1;\\n      transform: translateY(0);\\n    }\\n  }\\n</style>",\n    "trimStrings": [],\n    "placement": [\n        2\n    ],\n    "disabled": false,\n    "markdownOnly": true,\n    "promptOnly": false,\n    "runOnEdit": false,\n    "substituteRegex": 0,\n    "minDepth": null,\n    "maxDepth": null\n}',
+            '{\n    "id": "bf1b7441-5cf1-426d-bd6c-911332be9923",\n    "scriptName": "[Lam dep] Dang cap nhat bien",\n    "findRegex": "/<UpdateVariable(?:variable)?>(?!.*<\\\\/UpdateVariable(?:variable)?>)\\\\s*(.*)\\\\s*$/gsi",\n    "replaceString": "<div style=\\"text-align: center; margin: 10px 0;\\">\\n<div style=\\"display: inline-block; text-align: left;\\">\\n  <details class=\\"neko-thinking\\" style=\\"border: none; background: none;\\">\\n    <summary style=\\"\\n      list-style: none;\\n      cursor: pointer;\\n      display: inline-flex;\\n      align-items: center;\\n      gap: 0;\\n      position: relative;\\n      padding: 0;\\n    \\">\\n      \x3c!-- Anh dai dien GIF tron - noi ra ben trai --\x3e\\n      <span style=\\"\\n        display: inline-block;\\n        width: 52px;\\n        height: 52px;\\n        border-radius: 50%;\\n        overflow: hidden;\\n        border: 2.5px solid rgba(90, 130, 190, 0.45);\\n        box-shadow: 0 0 10px rgba(90, 130, 190, 0.2), 0 0 20px rgba(130, 165, 210, 0.12);\\n        flex-shrink: 0;\\n        z-index: 3;\\n        position: relative;\\n        animation: neko-bounce 2s ease-in-out infinite;\\n        background: #dde6f0;\\n      \\">\\n        <img src=\\"https://i.postimg.cc/DwFQBGk9/ezgif-201bf4672c1b72.gif\\" \\n          style=\\"width: 100%; height: 100%; object-fit: cover; display: block;\\" alt=\\"meo~\\" />\\n      </span>\\n      \x3c!-- Thanh ngang - thap hon anh dai dien, khoang 2/3 chieu cao --\x3e\\n      <span style=\\"\\n        display: flex;\\n        align-items: center;\\n        height: 34px;\\n        margin-left: -12px;\\n        padding: 0 24px 0 22px;\\n        background: linear-gradient(135deg, #e8eef5 0%, #d0dcea 50%, #dde6f0 100%);\\n        border: 1.5px solid rgba(120, 150, 200, 0.35);\\n        border-radius: 0 17px 17px 0;\\n        box-shadow: \\n          0 3px 15px rgba(100, 140, 200, 0.15),\\n          inset 0 1px 0 rgba(255, 255, 255, 0.5);\\n        position: relative;\\n        z-index: 2;\\n      \\">\\n        <span style=\\"\\n          flex: 1;\\n          font-size: 0.9em;\\n          font-weight: 600;\\n          background: linear-gradient(90deg, #4a6fa5, #6b8ec2, #7a9dcc);\\n          -webkit-background-clip: text;\\n          -webkit-text-fill-color: transparent;\\n          background-clip: text;\\n        \\">Meo meo meo~ dang cap nhat bien~</span>\\n        <span style=\\"\\n          font-size: 0.9em;\\n          opacity: 0.6;\\n          animation: paw-wiggle 1.5s ease-in-out infinite;\\n        \\">🐾</span>\\n        \x3c!-- Hieu ung quang xanh chay ngang --\x3e\\n        <span class=\\"blue-glow\\" style=\\"\\n          position: absolute;\\n          top: 0; left: 0; width: 100%; height: 100%;\\n          border-radius: 0 17px 17px 0;\\n          background: linear-gradient(90deg, transparent 0%, rgba(130, 165, 210, 0.06) 20%, rgba(100, 140, 195, 0.1) 50%, rgba(130, 165, 210, 0.06) 80%, transparent 100%);\\n          animation: blue-sweep 3s linear infinite;\\n          transform: translateX(-100%);\\n          pointer-events: none;\\n        \\"></span>\\n      </span>\\n    </summary>\\n    <div style=\\"\\n      max-height: 320px;\\n      overflow-y: auto;\\n      margin-left: 26px;\\n      margin-top: 6px;\\n      padding: 12px 20px;\\n      color: #4a5568;\\n      line-height: 1.8;\\n      white-space: pre-wrap;\\n      background: linear-gradient(135deg, rgba(232, 238, 245, 0.6) 0%, rgba(208, 220, 234, 0.4) 100%);\\n      border: 1.5px solid rgba(120, 150, 200, 0.25);\\n      border-radius: 14px;\\n      font-size: 0.9em;\\n      box-shadow: 0 2px 10px rgba(100, 140, 200, 0.08);\\n      max-width: 450px;\\n    \\">\\n    $1\\n    </div>\\n  </details>\\n</div>\\n</div>\\n\\n<style>\\n  .neko-thinking summary::marker {\\n    display: none;\\n  }\\n  .neko-thinking[open] > div {\\n    animation: neko-content-in 0.4s ease forwards;\\n  }\\n  .neko-thinking[open] summary .blue-glow {\\n    animation: none !important;\\n    opacity: 0;\\n  }\\n\\n  @keyframes neko-bounce {\\n    0%, 100% {\\n      transform: translateY(0);\\n    }\\n    50% {\\n      transform: translateY(-3px);\\n    }\\n  }\\n\\n  @keyframes paw-wiggle {\\n    0%, 100% {\\n      transform: rotate(0deg) scale(1);\\n    }\\n    25% {\\n      transform: rotate(-10deg) scale(1.1);\\n    }\\n    75% {\\n      transform: rotate(10deg) scale(1.1);\\n    }\\n  }\\n\\n  @keyframes blue-sweep {\\n    0% {\\n      transform: translateX(-100%);\\n    }\\n    100% {\\n      transform: translateX(100%);\\n    }\\n  }\\n\\n  @keyframes neko-content-in {\\n    from {\\n      opacity: 0;\\n      transform: translateY(-8px);\\n    }\\n    to {\\n      opacity: 1;\\n      transform: translateY(0);\\n    }\\n  }\\n</style>",\n    "trimStrings": [],\n    "placement": [\n        2\n    ],\n    "disabled": false,\n    "markdownOnly": true,\n    "promptOnly": false,\n    "runOnEdit": false,\n    "substituteRegex": 0,\n    "minDepth": null,\n    "maxDepth": null\n}',
           ),
         ),
         {
           id: ei("qz-card-status-hide"),
-          script_name: "一键生卡_隐藏状态栏标记",
+          script_name: "Tạo thẻ một chạm _ Ẩn dấu thanh trạng thái",
           enabled: !0,
           scope: "character",
           find_regex: "/<StatusPlaceHolderImpl\\/>/g",
@@ -5259,7 +5260,7 @@ var e = {
         ((r = e),
         {
           id: ei("qz-card-status"),
-          script_name: "一键生卡_MVU状态栏",
+          script_name: "Tạo thẻ một chạm _ Thanh trạng thái MVU",
           enabled: !0,
           scope: "character",
           find_regex: "/<StatusPlaceHolderImpl\\/>/g",

@@ -66,5 +66,17 @@ let leftover = done.filter((i) => CJK.test(i.vi)).length;
 if (leftover) bad(`${leftover} ban dich van con chu Han`);
 else ok(`${done.length} ban dich khong con chu Han`);
 
+// 6. Bao cao chu Han con lai trong file ket qua (tru anh base64 va sourcemap)
+const lines = b.split("\n");
+const CJKG = /[一-鿿]/g;
+let rest = 0;
+const restLines = [];
+lines.forEach((l, i) => {
+  const m = l.match(CJKG);
+  if (m) { rest += m.length; restLines.push(`${i + 1} (${m.length})`); }
+});
+if (rest) console.log(`  CON ${rest} chu Han o ${restLines.length} dong: ${restLines.slice(0, 14).join(", ")}${restLines.length > 14 ? " ..." : ""}`);
+else ok("Khong con chu Han nao trong file ket qua");
+
 console.log(`\n=> ${fail === 0 ? "TAT CA DAT" : fail + " loi"}`);
 process.exit(fail ? 1 : 0);
