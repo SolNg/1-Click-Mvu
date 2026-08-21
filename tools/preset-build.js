@@ -63,12 +63,37 @@ const NAMES = {
 // Cac prompt thuc su duoc gui hoac doc lam knowledge -> dich ca noi dung
 const CONTENT_IDS = ["main", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "13", "24", "26", "32", "39", "41", "42", "44", "45", "46", "47", "48", "21", "22", "30", "34", "36", "14", "15", "17", "23", "31", "33", "37", "38", "16", "18", "19", "35"];
 
+// Cac prompt qua nhieu ma nguon: chi thay the co dinh cac nhan tieng Trung, giu nguyen JSON/CSS.
+const INLINE = {
+  49: [
+    ["去除思维链内容", "Bo noi dung chuoi suy nghi"],
+    ["思维链生成中-月相主题", "Dang tao chuoi suy nghi - chu de trang"],
+    ["思维链完整-月相主题", "Chuoi suy nghi day du - chu de trang"],
+    ["去杂七杂八标签", "Bo cac the linh tinh"],
+    ["思绪如星，散落夜空", "Suy nghĩ như sao, rải khắp trời đêm"],
+    ["月满如镜，thay", "x"],
+    ["月满如镜，思绪澄明", "Trăng tròn như gương, suy nghĩ trong veo"],
+  ],
+};
+
 const out = {};
 for (const [id, name] of Object.entries(NAMES)) out[id] = { name };
 for (const id of CONTENT_IDS) {
   const f = `i18n/preset/p${id}.txt`;
   if (!fs.existsSync(f)) throw new Error("Thieu ban dich: " + f);
   out[id].content = fs.readFileSync(f, "utf8").replace(/\n$/, "");
+}
+const zh = JSON.parse(fs.readFileSync("i18n/preset.zh.json", "utf8"));
+for (const [id, pairs] of Object.entries(INLINE)) {
+  const p = zh.prompts.find((x) => String(x.identifier) === String(id));
+  if (!p) throw new Error("khong thay prompt " + id);
+  let c = p.content;
+  for (const [a, b] of pairs) {
+    if (a === "月满如镜，thay") continue;
+    if (!c.includes(a)) throw new Error(`prompt ${id}: khong tim thay ${a}`);
+    c = c.split(a).join(b);
+  }
+  out[id] = { ...(out[id] || {}), content: c };
 }
 fs.writeFileSync("i18n/preset.vi.json", JSON.stringify(out, null, 1));
 console.log(`preset.vi.json: ${Object.keys(out).length} ten, ${CONTENT_IDS.length} noi dung`);
