@@ -31,7 +31,7 @@ không dùng 3 cách gọi khác nhau cho cùng một khái niệm.
 | 3 | 速览 | tóm tắt nhanh | |
 | 3 | 条目 | mục | entry world book |
 | 3 | 预设 | preset | thuật ngữ SillyTavern, nên giữ nguyên |
-| 2 | 好感度 | thiện cảm | **chỉ dịch phần nhãn hiển thị — tên biến giữ nguyên (xem review §3.1)** |
+| 2 | 好感度 | thiện cảm | nhãn hiển thị: "Thiện cảm" · tên biến MVU: `thien_cam` (không dấu, xem plan §5) |
 | 2 | 封面 | ảnh bìa | |
 | 1 | 蒸馏 | chưng cất / cô đọng | bước nén tư liệu dài trước khi gửi LLM |
 
@@ -62,3 +62,34 @@ Bản gốc xưng hô với người dùng bằng `你` và dùng nhiều câu m
 - `角色卡名称不能为空` → "Tên thẻ nhân vật không được để trống." (không phải "Bạn chưa nhập tên…")
 - `请先完成写卡素材` → "Cần hoàn tất tư liệu trước." 
 - Toastr title (tham số thứ 2 của `toastr.*`) là **tiêu đề ngắn**, giữ ≤ 4 từ để không tràn.
+
+
+## Tên biến MVU đề xuất (hướng B — plan §5)
+
+Tên field trong zod schema **không phải yêu cầu của SillyTavern**, tác giả preset tự đặt.
+Vì không cần tương thích thẻ cũ nên Việt hóa được. Dùng **không dấu, không khoảng trắng**
+(path JSONPatch dùng `/` phân cấp — tên có dấu vẫn chạy nhưng LLM dễ gõ sai).
+
+| Hiện tại | Đề xuất | Nhãn hiển thị |
+|---|---|---|
+| `世界` | `the_gioi` | Thế giới |
+| `当前时间` | `thoi_gian` | Thời gian |
+| `当前地点` | `dia_diem` | Địa điểm |
+| `好感度` | `thien_cam` | Thiện cảm |
+| `开局` (mặc định) | `mo_dau` | Mở đầu |
+| `待定` (mặc định) | `chua_ro` | Chưa rõ |
+
+Phải đổi đủ **6 vị trí** trong cùng 1 commit: 3636–3643, 3654–3657, 3663–3680, 3685, 3714, 3835–3836.
+
+## Font đã chọn
+
+**Be Vietnam Pro** (Google Fonts, thiết kế riêng cho tiếng Việt, dấu thanh tách bạch ở cỡ nhỏ).
+
+```css
+--font-sans:  'Be Vietnam Pro', 'Inter', -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+--font-serif: 'Lora', Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+--font-mono:  'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+```
+
+Giữ `Noto Sans SC` ở cuối để phần xem trước prompt tiếng Trung vẫn đúng.
+Chi tiết + các sửa CSS kèm theo: plan §10.

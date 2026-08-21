@@ -1,5 +1,11 @@
 # Rà soát trước khi dịch — 1-Click-MVU / 小玉藻写卡器 1.0
 
+>  ⚠️ **Đã có quyết định — đọc `docs/i18n-plan.md` trước.**
+>  Hướng B đã được chốt (Việt hóa cả nội dung AI sinh ra, không cần tương thích thẻ cũ).
+>  Vì vậy §3.3, §3.4, §4.2, §5 và §8 của tài liệu này **đã lỗi thời** — bản kế hoạch thay thế.
+>  Phần còn giá trị: bản đồ file (§1), phân loại chuỗi (§3.1, §3.2, §3.5, §3.6), sentinel (§4),
+>  và toàn bộ §6 về layout/font.
+
 Tài liệu này **chỉ dừng ở bước kiểm tra và xác định**. Chưa dịch bất kỳ chuỗi nào.
 Mục tiêu: chốt danh sách chỗ được dịch, chỗ bị khóa (biến / ID / tag giao thức), và các
 cặp chuỗi phải đổi cùng lúc, trước khi bắt tay vào bản dịch.
