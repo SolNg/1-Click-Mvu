@@ -89,24 +89,67 @@ const SIZES = [
       text: v.innerText.replace(/\n{2,}/g, "\n").slice(0, 900),
     };
   });
-  const detected = await inner.evaluate(() => ({
-    names: [...document.querySelectorAll('.mod-view input[type="text"]')]
-      .filter((x) => /Tên nhân vật/u.test(x.placeholder || ""))
-      .map((x) => x.value),
-    chips: [...document.querySelectorAll(".mod-view .suggestion-chip")].map((x) => x.textContent),
-  }));
+  // Doc het danh sach goi y qua o loc (chi 40 chip duoc hien mot luc)
+  const detected = await inner.evaluate(async () => {
+    const q = (sel) => [...document.querySelectorAll(sel)];
+    const filter = q('.mod-view input[type="text"]').find((x) => /Lọc nhanh/u.test(x.placeholder || ""));
+    const all = new Set();
+    const sweep = async (text) => {
+      if (filter) {
+        filter.value = text;
+        filter.dispatchEvent(new Event("input", { bubbles: true }));
+        await new Promise((r) => setTimeout(r, 60));
+      }
+      for (const c of q(".mod-view .suggestion-chip")) all.add(c.textContent);
+    };
+    await sweep("");
+    if (filter) {
+      for (const ch of "aeiouyđbcdghklmnpqrstvx0123456789") await sweep(ch);
+      await sweep("");
+    }
+    return {
+      names: q('.mod-view input[type="text"]')
+        .filter((x) => /Tên nhân vật/u.test(x.placeholder || ""))
+        .map((x) => x.value),
+      chips: q(".mod-view .suggestion-chip").map((x) => x.textContent),
+      filter: Boolean(filter),
+      all: [...all],
+    };
+  });
   console.log("\n--- Sau khi do lan dau ---");
   console.log("  o ten nhan vat: " + JSON.stringify(detected.names));
-  console.log("  goi y: " + detected.chips.join(" | "));
+  console.log(`  goi y: ${detected.all.length} ten, hien ${detected.chips.length} chip`);
+  console.log("  10 ten dau: " + detected.all.slice(0, 10).join(" | "));
   detected.names.every((x) => !x.trim())
     ? ok("khong tu dien ten the vao o nhan vat")
     : bad("da tu dien ten the: " + JSON.stringify(detected.names));
-  ["Hitori Gotoh", "Bocchi", "Nijika Ijichi", "Nijika", "Ghi chép riêng của tôi"].every((x) => detected.chips.includes(x))
-    ? ok("goi y lay du ten muc va tu khoa kich hoat trong world book")
-    : bad("goi y thieu ten tu world book: " + detected.chips.join(", "));
-  detected.chips[detected.chips.length - 1] === "Thu Minh Nguyet"
-    ? ok("ten the xep cuoi danh sach goi y")
-    : bad("ten the khong nam cuoi goi y: " + detected.chips.join(", "));
+  ["Hitori Gotoh", "Nijika Ijichi", "Ghi chép riêng của tôi"].every((x) => detected.all.includes(x))
+    ? ok("goi y lay tu ten muc trong world book")
+    : bad("goi y thieu ten muc: " + detected.all.slice(0, 12).join(", "));
+  // Tu khoa kich hoat KHONG duoc gom vao: mot muc co hang chuc tu khoa se lam nhieu danh sach.
+  const keywordLeak = ["Bocchi", "Hitori", "Nijika", "Gò Vấp", "Chợ Gò Vấp", "cơm tấm", "Karaoke Sài Gòn"].filter(
+    (x) => detected.all.includes(x),
+  );
+  keywordLeak.length === 0
+    ? ok("khong gom tu khoa kich hoat vao goi y")
+    : bad("tu khoa kich hoat lot vao goi y: " + keywordLeak.join(", "));
+  // World book phu co 70 muc / 424 tu khoa — so goi y phai bam theo so muc.
+  detected.all.length > 60 && detected.all.length < 110
+    ? ok(`so goi y bam theo so muc: ${detected.all.length} (70 + 4 muc, khong phai 424 tu khoa)`)
+    : bad("so goi y bat thuong: " + detected.all.length);
+  ["Quận Gò Vấp", "Quận 1", "Huyện Cần Giờ"].every((x) => detected.all.includes(x))
+    ? ok("doc dung ten muc cua world book phu")
+    : bad("thieu ten muc cua world book phu");
+  // Ten kieu "[Nhom] Ten that" phai duoc bo the nhom.
+  detected.all.includes("Khách sạn") && detected.all.includes("Quán bar hộp đêm") && !detected.all.some((x) => x.startsWith("["))
+    ? ok("da bo the nhom [..] o dau ten muc")
+    : bad("chua bo the nhom o dau ten muc");
+  detected.all.includes("Thu Minh Nguyet") && !detected.chips.includes("Thu Minh Nguyet")
+    ? ok("ten the co trong goi y nhung bi day xuong cuoi, khong nam trong 40 chip dau")
+    : bad("ten the khong bi day xuong cuoi danh sach goi y");
+  detected.chips.length <= 40 && detected.filter
+    ? ok(`chi hien ${detected.chips.length} chip mot luc, co o loc nhanh`)
+    : bad("thieu o loc nhanh cho danh sach dai");
 
   if (!view) {
     bad("khong render duoc man hinh mod");
@@ -175,6 +218,7 @@ const SIZES = [
   const state = await page.evaluate(() => ({
     book: (window.__books["Sách thế giới của Thu Minh Nguyệt"] || []).map((x) => ({ name: x.name, src: x.extra && x.extra.source })),
     books: Object.keys(window.__books),
+    extra: (window.__books["Bối cảnh thành phố"] || []).length,
     regex: (window.SillyTavern.characters[0].extensions.regex_scripts || []).map((x) => x.script_name),
     scripts: (window.SillyTavern.characters[0].extensions.tavern_helper.scripts || []).map((x) => x.name),
   }));
@@ -184,9 +228,10 @@ const SIZES = [
   console.log("  regex: " + state.regex.join(" | "));
   console.log("  script: " + state.scripts.join(" | "));
 
-  state.books.length === 1
+  state.books.length === 2 && state.books.includes("Bối cảnh thành phố")
     ? ok("khong tao them sach the gioi moi — ghi vao dung sach da co")
     : bad("da tao them sach the gioi: " + state.books.join(", "));
+  state.extra === 70 ? ok("world book phu khong bi dung toi (70 muc)") : bad("world book phu bi sua: " + state.extra);
   state.book.some((e) => e.name === "Ghi chép riêng của tôi" && !e.src)
     ? ok("muc nguoi dung tu viet trong sach the gioi con nguyen")
     : bad("mat muc nguoi dung tu viet trong sach the gioi");

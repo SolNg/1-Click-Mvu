@@ -53,13 +53,22 @@ kết quả làm hai nhóm.
 **Gợi ý để bấm chọn** (world book không đánh dấu mục nào là nhân vật, nên công cụ không
 đoán thay bạn được):
 
-4. Tên mục và **từ khóa kích hoạt** (`strategy.keys`, `keys`, `key`) của mọi mục người
-   dùng tự viết — với lorebook thường thì đây chính là tên và biệt danh nhân vật.
+4. **Tên mục** của mọi mục người dùng tự viết — và chỉ tên mục.
 5. Tên thẻ, **xếp cuối cùng** và không tự điền: tên thẻ hay là tiêu đề tác phẩm
    (`Bocchi the Rock! | AvarsiSkull Create`) chứ không phải tên NPC.
 
-Bỏ qua: mục bắt đầu bằng `[`, mục do công cụ tạo mà không phải mục nhân vật, chuỗi dài
-quá 40 ký tự, chuỗi có xuống dòng, chuỗi chỉ gồm số và dấu.
+**Không lấy từ khóa kích hoạt** (`key` / `strategy.keys`). Một lorebook bối cảnh thật có
+thể có 94 mục nhưng 670 từ khóa — mỗi mục kéo theo hàng chục biệt danh, địa danh, tên
+quán — gom vào chỉ tạo ra một bãi ứng viên rác. Từ khóa chỉ được dùng làm dự phòng khi
+mục **không có tên** (một số world book bỏ trống ô tên).
+
+Xử lý tên mục:
+
+- Mục đặt tên kiểu `[Nhóm] Tên thật` → bỏ thẻ nhóm, giữ phần tên
+  (`[Địa điểm] Khách sạn` → `Khách sạn`).
+- Bỏ qua: mục `[initvar]` / `[mvu_update]`, mục do công cụ tạo mà không phải mục nhân vật,
+  tên dài quá 40 ký tự, tên có xuống dòng, tên chỉ gồm số và dấu.
+- Danh sách dài thì có ô lọc nhanh, mỗi lúc hiện 40 tên.
 
 ## Sống chung với bản gốc
 
@@ -111,8 +120,12 @@ lời mở đầu, regex riêng, script riêng và world book có mục người
 - nút script mang tên riêng của bản mod;
 - màn hình đầu có 4 quy trình, bấm được vào quy trình mod;
 - màn hình mod render 4 panel, 7 ô chọn;
-- dò ra đúng tên mục và từ khóa kích hoạt trong world book (`Hitori Gotoh`, `Bocchi`, `Nijika`…),
-  **không** tự điền tên thẻ, tên thẻ nằm cuối danh sách gợi ý;
+- đọc cả world book chính lẫn world book phụ (74 mục / 428 từ khóa) và ra **75 gợi ý** —
+  bám theo số mục chứ không theo số từ khóa;
+- từ khóa kích hoạt (`Gò Vấp`, `Chợ Gò Vấp`, `cơm tấm`, `Bocchi`, `Nijika`…) **không** lọt vào gợi ý;
+- thẻ nhóm `[Địa điểm]`, `[Ẩm thực]`… được bỏ khỏi đầu tên mục;
+- **không** tự điền tên thẻ, tên thẻ bị đẩy xuống cuối danh sách gợi ý;
+- danh sách dài thì chỉ hiện 40 chip và có ô lọc nhanh;
 - bấm vào gợi ý thì điền vào ô nhân vật;
 - bấm chạy → gọi đúng `updateWorldbookWith` / `createWorldbookEntries` / `updateCharacterWith` / `updateTavernRegexesWith`;
 - **không tạo thêm world book mới** khi thẻ đã có sách chính;
@@ -130,5 +143,5 @@ Giống bản Việt hóa: chưa chạy trên SillyTavern thật. Cụ thể v�
 - chạy trên một thẻ thật rồi mở lại đoạn chat, xem thanh trạng thái có hiện `thien_cam` không;
 - nếu thẻ đã có sẵn MVU của người khác, kiểm tra tên biến cũ có bị lẫn với tên biến mới không
   (nút dò chỉ đọc mục `[initvar]` theo chuẩn MVU);
-- lorebook viết theo kiểu khác (tên mục là số thứ tự, không đặt từ khóa kích hoạt) thì gợi ý sẽ
-  vô dụng — lúc đó gõ tay tên nhân vật.
+- lorebook đặt tên mục theo kiểu khác (số thứ tự, hoặc bỏ trống ô tên) thì gợi ý sẽ vô dụng —
+  lúc đó gõ tay tên nhân vật.

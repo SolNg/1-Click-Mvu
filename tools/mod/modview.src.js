@@ -35,6 +35,7 @@ const QzModView = (0, r.defineComponent)({
       finished = r.ref(false),
       showUrls = r.ref(false),
       suggestions = r.ref([]),
+      suggestFilter = r.ref(""),
       opt = r.reactive({
         mvu: true,
         runtime: true,
@@ -94,6 +95,13 @@ const QzModView = (0, r.defineComponent)({
         }));
     }
 
+    const SUGGEST_SHOWN = 40;
+    const shownSuggestions = r.computed(() => {
+      const q = suggestFilter.value.trim().toLowerCase();
+      const list = q ? suggestions.value.filter((x) => x.toLowerCase().includes(q)) : suggestions.value;
+      return { list: list.slice(0, SUGGEST_SHOWN), total: list.length };
+    });
+
     const issues = r.computed(() => {
       const out = [];
       if (!hasCard()) out.push("Chưa chọn thẻ nhân vật đích. Hãy quay lại bước trước để chọn hoặc tạo thẻ.");
@@ -138,18 +146,27 @@ const QzModView = (0, r.defineComponent)({
     const ROLE_ENTRY_SUFFIX =
       /^(.+?)[_ ](?:Thông tin cơ bản|Bảng màu tính cách|Diễn giải bổ sung|Hồ sơ nhiều giai đoạn EJS)$/u;
     const ROLE_ENTRY_SUFFIX_ZH = /^(.+?)(?:角色速览|基础信息|性格调色盘|补充诠释|EJS调色盘多阶段人设)$/u;
+    // Chi dung khi muc khong co ten: mot so world book bo trong o ten.
     function entryKeys(entry) {
       const out = [];
-      for (const src of [entry?.strategy?.keys, entry?.keys, entry?.key, entry?.strategy?.keys_secondary?.keys])
-        if (Array.isArray(src)) for (const k of src) out.push(k);
+      for (const src of [entry?.strategy?.keys, entry?.keys, entry?.key]) if (Array.isArray(src)) for (const k of src) out.push(k);
       return out;
+    }
+    function entryName(entry) {
+      const raw = String(entry?.name ?? entry?.comment ?? "").trim();
+      return raw || String(entryKeys(entry)[0] ?? "").trim();
+    }
+    // Nhieu world book dat ten kieu "[Nhom] Ten that" — bo the nhom di, giu phan ten.
+    function stripTag(raw) {
+      const v = String(raw ?? "").trim();
+      const m = v.match(/^\[[^\]]{1,40}\]\s*(.+)$/u);
+      return m ? m[1].trim() : v;
     }
     // Loc ung vien: bo cai chac chan khong phai ten nhan vat.
     function usableName(raw) {
       const v = String(raw ?? "").trim();
       if (!v || v.length > 40) return "";
       if (/[\n\r]/u.test(v)) return "";
-      if (v.startsWith("[")) return "";
       if (/^[\d\s.,;:_-]+$/u.test(v)) return "";
       if (/^(the_gioi|世界|stat_data|Danh sách biến|Mục thế giới quan|Tóm tắt nhân vật)$/iu.test(v)) return "";
       return v;
@@ -184,7 +201,7 @@ const QzModView = (0, r.defineComponent)({
           const entries = (await getWorldbook(book)) || [];
           entryCount += entries.length;
           for (const it of entries) {
-            const name = String(it?.name || "").trim();
+            const name = entryName(it);
             // 1. Bien MVU da co: chac chan la ten nhan vat.
             if (/\[initvar\]/iu.test(name)) {
               for (const k of namesFromInitvar(it?.content)) sure.push(k);
@@ -196,13 +213,14 @@ const QzModView = (0, r.defineComponent)({
               sure.push(m[1].trim());
               continue;
             }
-            // 3. Muc khac cua cong cu (the gioi quan, quy tac...) khong phai nhan vat.
+            // 3. Muc he thong cua MVU va muc khac cua cong cu (the gioi quan, quy tac...).
+            if (/^\[(?:initvar|mvu_update)\]/iu.test(name)) continue;
             if (it?.extra?.source && it.extra.source === Vr()) continue;
-            // 4. Muc nguoi dung tu viet: ten muc va tu khoa kich hoat deu la ung vien.
-            for (const cand of [name, ...entryKeys(it)]) {
-              const v = usableName(cand);
-              if (v) maybe.push(v);
-            }
+            // 4. Muc nguoi dung tu viet: chi lay TEN MUC. Tu khoa kich hoat bi bo qua vi
+            //    mot muc thuong co hang chuc tu khoa (bi danh, dia danh, ten quan...) nen
+            //    gom vao chi tao ra mot dong ung vien rac.
+            const v = usableName(stripTag(name));
+            if (v) maybe.push(v);
           }
         }
         if (books.length) log("info", `Đã đọc ${entryCount} mục trong ${books.length} world book: ${books.join(", ")}.`);
@@ -239,7 +257,8 @@ const QzModView = (0, r.defineComponent)({
         // Ten the xep cuoi: thuong la tieu de tac pham chu khong phai ten nhan vat.
         const cn = charName();
         if (hasCard() && !seen.has(norm(cn)) && !maybeList.some((y) => norm(y) === norm(cn))) maybeList.push(cn);
-        suggestions.value = maybeList.slice(0, 60);
+        suggestions.value = maybeList.slice(0, 300);
+        suggestFilter.value = "";
 
         if (sureList.length) {
           const keep = new Map();
@@ -589,12 +608,22 @@ const QzModView = (0, r.defineComponent)({
                     h(
                       "small",
                       { style: "font-weight:400;line-height:1.5" },
-                      "Tên đọc được từ world book của thẻ — bấm vào tên nào là nhân vật cần theo dõi thiện cảm:",
+                      `Tên mục đọc được từ world book của thẻ (${suggestions.value.length}) — bấm vào tên nào là nhân vật cần theo dõi thiện cảm:`,
                     ),
+                    suggestions.value.length > SUGGEST_SHOWN
+                      ? h("input", {
+                          type: "text",
+                          value: suggestFilter.value,
+                          placeholder: "Lọc nhanh trong danh sách gợi ý",
+                          disabled: busy.value,
+                          style: "min-height:32px;padding:5px 11px;font-size:11px",
+                          onInput: (ev) => (suggestFilter.value = ev.target.value),
+                        })
+                      : null,
                     h(
                       "div",
                       { style: "display:flex;gap:6px;flex-wrap:wrap" },
-                      suggestions.value.map((name) =>
+                      shownSuggestions.value.list.map((name) =>
                         h(
                           "button",
                           {
@@ -608,6 +637,16 @@ const QzModView = (0, r.defineComponent)({
                         ),
                       ),
                     ),
+                    shownSuggestions.value.total > SUGGEST_SHOWN
+                      ? h(
+                          "small",
+                          { style: "font-weight:400;line-height:1.5" },
+                          `Còn ${shownSuggestions.value.total - SUGGEST_SHOWN} tên nữa — gõ vào ô lọc ở trên để thu hẹp.`,
+                        )
+                      : null,
+                    shownSuggestions.value.total === 0
+                      ? h("small", { style: "font-weight:400;line-height:1.5" }, "Không có tên nào khớp bộ lọc.")
+                      : null,
                   ])
                 : null,
             ]),

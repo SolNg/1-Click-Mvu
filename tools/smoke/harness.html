@@ -16,6 +16,7 @@
     <script src="../../node_modules/vue/dist/vue.global.prod.js"></script>
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../node_modules/pinia/dist/pinia.iife.prod.js"></script>
+    <script src="./fixtures/worldbook-demo.js"></script>
     <script>
       // ---- Bat moi loi de test co the doc lai ----
       window.__errors = [];
@@ -67,6 +68,8 @@
             extra: {},
           },
         ],
+        // World book phu: hinh dang giong lorebook boi canh that — 70 muc, 424 tu khoa.
+        "Bối cảnh thành phố": window.__WORLDBOOK_DEMO,
       };
       window.SillyTavern = {
         characters: CHARS,
@@ -81,7 +84,10 @@
       window.updateCharacterWith = async (n, f) => f(CHARS[0]);
       window.createCharacter = async () => CHARS[0];
       window.getWorldbookNames = () => Object.keys(window.__books);
-      window.getCharWorldbookNames = () => ({ primary: "Sách thế giới của Thu Minh Nguyệt", additional: [] });
+      window.getCharWorldbookNames = () => ({
+        primary: "Sách thế giới của Thu Minh Nguyệt",
+        additional: ["Bối cảnh thành phố"],
+      });
       window.getWorldbook = async (n) => (window.__books[n] || []).map((x) => ({ ...x }));
       window.createWorldbook = async (n, e = []) => ((window.__books[n] = e.slice()), true);
       window.deleteWorldbook = async (n) => (delete window.__books[n], true);
