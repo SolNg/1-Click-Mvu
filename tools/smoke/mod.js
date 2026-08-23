@@ -89,6 +89,25 @@ const SIZES = [
       text: v.innerText.replace(/\n{2,}/g, "\n").slice(0, 900),
     };
   });
+  const detected = await inner.evaluate(() => ({
+    names: [...document.querySelectorAll('.mod-view input[type="text"]')]
+      .filter((x) => /Tên nhân vật/u.test(x.placeholder || ""))
+      .map((x) => x.value),
+    chips: [...document.querySelectorAll(".mod-view .suggestion-chip")].map((x) => x.textContent),
+  }));
+  console.log("\n--- Sau khi do lan dau ---");
+  console.log("  o ten nhan vat: " + JSON.stringify(detected.names));
+  console.log("  goi y: " + detected.chips.join(" | "));
+  detected.names.every((x) => !x.trim())
+    ? ok("khong tu dien ten the vao o nhan vat")
+    : bad("da tu dien ten the: " + JSON.stringify(detected.names));
+  ["Hitori Gotoh", "Bocchi", "Nijika Ijichi", "Nijika", "Ghi chép riêng của tôi"].every((x) => detected.chips.includes(x))
+    ? ok("goi y lay du ten muc va tu khoa kich hoat trong world book")
+    : bad("goi y thieu ten tu world book: " + detected.chips.join(", "));
+  detected.chips[detected.chips.length - 1] === "Thu Minh Nguyet"
+    ? ok("ten the xep cuoi danh sach goi y")
+    : bad("ten the khong nam cuoi goi y: " + detected.chips.join(", "));
+
   if (!view) {
     bad("khong render duoc man hinh mod");
   } else {
@@ -113,14 +132,19 @@ const SIZES = [
   });
   void result;
 
+  // Bam vao goi y "Hitori Gotoh" thay vi go tay
   await inner.evaluate(() => {
-    const inp = [...document.querySelectorAll('.mod-view input[type="text"]')].find((x) =>
-      /Tên nhân vật/u.test(x.placeholder || ""),
-    );
-    inp.value = "Thu Minh Nguyet";
-    inp.dispatchEvent(new Event("input", { bubbles: true }));
+    [...document.querySelectorAll(".mod-view .suggestion-chip")].find((x) => x.textContent === "Hitori Gotoh").click();
   });
-  await page.waitForTimeout(300);
+  await page.waitForTimeout(400);
+  const picked = await inner.evaluate(() =>
+    [...document.querySelectorAll('.mod-view input[type="text"]')]
+      .filter((x) => /Tên nhân vật/u.test(x.placeholder || ""))
+      .map((x) => x.value),
+  );
+  picked.length === 1 && picked[0] === "Hitori Gotoh"
+    ? ok("bam goi y thi dien vao o nhan vat")
+    : bad("bam goi y khong dien dung: " + JSON.stringify(picked));
   await inner.evaluate(() => document.querySelector(".mod-view button.primary").click());
   await page.waitForTimeout(2500);
 
@@ -191,7 +215,7 @@ const SIZES = [
     scripts: window.SillyTavern.characters[0].extensions.tavern_helper.scripts.length,
     greet: window.SillyTavern.characters[0].first_messages[0],
   }));
-  twice.book === 6 && twice.regex === 7 && twice.scripts === 3
+  twice.book === state.book.length && twice.regex === 7 && twice.scripts === 3
     ? ok("chay lan hai khong nhan doi noi dung")
     : bad("chay lan hai bi nhan doi: " + JSON.stringify(twice));
   (twice.greet.match(/<StatusPlaceHolderImpl\/>/gu) || []).length === 1
@@ -210,7 +234,7 @@ const SIZES = [
       .filter((x) => /Tên nhân vật/u.test(x.placeholder || ""))
       .map((x) => x.value),
   }));
-  redetect.names.length === 1 && redetect.names[0] === "Thu Minh Nguyet"
+  redetect.names.length === 1 && redetect.names[0] === "Hitori Gotoh"
     ? ok("do lai tu [initvar] co san ra dung ten nhan vat")
     : bad("do lai sai: " + JSON.stringify(redetect.names) + " / " + redetect.logs.slice(-2).join(" | "));
 

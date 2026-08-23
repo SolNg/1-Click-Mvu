@@ -34,6 +34,7 @@ const QzModView = (0, r.defineComponent)({
       busy = r.ref(false),
       finished = r.ref(false),
       showUrls = r.ref(false),
+      suggestions = r.ref([]),
       opt = r.reactive({
         mvu: true,
         runtime: true,
@@ -63,6 +64,23 @@ const QzModView = (0, r.defineComponent)({
     function removeRole(i) {
       roles.splice(i, 1);
       if (roles.length === 0) addRole("");
+    }
+    function taken(name) {
+      const v = String(name || "")
+        .trim()
+        .toLowerCase();
+      return roles.some(
+        (x) =>
+          String(x.name || "")
+            .trim()
+            .toLowerCase() === v,
+      );
+    }
+    function pickSuggestion(name) {
+      if (taken(name)) return;
+      const empty = roles.find((x) => !String(x.name || "").trim());
+      if (empty) empty.name = name;
+      else addRole(name);
     }
     function namedRoles() {
       return roles
@@ -116,58 +134,134 @@ const QzModView = (0, r.defineComponent)({
       }
       return out;
     }
+    // Muc do chinh cong cu nay tao cho tung nhan vat, ca ban Viet lan ban Trung goc.
+    const ROLE_ENTRY_SUFFIX =
+      /^(.+?)[_ ](?:Thông tin cơ bản|Bảng màu tính cách|Diễn giải bổ sung|Hồ sơ nhiều giai đoạn EJS)$/u;
+    const ROLE_ENTRY_SUFFIX_ZH = /^(.+?)(?:角色速览|基础信息|性格调色盘|补充诠释|EJS调色盘多阶段人设)$/u;
+    function entryKeys(entry) {
+      const out = [];
+      for (const src of [entry?.strategy?.keys, entry?.keys, entry?.key, entry?.strategy?.keys_secondary?.keys])
+        if (Array.isArray(src)) for (const k of src) out.push(k);
+      return out;
+    }
+    // Loc ung vien: bo cai chac chan khong phai ten nhan vat.
+    function usableName(raw) {
+      const v = String(raw ?? "").trim();
+      if (!v || v.length > 40) return "";
+      if (/[\n\r]/u.test(v)) return "";
+      if (v.startsWith("[")) return "";
+      if (/^[\d\s.,;:_-]+$/u.test(v)) return "";
+      if (/^(the_gioi|世界|stat_data|Danh sách biến|Mục thế giới quan|Tóm tắt nhân vật)$/iu.test(v)) return "";
+      return v;
+    }
+    // Doc het world book gan voi the: sach dich + sach chinh + cac sach phu.
+    function targetBooks() {
+      const out = [];
+      const push = (x) => {
+        const v = String(x || "").trim();
+        if (v && !out.includes(v)) out.push(v);
+      };
+      push(bookName());
+      if (hasCard()) {
+        try {
+          const bound = getCharWorldbookNames(getCurrentCharacterName() === charName() ? "current" : charName());
+          push(bound?.primary);
+          for (const x of bound?.additional || []) push(x);
+        } catch {}
+      }
+      const known = getWorldbookNames() || [];
+      return out.filter((x) => known.includes(x));
+    }
     async function detect() {
       if (busy.value) return;
       busy.value = true;
       try {
-        const found = [];
-        const book = bookName();
-        if (book && getWorldbookNames().includes(book)) {
-          const entries = await getWorldbook(book);
-          for (const it of entries || []) {
-            if (!/\[initvar\]/iu.test(String(it.name || ""))) continue;
-            for (const k of namesFromInitvar(it.content)) found.push(k);
+        const sure = [],
+          maybe = [];
+        const books = targetBooks();
+        let entryCount = 0;
+        for (const book of books) {
+          const entries = (await getWorldbook(book)) || [];
+          entryCount += entries.length;
+          for (const it of entries) {
+            const name = String(it?.name || "").trim();
+            // 1. Bien MVU da co: chac chan la ten nhan vat.
+            if (/\[initvar\]/iu.test(name)) {
+              for (const k of namesFromInitvar(it?.content)) sure.push(k);
+              continue;
+            }
+            // 2. Muc nhan vat do chinh cong cu nay tao ra truoc day.
+            const m = name.match(ROLE_ENTRY_SUFFIX) || name.match(ROLE_ENTRY_SUFFIX_ZH);
+            if (m) {
+              sure.push(m[1].trim());
+              continue;
+            }
+            // 3. Muc khac cua cong cu (the gioi quan, quy tac...) khong phai nhan vat.
+            if (it?.extra?.source && it.extra.source === Vr()) continue;
+            // 4. Muc nguoi dung tu viet: ten muc va tu khoa kich hoat deu la ung vien.
+            for (const cand of [name, ...entryKeys(it)]) {
+              const v = usableName(cand);
+              if (v) maybe.push(v);
+            }
           }
-          log("info", `Đã đọc ${(entries || []).length} mục trong “${book}”.`);
-        } else if (book) {
-          log("warn", `Chưa có sách thế giới tên “${book}” — sẽ được tạo mới khi ghi.`);
         }
-        if (found.length === 0 && hasCard()) {
+        if (books.length) log("info", `Đã đọc ${entryCount} mục trong ${books.length} world book: ${books.join(", ")}.`);
+        else log("warn", `Thẻ chưa có world book nào — “${bookName()}” sẽ được tạo mới khi ghi.`);
+
+        // 5. Script cau truc bien (zod) cua the.
+        if (hasCard()) {
           try {
             await Wr(charName());
             const card = await getCharacter(charName());
-            const scripts = card?.extensions?.tavern_helper?.scripts ?? [];
-            for (const s of scripts) {
-              if (!/registerMvuSchema/u.test(String(s?.content || ""))) continue;
-              for (const k of namesFromSchema(s.content)) found.push(k);
+            for (const sc of card?.extensions?.tavern_helper?.scripts ?? []) {
+              if (!/registerMvuSchema/u.test(String(sc?.content || ""))) continue;
+              for (const k of namesFromSchema(sc.content)) sure.push(k);
             }
-            if (found.length) log("info", "Đã lấy tên nhân vật từ script cấu trúc biến của thẻ.");
           } catch (err) {
             log("warn", "Không đọc được script của thẻ: " + (err instanceof Error ? err.message : String(err)));
           }
         }
-        const uniq = Array.from(new Set(found.map((x) => x.trim()).filter(Boolean)));
-        if (uniq.length === 0) {
-          log("warn", "Không tìm thấy biến nhân vật nào có sẵn. Hãy tự nhập tên bên dưới.");
-          if (roles.every((x) => !String(x.name || "").trim()) && hasCard()) {
-            roles.splice(0, roles.length);
-            addRole(charName());
-            log("info", `Đã điền sẵn tên thẻ: ${charName()}`);
+
+        const norm = (x) => x.trim().toLowerCase();
+        const sureList = [];
+        const seen = new Set();
+        for (const x of sure) {
+          const v = String(x || "").trim();
+          if (!v || seen.has(norm(v))) continue;
+          seen.add(norm(v));
+          sureList.push(v);
+        }
+        const maybeList = [];
+        for (const x of maybe) {
+          if (seen.has(norm(x)) || maybeList.some((y) => norm(y) === norm(x))) continue;
+          maybeList.push(x);
+        }
+        // Ten the xep cuoi: thuong la tieu de tac pham chu khong phai ten nhan vat.
+        const cn = charName();
+        if (hasCard() && !seen.has(norm(cn)) && !maybeList.some((y) => norm(y) === norm(cn))) maybeList.push(cn);
+        suggestions.value = maybeList.slice(0, 60);
+
+        if (sureList.length) {
+          const keep = new Map();
+          for (const x of roles) if (String(x.name || "").trim()) keep.set(String(x.name).trim(), x);
+          roles.splice(0, roles.length);
+          for (const name of sureList) {
+            const old = keep.get(name);
+            roles.push({
+              name: name,
+              statusAvatarUrl: old ? old.statusAvatarUrl : "",
+              statusBackgroundUrl: old ? old.statusBackgroundUrl : "",
+            });
           }
-          return;
+          log("success", `Đã lấy ${sureList.length} nhân vật đang có biến: ${sureList.join(", ")}`);
+        } else if (suggestions.value.length) {
+          log(
+            "info",
+            `Thẻ chưa có biến MVU nào. Có ${suggestions.value.length} tên lấy từ world book ở dưới — bấm vào tên nào là nhân vật cần theo dõi thiện cảm.`,
+          );
+        } else {
+          log("warn", "Không đọc được tên nào từ world book. Hãy gõ tay tên nhân vật ở dưới.");
         }
-        const keep = new Map();
-        for (const x of roles) if (String(x.name || "").trim()) keep.set(String(x.name).trim(), x);
-        roles.splice(0, roles.length);
-        for (const name of uniq) {
-          const old = keep.get(name);
-          roles.push({
-            name: name,
-            statusAvatarUrl: old ? old.statusAvatarUrl : "",
-            statusBackgroundUrl: old ? old.statusBackgroundUrl : "",
-          });
-        }
-        log("success", `Đã dò ra ${uniq.length} nhân vật: ${uniq.join(", ")}`);
       } catch (err) {
         log("error", err instanceof Error ? err.message : String(err));
       } finally {
@@ -382,11 +476,13 @@ const QzModView = (0, r.defineComponent)({
                 }),
               ])
             : null,
-          h(
-            "small",
-            { style: "font-weight:400;line-height:1.5" },
-            `Sẽ tạo biến stat_data.${String(row.name || "…").trim() || "…"}.thien_cam (0–100).`,
-          ),
+          String(row.name || "").trim()
+            ? h(
+                "small",
+                { style: "font-weight:400;line-height:1.5" },
+                `Sẽ tạo biến stat_data.${String(row.name).trim()}.thien_cam (0–100).`,
+              )
+            : null,
         ],
       );
     }
@@ -460,7 +556,7 @@ const QzModView = (0, r.defineComponent)({
                 "Chỉ những mục do chính công cụ này tạo ra mới bị ghi đè. Mọi mục, script và regex khác trong thẻ đều giữ nguyên.",
               ),
             ]),
-            panel("02", "Nhân vật có thiên cảm", "Mỗi tên sẽ có một biến thiện cảm 0–100", [
+            panel("02", "Nhân vật có thiện cảm", "Tên NPC trong thẻ, không phải tên thẻ", [
               h("div", { style: "display:flex;gap:7px;flex-wrap:wrap" }, [
                 h(
                   "button",
@@ -488,6 +584,32 @@ const QzModView = (0, r.defineComponent)({
                 { style: "display:grid;gap:9px" },
                 roles.map((row, i) => roleRow(row, i)),
               ),
+              suggestions.value.length
+                ? h("div", { style: "display:grid;gap:6px" }, [
+                    h(
+                      "small",
+                      { style: "font-weight:400;line-height:1.5" },
+                      "Tên đọc được từ world book của thẻ — bấm vào tên nào là nhân vật cần theo dõi thiện cảm:",
+                    ),
+                    h(
+                      "div",
+                      { style: "display:flex;gap:6px;flex-wrap:wrap" },
+                      suggestions.value.map((name) =>
+                        h(
+                          "button",
+                          {
+                            key: "sg-" + name,
+                            type: "button",
+                            class: "ghost compact-button suggestion-chip",
+                            disabled: busy.value || taken(name),
+                            onClick: () => pickSuggestion(name),
+                          },
+                          name,
+                        ),
+                      ),
+                    ),
+                  ])
+                : null,
             ]),
             panel("03", "Phần sẽ cài", "Bỏ chọn phần bạn không muốn đụng tới", [
               check(

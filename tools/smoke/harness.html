@@ -45,6 +45,27 @@
       window.__books = {
         "Sách thế giới của Thu Minh Nguyệt": [
           { name: "Ghi chép riêng của tôi", content: "Nội dung tôi tự viết.", enabled: true, extra: {} },
+          {
+            name: "Hitori Gotoh",
+            content: "Cô gái nhút nhát chơi guitar.",
+            enabled: true,
+            strategy: { type: "selective", keys: ["Bocchi", "Hitori"] },
+            extra: {},
+          },
+          {
+            name: "Nijika Ijichi",
+            content: "Tay trống của ban nhạc.",
+            enabled: true,
+            strategy: { type: "selective", keys: ["Nijika"] },
+            extra: {},
+          },
+          {
+            name: "Bối cảnh - quán STARRY",
+            content: "Quán live house dưới tầng hầm.",
+            enabled: true,
+            strategy: { type: "constant", keys: [] },
+            extra: {},
+          },
         ],
       };
       window.SillyTavern = {

@@ -100,7 +100,12 @@ for (const [k, n] of cb) {
 }
 const CJK = /[一-鿿]/u;
 // "世界" duoc giu lai co chu y: de nhan ra the cu dung bien MVU tieng Trung.
-const CJK_ALLOW = new Set(["世界"]);
+const CJK_ALLOW = new Set([
+  "世界",
+  // Nhan dien muc nhan vat do ban goc tieng Trung tao ra, de mod duoc the cu.
+  "/^(.+?)(?:角色速览|基础信息|性格调色盘|补充诠释|EJS调色盘多阶段人设)$/u",
+  "/^(the_gioi|世界|stat_data|Danh sách biến|Mục thế giới quan|Tóm tắt nhân vật)$/iu",
+]);
 // Chuoi da co san trong ban Viet hoa (vi du JSON runtime MVU) duoc phep xuat hien them lan nua.
 const cjkAdded = added.filter(([k]) => CJK.test(k) && !CJK_ALLOW.has(k) && !ca.has(k));
 if (cjkAdded.length === 0) ok(`${added.length} chuoi moi, khong chuoi nao lot chu Han`);

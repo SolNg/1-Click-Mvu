@@ -39,13 +39,27 @@ Vẫn nên tự sao lưu thẻ trước khi chạy: bản mod không tạo đi�
 
 ## Nút “Dò từ thẻ có sẵn”
 
-Tự điền danh sách nhân vật, theo thứ tự ưu tiên:
+Đọc **toàn bộ world book gắn với thẻ** — sách đích, sách chính và các sách phụ — rồi chia
+kết quả làm hai nhóm.
 
-1. Đọc mục `[initvar]` trong world book đích → lấy các khóa cấp 1 (bỏ `the_gioi` và `世界`).
-2. Nếu không có, đọc script `registerMvuSchema` trong thẻ → lấy các khóa `z.object(`.
-3. Nếu vẫn không có, điền sẵn tên thẻ.
+**Điền thẳng vào danh sách** (chắc chắn là nhân vật):
 
-Nhờ bước 1 mà thẻ *đã* dùng MVU (kể cả thẻ Trung dùng khóa `世界`) vẫn dò đúng.
+1. Khóa cấp 1 trong mục `[initvar]` — thẻ đã dùng MVU thì lấy đúng tên biến cũ
+   (kể cả thẻ Trung dùng khóa `世界`).
+2. Tên nhân vật tách từ mục do chính công cụ này từng tạo: `<tên>_Thông tin cơ bản`,
+   `<tên>_Bảng màu tính cách`, … và bản Trung gốc `<tên>角色速览`, `<tên>基础信息`, …
+3. Khóa `z.object(` trong script `registerMvuSchema` của thẻ.
+
+**Gợi ý để bấm chọn** (world book không đánh dấu mục nào là nhân vật, nên công cụ không
+đoán thay bạn được):
+
+4. Tên mục và **từ khóa kích hoạt** (`strategy.keys`, `keys`, `key`) của mọi mục người
+   dùng tự viết — với lorebook thường thì đây chính là tên và biệt danh nhân vật.
+5. Tên thẻ, **xếp cuối cùng** và không tự điền: tên thẻ hay là tiêu đề tác phẩm
+   (`Bocchi the Rock! | AvarsiSkull Create`) chứ không phải tên NPC.
+
+Bỏ qua: mục bắt đầu bằng `[`, mục do công cụ tạo mà không phải mục nhân vật, chuỗi dài
+quá 40 ký tự, chuỗi có xuống dòng, chuỗi chỉ gồm số và dấu.
 
 ## Sống chung với bản gốc
 
@@ -96,7 +110,10 @@ lời mở đầu, regex riêng, script riêng và world book có mục người
 
 - nút script mang tên riêng của bản mod;
 - màn hình đầu có 4 quy trình, bấm được vào quy trình mod;
-- màn hình mod render 4 panel, 7 ô chọn, tự dò tên nhân vật;
+- màn hình mod render 4 panel, 7 ô chọn;
+- dò ra đúng tên mục và từ khóa kích hoạt trong world book (`Hitori Gotoh`, `Bocchi`, `Nijika`…),
+  **không** tự điền tên thẻ, tên thẻ nằm cuối danh sách gợi ý;
+- bấm vào gợi ý thì điền vào ô nhân vật;
 - bấm chạy → gọi đúng `updateWorldbookWith` / `createWorldbookEntries` / `updateCharacterWith` / `updateTavernRegexesWith`;
 - **không tạo thêm world book mới** khi thẻ đã có sách chính;
 - mục người dùng tự viết, regex riêng, script riêng đều còn;
@@ -112,4 +129,6 @@ Giống bản Việt hóa: chưa chạy trên SillyTavern thật. Cụ thể v�
 
 - chạy trên một thẻ thật rồi mở lại đoạn chat, xem thanh trạng thái có hiện `thien_cam` không;
 - nếu thẻ đã có sẵn MVU của người khác, kiểm tra tên biến cũ có bị lẫn với tên biến mới không
-  (nút “Dò từ thẻ có sẵn” chỉ đọc mục `[initvar]` do công cụ này hoặc MVU chuẩn tạo).
+  (nút dò chỉ đọc mục `[initvar]` theo chuẩn MVU);
+- lorebook viết theo kiểu khác (tên mục là số thứ tự, không đặt từ khóa kích hoạt) thì gợi ý sẽ
+  vô dụng — lúc đó gõ tay tên nhân vật.
