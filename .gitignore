@@ -3,3 +3,5 @@ dist/
 package-lock.json
 tools/smoke/bundle.test.js
 tools/smoke/screen-text.txt
+tools/smoke/mod-pc.png
+tools/smoke/mod-mobile.png

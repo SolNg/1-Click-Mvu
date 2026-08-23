@@ -25,7 +25,28 @@
       );
 
       // ---- Stub cac global cua SillyTavern / Tavern Helper ----
-      const CHARS = [{ name: "Thu Minh Nguyet", avatar: "a.png", data: { extensions: {} } }];
+      // The nhan vat "da lam san": co san loi mo dau, regex rieng va script rieng cua nguoi dung.
+      const CHARS = [
+        {
+          name: "Thu Minh Nguyet",
+          avatar: "a.png",
+          first_messages: ["Trăng lên tới đỉnh đồi, nàng quay lại nhìn bạn.", "Bản chào thay thế."],
+          extensions: {
+            regex_scripts: [{ id: "u-1", script_name: "Regex riêng của tôi", find_regex: "/x/g", replace_string: "" }],
+            tavern_helper: {
+              scripts: [{ type: "script", id: "u-2", name: "Script riêng của tôi", content: "// giữ nguyên" }],
+              variables: {},
+            },
+          },
+          data: { extensions: {} },
+        },
+      ];
+      // Sach the gioi "da lam san": chua mot muc do nguoi dung tu viet.
+      window.__books = {
+        "Sách thế giới của Thu Minh Nguyệt": [
+          { name: "Ghi chép riêng của tôi", content: "Nội dung tôi tự viết.", enabled: true, extra: {} },
+        ],
+      };
       window.SillyTavern = {
         characters: CHARS,
         getCharacters: async () => CHARS,
@@ -38,18 +59,26 @@
       window.replaceCharacter = async () => {};
       window.updateCharacterWith = async (n, f) => f(CHARS[0]);
       window.createCharacter = async () => CHARS[0];
-      window.getWorldbookNames = () => [];
-      window.getCharWorldbookNames = () => ({ primary: null, additional: [] });
-      window.getWorldbook = async () => [];
-      window.createWorldbook = async () => true;
-      window.deleteWorldbook = async () => true;
-      window.replaceWorldbook = async () => {};
-      window.updateWorldbookWith = async (n, f) => f([]);
-      window.createWorldbookEntries = async () => ({ entries: [], new_entries: [] });
+      window.getWorldbookNames = () => Object.keys(window.__books);
+      window.getCharWorldbookNames = () => ({ primary: "Sách thế giới của Thu Minh Nguyệt", additional: [] });
+      window.getWorldbook = async (n) => (window.__books[n] || []).map((x) => ({ ...x }));
+      window.createWorldbook = async (n, e = []) => ((window.__books[n] = e.slice()), true);
+      window.deleteWorldbook = async (n) => (delete window.__books[n], true);
+      window.replaceWorldbook = async (n, e) => {
+        window.__books[n] = e.slice();
+      };
+      window.updateWorldbookWith = async (n, f) => {
+        const next = f((window.__books[n] || []).map((x) => ({ ...x })));
+        return (window.__books[n] = next);
+      };
+      window.createWorldbookEntries = async (n, e) => {
+        window.__books[n] = [...(window.__books[n] || []), ...e];
+        return { entries: window.__books[n], new_entries: e };
+      };
       window.rebindCharWorldbooks = async () => {};
-      window.getScriptTrees = () => ({ type: "character", trees: [] });
+      window.getScriptTrees = () => [];
       window.replaceScriptTrees = async () => {};
-      window.updateScriptTreesWith = async (f) => f({ trees: [] });
+      window.updateScriptTreesWith = async (f) => f([]);
       window.replaceTavernRegexes = async () => {};
       window.updateTavernRegexesWith = async (f) => f([]);
       window.generateRaw = async () => "";

@@ -8,8 +8,10 @@ SillyTavern `小玉藻写卡器1.0` (Tamamo Card Writer / 1-Click MVU).
 | File | Mô tả |
 |---|---|
 | `src/index.vi.js` | **Bản đã Việt hóa** — dựng bằng `./tools/build.sh` |
+| `src/index.mod.js` | **Bản mod** — bản Việt hóa + quy trình “Mod thẻ có sẵn”, dựng bằng `./tools/build-mod.sh` |
 | `src/index.formatted.js` | Bundle gốc (4,58 MB, 1 dòng) đã format bằng prettier → 7.487 dòng |
 | `docs/i18n-status.md` | **Trạng thái bản dịch** — đã làm gì, còn gì, thay đổi hành vi nào |
+| `docs/mod-build.md` | **Bản mod** — dùng công cụ trên thẻ/world book đã có sẵn |
 | `i18n/` | Bản dịch theo lô (`vi/*.json`), preset (`preset/*.txt`), danh sách chuỗi khóa |
 | `tools/` | Pipeline trích / áp / vá / kiểm tra |
 | `tools/smoke/` | Chạy thật trong Chromium: harness + đo layout + ảnh chụp |
@@ -20,7 +22,7 @@ SillyTavern `小玉藻写卡器1.0` (Tamamo Card Writer / 1-Click MVU).
 
 ## Trạng thái
 
-**Đã Việt hóa xong.** Kết quả ở `src/index.vi.js`.
+**Đã Việt hóa xong.** Kết quả ở `src/index.vi.js`. Bản mod ở `src/index.mod.js`.
 
 - 926/926 chuỗi trong code
 - 57/58 prompt preset (xem `docs/i18n-status.md` về prompt id 20)
@@ -28,11 +30,17 @@ SillyTavern `小玉藻写卡器1.0` (Tamamo Card Writer / 1-Click MVU).
 
 Chi tiết đầy đủ: `docs/i18n-status.md`.
 
+**Bản mod** (`src/index.mod.js`) thêm quy trình thứ tư *“Mod thẻ có sẵn”*: chọn một thẻ đã làm
+chỉn chu rồi chỉ gắn thêm phần MVU / zod / thanh trạng thái, không gọi AI, không sinh lại nội dung,
+không đụng tới mục và script bạn tự viết. Chi tiết: `docs/mod-build.md`.
+
 ## Dựng lại và kiểm tra
 
 ```bash
-./tools/check.sh     # dựng lại + 9 vòng kiểm tra tĩnh + 13 vòng audit + chạy thật trong Chromium
-./tools/build.sh     # chỉ dựng lại + kiểm tra tĩnh (không cần trình duyệt)
+./tools/check.sh       # dựng lại + 9 vòng kiểm tra tĩnh + 13 vòng audit + chạy thật trong Chromium
+./tools/build.sh       # chỉ dựng lại + kiểm tra tĩnh (không cần trình duyệt)
+./tools/check-mod.sh   # dựng bản mod + kiểm tra tĩnh + chạy thật màn hình mod
+./tools/build-mod.sh   # chỉ dựng bản mod + kiểm tra tĩnh
 ```
 
 `build.sh`: gộp bản dịch → áp theo offset AST → vá code → chèn CSS → ghi preset → prettier →
